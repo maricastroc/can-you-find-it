@@ -82,11 +82,11 @@ export function Reveal({ round, foundPreview, onAgain, onFeedback, onForget }: P
 
   return (
     <section className="screen reveal" aria-labelledby="reveal-title">
-      <p className="kicker">{found ? "Found it" : "It was this"}</p>
+      <p className="kicker">I found something.</p>
       <div className="screen-body">
         <div role="status">
-          <h1 id="reveal-title" className="sr-only">
-            {found ? "Found it." : "It was this."}
+          <h1 id="reveal-title" className="headline">
+            {found ? "You found it." : "It was this."}
           </h1>
         </div>
         {reveal && found && foundPreview ? (

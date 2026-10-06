@@ -88,7 +88,8 @@ describe("Game", () => {
 
     fireEvent.click(screen.getByRole("button", { name: "I found it" }));
     await takePhoto(container);
-    expect(await screen.findByRole("status")).toHaveTextContent("Found it.");
+    expect(await screen.findByRole("heading", { level: 1, name: "You found it." })).toBeInTheDocument();
+    expect(screen.getByRole("status")).toHaveTextContent("You found it.");
     expect(screen.getByRole("img", { name: "The part of your photo I chose: black iron lamp post" })).toBeInTheDocument();
     expect(screen.getByRole("img", { name: "The photo you took when you found it" })).toBeInTheDocument();
     expect(screen.getByText("4 min 0 s · 2 hints")).toBeInTheDocument();
