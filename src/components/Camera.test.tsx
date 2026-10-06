@@ -30,10 +30,22 @@ describe("problemFrom", () => {
 describe("Camera", () => {
   it("without a secure connection it uses the phone's camera app", async () => {
     setCamera(async () => new MediaStream(), false);
-    render(<Camera purpose="wide" onCapture={vi.fn()} onCancel={vi.fn()} />);
+    const { container } = render(<Camera purpose="wide" onCapture={vi.fn()} onCancel={vi.fn()} />);
     expect(await screen.findByText(PROBLEM_COPY.insecure)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Open the camera" })).toBeEnabled();
     expect(navigator.mediaDevices!.getUserMedia).not.toHaveBeenCalled();
+    expect(screen.getByText(/Step back and fit in as much of the place/)).toBeInTheDocument();
+    expect(container.querySelector(".camera-guides")).toBeNull();
+  });
+
+  it("opening the camera app hands the tap to the file picker", async () => {
+    setCamera(undefined);
+    const { container } = render(<Camera purpose="found" onCapture={vi.fn()} onCancel={vi.fn()} native />);
+    const input = container.querySelector('input[type="file"]') as HTMLInputElement;
+    const click = vi.spyOn(input, "click").mockImplementation(() => undefined);
+    fireEvent.click(await screen.findByRole("button", { name: "Open the camera" }));
+    expect(click).toHaveBeenCalledTimes(1);
+    expect(input.getAttribute("capture")).toBe("environment");
   });
 
   it("a blocked permission explains how to recover", async () => {

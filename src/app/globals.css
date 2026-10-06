@@ -287,6 +287,7 @@ img {
   height: 100%;
   object-fit: cover;
   opacity: 0;
+  pointer-events: none;
   transition: opacity 400ms var(--ease);
 }
 
@@ -353,14 +354,58 @@ img {
   border-left-width: 2px;
 }
 
+.camera[data-mode="app"] {
+  display: flex;
+  flex-direction: column;
+}
+
+.camera[data-mode="app"] .camera-video {
+  display: none;
+}
+
+.camera[data-mode="app"] .camera-copy,
+.camera[data-mode="app"] .camera-problem,
+.camera[data-mode="app"] .camera-controls {
+  position: static;
+  width: 100%;
+  max-width: 560px;
+  margin-inline: auto;
+  background: none;
+}
+
+.camera[data-mode="app"] .camera-copy {
+  flex: 1;
+  align-content: start;
+  padding-bottom: 32px;
+}
+
+.camera-tip {
+  margin-top: 10px;
+  max-width: 24em;
+  color: var(--moon-2);
+  font-size: 18px;
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
 .camera-problem {
-  position: absolute;
-  left: var(--gutter);
-  right: var(--gutter);
-  bottom: calc(var(--bottom) + 120px);
+  padding: 0 var(--gutter) 16px;
   color: var(--moon-2);
   font-size: 15px;
+  line-height: 1.45;
   text-wrap: pretty;
+}
+
+.camera[data-mode="app"] .camera-controls {
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.camera[data-mode="app"] .camera-controls .btn-quiet {
+  align-self: center;
 }
 
 .camera-controls {

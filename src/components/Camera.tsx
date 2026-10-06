@@ -12,15 +12,27 @@ type LiveState =
 
 export type CameraProblem = "native" | "insecure" | "unsupported" | "denied" | "no_camera" | "busy" | "failed";
 
-const COPY: Record<CameraPurpose, { kicker: string; line: string; shutter: string }> = {
-  wide: { kicker: "Look around", line: "Take one photo of the place in front of you.", shutter: "Take the photo" },
-  found: { kicker: "Show me", line: "Get close and take a photo of it.", shutter: "Take the photo" },
+const COPY: Record<CameraPurpose, { kicker: string; line: string; tip: string; shutter: string }> = {
+  wide: {
+    kicker: "Look around",
+    line: "Take one photo of the place in front of you.",
+    tip: "Step back and fit in as much of the place as you can. The more things in it, the more I have to choose from.",
+    shutter: "Take the photo",
+  },
+  found: {
+    kicker: "Show me",
+    line: "Get close and take a photo of it.",
+    tip: "Fill the photo with it. I'll compare it with what I saw.",
+    shutter: "Take the photo",
+  },
 };
 
+const CAMERA_APP = "Your camera app will open. Take the photo, confirm it, and you'll come right back here.";
+
 export const PROBLEM_COPY: Record<CameraProblem, string> = {
-  native: "Using your phone's camera app.",
-  insecure: "Live camera needs a secure connection, so we'll use your phone's camera app.",
-  unsupported: "This browser can't show a live camera, so we'll use your phone's camera app.",
+  native: CAMERA_APP,
+  insecure: CAMERA_APP,
+  unsupported: CAMERA_APP,
   denied: "Camera access was blocked. You can allow it in your browser settings, or use your phone's camera app.",
   no_camera: "No camera was found on this device. You can pick a photo instead.",
   busy: "Another app is using the camera. Close it and try again, or use your phone's camera app.",
@@ -118,8 +130,10 @@ export function Camera({ purpose, onCapture, onCancel, native = false }: Props) 
     [onCapture],
   );
 
+  const reason = live.kind === "unavailable" ? live.reason : undefined;
+
   return (
-    <section className="camera" aria-labelledby={`${statusId}-title`}>
+    <section className="camera" data-mode={reason ? "app" : "live"} aria-labelledby={`${statusId}-title`}>
       <video
         ref={videoRef}
         className="camera-video"
@@ -129,48 +143,50 @@ export function Camera({ purpose, onCapture, onCancel, native = false }: Props) 
         aria-hidden="true"
         data-live={live.kind === "live" || undefined}
       />
-      <div className="camera-guides" aria-hidden="true">
-        <i />
-        <i />
-        <i />
-        <i />
-      </div>
+      {!reason && (
+        <div className="camera-guides" aria-hidden="true">
+          <i />
+          <i />
+          <i />
+          <i />
+        </div>
+      )}
       <header className="camera-copy">
         <p className="kicker" id={`${statusId}-title`}>
           {copy.kicker}
         </p>
         <p className="camera-line">{copy.line}</p>
+        {reason && <p className="camera-tip">{copy.tip}</p>}
       </header>
-      <p className={live.kind === "unavailable" ? "camera-problem" : "sr-only"} role="status" id={statusId}>
-        {live.kind === "starting" ? "Starting the camera." : live.kind === "live" ? "Camera ready." : PROBLEM_COPY[live.reason]}
+      <p className={reason ? "camera-problem" : "sr-only"} role="status" id={statusId}>
+        {reason ? PROBLEM_COPY[reason] : live.kind === "starting" ? "Starting the camera." : "Camera ready."}
       </p>
-      <footer className="camera-controls">
-        <button type="button" className="btn btn-quiet" onClick={onCancel}>
-          Cancel
-        </button>
-        {live.kind === "live" ? (
-          <button type="button" className="shutter" onClick={shoot} disabled={busy} aria-label={copy.shutter}>
+      {reason ? (
+        <footer className="camera-controls">
+          <button type="button" className="btn btn-primary" onClick={() => fileRef.current?.click()} disabled={busy}>
+            {reason === "no_camera" ? "Choose a photo" : "Open the camera"}
+          </button>
+          <button type="button" className="btn btn-quiet" onClick={onCancel}>
+            Cancel
+          </button>
+        </footer>
+      ) : (
+        <footer className="camera-controls">
+          <button type="button" className="btn btn-quiet" onClick={onCancel}>
+            Cancel
+          </button>
+          <button type="button" className="shutter" onClick={shoot} disabled={busy || live.kind !== "live"} aria-label={copy.shutter}>
             <span aria-hidden="true" />
           </button>
-        ) : (
-          <button
-            type="button"
-            className="shutter shutter-native"
-            onClick={() => fileRef.current?.click()}
-            disabled={busy || live.kind === "starting"}
-            aria-label={live.kind === "unavailable" && live.reason === "no_camera" ? "Choose a photo" : "Open the camera"}
-          >
-            <span aria-hidden="true" />
-          </button>
-        )}
-        {live.kind === "live" ? (
-          <button type="button" className="btn btn-quiet camera-switch" onClick={() => setForceFallback(true)}>
-            Use camera app
-          </button>
-        ) : (
-          <span className="camera-spacer" aria-hidden="true" />
-        )}
-      </footer>
+          {live.kind === "live" ? (
+            <button type="button" className="btn btn-quiet camera-switch" onClick={() => setForceFallback(true)}>
+              Use camera app
+            </button>
+          ) : (
+            <span className="camera-spacer" aria-hidden="true" />
+          )}
+        </footer>
+      )}
       <input
         ref={fileRef}
         className="sr-only"
