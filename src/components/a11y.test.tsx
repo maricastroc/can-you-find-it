@@ -54,7 +54,7 @@ describe("accessibility (axe)", () => {
     ["landing", <Landing key="l" onBegin={noop} />],
     ["looking", <Looking key="lo" photo="/p.jpg" stage="checking" attempt={1} />],
     ["checking", <Checking key="c" photo="/p.jpg" />],
-    ["hunt", <Hunt key="h" round={round} onFound={noop} onHint={noop} onGiveUp={noop} onRest={noop} />],
+    ["hunt", <Hunt key="h" round={round} photo="/p.jpg" onFound={noop} onHint={noop} onGiveUp={noop} onRest={noop} />],
     ["rest", <Rest key="r" clue={round.clue!} onWake={noop} />],
     ["verdict", <Verdict key="v" verdict="almost" hintsLeft={2} onKeepLooking={noop} onHint={noop} onInsist={noop} />],
     ["reveal (found)", <Reveal key="rf" round={ended("found")} foundPreview="/f.jpg" onAgain={noop} onFeedback={async () => undefined} onForget={async () => undefined} />],

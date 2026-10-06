@@ -73,7 +73,7 @@ export function toPublic(r: Round): PublicRound {
     hints,
     hintsLeft: r.target ? MAX_HINTS - Math.min(r.hintsUsed, MAX_HINTS) : 0,
     attempts: r.attempts.map((a) => ({ at: a.at, verdict: a.verdict })),
-    photoUrl: r.status === "looking" ? url(r.id, "photo") : undefined,
+    photoUrl: r.status === "looking" || r.status === "hunting" ? url(r.id, "photo") : undefined,
     stats: over
       ? {
           seconds:
@@ -340,7 +340,7 @@ export async function getRoundImage(id: string, kind: string): Promise<Buffer | 
   const over = r.status === "found" || r.status === "revealed" || r.status === "none";
   const photo = await readImage(id, "photo.jpg");
   if (!photo) return undefined;
-  if (kind === "photo") return over || r.status === "looking" ? photo : undefined;
+  if (kind === "photo") return photo;
   if (/^found-\d{1,3}$/.test(kind)) return readImage(id, `${kind}.jpg`);
   if (!r.target) return undefined;
   const region = revealRegion(r.target.box, r.photo.width / r.photo.height);

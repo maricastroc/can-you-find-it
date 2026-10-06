@@ -304,11 +304,13 @@ describe("giving up and resuming", () => {
     await expect(unlockHint("nope")).rejects.toMatchObject({ code: "not_found" });
   });
 
-  it("the wide photo is hidden while hunting, so the player looks at the place", async () => {
+  it("the player can see their own photo while hunting, but not what was chosen in it", async () => {
     const { id } = await newRound();
-    expect(await getRoundImage(id, "photo")).toBeUndefined();
-    await revealRound(id);
+    const round = await getRound(id);
+    expect(round?.photoUrl).toBe(`/api/rounds/${id}/image/photo`);
     expect(await getRoundImage(id, "photo")).toBeInstanceOf(Buffer);
+    expect(await getRoundImage(id, "reveal")).toBeUndefined();
+    expect(round?.reveal).toBeUndefined();
   });
 });
 

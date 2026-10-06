@@ -12,6 +12,7 @@ import * as api from "@/lib/client/api";
 import { initialState, reducer, type GameState, type Pending } from "@/lib/client/game";
 import { savedRoundId, saveRoundId } from "@/lib/client/storage";
 import type { Feedback, PublicRound } from "@/lib/rounds/types";
+import { useBackToClose } from "@/lib/client/back";
 
 const POLL_MS = 3000;
 export const NOTICE_MS = 7000;
@@ -141,6 +142,8 @@ export function Game({ nativeCamera = false }: { nativeCamera?: boolean }) {
   }, []);
 
   const rest = useCallback(() => dispatch({ type: "dim", on: true }), []);
+  const undim = useCallback(() => dispatch({ type: "dim", on: false }), []);
+  const wake = useBackToClose(state.dimmed, undim, "cyfiRest");
   const hint = useCallback(() => act("hint", api.unlockHint), [act]);
 
   const retry = useCallback(() => {
@@ -182,10 +185,11 @@ export function Game({ nativeCamera = false }: { nativeCamera?: boolean }) {
     case "hunt":
       view =
         round && state.dimmed ? (
-          <Rest clue={round.clue ?? ""} onWake={() => dispatch({ type: "dim", on: false })} />
+          <Rest clue={round.clue ?? ""} onWake={wake} />
         ) : round ? (
           <Hunt
             round={round}
+            photo={state.widePreview ?? round.photoUrl}
             pending={state.pending}
             notice={state.notice}
             onFound={() => dispatch({ type: "open_found_camera" })}

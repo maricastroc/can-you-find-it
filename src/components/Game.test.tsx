@@ -1,4 +1,4 @@
-import { act, cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { PublicRound } from "@/lib/rounds/types";
 
@@ -58,6 +58,7 @@ async function takePhoto(container: HTMLElement) {
 beforeEach(() => {
   URL.createObjectURL = vi.fn(() => "blob:preview");
   window.localStorage.clear();
+  window.history.replaceState(null, "");
 });
 afterEach(() => {
   cleanup();
@@ -105,6 +106,31 @@ describe("Game", () => {
     await takePhoto(container);
     fireEvent.click(await screen.findByRole("button", { name: "Look around again" }));
     expect(api.warmUp).toHaveBeenCalledTimes(2);
+  });
+
+  it("the player can look at their photo again while hunting", async () => {
+    vi.mocked(api.getRound).mockResolvedValue(round({ photoUrl: "/api/rounds/x/image/photo" }));
+    window.localStorage.setItem("cyfi:round", round().id);
+    render(<Game nativeCamera />);
+    fireEvent.click(await screen.findByRole("button", { name: "My photo" }));
+    const view = screen.getByRole("dialog", { name: "Your photo" });
+    expect(within(view).getByRole("img", { name: "The photo you took of this place" })).toHaveAttribute("src", "/api/rounds/x/image/photo");
+    expect(within(view).getByRole("button", { name: "Back to the hunt" })).toHaveFocus();
+    fireEvent.click(within(view).getByRole("button", { name: "Back to the hunt" }));
+    expect(screen.queryByRole("dialog")).toBeNull();
+    expect(screen.getByRole("button", { name: "I found it" })).toBeInTheDocument();
+  });
+
+  it("the phone's back button closes the photo instead of leaving the game", async () => {
+    vi.mocked(api.getRound).mockResolvedValue(round({ photoUrl: "/api/rounds/x/image/photo" }));
+    window.localStorage.setItem("cyfi:round", round().id);
+    render(<Game nativeCamera />);
+    fireEvent.click(await screen.findByRole("button", { name: "My photo" }));
+    expect(screen.getByRole("dialog", { name: "Your photo" })).toBeInTheDocument();
+    await act(async () => {
+      window.history.back();
+    });
+    await waitFor(() => expect(screen.queryByRole("dialog")).toBeNull());
   });
 
   it("shows honest progress while the model looks", async () => {
@@ -204,29 +230,60 @@ describe("Game", () => {
     expect(screen.getByText("The lantern has four glass panes.", { exact: false })).toBeInTheDocument();
   });
 
-  it("looking up dims everything but the clue", async () => {
-    vi.mocked(api.getRound).mockResolvedValue(round());
-    window.localStorage.setItem("cyfi:round", round().id);
-    render(<Game nativeCamera />);
-    fireEvent.click(await screen.findByRole("button", { name: "Look up" }));
-    const wake = screen.getByRole("button", { name: /Tap to wake the screen/ });
-    expect(wake).toHaveTextContent("It only does its job after dark.");
-    expect(screen.queryByRole("button", { name: "Give up" })).not.toBeInTheDocument();
-    fireEvent.click(wake);
-    expect(screen.getByRole("button", { name: "Give up" })).toBeInTheDocument();
-  });
-
-  it("the screen rests by itself when left alone", async () => {
+  it("the screen rests by itself when left alone, and a tap anywhere brings it back", async () => {
     vi.useFakeTimers({ shouldAdvanceTime: true });
     try {
       vi.mocked(api.getRound).mockResolvedValue(round());
       window.localStorage.setItem("cyfi:round", round().id);
       render(<Game nativeCamera />);
-      await screen.findByRole("button", { name: "Look up" });
+      await screen.findByRole("button", { name: "I found it" });
       await act(async () => {
         await vi.advanceTimersByTimeAsync(31_000);
       });
-      expect(screen.getByRole("button", { name: /Tap to wake the screen/ })).toBeInTheDocument();
+      const wake = screen.getByRole("button", { name: /Tap anywhere to come back/ });
+      expect(wake).toHaveTextContent("It only does its job after dark.");
+      expect(wake).toHaveTextContent("Tap anywhere to come back");
+      expect(screen.queryByRole("button", { name: "Give up" })).not.toBeInTheDocument();
+      fireEvent.click(wake);
+      expect(screen.getByRole("button", { name: "Give up" })).toBeInTheDocument();
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it("the phone's back button leaves the resting screen instead of the game", async () => {
+    vi.useFakeTimers({ shouldAdvanceTime: true });
+    try {
+      vi.mocked(api.getRound).mockResolvedValue(round());
+      window.localStorage.setItem("cyfi:round", round().id);
+      render(<Game nativeCamera />);
+      await screen.findByRole("button", { name: "I found it" });
+      await act(async () => {
+        await vi.advanceTimersByTimeAsync(31_000);
+      });
+      expect(screen.getByRole("button", { name: /Tap anywhere to come back/ })).toBeInTheDocument();
+      await act(async () => {
+        window.history.back();
+        await vi.advanceTimersByTimeAsync(50);
+      });
+      expect(await screen.findByRole("button", { name: "Give up" })).toBeInTheDocument();
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it("the screen stays on while the player looks at their photo", async () => {
+    vi.useFakeTimers({ shouldAdvanceTime: true });
+    try {
+      vi.mocked(api.getRound).mockResolvedValue(round({ photoUrl: "/api/rounds/x/image/photo" }));
+      window.localStorage.setItem("cyfi:round", round().id);
+      render(<Game nativeCamera />);
+      fireEvent.click(await screen.findByRole("button", { name: "My photo" }));
+      await act(async () => {
+        await vi.advanceTimersByTimeAsync(31_000);
+      });
+      expect(screen.getByRole("dialog", { name: "Your photo" })).toBeInTheDocument();
+      expect(screen.queryByRole("button", { name: /Tap anywhere to come back/ })).toBeNull();
     } finally {
       vi.useRealTimers();
     }

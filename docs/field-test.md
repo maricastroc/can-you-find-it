@@ -35,7 +35,9 @@ Five to eight places, two or three rounds each, is enough for a write-up.
 1. Stand somewhere with things around you; take one **wide** photo.
 2. While it looks, look around too — note what *you* would have picked
    (that's the "did we see the same thing?" comparison).
-3. Hunt without the screen ("Look up" or let it rest on its own).
+3. Hunt without the screen: it dims itself after 30 s (tap anywhere to come
+   back). "My photo" shows the wide photo again if you lose track of what it
+   covered.
 4. When you find it, take a close photo. If the verdict is wrong, say so:
    - it *was* it but it said NOT QUITE → **I'm sure it's this one**
    - it said FOUND IT but it wasn't → **It wasn't actually this**

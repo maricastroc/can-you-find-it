@@ -590,6 +590,36 @@ img {
   gap: 18px;
 }
 
+.photo-view {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
+  gap: 16px;
+  padding: var(--top) var(--gutter) var(--bottom);
+  background: var(--night);
+  color: var(--moon);
+  animation: fade-in 200ms var(--ease) both;
+}
+
+.photo-view img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: contain;
+}
+
+.photo-view-note {
+  color: var(--moon-2);
+  text-align: center;
+}
+
+.photo-view .btn-primary {
+  background: var(--moon);
+  color: var(--night);
+}
+
 .clue-word {
   display: inline-block;
   animation: word-in 700ms var(--ease) both;
@@ -708,9 +738,14 @@ img {
 .rest-wake {
   position: absolute;
   bottom: var(--bottom);
-  left: 0;
-  right: 0;
-  font-size: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 20px;
+  border: 1px solid #ffffff2e;
+  border-radius: 999px;
+  color: var(--moon-2);
+  font-size: 15px;
+  white-space: nowrap;
 }
 
 @keyframes pulse {

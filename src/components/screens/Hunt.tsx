@@ -1,13 +1,15 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { ClueText } from "../ClueText";
+import { useBackToClose } from "@/lib/client/back";
 import type { PublicRound } from "@/lib/rounds/types";
 
 export const REST_AFTER_MS = 30_000;
 
 type Props = {
   round: PublicRound;
+  photo?: string;
   pending?: string;
   notice?: string;
   onFound: () => void;
@@ -16,13 +18,33 @@ type Props = {
   onRest: () => void;
 };
 
-export function Hunt({ round, pending, notice, onFound, onHint, onGiveUp, onRest }: Props) {
+export function Hunt({ round, photo, pending, notice, onFound, onHint, onGiveUp, onRest }: Props) {
   const [confirming, setConfirming] = useState(false);
+  const [showPhoto, setShowPhoto] = useState(false);
+  const photoTitle = useId();
+  const photoButton = useRef<HTMLButtonElement>(null);
+  const backButton = useRef<HTMLButtonElement>(null);
   const focusRow = useRef<HTMLLIElement>(null);
   const waitingForHint = pending === "hint";
+  const hidePhoto = useCallback(() => setShowPhoto(false), []);
+  const closePhoto = useBackToClose(showPhoto, hidePhoto, "cyfiPhoto");
 
   useEffect(() => {
-    if (waitingForHint) return;
+    if (!showPhoto) return;
+    const opener = photoButton.current;
+    backButton.current?.focus();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closePhoto();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      opener?.focus();
+    };
+  }, [showPhoto, closePhoto]);
+
+  useEffect(() => {
+    if (waitingForHint || showPhoto) return;
     let timer = setTimeout(onRest, REST_AFTER_MS);
     const poke = () => {
       clearTimeout(timer);
@@ -34,7 +56,7 @@ export function Hunt({ round, pending, notice, onFound, onHint, onGiveUp, onRest
       clearTimeout(timer);
       events.forEach((e) => window.removeEventListener(e, poke));
     };
-  }, [onRest, waitingForHint]);
+  }, [onRest, waitingForHint, showPhoto]);
 
   useEffect(() => {
     if (!confirming) return;
@@ -109,9 +131,11 @@ export function Hunt({ round, pending, notice, onFound, onHint, onGiveUp, onRest
               </span>
             )}
           </button>
-          <button type="button" className="btn btn-secondary" onClick={onRest}>
-            Look up
-          </button>
+          {photo && (
+            <button ref={photoButton} type="button" className="btn btn-secondary" onClick={() => setShowPhoto(true)}>
+              My photo
+            </button>
+          )}
         </div>
         {confirming ? (
           <button type="button" className="btn btn-text confirm-giveup" onClick={onGiveUp} disabled={pending === "reveal"}>
@@ -123,19 +147,31 @@ export function Hunt({ round, pending, notice, onFound, onHint, onGiveUp, onRest
           </button>
         )}
       </div>
+      {photo && showPhoto && (
+        <div className="photo-view" role="dialog" aria-modal="true" aria-labelledby={photoTitle}>
+          <p className="kicker" id={photoTitle}>
+            Your photo
+          </p>
+          <img src={photo} alt="The photo you took of this place" />
+          <p className="photo-view-note">It&apos;s somewhere in here.</p>
+          <button ref={backButton} type="button" className="btn btn-primary" onClick={closePhoto}>
+            Back to the hunt
+          </button>
+        </div>
+      )}
     </section>
   );
 }
 
 export function Rest({ clue, onWake }: { clue: string; onWake: () => void }) {
   return (
-    <button type="button" className="rest" onClick={onWake} aria-label={`Resting. ${clue} Tap to wake the screen.`}>
+    <button type="button" className="rest" onClick={onWake} aria-label={`Resting. ${clue} Tap anywhere to come back.`}>
       <div>
         <p className="title">{clue}</p>
         <div className="rest-pulse" />
       </div>
       <span className="rest-wake" aria-hidden="true">
-        Tap when you&apos;ve found it
+        Tap anywhere to come back
       </span>
     </button>
   );
