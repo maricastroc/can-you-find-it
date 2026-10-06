@@ -1,0 +1,93 @@
+{
+  "image": "c117",
+  "width": 1707,
+  "height": 2560,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 27572,
+      "promptTokens": 1534,
+      "outputTokens": 125,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Stone crest with carved coat of arms\",\n      \"box_2d\": [364, 255, 482, 364],\n      \"similar_count\": 0\n    },\n    {\n      \"label\": \"White wooden beam supporting roof\",\n      \"box_2d\": [188, 105, 348, 900],\n      \"similar_count\": 0\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6549,
+      "promptTokens": 290,
+      "outputTokens": 43,
+      "raw": "{\n\"what_i_see\": \"Stone crest with carved coat of arms\",\n\"answer\": \"Stone crest with carved coat of arms\",\n\"person_at_target\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 20737,
+      "promptTokens": 1224,
+      "outputTokens": 82,
+      "raw": "{\n\"lens\": \"remember\",\n\"evidence\": \"A carved stone crest with a coat of arms.\",\n\"hint_semantic\": \"It represents a history or a lineage associated with this place.\",\n\"hint_concrete\": \"Rough-hewn, weathered stone carving, mounted on a wall.\",\n\"detail\": \"The carving depicts figures and architectural elements.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Stone crest with carved coat of arms",
+      "box_2d": [
+        364,
+        255,
+        482,
+        364
+      ],
+      "box": {
+        "x": 0.255,
+        "y": 0.364,
+        "w": 0.109,
+        "h": 0.118
+      },
+      "lens": "remember",
+      "mcq": {
+        "options": [
+          "White wooden beam supporting roof",
+          "a red fire hydrant",
+          "a bicycle leaning on a post",
+          "Stone crest with carved coat of arms"
+        ],
+        "correct": "Stone crest with carved coat of arms",
+        "answer": "Stone crest with carved coat of arms",
+        "what_i_see": "Stone crest with carved coat of arms",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "Someone wanted this place to remember something.",
+      "hint_semantic": "It represents a history or a lineage associated with this place.",
+      "hint_concrete": "Rough-hewn, weathered stone carving, mounted on a wall.",
+      "reveal": "The carving depicts figures and architectural elements. (evidence: A carved stone crest with a coat of arms.)",
+      "spatial": "Look toward the left of where you took the photo.",
+      "crop": "crops/c117-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "White wooden beam supporting roof",
+      "box_2d": [
+        188,
+        105,
+        348,
+        900
+      ],
+      "box": {
+        "x": 0.105,
+        "y": 0.188,
+        "w": 0.795,
+        "h": 0.16
+      },
+      "lens": "similar:0",
+      "crop": "crops/c117-1-ctx.jpg"
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 34121
+}

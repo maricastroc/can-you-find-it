@@ -1,0 +1,93 @@
+{
+  "image": "c024",
+  "width": 2560,
+  "height": 1920,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 22523,
+      "promptTokens": 1518,
+      "outputTokens": 139,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"White rectangular sign on building wall\",\n      \"box_2d\": [\n        714,\n        654,\n        738,\n        690\n      ],\n      \"similar_count\": 0\n    },\n    {\n      \"label\": \"Black metal fence with decorative pattern\",\n      \"box_2d\": [\n        616,\n        346,\n        733,\n        512\n      ],\n      \"similar_count\": 0\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5117,
+      "promptTokens": 386,
+      "outputTokens": 43,
+      "raw": "{\n\"what_i_see\": \"A white rectangular sign on a building wall\",\n\"answer\": \"White rectangular sign on building wall\",\n\"person_at_target\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 10306,
+      "promptTokens": 1335,
+      "outputTokens": 93,
+      "raw": "{\n  \"lens\": \"read_me\",\n  \"evidence\": \"The white rectangular sign on the building wall.\",\n  \"hint_semantic\": \"It contains information that requires you to look closely.\",\n  \"hint_concrete\": \"A small, light-colored, rectangular plaque mounted on the building.\",\n  \"detail\": \"There appears to be some small, dark text or symbols on the plaque.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "White rectangular sign on building wall",
+      "box_2d": [
+        714,
+        654,
+        738,
+        690
+      ],
+      "box": {
+        "x": 0.654,
+        "y": 0.714,
+        "w": 0.036,
+        "h": 0.024
+      },
+      "lens": "read_me",
+      "mcq": {
+        "options": [
+          "Black metal fence with decorative pattern",
+          "a red fire hydrant",
+          "a bicycle leaning on a post",
+          "White rectangular sign on building wall"
+        ],
+        "correct": "White rectangular sign on building wall",
+        "answer": "White rectangular sign on building wall",
+        "what_i_see": "A white rectangular sign on a building wall",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "It has something to tell you, if you get close enough to read it.",
+      "hint_semantic": "It contains information that requires you to look closely.",
+      "hint_concrete": "A small, light-colored, rectangular plaque mounted on the building.",
+      "reveal": "There appears to be some small, dark text or symbols on the plaque. (evidence: The white rectangular sign on the building wall.)",
+      "spatial": "Look toward the right of where you took the photo. Look down, close to the ground.",
+      "crop": "crops/c024-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Black metal fence with decorative pattern",
+      "box_2d": [
+        616,
+        346,
+        733,
+        512
+      ],
+      "box": {
+        "x": 0.346,
+        "y": 0.616,
+        "w": 0.166,
+        "h": 0.117
+      },
+      "lens": "similar:0",
+      "crop": "crops/c024-1-ctx.jpg"
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 27640
+}

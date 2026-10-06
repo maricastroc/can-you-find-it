@@ -1,0 +1,93 @@
+{
+  "image": "c041",
+  "width": 2190,
+  "height": 1643,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 19827,
+      "promptTokens": 1518,
+      "outputTokens": 108,
+      "raw": "{\n  \"targets\": [\n    {\"label\": \"Red and brown plastic playhouse structure\", \"box_2d\": [621, 393, 768, 501], \"similar_count\": 0},\n    {\"label\": \"Wooden picnic table in foreground\", \"box_2d\": [877, 226, 1000, 475], \"similar_count\": 0}\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5973,
+      "promptTokens": 386,
+      "outputTokens": 43,
+      "raw": "{\n\"what_i_see\": \"Red and brown plastic playhouse structure\",\n\"answer\": \"Red and brown plastic playhouse structure\",\n\"person_at_target\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 10319,
+      "promptTokens": 1336,
+      "outputTokens": 89,
+      "raw": "{\n  \"lens\": \"handmade\",\n  \"evidence\": \"The structure has distinct, molded, and painted features.\",\n  \"hint_semantic\": \"This is a place for imaginative play and adventure.\",\n  \"hint_concrete\": \"A small, red and brown plastic playhouse with a slide.\",\n  \"detail\": \"The roof has a brown, slightly textured, molded appearance.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Red and brown plastic playhouse structure",
+      "box_2d": [
+        621,
+        393,
+        768,
+        501
+      ],
+      "box": {
+        "x": 0.393,
+        "y": 0.621,
+        "w": 0.108,
+        "h": 0.147
+      },
+      "lens": "smaller_people",
+      "mcq": {
+        "options": [
+          "Wooden picnic table in foreground",
+          "a red fire hydrant",
+          "a bicycle leaning on a post",
+          "Red and brown plastic playhouse structure"
+        ],
+        "correct": "Red and brown plastic playhouse structure",
+        "answer": "Red and brown plastic playhouse structure",
+        "what_i_see": "Red and brown plastic playhouse structure",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "It was made for someone smaller than you.",
+      "hint_semantic": "This is a place for imaginative play and adventure.",
+      "hint_concrete": "A small, red and brown plastic playhouse with a slide.",
+      "reveal": "The roof has a brown, slightly textured, molded appearance. (evidence: The structure has distinct, molded, and painted features.)",
+      "spatial": "Look roughly straight ahead from where you took the photo.",
+      "crop": "crops/c041-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Wooden picnic table in foreground",
+      "box_2d": [
+        877,
+        226,
+        1000,
+        475
+      ],
+      "box": {
+        "x": 0.226,
+        "y": 0.877,
+        "w": 0.249,
+        "h": 0.123
+      },
+      "lens": "similar:0",
+      "crop": "crops/c041-1-ctx.jpg"
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 25800
+}

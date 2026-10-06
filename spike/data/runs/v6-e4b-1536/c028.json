@@ -1,0 +1,81 @@
+{
+  "image": "c028",
+  "width": 2560,
+  "height": 1920,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 23979,
+      "promptTokens": 1222,
+      "outputTokens": 142,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Stone pillar with carved detail on top\",\n      \"box_2d\": [\n        293,\n        287,\n        406,\n        364\n      ],\n      \"similar_count\": 0\n    },\n    {\n      \"label\": \"Small wooden sign with number 692\",\n      \"box_2d\": [\n        359,\n        61,\n        412,\n        112\n      ],\n      \"similar_count\": 0\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 7865,
+      "promptTokens": 374,
+      "outputTokens": 43,
+      "raw": "{\n\"what_i_see\": \"Stone pillar with carved detail on top\",\n\"answer\": \"Stone pillar with carved detail on top\",\n\"person_at_target\": false\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Stone pillar with carved detail on top",
+      "box_2d": [
+        293,
+        287,
+        406,
+        364
+      ],
+      "box": {
+        "x": 0.287,
+        "y": 0.293,
+        "w": 0.077,
+        "h": 0.113
+      },
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "Small wooden sign with number 692",
+          "a red fire hydrant",
+          "a bicycle leaning on a post",
+          "Stone pillar with carved detail on top"
+        ],
+        "correct": "Stone pillar with carved detail on top",
+        "answer": "Stone pillar with carved detail on top",
+        "what_i_see": "Stone pillar with carved detail on top",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "crop": "crops/c028-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Small wooden sign with number 692",
+      "box_2d": [
+        359,
+        61,
+        412,
+        112
+      ],
+      "box": {
+        "x": 0.061,
+        "y": 0.359,
+        "w": 0.051,
+        "h": 0.053
+      },
+      "lens": "similar:0",
+      "crop": "crops/c028-1-ctx.jpg"
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 31844
+}

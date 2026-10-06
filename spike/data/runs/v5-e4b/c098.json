@@ -1,0 +1,93 @@
+{
+  "image": "c098",
+  "width": 2000,
+  "height": 1500,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 37135,
+      "promptTokens": 1518,
+      "outputTokens": 127,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"dark rectangular planter pot with green plant\",\n      \"box_2d\": [646, 699, 742, 790],\n      \"similar_count\": 0\n    },\n    {\n      \"label\": \"patterned white and green potted plant\",\n      \"box_2d\": [696, 792, 865, 912],\n      \"similar_count\": 0\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 7314,
+      "promptTokens": 339,
+      "outputTokens": 43,
+      "raw": "{\n\"what_i_see\": \"dark rectangular planter pot with green plant\",\n\"answer\": \"dark rectangular planter pot with green plant\",\n\"person_at_target\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 14782,
+      "promptTokens": 1288,
+      "outputTokens": 85,
+      "raw": "{\n  \"lens\": \"cared_for\",\n  \"evidence\": \"A dark planter pot containing green foliage.\",\n  \"hint_semantic\": \"This container holds life and is maintained by someone.\",\n  \"hint_concrete\": \"Large, dark, round pot sitting on the pavement.\",\n  \"detail\": \"The soil inside the pot is dark and rich.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "dark rectangular planter pot with green plant",
+      "box_2d": [
+        646,
+        699,
+        742,
+        790
+      ],
+      "box": {
+        "x": 0.699,
+        "y": 0.646,
+        "w": 0.091,
+        "h": 0.096
+      },
+      "lens": "cared_for",
+      "mcq": {
+        "options": [
+          "patterned white and green potted plant",
+          "a red fire hydrant",
+          "a bicycle leaning on a post",
+          "dark rectangular planter pot with green plant"
+        ],
+        "correct": "dark rectangular planter pot with green plant",
+        "answer": "dark rectangular planter pot with green plant",
+        "what_i_see": "dark rectangular planter pot with green plant",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "Somebody takes care of this, every single week.",
+      "hint_semantic": "This container holds life and is maintained by someone.",
+      "hint_concrete": "Large, dark, round pot sitting on the pavement.",
+      "reveal": "The soil inside the pot is dark and rich. (evidence: A dark planter pot containing green foliage.)",
+      "spatial": "Look toward the right of where you took the photo.",
+      "crop": "crops/c098-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "patterned white and green potted plant",
+      "box_2d": [
+        696,
+        792,
+        865,
+        912
+      ],
+      "box": {
+        "x": 0.792,
+        "y": 0.696,
+        "w": 0.12,
+        "h": 0.169
+      },
+      "lens": "similar:0",
+      "crop": "crops/c098-1-ctx.jpg"
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 44449
+}

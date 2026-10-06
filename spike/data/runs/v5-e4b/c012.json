@@ -1,0 +1,93 @@
+{
+  "image": "c012",
+  "width": 2560,
+  "height": 1700,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 21839,
+      "promptTokens": 1534,
+      "outputTokens": 135,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Small clock tower with dark roof\",\n      \"box_2d\": [\n        197,\n        427,\n        380,\n        465],\n      \"similar_count\": 0\n    },\n    {\n      \"label\": \"Small red potted plant on building\",\n      \"box_2d\": [\n        528,\n        860,\n        595,\n        918],\n      \"similar_count\": 0\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 3747,
+      "promptTokens": 210,
+      "outputTokens": 38,
+      "raw": "{\n\"what_i_see\": \"A clock tower\",\n\"answer\": \"Small clock tower with dark roof\",\n\"person_at_target\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 7838,
+      "promptTokens": 1143,
+      "outputTokens": 86,
+      "raw": "{\n\"lens\": \"keeps_time\",\n\"evidence\": \"The tower has a visible clock face on its side.\",\n\"hint_semantic\": \"It is a public timepiece that marks the passing of hours.\",\n\"hint_concrete\": \"A tall, multi-tiered stone tower with a dark roof.\",\n\"detail\": \"The clock face has Roman numerals marking the hours.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Small clock tower with dark roof",
+      "box_2d": [
+        197,
+        427,
+        380,
+        465
+      ],
+      "box": {
+        "x": 0.427,
+        "y": 0.197,
+        "w": 0.038,
+        "h": 0.183
+      },
+      "lens": "keeps_time",
+      "mcq": {
+        "options": [
+          "Small red potted plant on building",
+          "a red fire hydrant",
+          "a bicycle leaning on a post",
+          "Small clock tower with dark roof"
+        ],
+        "correct": "Small clock tower with dark roof",
+        "answer": "Small clock tower with dark roof",
+        "what_i_see": "A clock tower",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "Everyone here trusts it to keep time.",
+      "hint_semantic": "It is a public timepiece that marks the passing of hours.",
+      "hint_concrete": "A tall, multi-tiered stone tower with a dark roof.",
+      "reveal": "The clock face has Roman numerals marking the hours. (evidence: The tower has a visible clock face on its side.)",
+      "spatial": "Look roughly straight ahead from where you took the photo. Look up.",
+      "crop": "crops/c012-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Small red potted plant on building",
+      "box_2d": [
+        528,
+        860,
+        595,
+        918
+      ],
+      "box": {
+        "x": 0.86,
+        "y": 0.528,
+        "w": 0.058,
+        "h": 0.067
+      },
+      "lens": "similar:0",
+      "crop": "crops/c012-1-ctx.jpg"
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 25586
+}

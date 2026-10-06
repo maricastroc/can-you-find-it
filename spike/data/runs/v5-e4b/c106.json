@@ -1,0 +1,101 @@
+{
+  "image": "c106",
+  "width": 2560,
+  "height": 1707,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 36729,
+      "promptTokens": 1534,
+      "outputTokens": 139,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"small white swing set structure in grass\",\n      \"box_2d\": [\n        598,\n        592,\n        725,\n        729\n      ],\n      \"similar_count\": 0\n    },\n    {\n      \"label\": \"white metal swing set on left side\",\n      \"box_2d\": [\n        618,\n        39,\n        708,\n        92\n      ],\n      \"similar_count\": 0\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6947,
+      "promptTokens": 292,
+      "outputTokens": 44,
+      "raw": "{\n\"what_i_see\": \"A white metal swing set structure in grass\",\n\"answer\": \"small white swing set structure in grass\",\n\"person_at_target\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 7854,
+      "promptTokens": 356,
+      "outputTokens": 44,
+      "raw": "{\n\"what_i_see\": \"A small white swing set structure in grass\",\n\"answer\": \"small white swing set structure in grass\",\n\"person_at_target\": false\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "small white swing set structure in grass",
+      "box_2d": [
+        598,
+        592,
+        725,
+        729
+      ],
+      "box": {
+        "x": 0.592,
+        "y": 0.598,
+        "w": 0.137,
+        "h": 0.127
+      },
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "white metal swing set on left side",
+          "a red fire hydrant",
+          "a bicycle leaning on a post",
+          "small white swing set structure in grass"
+        ],
+        "correct": "small white swing set structure in grass",
+        "answer": "small white swing set structure in grass",
+        "what_i_see": "A white metal swing set structure in grass",
+        "people": true,
+        "pass": false,
+        "ms": 0
+      },
+      "crop": "crops/c106-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "white metal swing set on left side",
+      "box_2d": [
+        618,
+        39,
+        708,
+        92
+      ],
+      "box": {
+        "x": 0.039,
+        "y": 0.618,
+        "w": 0.053,
+        "h": 0.09
+      },
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "white metal swing set on left side",
+          "a bicycle leaning on a post",
+          "small white swing set structure in grass"
+        ],
+        "correct": "white metal swing set on left side",
+        "answer": "small white swing set structure in grass",
+        "what_i_see": "A small white swing set structure in grass",
+        "people": false,
+        "pass": false,
+        "ms": 0
+      },
+      "crop": "crops/c106-1-ctx.jpg"
+    }
+  ],
+  "waitMs": 51530
+}

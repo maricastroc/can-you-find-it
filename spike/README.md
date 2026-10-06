@@ -59,6 +59,8 @@ npx tsx spike/src/run.ts --model gemma4:e4b --strategy single --run v3-single-e4
 npx tsx spike/src/run4.ts --model gemma4:e4b --run v4-e4b
 npx tsx spike/src/simulate.ts v4-e4b v4b-e4b      # final policy on the same proposals
 npx tsx spike/src/run4.ts --model gemma4:12b --run v4b-12b
+npx tsx spike/src/run4.ts --model gemma4:e4b --run v5-e4b
+npx tsx spike/src/run4.ts --model gemma4:e4b --run v6-e4b-1536 --side 1536 --skip-write
 npx tsx spike/src/compare.ts gemma4:e4b --v2
 PICKS_RUN=v4b-e4b npx tsx spike/src/report.ts v3-single-e4b v4-e4b v4b-e4b v4b-12b   # → spike/data/report.html
 npx vitest run spike                               # unit tests for the engine helpers
@@ -116,6 +118,38 @@ miss: two similar concrete road bridges judged to be the same bridge.
 | Clue written in the single-pass proposal | 1.03 |
 | "Zoom then write" (model writes from the crop) | 0.64 — worse, and its "reveal" invents details |
 | **Human-written lens line, chosen by rules + model** | **~1.55** (23/33 scored 2) |
+
+### Time to the first clue (2026-10-06)
+
+The first playtest said the wait after the wide photo was too long. v5 keeps
+the v4b policy and cuts what happens before the clue appears:
+
+| | v4 | **v5 (shipped)** |
+| --- | --- | --- |
+| Proposals | 3, labels of 4–12 words, plus a difficulty | 2, labels of 3–8 words |
+| Verification crop | 1024 px | 768 px |
+| Clue line | chosen in a writer call (~10 s) before anything is shown | chosen by rules from the label, or from where the target sits in the frame |
+| Hints | written before the clue appears | written in the background while the player starts looking |
+| Median wait for a verified target + clue (20 photos) | 47 s | **26 s** |
+| Photos with a verified target | 16/20 | 17/20 |
+
+Output length is capped on every call, and opening the camera now runs one
+tiny pass through the model, so a model that was unloaded or paged out comes
+back while the player is still framing the photo (~9 s from cold, instant when
+it's already warm).
+
+Memory matters more than any of this. The model needs about 9.5 GB while it
+runs. On the 16 GB test machine, the same proposal call took 11–22 s with the
+model's memory to itself, 27–45 s while other apps pushed the computer into
+swap, and once 16 minutes. `npm run doctor` now warns when the computer is
+swapping.
+
+**Tried and rejected: a smaller wide photo.** At 1536 px the image costs ~25%
+fewer tokens, but on the first 11 photos it lost the best small targets (the
+memorial plaque, the information sign, which became "the mossy base of the
+tree") and verified a target on 9 photos instead of 11 (`runs/v6-e4b-1536`;
+its timings are not comparable, the machine was swapping). The product keeps
+1920 px.
 
 ### What failed, and what fixed it
 

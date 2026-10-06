@@ -13,6 +13,8 @@ const { values: args } = parseArgs({
     run: { type: "string" },
     n: { type: "string", default: "2" },
     all: { type: "boolean", default: false },
+    side: { type: "string" },
+    "skip-write": { type: "boolean", default: false },
   },
 });
 const MODEL = args.model!;
@@ -36,9 +38,15 @@ async function main() {
     const meta = await sharp(src).metadata();
     const W = meta.width!, H = meta.height!;
     const t0 = performance.now();
-    const res = await findTarget(src, { model: MODEL, candidates: Number(args.n), verifyAll: args.all });
+    const res = await findTarget(src, {
+      model: MODEL,
+      candidates: Number(args.n),
+      verifyAll: args.all,
+      modelSide: args.side ? Number(args.side) : undefined,
+    });
     const chosenCandidate = res.candidates.find((c) => c.idx === res.chosen);
-    const written = chosenCandidate && res.lens ? await writeTexts(src, chosenCandidate, { model: MODEL }, res.lens) : undefined;
+    const written =
+      !args["skip-write"] && chosenCandidate && res.lens ? await writeTexts(src, chosenCandidate, { model: MODEL }, res.lens) : undefined;
     const texts = written?.texts;
     const candidates: Candidate[] = [];
     for (const c of res.candidates) {

@@ -1,0 +1,82 @@
+{
+  "image": "c016",
+  "width": 2560,
+  "height": 1624,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 32289,
+      "promptTokens": 1094,
+      "outputTokens": 136,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"White building with brown awning\",\n      \"box_2d\": [\n        398,\n        207,\n        684,\n        597\n      ],\n      \"similar_count\": 0\n    },\n    {\n      \"label\": \"Black street lamp post with light\",\n      \"box_2d\": [\n        0,\n        742,\n        761,\n        773\n      ],\n      \"similar_count\": 0\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6305,
+      "promptTokens": 219,
+      "outputTokens": 44,
+      "raw": "{\n\"what_i_see\": \"A tall, grey pole is near the center.\",\n\"answer\": \"Black street lamp post with light\",\n\"person_at_target\": false\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "White building with brown awning",
+      "box_2d": [
+        398,
+        207,
+        684,
+        597
+      ],
+      "box": {
+        "x": 0.207,
+        "y": 0.398,
+        "w": 0.39,
+        "h": 0.286
+      },
+      "rejected": "mass_noun",
+      "lens": "similar:0",
+      "crop": "crops/c016-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Black street lamp post with light",
+      "box_2d": [
+        0,
+        742,
+        761,
+        773
+      ],
+      "box": {
+        "x": 0.742,
+        "y": 0,
+        "w": 0.031,
+        "h": 0.761
+      },
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "Black street lamp post with light",
+          "a bicycle leaning on a post",
+          "White building with brown awning"
+        ],
+        "correct": "Black street lamp post with light",
+        "answer": "Black street lamp post with light",
+        "what_i_see": "A tall, grey pole is near the center.",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "crop": "crops/c016-1-ctx.jpg"
+    }
+  ],
+  "chosen": 1,
+  "waitMs": 38594
+}

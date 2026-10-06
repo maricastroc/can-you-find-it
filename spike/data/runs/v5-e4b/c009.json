@@ -1,0 +1,93 @@
+{
+  "image": "c009",
+  "width": 2560,
+  "height": 1660,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 18122,
+      "promptTokens": 1494,
+      "outputTokens": 142,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Orange and white striped umbrella near fountain\",\n      \"box_2d\": [\n        497,\n        847,\n        648,\n        872\n      ],\n      \"similar_count\": 0\n    },\n    {\n      \"label\": \"Blue 'P' parking sign on pole\",\n      \"box_2d\": [\n        498,\n        735,\n        574,\n        759\n      ],\n      \"similar_count\": 0\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 3632,
+      "promptTokens": 229,
+      "outputTokens": 41,
+      "raw": "{\n\"what_i_see\": \"A tall, yellow object\",\n\"answer\": \"Orange and white striped umbrella near fountain\",\n\"person_at_target\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 7651,
+      "promptTokens": 1144,
+      "outputTokens": 81,
+      "raw": "{\n\"lens\": \"plain_sight\",\n\"evidence\": \"The yellow umbrella is visible near the fountain.\",\n\"hint_semantic\": \"It provides shelter from the elements when needed.\",\n\"hint_concrete\": \"A tall, bright yellow fabric object, folded up.\",\n\"detail\": \"It has some dark lettering or symbols printed on the fabric.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Orange and white striped umbrella near fountain",
+      "box_2d": [
+        497,
+        847,
+        648,
+        872
+      ],
+      "box": {
+        "x": 0.847,
+        "y": 0.497,
+        "w": 0.025,
+        "h": 0.151
+      },
+      "lens": "water",
+      "mcq": {
+        "options": [
+          "Blue 'P' parking sign on pole",
+          "a red fire hydrant",
+          "a bicycle leaning on a post",
+          "Orange and white striped umbrella near fountain"
+        ],
+        "correct": "Orange and white striped umbrella near fountain",
+        "answer": "Orange and white striped umbrella near fountain",
+        "what_i_see": "A tall, yellow object",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "It has something to do with water.",
+      "hint_semantic": "It provides shelter from the elements when needed.",
+      "hint_concrete": "A tall, bright yellow fabric object, folded up.",
+      "reveal": "It has some dark lettering or symbols printed on the fabric. (evidence: The yellow umbrella is visible near the fountain.)",
+      "spatial": "Look toward the right of where you took the photo.",
+      "crop": "crops/c009-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Blue 'P' parking sign on pole",
+      "box_2d": [
+        498,
+        735,
+        574,
+        759
+      ],
+      "box": {
+        "x": 0.735,
+        "y": 0.498,
+        "w": 0.024,
+        "h": 0.076
+      },
+      "lens": "similar:0",
+      "crop": "crops/c009-1-ctx.jpg"
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 21754
+}

@@ -1,0 +1,93 @@
+{
+  "image": "c026",
+  "width": 2560,
+  "height": 1440,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 18071,
+      "promptTokens": 1374,
+      "outputTokens": 140,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Yellow rectangular traffic signal post\",\n      \"box_2d\": [\n        503,\n        293,\n        671,\n        321\n      ],\n      \"similar_count\": 0\n    },\n    {\n      \"label\": \"Blue and white street sign on pole\",\n      \"box_2d\": [\n        442,\n        754,\n        494,\n        788\n      ],\n      \"similar_count\": 0\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 3787,
+      "promptTokens": 210,
+      "outputTokens": 37,
+      "raw": "{\n\"what_i_see\": \"A yellow object\",\n\"answer\": \"Yellow rectangular traffic signal post\",\n\"person_at_target\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 8148,
+      "promptTokens": 1110,
+      "outputTokens": 88,
+      "raw": "{\n  \"lens\": \"without_words\",\n  \"evidence\": \"The object is a bright yellow rectangular traffic signal post.\",\n  \"hint_semantic\": \"It directs the flow of traffic using universal symbols.\",\n  \"hint_concrete\": \"A vertical, bright yellow, rectangular pole structure.\",\n  \"detail\": \"It has several circular markings or lights visible on its side.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Yellow rectangular traffic signal post",
+      "box_2d": [
+        503,
+        293,
+        671,
+        321
+      ],
+      "box": {
+        "x": 0.293,
+        "y": 0.503,
+        "w": 0.028,
+        "h": 0.168
+      },
+      "lens": "plain_sight",
+      "mcq": {
+        "options": [
+          "Blue and white street sign on pole",
+          "a red fire hydrant",
+          "a bicycle leaning on a post",
+          "Yellow rectangular traffic signal post"
+        ],
+        "correct": "Yellow rectangular traffic signal post",
+        "answer": "Yellow rectangular traffic signal post",
+        "what_i_see": "A yellow object",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "I found something hiding in plain sight.",
+      "hint_semantic": "It directs the flow of traffic using universal symbols.",
+      "hint_concrete": "A vertical, bright yellow, rectangular pole structure.",
+      "reveal": "It has several circular markings or lights visible on its side. (evidence: The object is a bright yellow rectangular traffic signal post.)",
+      "spatial": "Look toward the left of where you took the photo.",
+      "crop": "crops/c026-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Blue and white street sign on pole",
+      "box_2d": [
+        442,
+        754,
+        494,
+        788
+      ],
+      "box": {
+        "x": 0.754,
+        "y": 0.442,
+        "w": 0.034,
+        "h": 0.052
+      },
+      "lens": "similar:0",
+      "crop": "crops/c026-1-ctx.jpg"
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 21858
+}

@@ -1,0 +1,101 @@
+{
+  "image": "c041",
+  "width": 2190,
+  "height": 1643,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 33629,
+      "promptTokens": 1222,
+      "outputTokens": 139,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Red and brown playhouse structure\",\n      \"box_2d\": [\n        494,\n        388,\n        541,\n        494\n      ],\n      \"similar_count\": 0\n    },\n    {\n      \"label\": \"Small green play equipment on ground\",\n      \"box_2d\": [\n        509,\n        263,\n        555,\n        303\n      ],\n      \"similar_count\": 0\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 7515,
+      "promptTokens": 226,
+      "outputTokens": 33,
+      "raw": "{\n\"what_i_see\": \"Dense green foliage\",\n\"answer\": \"none\",\n\"person_at_target\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 7908,
+      "promptTokens": 386,
+      "outputTokens": 33,
+      "raw": "{\n\"what_i_see\": \"Dense green foliage\",\n\"answer\": \"none\",\n\"person_at_target\": false\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Red and brown playhouse structure",
+      "box_2d": [
+        494,
+        388,
+        541,
+        494
+      ],
+      "box": {
+        "x": 0.388,
+        "y": 0.494,
+        "w": 0.106,
+        "h": 0.047
+      },
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "Small green play equipment on ground",
+          "a red fire hydrant",
+          "a bicycle leaning on a post",
+          "Red and brown playhouse structure"
+        ],
+        "correct": "Red and brown playhouse structure",
+        "answer": "none",
+        "what_i_see": "Dense green foliage",
+        "people": false,
+        "pass": false,
+        "ms": 0
+      },
+      "crop": "crops/c041-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Small green play equipment on ground",
+      "box_2d": [
+        509,
+        263,
+        555,
+        303
+      ],
+      "box": {
+        "x": 0.263,
+        "y": 0.509,
+        "w": 0.04,
+        "h": 0.046
+      },
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "Small green play equipment on ground",
+          "a bicycle leaning on a post",
+          "Red and brown playhouse structure"
+        ],
+        "correct": "Small green play equipment on ground",
+        "answer": "none",
+        "what_i_see": "Dense green foliage",
+        "people": false,
+        "pass": false,
+        "ms": 0
+      },
+      "crop": "crops/c041-1-ctx.jpg"
+    }
+  ],
+  "waitMs": 49052
+}

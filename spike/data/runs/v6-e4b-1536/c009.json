@@ -1,0 +1,82 @@
+{
+  "image": "c009",
+  "width": 2560,
+  "height": 1660,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 23328,
+      "promptTokens": 1126,
+      "outputTokens": 140,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Yellow building sign with dark lettering\",\n      \"box_2d\": [\n        394,\n        441,\n        438,\n        537\n      ],\n      \"similar_count\": 0\n    },\n    {\n      \"label\": \"Red car parked on the street\",\n      \"box_2d\": [\n        793,\n        832,\n        945,\n        1000\n      ],\n      \"similar_count\": 0\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 14125,
+      "promptTokens": 226,
+      "outputTokens": 49,
+      "raw": "{\n\"what_i_see\": \"The center of the image is dominated by the yellow facade of a building.\",\n\"answer\": \"Yellow building sign with dark lettering\",\n\"person_at_target\": false\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Yellow building sign with dark lettering",
+      "box_2d": [
+        394,
+        441,
+        438,
+        537
+      ],
+      "box": {
+        "x": 0.441,
+        "y": 0.394,
+        "w": 0.096,
+        "h": 0.044
+      },
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "Red car parked on the street",
+          "a red fire hydrant",
+          "a bicycle leaning on a post",
+          "Yellow building sign with dark lettering"
+        ],
+        "correct": "Yellow building sign with dark lettering",
+        "answer": "Yellow building sign with dark lettering",
+        "what_i_see": "The center of the image is dominated by the yellow facade of a building.",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "crop": "crops/c009-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Red car parked on the street",
+      "box_2d": [
+        793,
+        832,
+        945,
+        1000
+      ],
+      "box": {
+        "x": 0.832,
+        "y": 0.793,
+        "w": 0.168,
+        "h": 0.152
+      },
+      "rejected": "vehicle",
+      "lens": "similar:0",
+      "crop": "crops/c009-1-ctx.jpg"
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 37453
+}

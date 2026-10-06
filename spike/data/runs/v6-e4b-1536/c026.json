@@ -1,0 +1,81 @@
+{
+  "image": "c026",
+  "width": 2560,
+  "height": 1440,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 23038,
+      "promptTokens": 1030,
+      "outputTokens": 140,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Small blue and white street sign\",\n      \"box_2d\": [\n        539,\n        764,\n        598,\n        794\n      ],\n      \"similar_count\": 0\n    },\n    {\n      \"label\": \"Yellow and black traffic barrier post\",\n      \"box_2d\": [\n        634,\n        295,\n        997,\n        327\n      ],\n      \"similar_count\": 0\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 15776,
+      "promptTokens": 370,
+      "outputTokens": 43,
+      "raw": "{\"what_i_see\": \"A street sign and a pedestrian crossing sign are visible near the center.\", \"answer\": \"Small blue and white street sign\", \"person_at_target\": false}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Small blue and white street sign",
+      "box_2d": [
+        539,
+        764,
+        598,
+        794
+      ],
+      "box": {
+        "x": 0.764,
+        "y": 0.539,
+        "w": 0.03,
+        "h": 0.059
+      },
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "Yellow and black traffic barrier post",
+          "a red fire hydrant",
+          "a bicycle leaning on a post",
+          "Small blue and white street sign"
+        ],
+        "correct": "Small blue and white street sign",
+        "answer": "Small blue and white street sign",
+        "what_i_see": "A street sign and a pedestrian crossing sign are visible near the center.",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "crop": "crops/c026-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Yellow and black traffic barrier post",
+      "box_2d": [
+        634,
+        295,
+        997,
+        327
+      ],
+      "box": {
+        "x": 0.295,
+        "y": 0.634,
+        "w": 0.032,
+        "h": 0.363
+      },
+      "lens": "similar:0",
+      "crop": "crops/c026-1-ctx.jpg"
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 38814
+}

@@ -1,0 +1,93 @@
+{
+  "image": "c030",
+  "width": 2560,
+  "height": 1920,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 18744,
+      "promptTokens": 1518,
+      "outputTokens": 99,
+      "raw": "{\"targets\": [\n  {\"label\": \"small dark information sign on ground\", \"box_2d\": [549, 70, 595, 112], \"similar_count\": 0},\n  {\"label\": \"small yellow wildflower in distance\", \"box_2d\": [383, 535, 417, 554], \"similar_count\": 1}\n]}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5994,
+      "promptTokens": 385,
+      "outputTokens": 49,
+      "raw": "{\n\"what_i_see\": \"A small, dark, rectangular object with white stripes is near the center.\",\n\"answer\": \"small dark information sign on ground\",\n\"person_at_target\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 10629,
+      "promptTokens": 1335,
+      "outputTokens": 98,
+      "raw": "{\n  \"lens\": \"read_me\",\n  \"evidence\": \"Small dark sign visible on the ground near the path.\",\n  \"hint_semantic\": \"It provides information about the area or the path you are on.\",\n  \"hint_concrete\": \"A small, dark rectangular or square sign on the forest floor.\",\n  \"detail\": \"There appears to be some white or light-colored text/symbol on it.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "small dark information sign on ground",
+      "box_2d": [
+        549,
+        70,
+        595,
+        112
+      ],
+      "box": {
+        "x": 0.07,
+        "y": 0.549,
+        "w": 0.042,
+        "h": 0.046
+      },
+      "lens": "read_me",
+      "mcq": {
+        "options": [
+          "small yellow wildflower in distance",
+          "a red fire hydrant",
+          "a bicycle leaning on a post",
+          "small dark information sign on ground"
+        ],
+        "correct": "small dark information sign on ground",
+        "answer": "small dark information sign on ground",
+        "what_i_see": "A small, dark, rectangular object with white stripes is near the center.",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "It has something to tell you, if you get close enough to read it.",
+      "hint_semantic": "It provides information about the area or the path you are on.",
+      "hint_concrete": "A small, dark rectangular or square sign on the forest floor.",
+      "reveal": "There appears to be some white or light-colored text/symbol on it. (evidence: Small dark sign visible on the ground near the path.)",
+      "spatial": "Look toward the left of where you took the photo. It is further away than you might think.",
+      "crop": "crops/c030-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "small yellow wildflower in distance",
+      "box_2d": [
+        383,
+        535,
+        417,
+        554
+      ],
+      "box": {
+        "x": 0.535,
+        "y": 0.383,
+        "w": 0.019,
+        "h": 0.034
+      },
+      "lens": "similar:1",
+      "crop": "crops/c030-1-ctx.jpg"
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 24738
+}

@@ -1,0 +1,93 @@
+{
+  "image": "c028",
+  "width": 2560,
+  "height": 1920,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 20526,
+      "promptTokens": 1518,
+      "outputTokens": 140,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Stone pillar with mossy texture\",\n      \"box_2d\": [\n        341,\n        294,\n        576,\n        368\n      ],\n      \"similar_count\": 0\n    },\n    {\n      \"label\": \"Sign reading 'PRIVATE' on post\",\n      \"box_2d\": [\n        464,\n        799,\n        505,\n        883\n      ],\n      \"similar_count\": 0\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 3757,
+      "promptTokens": 243,
+      "outputTokens": 41,
+      "raw": "{\n\"what_i_see\": \"Stone pillar with mossy texture\",\n\"answer\": \"Stone pillar with mossy texture\",\n\"person_at_target\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 9075,
+      "promptTokens": 1191,
+      "outputTokens": 97,
+      "raw": "{\n  \"lens\": \"nature_taking_back\",\n  \"evidence\": \"Mossy texture visible on the stone pillar's surface.\",\n  \"hint_semantic\": \"It shows where nature is slowly reclaiming a man-made structure.\",\n  \"hint_concrete\": \"A tall, rectangular pillar made of rough, grey stone blocks.\",\n  \"detail\": \"The top section has a weathered, dark green capstone.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Stone pillar with mossy texture",
+      "box_2d": [
+        341,
+        294,
+        576,
+        368
+      ],
+      "box": {
+        "x": 0.294,
+        "y": 0.341,
+        "w": 0.074,
+        "h": 0.235
+      },
+      "lens": "plain_sight",
+      "mcq": {
+        "options": [
+          "Sign reading 'PRIVATE' on post",
+          "a red fire hydrant",
+          "a bicycle leaning on a post",
+          "Stone pillar with mossy texture"
+        ],
+        "correct": "Stone pillar with mossy texture",
+        "answer": "Stone pillar with mossy texture",
+        "what_i_see": "Stone pillar with mossy texture",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "I found something hiding in plain sight.",
+      "hint_semantic": "It shows where nature is slowly reclaiming a man-made structure.",
+      "hint_concrete": "A tall, rectangular pillar made of rough, grey stone blocks.",
+      "reveal": "The top section has a weathered, dark green capstone. (evidence: Mossy texture visible on the stone pillar's surface.)",
+      "spatial": "Look roughly straight ahead from where you took the photo.",
+      "crop": "crops/c028-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Sign reading 'PRIVATE' on post",
+      "box_2d": [
+        464,
+        799,
+        505,
+        883
+      ],
+      "box": {
+        "x": 0.799,
+        "y": 0.464,
+        "w": 0.084,
+        "h": 0.041
+      },
+      "lens": "similar:0",
+      "crop": "crops/c028-1-ctx.jpg"
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 24283
+}

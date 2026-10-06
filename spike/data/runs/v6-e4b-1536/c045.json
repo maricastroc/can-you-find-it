@@ -1,0 +1,102 @@
+{
+  "image": "c045",
+  "width": 1928,
+  "height": 2560,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 34571,
+      "promptTokens": 1222,
+      "outputTokens": 138,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Red and yellow playground structure\",\n      \"box_2d\": [\n        486,\n        248,\n        703,\n        858\n      ],\n      \"similar_count\": 0\n    },\n    {\n      \"label\": \"Tall metal light pole on left\",\n      \"box_2d\": [\n        238,\n        61,\n        724,\n        194\n      ],\n      \"similar_count\": 1\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6141,
+      "promptTokens": 255,
+      "outputTokens": 36,
+      "raw": "{\n\"what_i_see\": \"playground structure\",\n\"answer\": \"Red and yellow playground structure\",\n\"person_at_target\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5711,
+      "promptTokens": 205,
+      "outputTokens": 40,
+      "raw": "{\n\"what_i_see\": \"A tall metal light pole\",\n\"answer\": \"Tall metal light pole on left\",\n\"person_at_target\": false\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Red and yellow playground structure",
+      "box_2d": [
+        486,
+        248,
+        703,
+        858
+      ],
+      "box": {
+        "x": 0.248,
+        "y": 0.486,
+        "w": 0.61,
+        "h": 0.217
+      },
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "a bicycle leaning on a post",
+          "a blue recycling bin",
+          "Red and yellow playground structure"
+        ],
+        "correct": "Red and yellow playground structure",
+        "answer": "Red and yellow playground structure",
+        "what_i_see": "playground structure",
+        "people": true,
+        "pass": false,
+        "ms": 0
+      },
+      "crop": "crops/c045-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Tall metal light pole on left",
+      "box_2d": [
+        238,
+        61,
+        724,
+        194
+      ],
+      "box": {
+        "x": 0.061,
+        "y": 0.238,
+        "w": 0.133,
+        "h": 0.486
+      },
+      "lens": "similar:1",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "Tall metal light pole on left",
+          "a bicycle leaning on a post",
+          "Red and yellow playground structure"
+        ],
+        "correct": "Tall metal light pole on left",
+        "answer": "Tall metal light pole on left",
+        "what_i_see": "A tall metal light pole",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "crop": "crops/c045-1-ctx.jpg"
+    }
+  ],
+  "chosen": 1,
+  "waitMs": 46423
+}

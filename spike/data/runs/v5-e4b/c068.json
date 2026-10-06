@@ -1,0 +1,93 @@
+{
+  "image": "c068",
+  "width": 2560,
+  "height": 1706,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 11217,
+      "promptTokens": 1534,
+      "outputTokens": 141,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Decorative black iron lamp post in plaza\",\n      \"box_2d\": [\n        187,\n        683,\n        375,\n        734\n      ],\n      \"similar_count\": 0\n    },\n    {\n      \"label\": \"Green metal trash receptacle in plaza\",\n      \"box_2d\": [\n        515,\n        717,\n        643,\n        753\n      ],\n      \"similar_count\": 0\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 8795,
+      "promptTokens": 243,
+      "outputTokens": 44,
+      "raw": "{\n\"what_i_see\": \"A decorative black iron lamp post in plaza\",\n\"answer\": \"Decorative black iron lamp post in plaza\",\n\"person_at_target\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 16999,
+      "promptTokens": 1176,
+      "outputTokens": 87,
+      "raw": "{\n\"lens\": \"waiting\",\n\"evidence\": \"The lamp post is stationary, waiting for nightfall.\",\n\"hint_semantic\": \"It stands ready to illuminate the area when the sun goes down.\",\n\"hint_concrete\": \"Tall, black, ornate iron post with a lantern on top.\",\n\"detail\": \"The base of the post has detailed, textured ironwork.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Decorative black iron lamp post in plaza",
+      "box_2d": [
+        187,
+        683,
+        375,
+        734
+      ],
+      "box": {
+        "x": 0.683,
+        "y": 0.187,
+        "w": 0.051,
+        "h": 0.188
+      },
+      "lens": "after_dark",
+      "mcq": {
+        "options": [
+          "Green metal trash receptacle in plaza",
+          "a red fire hydrant",
+          "a bicycle leaning on a post",
+          "Decorative black iron lamp post in plaza"
+        ],
+        "correct": "Decorative black iron lamp post in plaza",
+        "answer": "Decorative black iron lamp post in plaza",
+        "what_i_see": "A decorative black iron lamp post in plaza",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "It only does its job after dark.",
+      "hint_semantic": "It stands ready to illuminate the area when the sun goes down.",
+      "hint_concrete": "Tall, black, ornate iron post with a lantern on top.",
+      "reveal": "The base of the post has detailed, textured ironwork. (evidence: The lamp post is stationary, waiting for nightfall.)",
+      "spatial": "Look toward the right of where you took the photo. Look up.",
+      "crop": "crops/c068-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Green metal trash receptacle in plaza",
+      "box_2d": [
+        515,
+        717,
+        643,
+        753
+      ],
+      "box": {
+        "x": 0.717,
+        "y": 0.515,
+        "w": 0.036,
+        "h": 0.128
+      },
+      "lens": "similar:0",
+      "crop": "crops/c068-1-ctx.jpg"
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 20012
+}

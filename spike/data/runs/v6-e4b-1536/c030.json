@@ -1,0 +1,102 @@
+{
+  "image": "c030",
+  "width": 2560,
+  "height": 1920,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 31888,
+      "promptTokens": 1222,
+      "outputTokens": 141,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Small dark informational sign on the left\",\n      \"box_2d\": [\n        376,\n        54,\n        421,\n        102\n      ],\n      \"similar_count\": 0\n    },\n    {\n      \"label\": \"Mossy base of the large central tree\",\n      \"box_2d\": [\n        398,\n        294,\n        511,\n        421\n      ],\n      \"similar_count\": 0\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 7372,
+      "promptTokens": 357,
+      "outputTokens": 34,
+      "raw": "{\n\"what_i_see\": \"Lush green foliage\",\n\"answer\": \"none\",\n\"person_at_target\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 7173,
+      "promptTokens": 309,
+      "outputTokens": 47,
+      "raw": "{\n\"what_i_see\": \"The base of a large tree is near the center.\",\n\"answer\": \"Mossy base of the large central tree\",\n\"person_at_target\": false\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Small dark informational sign on the left",
+      "box_2d": [
+        376,
+        54,
+        421,
+        102
+      ],
+      "box": {
+        "x": 0.054,
+        "y": 0.376,
+        "w": 0.048,
+        "h": 0.045
+      },
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "Mossy base of the large central tree",
+          "a red fire hydrant",
+          "a bicycle leaning on a post",
+          "Small dark informational sign on the left"
+        ],
+        "correct": "Small dark informational sign on the left",
+        "answer": "none",
+        "what_i_see": "Lush green foliage",
+        "people": false,
+        "pass": false,
+        "ms": 0
+      },
+      "crop": "crops/c030-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Mossy base of the large central tree",
+      "box_2d": [
+        398,
+        294,
+        511,
+        421
+      ],
+      "box": {
+        "x": 0.294,
+        "y": 0.398,
+        "w": 0.127,
+        "h": 0.113
+      },
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "Mossy base of the large central tree",
+          "a bicycle leaning on a post",
+          "Small dark informational sign on the left"
+        ],
+        "correct": "Mossy base of the large central tree",
+        "answer": "Mossy base of the large central tree",
+        "what_i_see": "The base of a large tree is near the center.",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "crop": "crops/c030-1-ctx.jpg"
+    }
+  ],
+  "chosen": 1,
+  "waitMs": 46433
+}

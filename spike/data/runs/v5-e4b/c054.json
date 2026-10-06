@@ -1,0 +1,94 @@
+{
+  "image": "c054",
+  "width": 1440,
+  "height": 2560,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 13431,
+      "promptTokens": 1374,
+      "outputTokens": 105,
+      "raw": "{\"targets\": [\n  {\"label\": \"Small, dark green bushy growth on hillside\", \"box_2d\": [399, 404, 474, 719], \"similar_count\": 0},\n  {\"label\": \"Small patch of bright green moss on rock\", \"box_2d\": [463, 678, 514, 931], \"similar_count\": 0}\n]}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 3667,
+      "promptTokens": 246,
+      "outputTokens": 40,
+      "raw": "{\n\"what_i_see\": \"Dense green foliage\",\n\"answer\": \"Small, dark green bushy growth on hillside\",\n\"person_at_target\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 6622,
+      "promptTokens": 1145,
+      "outputTokens": 84,
+      "raw": "{\n\"lens\": \"cared_for\",\n\"evidence\": \"Small, dark green bushy growth on hillside.\",\n\"hint_semantic\": \"Something that requires regular attention to thrive in this setting.\",\n\"hint_concrete\": \"Low-growing, dense, dark green shrubbery on a slope.\",\n\"detail\": \"The foliage appears tightly packed and vibrant green.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Small, dark green bushy growth on hillside",
+      "box_2d": [
+        399,
+        404,
+        474,
+        719
+      ],
+      "box": {
+        "x": 0.404,
+        "y": 0.399,
+        "w": 0.315,
+        "h": 0.075
+      },
+      "lens": "plain_sight",
+      "mcq": {
+        "options": [
+          "Small patch of bright green moss on rock",
+          "a red fire hydrant",
+          "a bicycle leaning on a post",
+          "Small, dark green bushy growth on hillside"
+        ],
+        "correct": "Small, dark green bushy growth on hillside",
+        "answer": "Small, dark green bushy growth on hillside",
+        "what_i_see": "Dense green foliage",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "I found something hiding in plain sight.",
+      "hint_semantic": "Something that requires regular attention to thrive in this setting.",
+      "hint_concrete": "Low-growing, dense, dark green shrubbery on a slope.",
+      "reveal": "The foliage appears tightly packed and vibrant green. (evidence: Small, dark green bushy growth on hillside.)",
+      "spatial": "Look roughly straight ahead from where you took the photo.",
+      "crop": "crops/c054-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Small patch of bright green moss on rock",
+      "box_2d": [
+        463,
+        678,
+        514,
+        931
+      ],
+      "box": {
+        "x": 0.678,
+        "y": 0.463,
+        "w": 0.253,
+        "h": 0.051
+      },
+      "rejected": "mass_noun",
+      "lens": "similar:0",
+      "crop": "crops/c054-1-ctx.jpg"
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 17098
+}

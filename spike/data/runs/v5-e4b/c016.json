@@ -1,0 +1,94 @@
+{
+  "image": "c016",
+  "width": 2560,
+  "height": 1624,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 18357,
+      "promptTokens": 1454,
+      "outputTokens": 107,
+      "raw": "{\n  \"targets\": [\n    {\"label\": \"White restaurant building with arched roofline\", \"box_2d\": [313, 208, 523, 602], \"similar_count\": 0},\n    {\"label\": \"Street lamp post on the right side\", \"box_2d\": [0, 742, 591, 777], \"similar_count\": 0}\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4573,
+      "promptTokens": 213,
+      "outputTokens": 45,
+      "raw": "{\n\"what_i_see\": \"A tall, grey pole is near the center.\",\n\"answer\": \"Street lamp post on the right side\",\n\"person_at_target\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 11213,
+      "promptTokens": 1129,
+      "outputTokens": 93,
+      "raw": "{\n  \"lens\": \"after_dark\",\n  \"evidence\": \"The pole has a light fixture attached at the top.\",\n  \"hint_semantic\": \"It provides illumination for the area when the sun goes down.\",\n  \"hint_concrete\": \"Tall, grey metal pole with a light fixture on top.\",\n  \"detail\": \"The pole has a small, dark rectangular box attached to it.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "White restaurant building with arched roofline",
+      "box_2d": [
+        313,
+        208,
+        523,
+        602
+      ],
+      "box": {
+        "x": 0.208,
+        "y": 0.313,
+        "w": 0.394,
+        "h": 0.21
+      },
+      "rejected": "mass_noun",
+      "lens": "similar:0",
+      "crop": "crops/c016-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Street lamp post on the right side",
+      "box_2d": [
+        0,
+        742,
+        591,
+        777
+      ],
+      "box": {
+        "x": 0.742,
+        "y": 0,
+        "w": 0.035,
+        "h": 0.591
+      },
+      "lens": "after_dark",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "Street lamp post on the right side",
+          "a bicycle leaning on a post",
+          "White restaurant building with arched roofline"
+        ],
+        "correct": "Street lamp post on the right side",
+        "answer": "Street lamp post on the right side",
+        "what_i_see": "A tall, grey pole is near the center.",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "It only does its job after dark.",
+      "hint_semantic": "It provides illumination for the area when the sun goes down.",
+      "hint_concrete": "Tall, grey metal pole with a light fixture on top.",
+      "reveal": "The pole has a small, dark rectangular box attached to it. (evidence: The pole has a light fixture attached at the top.)",
+      "spatial": "Look toward the right of where you took the photo. It is quite close to where you stood.",
+      "crop": "crops/c016-1-ctx.jpg"
+    }
+  ],
+  "chosen": 1,
+  "waitMs": 22930
+}

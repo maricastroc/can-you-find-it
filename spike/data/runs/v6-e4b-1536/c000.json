@@ -1,0 +1,81 @@
+{
+  "image": "c000",
+  "width": 2560,
+  "height": 1709,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 22695,
+      "promptTokens": 1126,
+      "outputTokens": 135,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"wooden park bench with slats\",\n      \"box_2d\": [\n        654,\n        413,\n        743,\n        515],\n      \"similar_count\": 1\n    },\n    {\n      \"label\": \"black lamppost along the path\",\n      \"box_2d\": [\n        582,\n        807,\n        887,\n        833],\n      \"similar_count\": 0\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6425,
+      "promptTokens": 210,
+      "outputTokens": 50,
+      "raw": "{\n\"what_i_see\": \"A black lamppost is clearly visible near the center of the image.\",\n\"answer\": \"black lamppost along the path\",\n\"person_at_target\": false\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "wooden park bench with slats",
+      "box_2d": [
+        654,
+        413,
+        743,
+        515
+      ],
+      "box": {
+        "x": 0.413,
+        "y": 0.654,
+        "w": 0.102,
+        "h": 0.089
+      },
+      "lens": "similar:1",
+      "crop": "crops/c000-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "black lamppost along the path",
+      "box_2d": [
+        582,
+        807,
+        887,
+        833
+      ],
+      "box": {
+        "x": 0.807,
+        "y": 0.582,
+        "w": 0.026,
+        "h": 0.305
+      },
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "black lamppost along the path",
+          "a bicycle leaning on a post",
+          "wooden park bench with slats"
+        ],
+        "correct": "black lamppost along the path",
+        "answer": "black lamppost along the path",
+        "what_i_see": "A black lamppost is clearly visible near the center of the image.",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "crop": "crops/c000-1-ctx.jpg"
+    }
+  ],
+  "chosen": 1,
+  "waitMs": 29120
+}

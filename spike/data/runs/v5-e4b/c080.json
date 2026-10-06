@@ -1,0 +1,94 @@
+{
+  "image": "c080",
+  "width": 2560,
+  "height": 1707,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 45131,
+      "promptTokens": 1534,
+      "outputTokens": 143,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"small wooden garden bench in the middle\",\n      \"box_2d\": [\n        387,\n        355,\n        452,\n        431\n      ],\n      \"similar_count\": 0\n    },\n    {\n      \"label\": \"light green clapboard building on the right\",\n      \"box_2d\": [\n        182,\n        808,\n        413,\n        1000\n      ],\n      \"similar_count\": 0\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 8793,
+      "promptTokens": 277,
+      "outputTokens": 41,
+      "raw": "{\n\"what_i_see\": \"A dark metal park bench\",\n\"answer\": \"small wooden garden bench in the middle\",\n\"person_at_target\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 16692,
+      "promptTokens": 1208,
+      "outputTokens": 91,
+      "raw": "{\n  \"lens\": \"waiting\",\n  \"evidence\": \"The bench is placed in the middle of the garden area.\",\n  \"hint_semantic\": \"It is a place designed for quiet rest and contemplation.\",\n  \"hint_concrete\": \"A dark, wrought-iron bench with a slatted wooden seat.\",\n  \"detail\": \"The metal frame has decorative scrolling patterns along the back.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "small wooden garden bench in the middle",
+      "box_2d": [
+        387,
+        355,
+        452,
+        431
+      ],
+      "box": {
+        "x": 0.355,
+        "y": 0.387,
+        "w": 0.076,
+        "h": 0.065
+      },
+      "lens": "waiting",
+      "mcq": {
+        "options": [
+          "light green clapboard building on the right",
+          "a red fire hydrant",
+          "a bicycle leaning on a post",
+          "small wooden garden bench in the middle"
+        ],
+        "correct": "small wooden garden bench in the middle",
+        "answer": "small wooden garden bench in the middle",
+        "what_i_see": "A dark metal park bench",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "It spends its days waiting for someone.",
+      "hint_semantic": "It is a place designed for quiet rest and contemplation.",
+      "hint_concrete": "A dark, wrought-iron bench with a slatted wooden seat.",
+      "reveal": "The metal frame has decorative scrolling patterns along the back. (evidence: The bench is placed in the middle of the garden area.)",
+      "spatial": "Look roughly straight ahead from where you took the photo.",
+      "crop": "crops/c080-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "light green clapboard building on the right",
+      "box_2d": [
+        182,
+        808,
+        413,
+        1000
+      ],
+      "box": {
+        "x": 0.808,
+        "y": 0.182,
+        "w": 0.192,
+        "h": 0.231
+      },
+      "rejected": "mass_noun",
+      "lens": "similar:0",
+      "crop": "crops/c080-1-ctx.jpg"
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 53924
+}

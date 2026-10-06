@@ -1,0 +1,102 @@
+{
+  "image": "c024",
+  "width": 2560,
+  "height": 1920,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 34669,
+      "promptTokens": 1222,
+      "outputTokens": 139,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Small decorative iron fence section\",\n      \"box_2d\": [\n        466,\n        309,\n        598,\n        422\n      ],\n      \"similar_count\": 0\n    },\n    {\n      \"label\": \"Tall metal gate structure on right\",\n      \"box_2d\": [\n        370,\n        924,\n        777,\n        1000\n      ],\n      \"similar_count\": 0\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 7911,
+      "promptTokens": 353,
+      "outputTokens": 41,
+      "raw": "{\"what_i_see\": \"The center of the image is dominated by the facade of a building with large windows.\", \"answer\": \"none\", \"person_at_target\": false}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6885,
+      "promptTokens": 214,
+      "outputTokens": 45,
+      "raw": "{\n\"what_i_see\": \"A tall, vertical metal structure is near the center.\",\n\"answer\": \"Tall metal gate structure on right\",\n\"person_at_target\": false\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Small decorative iron fence section",
+      "box_2d": [
+        466,
+        309,
+        598,
+        422
+      ],
+      "box": {
+        "x": 0.309,
+        "y": 0.466,
+        "w": 0.113,
+        "h": 0.132
+      },
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "Tall metal gate structure on right",
+          "a red fire hydrant",
+          "a bicycle leaning on a post",
+          "Small decorative iron fence section"
+        ],
+        "correct": "Small decorative iron fence section",
+        "answer": "none",
+        "what_i_see": "The center of the image is dominated by the facade of a building with large windows.",
+        "people": false,
+        "pass": false,
+        "ms": 0
+      },
+      "crop": "crops/c024-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Tall metal gate structure on right",
+      "box_2d": [
+        370,
+        924,
+        777,
+        1000
+      ],
+      "box": {
+        "x": 0.924,
+        "y": 0.37,
+        "w": 0.076,
+        "h": 0.407
+      },
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "Tall metal gate structure on right",
+          "a bicycle leaning on a post",
+          "Small decorative iron fence section"
+        ],
+        "correct": "Tall metal gate structure on right",
+        "answer": "Tall metal gate structure on right",
+        "what_i_see": "A tall, vertical metal structure is near the center.",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "crop": "crops/c024-1-ctx.jpg"
+    }
+  ],
+  "chosen": 1,
+  "waitMs": 49465
+}

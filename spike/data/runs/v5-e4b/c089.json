@@ -1,0 +1,93 @@
+{
+  "image": "c089",
+  "width": 2560,
+  "height": 1707,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 16788,
+      "promptTokens": 1534,
+      "outputTokens": 139,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Circular yellow and red sign with text\",\n      \"box_2d\": [\n        178,\n        787,\n        381,\n        907\n      ],\n      \"similar_count\": 0\n    },\n    {\n      \"label\": \"Yellow metal gate across entrance\",\n      \"box_2d\": [\n        577,\n        217,\n        917,\n        550\n      ],\n      \"similar_count\": 0\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 11332,
+      "promptTokens": 354,
+      "outputTokens": 43,
+      "raw": "{\n\"what_i_see\": \"Circular yellow and red sign with text\",\n\"answer\": \"Circular yellow and red sign with text\",\n\"person_at_target\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 32398,
+      "promptTokens": 1288,
+      "outputTokens": 89,
+      "raw": "{\n  \"lens\": \"read_me\",\n  \"evidence\": \"The sign has large text written on it.\",\n  \"hint_semantic\": \"It advertises a specific type of cold, sweet treat.\",\n  \"hint_concrete\": \"Circular sign, yellow and red, mounted on a pole.\",\n  \"detail\": \"The text includes the words 'NO + GELO'.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Circular yellow and red sign with text",
+      "box_2d": [
+        178,
+        787,
+        381,
+        907
+      ],
+      "box": {
+        "x": 0.787,
+        "y": 0.178,
+        "w": 0.12,
+        "h": 0.203
+      },
+      "lens": "read_me",
+      "mcq": {
+        "options": [
+          "Yellow metal gate across entrance",
+          "a red fire hydrant",
+          "a bicycle leaning on a post",
+          "Circular yellow and red sign with text"
+        ],
+        "correct": "Circular yellow and red sign with text",
+        "answer": "Circular yellow and red sign with text",
+        "what_i_see": "Circular yellow and red sign with text",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "It has something to tell you, if you get close enough to read it.",
+      "hint_semantic": "It advertises a specific type of cold, sweet treat.",
+      "hint_concrete": "Circular sign, yellow and red, mounted on a pole.",
+      "reveal": "The text includes the words 'NO + GELO'. (evidence: The sign has large text written on it.)",
+      "spatial": "Look toward the right of where you took the photo. Look up.",
+      "crop": "crops/c089-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Yellow metal gate across entrance",
+      "box_2d": [
+        577,
+        217,
+        917,
+        550
+      ],
+      "box": {
+        "x": 0.217,
+        "y": 0.577,
+        "w": 0.333,
+        "h": 0.34
+      },
+      "lens": "similar:0",
+      "crop": "crops/c089-1-ctx.jpg"
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 28120
+}

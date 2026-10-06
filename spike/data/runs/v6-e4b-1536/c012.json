@@ -1,0 +1,81 @@
+{
+  "image": "c012",
+  "width": 2560,
+  "height": 1700,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 30619,
+      "promptTokens": 1126,
+      "outputTokens": 139,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Small decorative statue on fountain base\",\n      \"box_2d\": [\n        672,\n        182,\n        799,\n        245\n      ],\n      \"similar_count\": 0\n    },\n    {\n      \"label\": \"Green potted plant on building facade\",\n      \"box_2d\": [\n        647,\n        850,\n        727,\n        915\n      ],\n      \"similar_count\": 0\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 8910,
+      "promptTokens": 322,
+      "outputTokens": 59,
+      "raw": "{\n\"what_i_see\": \"A small, stone-like object is visible near the center of the image, resting on the base of a large structure.\",\n\"answer\": \"Small decorative statue on fountain base\",\n\"person_at_target\": false\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Small decorative statue on fountain base",
+      "box_2d": [
+        672,
+        182,
+        799,
+        245
+      ],
+      "box": {
+        "x": 0.182,
+        "y": 0.672,
+        "w": 0.063,
+        "h": 0.127
+      },
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "Green potted plant on building facade",
+          "a red fire hydrant",
+          "a bicycle leaning on a post",
+          "Small decorative statue on fountain base"
+        ],
+        "correct": "Small decorative statue on fountain base",
+        "answer": "Small decorative statue on fountain base",
+        "what_i_see": "A small, stone-like object is visible near the center of the image, resting on the base of a large structure.",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "crop": "crops/c012-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Green potted plant on building facade",
+      "box_2d": [
+        647,
+        850,
+        727,
+        915
+      ],
+      "box": {
+        "x": 0.85,
+        "y": 0.647,
+        "w": 0.065,
+        "h": 0.08
+      },
+      "lens": "similar:0",
+      "crop": "crops/c012-1-ctx.jpg"
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 39529
+}

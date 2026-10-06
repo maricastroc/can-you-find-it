@@ -1,0 +1,81 @@
+{
+  "image": "c048",
+  "width": 2560,
+  "height": 1707,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 22310,
+      "promptTokens": 1534,
+      "outputTokens": 138,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Light colored stone bridge structure over water\",\n      \"box_2d\": [\n        473,\n        275,\n        517,\n        813],\n      \"similar_count\": 0\n    },\n    {\n      \"label\": \"Small dark statue on bridge abutment\",\n      \"box_2d\": [\n        453,\n        670,\n        475,\n        692],\n      \"similar_count\": 0\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 12967,
+      "promptTokens": 388,
+      "outputTokens": 61,
+      "raw": "{\n\"what_i_see\": \"A large, round, brown object, possibly a decorative sphere or a large pinecone-like structure, is near the center.\",\n\"answer\": \"Light colored stone bridge structure over water\",\n\"person_at_target\": false\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Light colored stone bridge structure over water",
+      "box_2d": [
+        473,
+        275,
+        517,
+        813
+      ],
+      "box": {
+        "x": 0.275,
+        "y": 0.473,
+        "w": 0.538,
+        "h": 0.044
+      },
+      "rejected": "mass_noun",
+      "lens": "similar:0",
+      "crop": "crops/c048-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Small dark statue on bridge abutment",
+      "box_2d": [
+        453,
+        670,
+        475,
+        692
+      ],
+      "box": {
+        "x": 0.67,
+        "y": 0.453,
+        "w": 0.022,
+        "h": 0.022
+      },
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "Small dark statue on bridge abutment",
+          "a bicycle leaning on a post",
+          "Light colored stone bridge structure over water"
+        ],
+        "correct": "Small dark statue on bridge abutment",
+        "answer": "Light colored stone bridge structure over water",
+        "what_i_see": "A large, round, brown object, possibly a decorative sphere or a large pinecone-like structure, is near the center.",
+        "people": false,
+        "pass": false,
+        "ms": 0
+      },
+      "crop": "crops/c048-1-ctx.jpg"
+    }
+  ],
+  "waitMs": 35277
+}

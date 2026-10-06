@@ -1,0 +1,93 @@
+{
+  "image": "c045",
+  "width": 1928,
+  "height": 2560,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 19435,
+      "promptTokens": 1556,
+      "outputTokens": 105,
+      "raw": "{\n  \"targets\": [\n    {\"label\": \"Tall silver street lamp pole\", \"box_2d\": [173, 70, 793, 198], \"similar_count\": 2},\n    {\"label\": \"Black metal light fixture on pole\", \"box_2d\": [348, 504, 557, 568], \"similar_count\": 1}\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4134,
+      "promptTokens": 217,
+      "outputTokens": 39,
+      "raw": "{\n\"what_i_see\": \"Tall silver street lamp pole\",\n\"answer\": \"Tall silver street lamp pole\",\n\"person_at_target\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 8711,
+      "promptTokens": 1166,
+      "outputTokens": 93,
+      "raw": "{\n  \"lens\": \"plain_sight\",\n  \"evidence\": \"The tall, slender metal pole stands against the trees.\",\n  \"hint_semantic\": \"It provides illumination for the area after the sun goes down.\",\n  \"hint_concrete\": \"A tall, thin, silver-grey metal pole extending upwards.\",\n  \"detail\": \"The fixture at the top is a modern, rectangular design.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Tall silver street lamp pole",
+      "box_2d": [
+        173,
+        70,
+        793,
+        198
+      ],
+      "box": {
+        "x": 0.07,
+        "y": 0.173,
+        "w": 0.128,
+        "h": 0.62
+      },
+      "lens": "after_dark",
+      "mcq": {
+        "options": [
+          "Black metal light fixture on pole",
+          "a red fire hydrant",
+          "a bicycle leaning on a post",
+          "Tall silver street lamp pole"
+        ],
+        "correct": "Tall silver street lamp pole",
+        "answer": "Tall silver street lamp pole",
+        "what_i_see": "Tall silver street lamp pole",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "It only does its job after dark.",
+      "hint_semantic": "It provides illumination for the area after the sun goes down.",
+      "hint_concrete": "A tall, thin, silver-grey metal pole extending upwards.",
+      "reveal": "The fixture at the top is a modern, rectangular design. (evidence: The tall, slender metal pole stands against the trees.)",
+      "spatial": "Look toward the left of where you took the photo. It is quite close to where you stood.",
+      "crop": "crops/c045-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Black metal light fixture on pole",
+      "box_2d": [
+        348,
+        504,
+        557,
+        568
+      ],
+      "box": {
+        "x": 0.504,
+        "y": 0.348,
+        "w": 0.064,
+        "h": 0.209
+      },
+      "lens": "similar:1",
+      "crop": "crops/c045-1-ctx.jpg"
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 23569
+}

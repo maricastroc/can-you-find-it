@@ -1,0 +1,81 @@
+{
+  "image": "c002",
+  "width": 2560,
+  "height": 1707,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 30463,
+      "promptTokens": 1126,
+      "outputTokens": 139,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Brick building with dark roofline\",\n      \"box_2d\": [\n        291,\n        261,\n        694,\n        551\n      ],\n      \"similar_count\": 0\n    },\n    {\n      \"label\": \"White rectangular memorial stone slab\",\n      \"box_2d\": [\n        391,\n        171,\n        560,\n        332\n      ],\n      \"similar_count\": 2\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 7750,
+      "promptTokens": 305,
+      "outputTokens": 46,
+      "raw": "{\n\"what_i_see\": \"A large tree and a brick building are near the center.\",\n\"answer\": \"Brick building with dark roofline\",\n\"person_at_target\": false\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Brick building with dark roofline",
+      "box_2d": [
+        291,
+        261,
+        694,
+        551
+      ],
+      "box": {
+        "x": 0.261,
+        "y": 0.291,
+        "w": 0.29,
+        "h": 0.403
+      },
+      "rejected": "mass_noun",
+      "lens": "similar:0",
+      "crop": "crops/c002-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "White rectangular memorial stone slab",
+      "box_2d": [
+        391,
+        171,
+        560,
+        332
+      ],
+      "box": {
+        "x": 0.171,
+        "y": 0.391,
+        "w": 0.161,
+        "h": 0.169
+      },
+      "lens": "similar:2",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "White rectangular memorial stone slab",
+          "a bicycle leaning on a post",
+          "Brick building with dark roofline"
+        ],
+        "correct": "White rectangular memorial stone slab",
+        "answer": "Brick building with dark roofline",
+        "what_i_see": "A large tree and a brick building are near the center.",
+        "people": false,
+        "pass": false,
+        "ms": 0
+      },
+      "crop": "crops/c002-1-ctx.jpg"
+    }
+  ],
+  "waitMs": 38213
+}

@@ -1,0 +1,93 @@
+{
+  "image": "c002",
+  "width": 2560,
+  "height": 1707,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 16368,
+      "promptTokens": 1534,
+      "outputTokens": 139,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Stone memorial plaque with etched text\",\n      \"box_2d\": [\n        646,\n        169,\n        783,\n        326\n      ],\n      \"similar_count\": 1\n    },\n    {\n      \"label\": \"Stone memorial plaque with etched text\",\n      \"box_2d\": [\n        635,\n        445,\n        746,\n        560\n      ],\n      \"similar_count\": 1\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 3911,
+      "promptTokens": 272,
+      "outputTokens": 46,
+      "raw": "{\n\"what_i_see\": \"A stone memorial plaque with etched text is near the center.\",\n\"answer\": \"Stone memorial plaque with etched text\",\n\"person_at_target\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 7474,
+      "promptTokens": 1207,
+      "outputTokens": 85,
+      "raw": "{\n  \"lens\": \"remember\",\n  \"evidence\": \"The stone block has etched text on its front face.\",\n  \"hint_semantic\": \"It serves to commemorate a significant event or person.\",\n  \"hint_concrete\": \"A large, rectangular, light-colored stone pedestal.\",\n  \"detail\": \"The text appears to be in the Polish language.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Stone memorial plaque with etched text",
+      "box_2d": [
+        646,
+        169,
+        783,
+        326
+      ],
+      "box": {
+        "x": 0.169,
+        "y": 0.646,
+        "w": 0.157,
+        "h": 0.137
+      },
+      "lens": "remember",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "a bicycle leaning on a post",
+          "a blue recycling bin",
+          "Stone memorial plaque with etched text"
+        ],
+        "correct": "Stone memorial plaque with etched text",
+        "answer": "Stone memorial plaque with etched text",
+        "what_i_see": "A stone memorial plaque with etched text is near the center.",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "Someone wanted this place to remember something.",
+      "hint_semantic": "It serves to commemorate a significant event or person.",
+      "hint_concrete": "A large, rectangular, light-colored stone pedestal.",
+      "reveal": "The text appears to be in the Polish language. (evidence: The stone block has etched text on its front face.)",
+      "spatial": "Look toward the left of where you took the photo.",
+      "crop": "crops/c002-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Stone memorial plaque with etched text",
+      "box_2d": [
+        635,
+        445,
+        746,
+        560
+      ],
+      "box": {
+        "x": 0.445,
+        "y": 0.635,
+        "w": 0.115,
+        "h": 0.111
+      },
+      "lens": "similar:1",
+      "crop": "crops/c002-1-ctx.jpg"
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 20279
+}

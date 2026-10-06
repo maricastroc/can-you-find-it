@@ -1,0 +1,93 @@
+{
+  "image": "c000",
+  "width": 2560,
+  "height": 1709,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 17011,
+      "promptTokens": 1534,
+      "outputTokens": 140,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Black metal park bench with slats\",\n      \"box_2d\": [\n        752,\n        415,\n        919,\n        532\n      ],\n      \"similar_count\": 1\n    },\n    {\n      \"label\": \"Black lamppost with glowing top\",\n      \"box_2d\": [\n        482,\n        813,\n        731,\n        840\n      ],\n      \"similar_count\": 0\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 3245,
+      "promptTokens": 221,
+      "outputTokens": 43,
+      "raw": "{\n\"what_i_see\": \"Black lamppost with glowing top\",\n\"answer\": \"Black lamppost with glowing top\",\n\"person_at_target\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 6696,
+      "promptTokens": 1154,
+      "outputTokens": 85,
+      "raw": "{\n\"lens\": \"after_dark\",\n\"evidence\": \"The lamp is lit, suggesting it functions after dark.\",\n\"hint_semantic\": \"It provides illumination for the area when natural light fades.\",\n\"hint_concrete\": \"Tall, black metal pole with a glass-enclosed light fixture.\",\n\"detail\": \"The light source at the top is glowing brightly.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Black metal park bench with slats",
+      "box_2d": [
+        752,
+        415,
+        919,
+        532
+      ],
+      "box": {
+        "x": 0.415,
+        "y": 0.752,
+        "w": 0.117,
+        "h": 0.167
+      },
+      "lens": "similar:1",
+      "crop": "crops/c000-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Black lamppost with glowing top",
+      "box_2d": [
+        482,
+        813,
+        731,
+        840
+      ],
+      "box": {
+        "x": 0.813,
+        "y": 0.482,
+        "w": 0.027,
+        "h": 0.249
+      },
+      "lens": "after_dark",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "Black lamppost with glowing top",
+          "a bicycle leaning on a post",
+          "Black metal park bench with slats"
+        ],
+        "correct": "Black lamppost with glowing top",
+        "answer": "Black lamppost with glowing top",
+        "what_i_see": "Black lamppost with glowing top",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "It only does its job after dark.",
+      "hint_semantic": "It provides illumination for the area when natural light fades.",
+      "hint_concrete": "Tall, black metal pole with a glass-enclosed light fixture.",
+      "reveal": "The light source at the top is glowing brightly. (evidence: The lamp is lit, suggesting it functions after dark.)",
+      "spatial": "Look toward the right of where you took the photo.",
+      "crop": "crops/c000-1-ctx.jpg"
+    }
+  ],
+  "chosen": 1,
+  "waitMs": 20256
+}
