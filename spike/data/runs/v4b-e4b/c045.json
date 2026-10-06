@@ -1,0 +1,128 @@
+{
+  "image": "c045",
+  "width": 1928,
+  "height": 2560,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 32259,
+      "promptTokens": 1589,
+      "outputTokens": 281,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Tall metal light pole with a fixture on top\",\n      \"box_2d\": [\n        170,\n        106,\n        778,\n        184\n      ],\n      \"special\": \"A distinctive vertical element in the scene.\",\n      \"similar_count\": 2,\n      \"difficulty\": \"easy\"\n    },\n    {\n      \"label\": \"Red and yellow plastic slide structure in playground\",\n      \"box_2d\": [\n        587,\n        253,\n        800,\n        851\n      ],\n      \"special\": \"The main colorful play equipment structure.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    },\n    {\n      \"label\": \"Thin, light-barked deciduous tree in the center\",\n      \"box_2d\": [\n        66,\n        497,\n        636,\n        717\n      ],\n      \"special\": \"Unique, pale, vertical tree amidst the greenery.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"hard\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5240,
+      "promptTokens": 328,
+      "outputTokens": 37,
+      "raw": "{\n\"what_i_see\": \"playground equipment\",\n\"answer\": \"Red and yellow plastic slide structure in playground\",\n\"people_visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 3983,
+      "promptTokens": 199,
+      "outputTokens": 45,
+      "raw": "{\n\"what_i_see\": \"Tall metal light pole with a fixture on top\",\n\"answer\": \"Tall metal light pole with a fixture on top\",\n\"people_visible\": true\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Tall metal light pole with a fixture on top",
+      "box_2d": [
+        170,
+        106,
+        778,
+        184
+      ],
+      "box": {
+        "x": 0.106,
+        "y": 0.17,
+        "w": 0.078,
+        "h": 0.608
+      },
+      "difficulty": "easy",
+      "crop": "../v4-e4b/crops/c045-0-ctx.jpg",
+      "mcq": {
+        "options": [
+          "Red and yellow plastic slide structure in playground",
+          "Thin, light-barked deciduous tree in the center",
+          "a red fire hydrant",
+          "Tall metal light pole with a fixture on top"
+        ],
+        "correct": "Tall metal light pole with a fixture on top",
+        "answer": "Tall metal light pole with a fixture on top",
+        "what_i_see": "Tall metal light pole",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "It only does its job after dark.",
+      "lens": "after_dark",
+      "hint_semantic": "It provides illumination for the area after the sun goes down.",
+      "hint_concrete": "Tall, slender, silver metal pole with a light fixture.",
+      "reveal": "The fixture has a rectangular shape at the top. (evidence: The fixture is mounted high up on the pole.)",
+      "spatial": "Look toward the left of where you took the photo. It is quite close to where you stood."
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Red and yellow plastic slide structure in playground",
+      "box_2d": [
+        587,
+        253,
+        800,
+        851
+      ],
+      "box": {
+        "x": 0.253,
+        "y": 0.587,
+        "w": 0.598,
+        "h": 0.213
+      },
+      "difficulty": "medium",
+      "crop": "../v4-e4b/crops/c045-1-ctx.jpg",
+      "mcq": {
+        "options": [
+          "Thin, light-barked deciduous tree in the center",
+          "Red and yellow plastic slide structure in playground",
+          "a red fire hydrant",
+          "Tall metal light pole with a fixture on top"
+        ],
+        "correct": "Red and yellow plastic slide structure in playground",
+        "answer": "Red and yellow plastic slide structure in playground",
+        "what_i_see": "playground equipment",
+        "people": true,
+        "pass": false,
+        "ms": 0
+      }
+    },
+    {
+      "idx": 2,
+      "source": "full",
+      "label": "Thin, light-barked deciduous tree in the center",
+      "box_2d": [
+        66,
+        497,
+        636,
+        717
+      ],
+      "box": {
+        "x": 0.497,
+        "y": 0.066,
+        "w": 0.22,
+        "h": 0.57
+      },
+      "rejected": "mass_noun",
+      "difficulty": "hard",
+      "crop": "../v4-e4b/crops/c045-2-ctx.jpg"
+    }
+  ],
+  "waitMs": 45783,
+  "chosen": 0
+}

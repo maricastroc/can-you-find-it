@@ -1,0 +1,160 @@
+{
+  "image": "c098",
+  "width": 2000,
+  "height": 1500,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 31537,
+      "promptTokens": 1551,
+      "outputTokens": 265,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Black planter with green foliage near the right wall\",\n      \"box_2d\": [646, 699, 741, 790],\n      \"special\": \"A nicely potted plant adds a touch of color.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"easy\"\n    },\n    {\n      \"label\": \"Small black pot with green plants by the right door\",\n      \"box_2d\": [693, 803, 864, 913],\n      \"special\": \"A decorative planter adds charm to the walkway.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    },\n    {\n      \"label\": \"Blue hatchback parked near the center of the road\",\n      \"box_2d\": [466, 419, 593, 533],\n      \"special\": \"A specific car provides a familiar, recognizable shape.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"easy\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6564,
+      "promptTokens": 475,
+      "outputTokens": 46,
+      "raw": "{\n\"what_i_see\": \"A black planter with green foliage near the right wall\",\n\"answer\": \"Black planter with green foliage near the right wall\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 8117,
+      "promptTokens": 496,
+      "outputTokens": 43,
+      "raw": "{\n\"what_i_see\": \"A potted plant in a decorative pot.\",\n\"answer\": \"Black planter with green foliage near the right wall\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 7365,
+      "promptTokens": 496,
+      "outputTokens": 45,
+      "raw": "{\n\"what_i_see\": \"A dark blue/black minivan/MPV\",\n\"answer\": \"Black planter with green foliage near the right wall\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 11966,
+      "promptTokens": 1403,
+      "outputTokens": 92,
+      "raw": "{\n  \"lens\": \"cared_for\",\n  \"evidence\": \"The planter contains green foliage, suggesting tending.\",\n  \"hint_semantic\": \"Something that needs regular attention to stay vibrant and healthy.\",\n  \"hint_concrete\": \"A large, dark, round pot filled with low green plants.\",\n  \"detail\": \"The pot has a visible rim and a dark, matte finish.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Black planter with green foliage near the right wall",
+      "box_2d": [
+        646,
+        699,
+        741,
+        790
+      ],
+      "box": {
+        "x": 0.699,
+        "y": 0.646,
+        "w": 0.091,
+        "h": 0.095
+      },
+      "difficulty": "easy",
+      "why": "A nicely potted plant adds a touch of color.",
+      "lens": "cared_for",
+      "mcq": {
+        "options": [
+          "Small black pot with green plants by the right door",
+          "Blue hatchback parked near the center of the road",
+          "a red fire hydrant",
+          "Black planter with green foliage near the right wall"
+        ],
+        "correct": "Black planter with green foliage near the right wall",
+        "answer": "Black planter with green foliage near the right wall",
+        "what_i_see": "A black planter with green foliage near the right wall",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "Somebody takes care of this, every single week.",
+      "hint_semantic": "Something that needs regular attention to stay vibrant and healthy.",
+      "hint_concrete": "A large, dark, round pot filled with low green plants.",
+      "reveal": "The pot has a visible rim and a dark, matte finish. (evidence: The planter contains green foliage, suggesting tending.)",
+      "spatial": "Look toward the right of where you took the photo.",
+      "crop": "crops/c098-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Small black pot with green plants by the right door",
+      "box_2d": [
+        693,
+        803,
+        864,
+        913
+      ],
+      "box": {
+        "x": 0.803,
+        "y": 0.693,
+        "w": 0.11,
+        "h": 0.171
+      },
+      "difficulty": "medium",
+      "why": "A decorative planter adds charm to the walkway.",
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "Blue hatchback parked near the center of the road",
+          "Small black pot with green plants by the right door",
+          "a red fire hydrant",
+          "Black planter with green foliage near the right wall"
+        ],
+        "correct": "Small black pot with green plants by the right door",
+        "answer": "Black planter with green foliage near the right wall",
+        "what_i_see": "A potted plant in a decorative pot.",
+        "people": false,
+        "pass": false,
+        "ms": 0
+      },
+      "crop": "crops/c098-1-ctx.jpg"
+    },
+    {
+      "idx": 2,
+      "source": "full",
+      "label": "Blue hatchback parked near the center of the road",
+      "box_2d": [
+        466,
+        419,
+        593,
+        533
+      ],
+      "box": {
+        "x": 0.419,
+        "y": 0.466,
+        "w": 0.114,
+        "h": 0.127
+      },
+      "difficulty": "easy",
+      "why": "A specific car provides a familiar, recognizable shape.",
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "Blue hatchback parked near the center of the road",
+          "Black planter with green foliage near the right wall",
+          "Small black pot with green plants by the right door"
+        ],
+        "correct": "Blue hatchback parked near the center of the road",
+        "answer": "Black planter with green foliage near the right wall",
+        "what_i_see": "A dark blue/black minivan/MPV",
+        "people": false,
+        "pass": false,
+        "ms": 0
+      },
+      "crop": "crops/c098-2-ctx.jpg"
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 50067
+}

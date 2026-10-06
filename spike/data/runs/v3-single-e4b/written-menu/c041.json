@@ -1,0 +1,22 @@
+{
+  "1": {
+    "lens": "only_color",
+    "evidence": "The bright yellow color stands out against the surroundings.",
+    "hint_semantic": "It is a barrier designed to control access to an area.",
+    "hint_concrete": "A vertical metal panel, bright yellow, part of a fence.",
+    "detail": "The gate section has vertical slats or bars.",
+    "clue": "Nothing else here is quite this color.",
+    "ms": 9928,
+    "outputTokens": 89
+  },
+  "2": {
+    "lens": "handmade",
+    "evidence": "The wooden poles are assembled and shaped by hand.",
+    "hint_semantic": "It was constructed using natural materials by human effort.",
+    "hint_concrete": "Tall, rough-hewn wooden poles forming a triangular frame.",
+    "detail": "The metal crossbar connecting the top of the wooden supports.",
+    "clue": "Somebody made this by hand.",
+    "ms": 11604,
+    "outputTokens": 88
+  }
+}

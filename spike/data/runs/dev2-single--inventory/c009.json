@@ -1,0 +1,223 @@
+{
+  "image": "c009",
+  "width": 2560,
+  "height": 1660,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "single",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 53068,
+      "promptTokens": 1857,
+      "outputTokens": 682,
+      "raw": "{\"seen\": [\"red tiled roof\", \"yellow painted building facade\", \"grey stone fountain base\", \"metal outdoor dining chairs\", \"dark lamppost with fixture\", \"red car parked near fountain\"], \"targets\": [{\"label\": \"Yellow painted building facade detail\", \"box_2d\": [283, 200, 615, 799], \"lens\": \"shape_or_color\", \"why\": \"A small patch of yellow paint on the older building.\", \"difficulty\": \"medium\", \"clue\": \"It shows a color that was chosen long ago.\", \"hint_semantic\": \"It is part of the original exterior finish.\", \"hint_concrete\": \"Smooth, pale yellow paint on the plaster.\", \"reveal\": \"The color choice adds a warm contrast to the surrounding architecture.\"}, {\"label\": \"Grey stone fountain base steps\", \"box_2d\": [678, 443, 825, 918], \"lens\": \"landmark_detail\", \"why\": \"The tiered stone structure of the fountain.\", \"difficulty\": \"easy\", \"clue\": \"It holds the water, forming concentric rings.\", \"hint_semantic\": \"It is the structure supporting the water display.\", \"hint_concrete\": \"Rough, grey, tiered stone steps.\", \"reveal\": \"The fountain design suggests a classical, public gathering space.\"}, {\"label\": \"Metal outdoor dining chairs\", \"box_2d\": [608, 77, 738, 434], \"lens\": \"human_trace\", \"why\": \"The collection of empty, patterned metal chairs.\", \"difficulty\": \"medium\", \"clue\": \"These seats wait for guests to arrive.\", \"hint_semantic\": \"They are designed for outdoor public dining.\", \"hint_concrete\": \"Light-colored, ornate, wrought-iron style.\", \"reveal\": \"The arrangement suggests the area is frequently used for socializing.\"}, {\"label\": \"Dark lamppost with fixture\", \"box_2d\": [394, 354, 632, 395], \"lens\": \"hidden_in_plain_sight\", \"why\": \"The tall, black street light fixture.\", \"difficulty\": \"easy\", \"clue\": \"It provides light when the day ends.\", \"hint_semantic\": \"It is a fixture meant to illuminate the thoroughfare.\", \"hint_concrete\": \"Tall, black metal pole with a lantern head.\", \"reveal\": \"This fixture helps define the boundaries of the pedestrian area.\"}, {\"label\": \"Red car parked near fountain\", \"box_2d\": [636, 816, 757, 998], \"lens\": \"out_of_place\", \"why\": \"The bright red vehicle stopped beside the fountain.\", \"difficulty\": \"medium\", \"clue\": \"Its presence suggests a brief stop in this square.\", \"hint_semantic\": \"It is a private vehicle pausing in the pedestrian zone.\", \"hint_concrete\": \"Bright, solid red body color, small hatchback shape.\", \"reveal\": \"The vehicle's stop momentarily interrupts the scene's tranquility.\"}]}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4926,
+      "promptTokens": 233,
+      "outputTokens": 40,
+      "raw": "{\n\"what_i_see\": \"A row of buildings with varying architectural styles and colors, featuring a prominent central building with a red tile roof.\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 2598,
+      "promptTokens": 149,
+      "outputTokens": 21,
+      "raw": "{\n\"what_i_see\": \"Fountain\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3793,
+      "promptTokens": 169,
+      "outputTokens": 35,
+      "raw": "{\n\"what_i_see\": \"A collection of ornate, light-colored metal outdoor dining chairs arranged in a group.\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 2749,
+      "promptTokens": 192,
+      "outputTokens": 18,
+      "raw": "{\"what_i_see\": \"lamppost\", \"visible\": true}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3379,
+      "promptTokens": 254,
+      "outputTokens": 26,
+      "raw": "{\n\"what_i_see\": \"A red car parked near a fountain\",\n\"visible\": true\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "label": "Yellow painted building facade detail",
+      "box_2d": [
+        283,
+        200,
+        615,
+        799
+      ],
+      "lens": "shape_or_color",
+      "why": "A small patch of yellow paint on the older building.",
+      "difficulty": "medium",
+      "clue": "It shows a color that was chosen long ago.",
+      "hint_semantic": "It is part of the original exterior finish.",
+      "hint_concrete": "Smooth, pale yellow paint on the plaster.",
+      "reveal": "The color choice adds a warm contrast to the surrounding architecture.",
+      "source": "full",
+      "idx": 0,
+      "box": {
+        "x": 0.2,
+        "y": 0.283,
+        "w": 0.599,
+        "h": 0.332
+      },
+      "boxWarnings": [],
+      "crop": "crops/c009-0-ctx.jpg",
+      "verifyCrop": "crops/c009-0-verify.jpg",
+      "verify": {
+        "what_i_see": "A row of buildings with varying architectural styles and colors, featuring a prominent central building with a red tile roof.",
+        "visible": true,
+        "ms": 4926
+      }
+    },
+    {
+      "label": "Grey stone fountain base steps",
+      "box_2d": [
+        678,
+        443,
+        825,
+        918
+      ],
+      "lens": "landmark_detail",
+      "why": "The tiered stone structure of the fountain.",
+      "difficulty": "easy",
+      "clue": "It holds the water, forming concentric rings.",
+      "hint_semantic": "It is the structure supporting the water display.",
+      "hint_concrete": "Rough, grey, tiered stone steps.",
+      "reveal": "The fountain design suggests a classical, public gathering space.",
+      "source": "full",
+      "idx": 1,
+      "box": {
+        "x": 0.443,
+        "y": 0.678,
+        "w": 0.47500000000000003,
+        "h": 0.1469999999999999
+      },
+      "boxWarnings": [],
+      "crop": "crops/c009-1-ctx.jpg",
+      "verifyCrop": "crops/c009-1-verify.jpg",
+      "verify": {
+        "what_i_see": "Fountain",
+        "visible": true,
+        "ms": 2598
+      }
+    },
+    {
+      "label": "Metal outdoor dining chairs",
+      "box_2d": [
+        608,
+        77,
+        738,
+        434
+      ],
+      "lens": "human_trace",
+      "why": "The collection of empty, patterned metal chairs.",
+      "difficulty": "medium",
+      "clue": "These seats wait for guests to arrive.",
+      "hint_semantic": "They are designed for outdoor public dining.",
+      "hint_concrete": "Light-colored, ornate, wrought-iron style.",
+      "reveal": "The arrangement suggests the area is frequently used for socializing.",
+      "source": "full",
+      "idx": 2,
+      "box": {
+        "x": 0.077,
+        "y": 0.608,
+        "w": 0.357,
+        "h": 0.13
+      },
+      "boxWarnings": [],
+      "crop": "crops/c009-2-ctx.jpg",
+      "verifyCrop": "crops/c009-2-verify.jpg",
+      "verify": {
+        "what_i_see": "A collection of ornate, light-colored metal outdoor dining chairs arranged in a group.",
+        "visible": true,
+        "ms": 3793
+      }
+    },
+    {
+      "label": "Dark lamppost with fixture",
+      "box_2d": [
+        394,
+        354,
+        632,
+        395
+      ],
+      "lens": "hidden_in_plain_sight",
+      "why": "The tall, black street light fixture.",
+      "difficulty": "easy",
+      "clue": "It provides light when the day ends.",
+      "hint_semantic": "It is a fixture meant to illuminate the thoroughfare.",
+      "hint_concrete": "Tall, black metal pole with a lantern head.",
+      "reveal": "This fixture helps define the boundaries of the pedestrian area.",
+      "source": "full",
+      "idx": 3,
+      "box": {
+        "x": 0.354,
+        "y": 0.394,
+        "w": 0.041000000000000036,
+        "h": 0.238
+      },
+      "boxWarnings": [],
+      "crop": "crops/c009-3-ctx.jpg",
+      "verifyCrop": "crops/c009-3-verify.jpg",
+      "verify": {
+        "what_i_see": "lamppost",
+        "visible": true,
+        "ms": 2749
+      }
+    },
+    {
+      "label": "Red car parked near fountain",
+      "box_2d": [
+        636,
+        816,
+        757,
+        998
+      ],
+      "lens": "out_of_place",
+      "why": "The bright red vehicle stopped beside the fountain.",
+      "difficulty": "medium",
+      "clue": "Its presence suggests a brief stop in this square.",
+      "hint_semantic": "It is a private vehicle pausing in the pedestrian zone.",
+      "hint_concrete": "Bright, solid red body color, small hatchback shape.",
+      "reveal": "The vehicle's stop momentarily interrupts the scene's tranquility.",
+      "source": "full",
+      "idx": 4,
+      "box": {
+        "x": 0.816,
+        "y": 0.636,
+        "w": 0.18200000000000005,
+        "h": 0.121
+      },
+      "boxWarnings": [],
+      "crop": "crops/c009-4-ctx.jpg",
+      "verifyCrop": "crops/c009-4-verify.jpg",
+      "verify": {
+        "what_i_see": "A red car parked near a fountain",
+        "visible": true,
+        "ms": 3379
+      }
+    }
+  ],
+  "seen": [
+    "red tiled roof",
+    "yellow painted building facade",
+    "grey stone fountain base",
+    "metal outdoor dining chairs",
+    "dark lamppost with fixture",
+    "red car parked near fountain"
+  ]
+}

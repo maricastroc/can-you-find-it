@@ -1,0 +1,24 @@
+{
+  "0": {
+    "what_is_special": "A depiction of historical figures engaged in some weighty action.",
+    "lens": "repaired",
+    "difficulty": "medium",
+    "clue": "Strength and history are captured in this weathered relief.",
+    "hint_semantic": "It represents an old affiliation or a notable event.",
+    "hint_concrete": "It is a low-relief carving set into the stone wall.",
+    "reveal": "The details of the figures are softened by years of exposure to the elements.",
+    "ms": 14922,
+    "outputTokens": 122
+  },
+  "1": {
+    "what_is_special": "The weathered surface holds the passage of countless arrivals.",
+    "lens": "repaired",
+    "difficulty": "medium",
+    "clue": "Footfalls mark the ascent toward temporary shelter.",
+    "hint_semantic": "It allows passage between different levels of the landscape.",
+    "hint_concrete": "Rough, block-like material forming a series of rising planes.",
+    "reveal": "Tiny moss patches cling stubbornly between the treads.",
+    "ms": 16353,
+    "outputTokens": 119
+  }
+}

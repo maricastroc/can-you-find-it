@@ -1,0 +1,12 @@
+{
+  "label": "Small dark informational sign attached to the ground",
+  "verdict": "not_quite",
+  "calls": [
+    {
+      "kind": "compare",
+      "prompt": "Image 1 is a crop from a wide photo showing a hidden target: \"Small dark informational sign attached to the ground\".\nImage 2 is a close-up photo a player just t",
+      "content": "{\n  \"target_details\": [\n    \"Rectangular shape\",\n    \"Dark background with white horizontal stripes\",\n    \"Located amidst green foliage\"\n  ],\n  \"image2_shows\": \"A dirt path bordered by green ferns.\",\n  \"same_kind\": false,\n  \"same_object\": false\n}",
+      "ms": 8205
+    }
+  ]
+}

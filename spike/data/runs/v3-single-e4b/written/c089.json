@@ -1,0 +1,24 @@
+{
+  "0": {
+    "what_is_special": "The round sign displaying a yellow and blue logo.",
+    "lens": "nature_reclaiming",
+    "difficulty": "medium",
+    "clue": "Liquid refreshment is promised in this large circular display.",
+    "hint_semantic": "It advertises a chilled, refreshing beverage.",
+    "hint_concrete": "The surface has faded paint and chipped edges.",
+    "reveal": "The graphics show a depiction of rough, uneven stone.",
+    "ms": 13751,
+    "outputTokens": 113
+  },
+  "1": {
+    "what_is_special": "This barrier controls access to the vibrant interior.",
+    "lens": "repaired",
+    "difficulty": "easy",
+    "clue": "Metal bars stand guard over the colorful display inside.",
+    "hint_semantic": "It prevents direct passage into the space beyond.",
+    "hint_concrete": "Tall, vertical bars of a bright, uniform shade.",
+    "reveal": "Small rust spots mar the otherwise bright surface.",
+    "ms": 14989,
+    "outputTokens": 112
+  }
+}

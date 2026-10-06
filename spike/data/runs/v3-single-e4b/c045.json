@@ -1,0 +1,316 @@
+{
+  "image": "c045",
+  "width": 1928,
+  "height": 2560,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "single",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 72188,
+      "promptTokens": 1923,
+      "outputTokens": 856,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Tall metal light pole with a modern fixture at the top\",\n      \"box_2d\": [170, 94, 806, 207],\n      \"lens\": \"hidden_in_plain_sight\",\n      \"why\": \"It's a standard piece of park infrastructure that is easily overlooked.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"It provides illumination when the daylight fades away.\",\n      \"hint_semantic\": \"It helps people see when it gets dark.\",\n      \"hint_concrete\": \"A slender, vertical metal pole with a rectangular fixture.\",\n      \"reveal\": \"These structures are designed to keep the park safe after sunset.\"\n    },\n    {\n      \"label\": \"Red and yellow plastic slide structure in the play area\",\n      \"box_2d\": [575, 250, 804, 847],\n      \"lens\": \"shape_or_color\",\n      \"why\": \"The bright, distinct colors and interconnected shapes make it stand out.\",\n      \"difficulty\": \"easy\",\n      \"clue\": \"It offers a fast, colorful way down to the ground.\",\n      \"hint_semantic\": \"It is a piece of playground equipment for sliding.\",\n      \"hint_concrete\": \"A structure made of brightly colored molded plastic and wood.\",\n      \"reveal\": \"It’s a place where childhood energy seems to never run out.\"\n    },\n    {\n      \"label\": \"Light pole in the middle ground with a curved lamp head\",\n      \"box_2d\": [345, 504, 644, 573],\n      \"lens\": \"human_trace\",\n      \"why\": \"It's another piece of utility equipment, slightly less prominent than the foreground lamp.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"It stands tall, ready to shine on the paths nearby.\",\n      \"hint_semantic\": \"It is part of the park's lighting system.\",\n      \"hint_concrete\": \"A thin, dark pole topped with a small, curved light unit.\",\n      \"reveal\": \"These fixtures help define the boundaries of the recreational space.\"\n    },\n    {\n      \"label\": \"White vehicle parked in the distance on the far left\",\n      \"box_2d\": [634, 186, 662, 224],\n      \"lens\": \"human_trace\",\n      \"why\": \"It's a small, distant detail suggesting human activity beyond the park.\",\n      \"difficulty\": \"hard\",\n      \"clue\": \"It is a temporary visitor passing through this open space.\",\n      \"hint_semantic\": \"It is a vehicle used for transportation.\",\n      \"hint_concrete\": \"A light-colored, boxy shape visible far down the path.\",\n      \"reveal\": \"Even in a quiet park, the flow of life continues around it.\"\n    },\n    {\n      \"label\": \"Small white structure visible beyond the playground area\",\n      \"box_2d\": [636, 332, 662, 362],\n      \"lens\": \"out_of_place\",\n      \"why\": \"It's a small, indistinct building or structure that contrasts with the natural setting.\",\n      \"difficulty\": \"hard\",\n      \"clue\": \"It suggests a small dwelling or service point nearby.\",\n      \"hint_semantic\": \"It is a small, permanent building structure.\",\n      \"hint_concrete\": \"A low, rectangular shape with light-colored walls.\",\n      \"reveal\": \"Sometimes the edges of nature meet the signs of civilization.\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 2912,
+      "promptTokens": 163,
+      "outputTokens": 23,
+      "raw": "{\n\"what_i_see\": \"Tall metal light pole\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4260,
+      "promptTokens": 206,
+      "outputTokens": 33,
+      "raw": "{\n\"what_i_see\": \"A tall metal light pole is near the center of the image.\",\n\"answer\": \"D\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4079,
+      "promptTokens": 301,
+      "outputTokens": 22,
+      "raw": "{\n\"what_i_see\": \"Playground equipment\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4986,
+      "promptTokens": 341,
+      "outputTokens": 25,
+      "raw": "{\n\"what_i_see\": \"A colorful playground structure\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3595,
+      "promptTokens": 155,
+      "outputTokens": 21,
+      "raw": "{\n\"what_i_see\": \"Light pole\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 3366,
+      "promptTokens": 198,
+      "outputTokens": 32,
+      "raw": "{\n\"what_i_see\": \"A tall metal light pole dominates the center of the image.\",\n\"answer\": \"C\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5727,
+      "promptTokens": 511,
+      "outputTokens": 21,
+      "raw": "{\n\"what_i_see\": \"White car\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6760,
+      "promptTokens": 557,
+      "outputTokens": 37,
+      "raw": "{\n\"what_i_see\": \"A white vehicle is visible near the center of the image, partially obscured by trees.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5633,
+      "promptTokens": 509,
+      "outputTokens": 21,
+      "raw": "{\n\"what_i_see\": \"playground equipment\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6609,
+      "promptTokens": 555,
+      "outputTokens": 36,
+      "raw": "{\n\"what_i_see\": \"The center of the image is dominated by wooden and plastic structures of a playground.\",\n\"answer\": \"C\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "label": "Tall metal light pole with a modern fixture at the top",
+      "box_2d": [
+        170,
+        94,
+        806,
+        207
+      ],
+      "lens": "hidden_in_plain_sight",
+      "why": "It's a standard piece of park infrastructure that is easily overlooked.",
+      "difficulty": "medium",
+      "clue": "It provides illumination when the daylight fades away.",
+      "hint_semantic": "It helps people see when it gets dark.",
+      "hint_concrete": "A slender, vertical metal pole with a rectangular fixture.",
+      "reveal": "These structures are designed to keep the park safe after sunset.",
+      "source": "full",
+      "idx": 0,
+      "box": {
+        "x": 0.094,
+        "y": 0.17,
+        "w": 0.11299999999999999,
+        "h": 0.636
+      },
+      "boxWarnings": [],
+      "crop": "crops/c045-0-ctx.jpg",
+      "verifyCrop": "crops/c045-0-verify.jpg",
+      "verify": {
+        "what_i_see": "Tall metal light pole",
+        "visible": true,
+        "ms": 2912
+      },
+      "mcq": {
+        "options": [
+          "Red and yellow plastic slide structure in the play area",
+          "Light pole in the middle ground with a curved lamp head",
+          "Small white structure visible beyond the playground area",
+          "Tall metal light pole with a modern fixture at the top"
+        ],
+        "correct": "D",
+        "answer": "D",
+        "what_i_see": "A tall metal light pole is near the center of the image.",
+        "pass": true,
+        "ms": 4260
+      }
+    },
+    {
+      "label": "Red and yellow plastic slide structure in the play area",
+      "box_2d": [
+        575,
+        250,
+        804,
+        847
+      ],
+      "lens": "shape_or_color",
+      "why": "The bright, distinct colors and interconnected shapes make it stand out.",
+      "difficulty": "easy",
+      "clue": "It offers a fast, colorful way down to the ground.",
+      "hint_semantic": "It is a piece of playground equipment for sliding.",
+      "hint_concrete": "A structure made of brightly colored molded plastic and wood.",
+      "reveal": "It’s a place where childhood energy seems to never run out.",
+      "source": "full",
+      "idx": 1,
+      "box": {
+        "x": 0.25,
+        "y": 0.575,
+        "w": 0.597,
+        "h": 0.2290000000000001
+      },
+      "boxWarnings": [],
+      "crop": "crops/c045-1-ctx.jpg",
+      "verifyCrop": "crops/c045-1-verify.jpg",
+      "verify": {
+        "what_i_see": "Playground equipment",
+        "visible": true,
+        "ms": 4079
+      },
+      "mcq": {
+        "options": [
+          "Light pole in the middle ground with a curved lamp head",
+          "Red and yellow plastic slide structure in the play area",
+          "a red fire hydrant",
+          "Tall metal light pole with a modern fixture at the top"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A colorful playground structure",
+        "pass": true,
+        "ms": 4986
+      }
+    },
+    {
+      "label": "Light pole in the middle ground with a curved lamp head",
+      "box_2d": [
+        345,
+        504,
+        644,
+        573
+      ],
+      "lens": "human_trace",
+      "why": "It's another piece of utility equipment, slightly less prominent than the foreground lamp.",
+      "difficulty": "medium",
+      "clue": "It stands tall, ready to shine on the paths nearby.",
+      "hint_semantic": "It is part of the park's lighting system.",
+      "hint_concrete": "A thin, dark pole topped with a small, curved light unit.",
+      "reveal": "These fixtures help define the boundaries of the recreational space.",
+      "source": "full",
+      "idx": 2,
+      "box": {
+        "x": 0.504,
+        "y": 0.345,
+        "w": 0.06899999999999995,
+        "h": 0.29900000000000004
+      },
+      "boxWarnings": [],
+      "crop": "crops/c045-2-ctx.jpg",
+      "verifyCrop": "crops/c045-2-verify.jpg",
+      "verify": {
+        "what_i_see": "Light pole",
+        "visible": true,
+        "ms": 3595
+      },
+      "mcq": {
+        "options": [
+          "Small white structure visible beyond the playground area",
+          "Light pole in the middle ground with a curved lamp head",
+          "Tall metal light pole with a modern fixture at the top",
+          "White vehicle parked in the distance on the far left"
+        ],
+        "correct": "B",
+        "answer": "C",
+        "what_i_see": "A tall metal light pole dominates the center of the image.",
+        "pass": false,
+        "ms": 3366
+      }
+    },
+    {
+      "label": "White vehicle parked in the distance on the far left",
+      "box_2d": [
+        634,
+        186,
+        662,
+        224
+      ],
+      "lens": "human_trace",
+      "why": "It's a small, distant detail suggesting human activity beyond the park.",
+      "difficulty": "hard",
+      "clue": "It is a temporary visitor passing through this open space.",
+      "hint_semantic": "It is a vehicle used for transportation.",
+      "hint_concrete": "A light-colored, boxy shape visible far down the path.",
+      "reveal": "Even in a quiet park, the flow of life continues around it.",
+      "source": "full",
+      "idx": 3,
+      "box": {
+        "x": 0.186,
+        "y": 0.634,
+        "w": 0.038000000000000006,
+        "h": 0.028000000000000025
+      },
+      "boxWarnings": [],
+      "crop": "crops/c045-3-ctx.jpg",
+      "verifyCrop": "crops/c045-3-verify.jpg",
+      "verify": {
+        "what_i_see": "White car",
+        "visible": false,
+        "ms": 5727
+      },
+      "mcq": {
+        "options": [
+          "Red and yellow plastic slide structure in the play area",
+          "White vehicle parked in the distance on the far left",
+          "Tall metal light pole with a modern fixture at the top",
+          "Light pole in the middle ground with a curved lamp head"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A white vehicle is visible near the center of the image, partially obscured by trees.",
+        "pass": true,
+        "ms": 6760
+      }
+    },
+    {
+      "label": "Small white structure visible beyond the playground area",
+      "box_2d": [
+        636,
+        332,
+        662,
+        362
+      ],
+      "lens": "out_of_place",
+      "why": "It's a small, indistinct building or structure that contrasts with the natural setting.",
+      "difficulty": "hard",
+      "clue": "It suggests a small dwelling or service point nearby.",
+      "hint_semantic": "It is a small, permanent building structure.",
+      "hint_concrete": "A low, rectangular shape with light-colored walls.",
+      "reveal": "Sometimes the edges of nature meet the signs of civilization.",
+      "source": "full",
+      "idx": 4,
+      "box": {
+        "x": 0.332,
+        "y": 0.636,
+        "w": 0.02999999999999997,
+        "h": 0.026000000000000023
+      },
+      "boxWarnings": [],
+      "crop": "crops/c045-4-ctx.jpg",
+      "verifyCrop": "crops/c045-4-verify.jpg",
+      "rejected": "mass_noun",
+      "verify": {
+        "what_i_see": "playground equipment",
+        "visible": false,
+        "ms": 5633
+      },
+      "mcq": {
+        "options": [
+          "Tall metal light pole with a modern fixture at the top",
+          "Light pole in the middle ground with a curved lamp head",
+          "Red and yellow plastic slide structure in the play area",
+          "Small white structure visible beyond the playground area"
+        ],
+        "correct": "D",
+        "answer": "C",
+        "what_i_see": "The center of the image is dominated by wooden and plastic structures of a playground.",
+        "pass": false,
+        "ms": 6609
+      }
+    }
+  ]
+}

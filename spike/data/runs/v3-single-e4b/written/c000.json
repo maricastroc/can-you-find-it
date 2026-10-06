@@ -1,0 +1,24 @@
+{
+  "0": {
+    "what_is_special": "The seat offers a place to pause and reflect.",
+    "lens": "nature_reclaiming",
+    "difficulty": "medium",
+    "clue": "Supports weary bodies for moments of quiet thought.",
+    "hint_semantic": "It invites a temporary rest from walking or observing.",
+    "hint_concrete": "A long, dark frame with horizontal slats for seating.",
+    "reveal": "A slight scuff mark marks where a heavy boot rested recently.",
+    "ms": 12555,
+    "outputTokens": 111
+  },
+  "1": {
+    "what_is_special": "A single light guides those walking the path.",
+    "lens": "nature_reclaiming",
+    "difficulty": "medium",
+    "clue": "It serves a singular purpose in the fading light.",
+    "hint_semantic": "It provides illumination for those moving through the park.",
+    "hint_concrete": "Tall, dark post with a dome-shaped top.",
+    "reveal": "The glass casing shows a slight patina of age.",
+    "ms": 10844,
+    "outputTokens": 119
+  }
+}

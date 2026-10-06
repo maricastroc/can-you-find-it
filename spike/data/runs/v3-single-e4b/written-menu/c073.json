@@ -1,0 +1,22 @@
+{
+  "0": {
+    "lens": "plain_sight",
+    "evidence": "The large rock formation is visible in the center of the scene.",
+    "hint_semantic": "It is a natural feature that serves as a resting spot for wildlife.",
+    "hint_concrete": "A large, smooth, light grey, irregular rock mass in the water.",
+    "detail": "The rock has a slightly rough, weathered texture on its surface.",
+    "clue": "I found something hiding in plain sight.",
+    "ms": 9578,
+    "outputTokens": 100
+  },
+  "1": {
+    "lens": "nature_taking_back",
+    "evidence": "The plant is growing robustly near the water's edge.",
+    "hint_semantic": "It thrives in this damp, natural environment.",
+    "hint_concrete": "Tall, bushy cluster with numerous slender stalks.",
+    "detail": "The flowers are a vibrant shade of purple.",
+    "clue": "I found something nature is taking back.",
+    "ms": 10852,
+    "outputTokens": 87
+  }
+}

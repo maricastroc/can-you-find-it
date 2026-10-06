@@ -1,0 +1,215 @@
+{
+  "image": "c089",
+  "width": 2560,
+  "height": 1707,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "single",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 53811,
+      "promptTokens": 1860,
+      "outputTokens": 801,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Circular sign with stylized yellow and red lettering\",\n      \"box_2d\": [177, 788, 383, 904],\n      \"lens\": \"shape_or_color\",\n      \"why\": \"It's a distinct, non-obvious piece of signage that draws the eye but is often overlooked in the busy street scene.\",\"difficulty\": \"medium\",\"clue\": \"A circular marker tells you about sweet treats.\", \"hint_semantic\": \"It advertises a local refreshment stand.\", \"hint_concrete\": \"The sign features bright yellow and red colors.\", \"reveal\": \"The local flavor comes in a sweet, chilled form.\"\n    },\n    {\n      \"label\": \"Small, colorful geometric panel on the wall\",\n      \"box_2d\": [579, 572, 852, 732],\n      \"lens\": \"shape_or_color\",\n      \"why\": \"This is a small, abstract patch of color that contrasts with the surrounding murals and architecture.\",\"difficulty\": \"hard\",\"clue\": \"Look closely at the boundary between the painted sections.\", \"hint_semantic\": \"It is a piece of decorative, non-representational art.\", \"hint_concrete\": \"It is a low, square section featuring primary colors.\", \"reveal\": \"Artistic splashes often define a space's character.\"\n    },\n    {\n      \"label\": \"Yellow metal gate with bars across the entrance\",\n      \"box_2d\": [579, 219, 847, 539],\n      \"lens\": \"human_trace\",\n      \"why\": \"It's a functional barrier, but its bright, slightly aged appearance makes it a notable detail against the vibrant walls.\",\"difficulty\": \"easy\",\"clue\": \"This barrier controls access to the sheltered area.\", \"hint_semantic\": \"It is used to secure the storefront entrance.\", \"hint_concrete\": \"It is constructed of vertical and horizontal yellow metal bars.\", \"reveal\": \"It suggests a boundary between public and private space.\"\n    },\n    {\n      \"label\": \"Small, bright green plant growing near the roofline\",\n      \"box_2d\": [344, 294, 411, 326],\n      \"lens\": \"nature_reclaiming\",\n      \"why\": \"It's a small sign of life pushing through the hard urban structure.\",\"difficulty\": \"medium\",\"clue\": \"Life finds a way, even in the highest exposed spots.\", \"hint_semantic\": \"It is vegetation taking hold on the structure.\", \"hint_concrete\": \"It is a small, solitary green shoot against the concrete.\", \"reveal\": \"Even the highest ledges can become tiny gardens.\"\n    },\n    {\n      \"label\": \"Dark horizontal window panel on the upper floor\",\n      \"box_2d\": [185, 284, 314, 386],\n      \"lens\": \"hidden_in_plain_sight\",\n      \"why\": \"It's a specific architectural feature that is often just part of the building mass, but its dark reflection is noticeable.\",\"difficulty\": \"hard\",\"clue\": \"This dark, rectangular opening gives a glimpse inside.\", \"hint_semantic\": \"It is a fixed opening allowing light into the upper level.\", \"hint_concrete\": \"It appears as a dark, recessed glass or window section.\", \"reveal\": \"It hints at the activities happening behind the facade.\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4502,
+      "promptTokens": 446,
+      "outputTokens": 28,
+      "raw": "{\n\"what_i_see\": \"A large, circular, hand-painted sign.\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4643,
+      "promptTokens": 467,
+      "outputTokens": 25,
+      "raw": "{\n\"what_i_see\": \"A colorful, textured wall panel\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3364,
+      "promptTokens": 320,
+      "outputTokens": 27,
+      "raw": "{\n\"what_i_see\": \"Yellow metal gate with bars across the entrance\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5109,
+      "promptTokens": 448,
+      "outputTokens": 34,
+      "raw": "{\n\"what_i_see\": \"A small, leafy plant on a thin stem, near the center-right.\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4702,
+      "promptTokens": 446,
+      "outputTokens": 25,
+      "raw": "{\n\"what_i_see\": \"Industrial building facade with rooftop enclosure\",\n\"visible\": true\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "label": "Circular sign with stylized yellow and red lettering",
+      "box_2d": [
+        177,
+        788,
+        383,
+        904
+      ],
+      "lens": "shape_or_color",
+      "why": "It's a distinct, non-obvious piece of signage that draws the eye but is often overlooked in the busy street scene.",
+      "difficulty": "medium",
+      "clue": "A circular marker tells you about sweet treats.",
+      "hint_semantic": "It advertises a local refreshment stand.",
+      "hint_concrete": "The sign features bright yellow and red colors.",
+      "reveal": "The local flavor comes in a sweet, chilled form.",
+      "source": "full",
+      "idx": 0,
+      "box": {
+        "x": 0.788,
+        "y": 0.177,
+        "w": 0.11599999999999999,
+        "h": 0.20600000000000002
+      },
+      "boxWarnings": [],
+      "crop": "crops/c089-0-ctx.jpg",
+      "verifyCrop": "crops/c089-0-verify.jpg",
+      "verify": {
+        "what_i_see": "A large, circular, hand-painted sign.",
+        "visible": true,
+        "ms": 4502
+      }
+    },
+    {
+      "label": "Small, colorful geometric panel on the wall",
+      "box_2d": [
+        579,
+        572,
+        852,
+        732
+      ],
+      "lens": "shape_or_color",
+      "why": "This is a small, abstract patch of color that contrasts with the surrounding murals and architecture.",
+      "difficulty": "hard",
+      "clue": "Look closely at the boundary between the painted sections.",
+      "hint_semantic": "It is a piece of decorative, non-representational art.",
+      "hint_concrete": "It is a low, square section featuring primary colors.",
+      "reveal": "Artistic splashes often define a space's character.",
+      "source": "full",
+      "idx": 1,
+      "box": {
+        "x": 0.572,
+        "y": 0.579,
+        "w": 0.16000000000000003,
+        "h": 0.273
+      },
+      "boxWarnings": [],
+      "crop": "crops/c089-1-ctx.jpg",
+      "verifyCrop": "crops/c089-1-verify.jpg",
+      "verify": {
+        "what_i_see": "A colorful, textured wall panel",
+        "visible": true,
+        "ms": 4643
+      }
+    },
+    {
+      "label": "Yellow metal gate with bars across the entrance",
+      "box_2d": [
+        579,
+        219,
+        847,
+        539
+      ],
+      "lens": "human_trace",
+      "why": "It's a functional barrier, but its bright, slightly aged appearance makes it a notable detail against the vibrant walls.",
+      "difficulty": "easy",
+      "clue": "This barrier controls access to the sheltered area.",
+      "hint_semantic": "It is used to secure the storefront entrance.",
+      "hint_concrete": "It is constructed of vertical and horizontal yellow metal bars.",
+      "reveal": "It suggests a boundary between public and private space.",
+      "source": "full",
+      "idx": 2,
+      "box": {
+        "x": 0.219,
+        "y": 0.579,
+        "w": 0.32000000000000006,
+        "h": 0.268
+      },
+      "boxWarnings": [],
+      "crop": "crops/c089-2-ctx.jpg",
+      "verifyCrop": "crops/c089-2-verify.jpg",
+      "verify": {
+        "what_i_see": "Yellow metal gate with bars across the entrance",
+        "visible": true,
+        "ms": 3364
+      }
+    },
+    {
+      "label": "Small, bright green plant growing near the roofline",
+      "box_2d": [
+        344,
+        294,
+        411,
+        326
+      ],
+      "lens": "nature_reclaiming",
+      "why": "It's a small sign of life pushing through the hard urban structure.",
+      "difficulty": "medium",
+      "clue": "Life finds a way, even in the highest exposed spots.",
+      "hint_semantic": "It is vegetation taking hold on the structure.",
+      "hint_concrete": "It is a small, solitary green shoot against the concrete.",
+      "reveal": "Even the highest ledges can become tiny gardens.",
+      "source": "full",
+      "idx": 3,
+      "box": {
+        "x": 0.294,
+        "y": 0.344,
+        "w": 0.03200000000000003,
+        "h": 0.067
+      },
+      "boxWarnings": [],
+      "crop": "crops/c089-3-ctx.jpg",
+      "verifyCrop": "crops/c089-3-verify.jpg",
+      "verify": {
+        "what_i_see": "A small, leafy plant on a thin stem, near the center-right.",
+        "visible": true,
+        "ms": 5109
+      }
+    },
+    {
+      "label": "Dark horizontal window panel on the upper floor",
+      "box_2d": [
+        185,
+        284,
+        314,
+        386
+      ],
+      "lens": "hidden_in_plain_sight",
+      "why": "It's a specific architectural feature that is often just part of the building mass, but its dark reflection is noticeable.",
+      "difficulty": "hard",
+      "clue": "This dark, rectangular opening gives a glimpse inside.",
+      "hint_semantic": "It is a fixed opening allowing light into the upper level.",
+      "hint_concrete": "It appears as a dark, recessed glass or window section.",
+      "reveal": "It hints at the activities happening behind the facade.",
+      "source": "full",
+      "idx": 4,
+      "box": {
+        "x": 0.284,
+        "y": 0.185,
+        "w": 0.10200000000000004,
+        "h": 0.129
+      },
+      "boxWarnings": [],
+      "crop": "crops/c089-4-ctx.jpg",
+      "verifyCrop": "crops/c089-4-verify.jpg",
+      "verify": {
+        "what_i_see": "Industrial building facade with rooftop enclosure",
+        "visible": true,
+        "ms": 4702
+      }
+    }
+  ]
+}

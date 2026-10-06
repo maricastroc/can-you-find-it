@@ -1,0 +1,155 @@
+{
+  "image": "c117",
+  "width": 1707,
+  "height": 2560,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 27763,
+      "promptTokens": 1567,
+      "outputTokens": 263,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Stone coat of arms carved into the structure\",\n      \"box_2d\": [365, 258, 484, 359],\n      \"special\": \"A historical detail hinting at the structure's past.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    },\n    {\n      \"label\": \"Small weathered stone urn on a pedestal\",\n      \"box_2d\": [625, 136, 749, 213],\n      \"special\": \"A decorative, forgotten piece of garden statuary.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    },\n    {\n      \"label\": \"Wooden bench tucked under the pavilion structure\",\n      \"box_2d\": [716, 303, 771, 533],\n      \"special\": \"A quiet spot for a moment of rest in the garden.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"easy\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5637,
+      "promptTokens": 364,
+      "outputTokens": 39,
+      "raw": "{\n\"what_i_see\": \"A carved stone relief\",\n\"answer\": \"Stone coat of arms carved into the structure\",\n\"people_visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4890,
+      "promptTokens": 301,
+      "outputTokens": 41,
+      "raw": "{\n\"what_i_see\": \"A weathered stone urn on a pedestal\",\n\"answer\": \"Small weathered stone urn on a pedestal\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5077,
+      "promptTokens": 280,
+      "outputTokens": 41,
+      "raw": "{\n\"what_i_see\": \"A stone pillar supporting a covered area.\",\n\"answer\": \"Wooden bench tucked under the pavilion structure\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 9525,
+      "promptTokens": 1217,
+      "outputTokens": 91,
+      "raw": "{\n  \"lens\": \"remember\",\n  \"evidence\": \"Weathered stone urn on a pedestal in a garden setting.\",\n  \"hint_semantic\": \"It marks a spot and holds a sense of history.\",\n  \"hint_concrete\": \"Large, dark, textured stone urn atop a square pedestal.\",\n  \"detail\": \"The surface of the urn has a distinct pineapple-like texture.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Stone coat of arms carved into the structure",
+      "box_2d": [
+        365,
+        258,
+        484,
+        359
+      ],
+      "box": {
+        "x": 0.258,
+        "y": 0.365,
+        "w": 0.101,
+        "h": 0.119
+      },
+      "difficulty": "medium",
+      "crop": "../v4-e4b/crops/c117-0-ctx.jpg",
+      "mcq": {
+        "options": [
+          "Small weathered stone urn on a pedestal",
+          "Wooden bench tucked under the pavilion structure",
+          "a red fire hydrant",
+          "Stone coat of arms carved into the structure"
+        ],
+        "correct": "Stone coat of arms carved into the structure",
+        "answer": "Stone coat of arms carved into the structure",
+        "what_i_see": "A carved stone relief",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "Someone wanted this place to remember something.",
+      "lens": "remember",
+      "hint_semantic": "It represents the history or lineage associated with this place.",
+      "hint_concrete": "A weathered, carved stone relief mounted on a textured wall.",
+      "reveal": "The carving includes a depiction of a building and a figure. (evidence: The carved coat of arms on the stone wall.)",
+      "spatial": "Look toward the left of where you took the photo."
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Small weathered stone urn on a pedestal",
+      "box_2d": [
+        625,
+        136,
+        749,
+        213
+      ],
+      "box": {
+        "x": 0.136,
+        "y": 0.625,
+        "w": 0.077,
+        "h": 0.124
+      },
+      "difficulty": "medium",
+      "crop": "../v4-e4b/crops/c117-1-ctx.jpg",
+      "mcq": {
+        "options": [
+          "Wooden bench tucked under the pavilion structure",
+          "Small weathered stone urn on a pedestal",
+          "a red fire hydrant",
+          "Stone coat of arms carved into the structure"
+        ],
+        "correct": "Small weathered stone urn on a pedestal",
+        "answer": "Small weathered stone urn on a pedestal",
+        "what_i_see": "A weathered stone urn on a pedestal",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      }
+    },
+    {
+      "idx": 2,
+      "source": "full",
+      "label": "Wooden bench tucked under the pavilion structure",
+      "box_2d": [
+        716,
+        303,
+        771,
+        533
+      ],
+      "box": {
+        "x": 0.303,
+        "y": 0.716,
+        "w": 0.23,
+        "h": 0.055
+      },
+      "difficulty": "easy",
+      "crop": "../v4-e4b/crops/c117-2-ctx.jpg",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "Wooden bench tucked under the pavilion structure",
+          "Stone coat of arms carved into the structure",
+          "Small weathered stone urn on a pedestal"
+        ],
+        "correct": "Wooden bench tucked under the pavilion structure",
+        "answer": "Wooden bench tucked under the pavilion structure",
+        "what_i_see": "A stone pillar supporting a covered area.",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      }
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 39654
+}

@@ -1,0 +1,22 @@
+{
+  "0": {
+    "lens": "handmade",
+    "evidence": "The lettering and design of the sign are clearly drawn by hand.",
+    "hint_semantic": "It advertises a refreshing, cold beverage to quench your thirst.",
+    "hint_concrete": "A round, yellow and blue sign with stylized script lettering.",
+    "detail": "The sign features a small image of a bottle and a glass.",
+    "clue": "Somebody made this by hand.",
+    "ms": 10936,
+    "outputTokens": 94
+  },
+  "1": {
+    "lens": "who_gets_in",
+    "evidence": "The yellow metal gate is closed, blocking the entrance.",
+    "hint_semantic": "It controls access to the area behind it.",
+    "hint_concrete": "A bright yellow, metal, grid-style gate.",
+    "detail": "The gate has a visible diagonal cross-brace pattern.",
+    "clue": "It decides who gets in.",
+    "ms": 9891,
+    "outputTokens": 89
+  }
+}

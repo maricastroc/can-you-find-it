@@ -1,0 +1,24 @@
+{
+  "0": {
+    "what_is_special": "Some important directions were once laid out here.",
+    "lens": "nature_reclaiming",
+    "difficulty": "medium",
+    "clue": "Some important directions were once laid out here.",
+    "hint_semantic": "It helps visitors understand the surrounding area.",
+    "hint_concrete": "A small, rectangular panel made of dark material.",
+    "reveal": "The moss has started to creep along its edges.",
+    "ms": 13372,
+    "outputTokens": 115
+  },
+  "1": {
+    "what_is_special": "Green growth clings to the rough bark's surface.",
+    "lens": "out_of_place",
+    "difficulty": "easy",
+    "clue": "A damp patch holds life against the rough wood.",
+    "hint_semantic": "It provides a habitat for small, slow-moving things.",
+    "hint_concrete": "It is soft and uneven, adhering to the trunk's base.",
+    "reveal": "Tiny, pale specks dot the dampness.",
+    "ms": 11069,
+    "outputTokens": 114
+  }
+}

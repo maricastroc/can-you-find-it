@@ -1,0 +1,155 @@
+{
+  "image": "c002",
+  "width": 2560,
+  "height": 1707,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 24763,
+      "promptTokens": 1567,
+      "outputTokens": 282,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Small, dark plaque with engraved numbers on brick wall\",\n      \"box_2d\": [\n        470,\n        396,\n        543,\n        460\n      ],\n      \"special\": \"It shows the building's historical founding year.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    },\n    {\n      \"label\": \"White rectangular monument with dark inscribed plaque\",\n      \"box_2d\": [\n        642,\n        168,\n        785,\n        327\n      ],\n      \"special\": \"A formal memorial stone for historical events.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"easy\"\n    },\n    {\n      \"label\": \"Large white rectangular base with angled dark reflective panel\",\n      \"box_2d\": [\n        664,\n        762,\n        908,\n        999\n      ],\n      \"special\": \"A modern interpretive display for visitors to read.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5857,
+      "promptTokens": 452,
+      "outputTokens": 47,
+      "raw": "{\n\"what_i_see\": \"Three dark plaques with years inscribed on a brick wall.\",\n\"answer\": \"Small, dark plaque with engraved numbers on brick wall\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5271,
+      "promptTokens": 389,
+      "outputTokens": 47,
+      "raw": "{\n\"what_i_see\": \"A white rectangular monument with a dark inscribed plaque is near the center.\",\n\"answer\": \"White rectangular monument with dark inscribed plaque\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5573,
+      "promptTokens": 431,
+      "outputTokens": 47,
+      "raw": "{\n\"what_i_see\": \"A white rectangular monument with a dark inscribed plaque is near the center.\",\n\"answer\": \"White rectangular monument with dark inscribed plaque\",\n\"people_visible\": true\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 15440,
+      "promptTokens": 1367,
+      "outputTokens": 124,
+      "raw": "{\n  \"lens\": \"remember\",\n  \"evidence\": \"Plaques showing years 1919, 1920, and 1921 on the brick wall.\",\n  \"hint_semantic\": \"These markers help the place recall significant moments in its history.\",\n  \"hint_concrete\": \"Small, dark rectangular plaques mounted on a reddish-brown brick facade.\",\n  \"detail\": \"The numbers 1919, 1920, and 1921 are clearly visible on the plaques.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Small, dark plaque with engraved numbers on brick wall",
+      "box_2d": [
+        470,
+        396,
+        543,
+        460
+      ],
+      "box": {
+        "x": 0.396,
+        "y": 0.47,
+        "w": 0.064,
+        "h": 0.073
+      },
+      "difficulty": "medium",
+      "crop": "../v4-e4b/crops/c002-0-ctx.jpg",
+      "mcq": {
+        "options": [
+          "White rectangular monument with dark inscribed plaque",
+          "Large white rectangular base with angled dark reflective panel",
+          "a red fire hydrant",
+          "Small, dark plaque with engraved numbers on brick wall"
+        ],
+        "correct": "Small, dark plaque with engraved numbers on brick wall",
+        "answer": "Small, dark plaque with engraved numbers on brick wall",
+        "what_i_see": "Three dark plaques with years inscribed on a brick wall.",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "Someone wanted this place to remember something.",
+      "lens": "remember",
+      "hint_semantic": "It marks a significant period in the history of this location.",
+      "hint_concrete": "Small, dark rectangular plaques set into a red brick wall.",
+      "reveal": "The numbers 1919, 1920, and 1921 are clearly visible. (evidence: Plaques with the years 1919, 1920, and 1921.)",
+      "spatial": "Look roughly straight ahead from where you took the photo."
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "White rectangular monument with dark inscribed plaque",
+      "box_2d": [
+        642,
+        168,
+        785,
+        327
+      ],
+      "box": {
+        "x": 0.168,
+        "y": 0.642,
+        "w": 0.159,
+        "h": 0.143
+      },
+      "difficulty": "easy",
+      "crop": "../v4-e4b/crops/c002-1-ctx.jpg",
+      "mcq": {
+        "options": [
+          "Large white rectangular base with angled dark reflective panel",
+          "White rectangular monument with dark inscribed plaque",
+          "a red fire hydrant",
+          "Small, dark plaque with engraved numbers on brick wall"
+        ],
+        "correct": "White rectangular monument with dark inscribed plaque",
+        "answer": "White rectangular monument with dark inscribed plaque",
+        "what_i_see": "A white rectangular monument with a dark inscribed plaque near the center.",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      }
+    },
+    {
+      "idx": 2,
+      "source": "full",
+      "label": "Large white rectangular base with angled dark reflective panel",
+      "box_2d": [
+        664,
+        762,
+        908,
+        999
+      ],
+      "box": {
+        "x": 0.762,
+        "y": 0.664,
+        "w": 0.237,
+        "h": 0.244
+      },
+      "difficulty": "medium",
+      "crop": "../v4-e4b/crops/c002-2-ctx.jpg",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "Large white rectangular base with angled dark reflective panel",
+          "Small, dark plaque with engraved numbers on brick wall",
+          "White rectangular monument with dark inscribed plaque"
+        ],
+        "correct": "Large white rectangular base with angled dark reflective panel",
+        "answer": "Large white rectangular base with angled dark reflective panel",
+        "what_i_see": "A large white rectangular base with an angled dark reflective panel on top.",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      }
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 38843
+}

@@ -1,0 +1,315 @@
+{
+  "image": "c106",
+  "width": 2560,
+  "height": 1707,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "single",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 70745,
+      "promptTokens": 1901,
+      "outputTokens": 831,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Small white swing set structure in the lawn\",\n      \"box_2d\": [596, 590, 727, 732],\n      \"lens\": \"shape_or_color\",\n      \"why\": \"It has a distinct, unusual white frame against the green.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"It offers a place to move, though it might not be used often.\",\n      \"hint_semantic\": \"This is a piece of playground equipment.\",\n      \"hint_concrete\": \"A white metal frame with seats suspended from it.\",\n      \"reveal\": \"Simple joys are sometimes found in the quietest corners.\"\n    },\n    {\n      \"label\": \"White painted porch railing visible on the left building\",\n      \"box_2d\": [639, 37, 704, 75],\n      \"lens\": \"human_trace\",\n      \"why\": \"It shows evidence of maintenance or previous use on the facade.\",\n      \"difficulty\": \"hard\",\n      \"clue\": \"It guards the entrance to a residence, though it may be worn.\",\n      \"hint_semantic\": \"This feature marks the front of one of the structures.\",\n      \"hint_concrete\": \"A low, horizontal barrier painted white.\",\n      \"reveal\": \"Even simple lines hold the story of care and upkeep.\"\n    },\n    {\n      \"label\": \"Small white object near the foundation of the central building\",\n      \"box_2d\": [576, 346, 642, 365],\n      \"lens\": \"hidden_in_plain_sight\",\n      \"why\": \"It is a small fixture near the base of the main brick structure.\",\n      \"difficulty\": \"hard\",\n      \"clue\": \"A small fixture marks where the stone meets the earth.\",\n      \"hint_semantic\": \"It is a small structural support or fixture attached to the base.\",\n      \"hint_concrete\": \"A small, light-colored vertical element near the ground.\",\n      \"reveal\": \"The smallest details often bear the weight of the whole.\"\n    },\n    {\n      \"label\": \"Dark rectangular window frame on the far right building\",\n      \"box_2d\": [585, 870, 649, 915],\n      \"lens\": \"shape_or_color\",\n      \"why\": \"The framing itself has a specific dark shape contrasting the brick.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"It is a dark, defined opening that lets light inside.\",\n      \"hint_semantic\": \"This element provides light to the rooms within the structure.\",\n      \"hint_concrete\": \"A dark, vertical rectangular outline set into the wall.\",\n      \"reveal\": \"Every opening frames a different view of the world.\"\n    },\n    {\n      \"label\": \"Small white exterior air conditioning unit on the brick wall\",\n      \"box_2d\": [397, 558, 522, 594],\n      \"lens\": \"human_trace\",\n      \"why\": \"It is a modern, functional addition to the older masonry.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"It helps keep the interior comfortable when the outside heats up.\",\n      \"hint_semantic\": \"This mechanism regulates the temperature inside the building.\",\n      \"hint_concrete\": \"A small, light-colored rectangular box mounted on the brick.\",\n      \"reveal\": \"Modern needs often find a place on older foundations.\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4715,
+      "promptTokens": 341,
+      "outputTokens": 23,
+      "raw": "{\n\"what_i_see\": \"White swing set structure\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6461,
+      "promptTokens": 383,
+      "outputTokens": 40,
+      "raw": "{\n\"what_i_see\": \"A white, open-frame swing set structure with two people sitting on white loungers inside it.\",\n\"answer\": \"D\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5749,
+      "promptTokens": 468,
+      "outputTokens": 23,
+      "raw": "{\n\"what_i_see\": \"A white porch structure\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 7903,
+      "promptTokens": 509,
+      "outputTokens": 45,
+      "raw": "{\n\"what_i_see\": \"A white porch/veranda structure with a bench in the foreground, partially obscured by a large tree trunk on the left.\",\n\"answer\": \"D\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 7640,
+      "promptTokens": 469,
+      "outputTokens": 40,
+      "raw": "{\n\"what_i_see\": \"A white architectural element (likely a column or pilaster) on the left side of the central building section.\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 9360,
+      "promptTokens": 509,
+      "outputTokens": 72,
+      "raw": "{\n\"what_i_see\": \"The center of the image is dominated by the brick facade of the building, with a white architectural element (a column/pilaster) on the left side of the center, and a vertical line of small objects/fixtures on the right side of the center.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5963,
+      "promptTokens": 489,
+      "outputTokens": 21,
+      "raw": "{\n\"what_i_see\": \"Tree trunk\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6443,
+      "promptTokens": 530,
+      "outputTokens": 34,
+      "raw": "{\n\"what_i_see\": \"The center of the image is dominated by the trunk of a tree.\",\n\"answer\": \"none\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3889,
+      "promptTokens": 280,
+      "outputTokens": 20,
+      "raw": "{\n\"what_i_see\": \"Window\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4939,
+      "promptTokens": 321,
+      "outputTokens": 32,
+      "raw": "{\n\"what_i_see\": \"A window and an air conditioning unit on a brick wall.\",\n\"answer\": \"D\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "label": "Small white swing set structure in the lawn",
+      "box_2d": [
+        596,
+        590,
+        727,
+        732
+      ],
+      "lens": "shape_or_color",
+      "why": "It has a distinct, unusual white frame against the green.",
+      "difficulty": "medium",
+      "clue": "It offers a place to move, though it might not be used often.",
+      "hint_semantic": "This is a piece of playground equipment.",
+      "hint_concrete": "A white metal frame with seats suspended from it.",
+      "reveal": "Simple joys are sometimes found in the quietest corners.",
+      "source": "full",
+      "idx": 0,
+      "box": {
+        "x": 0.59,
+        "y": 0.596,
+        "w": 0.14200000000000002,
+        "h": 0.131
+      },
+      "boxWarnings": [],
+      "crop": "crops/c106-0-ctx.jpg",
+      "verifyCrop": "crops/c106-0-verify.jpg",
+      "verify": {
+        "what_i_see": "White swing set structure",
+        "visible": true,
+        "ms": 4715
+      },
+      "mcq": {
+        "options": [
+          "White painted porch railing visible on the left building",
+          "Small white object near the foundation of the central building",
+          "Dark rectangular window frame on the far right building",
+          "Small white swing set structure in the lawn"
+        ],
+        "correct": "D",
+        "answer": "D",
+        "what_i_see": "A white, open-frame swing set structure with two people sitting on white loungers inside it.",
+        "pass": true,
+        "ms": 6461
+      }
+    },
+    {
+      "label": "White painted porch railing visible on the left building",
+      "box_2d": [
+        639,
+        37,
+        704,
+        75
+      ],
+      "lens": "human_trace",
+      "why": "It shows evidence of maintenance or previous use on the facade.",
+      "difficulty": "hard",
+      "clue": "It guards the entrance to a residence, though it may be worn.",
+      "hint_semantic": "This feature marks the front of one of the structures.",
+      "hint_concrete": "A low, horizontal barrier painted white.",
+      "reveal": "Even simple lines hold the story of care and upkeep.",
+      "source": "full",
+      "idx": 1,
+      "box": {
+        "x": 0.037,
+        "y": 0.639,
+        "w": 0.038,
+        "h": 0.06499999999999995
+      },
+      "boxWarnings": [],
+      "crop": "crops/c106-1-ctx.jpg",
+      "verifyCrop": "crops/c106-1-verify.jpg",
+      "verify": {
+        "what_i_see": "A white porch structure",
+        "visible": false,
+        "ms": 5749
+      },
+      "mcq": {
+        "options": [
+          "Small white object near the foundation of the central building",
+          "White painted porch railing visible on the left building",
+          "Dark rectangular window frame on the far right building",
+          "Small white swing set structure in the lawn"
+        ],
+        "correct": "B",
+        "answer": "D",
+        "what_i_see": "A white porch/veranda structure with a bench in the foreground, partially obscured by a large tree trunk on the left.",
+        "pass": false,
+        "ms": 7903
+      }
+    },
+    {
+      "label": "Small white object near the foundation of the central building",
+      "box_2d": [
+        576,
+        346,
+        642,
+        365
+      ],
+      "lens": "hidden_in_plain_sight",
+      "why": "It is a small fixture near the base of the main brick structure.",
+      "difficulty": "hard",
+      "clue": "A small fixture marks where the stone meets the earth.",
+      "hint_semantic": "It is a small structural support or fixture attached to the base.",
+      "hint_concrete": "A small, light-colored vertical element near the ground.",
+      "reveal": "The smallest details often bear the weight of the whole.",
+      "source": "full",
+      "idx": 2,
+      "box": {
+        "x": 0.346,
+        "y": 0.576,
+        "w": 0.019000000000000017,
+        "h": 0.06600000000000006
+      },
+      "boxWarnings": [],
+      "crop": "crops/c106-2-ctx.jpg",
+      "verifyCrop": "crops/c106-2-verify.jpg",
+      "verify": {
+        "what_i_see": "A white architectural element (likely a column or pilaster) on the left side of the central building section.",
+        "visible": false,
+        "ms": 7640
+      },
+      "mcq": {
+        "options": [
+          "Dark rectangular window frame on the far right building",
+          "Small white object near the foundation of the central building",
+          "Small white swing set structure in the lawn",
+          "White painted porch railing visible on the left building"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "The center of the image is dominated by the brick facade of the building, with a white architectural element (a column/pilaster) on the left side of the center, and a vertical line of small objects/fixtures on the right side of the center.",
+        "pass": true,
+        "ms": 9360
+      }
+    },
+    {
+      "label": "Dark rectangular window frame on the far right building",
+      "box_2d": [
+        585,
+        870,
+        649,
+        915
+      ],
+      "lens": "shape_or_color",
+      "why": "The framing itself has a specific dark shape contrasting the brick.",
+      "difficulty": "medium",
+      "clue": "It is a dark, defined opening that lets light inside.",
+      "hint_semantic": "This element provides light to the rooms within the structure.",
+      "hint_concrete": "A dark, vertical rectangular outline set into the wall.",
+      "reveal": "Every opening frames a different view of the world.",
+      "source": "full",
+      "idx": 3,
+      "box": {
+        "x": 0.87,
+        "y": 0.585,
+        "w": 0.04500000000000004,
+        "h": 0.06400000000000006
+      },
+      "boxWarnings": [],
+      "crop": "crops/c106-3-ctx.jpg",
+      "verifyCrop": "crops/c106-3-verify.jpg",
+      "verify": {
+        "what_i_see": "Tree trunk",
+        "visible": false,
+        "ms": 5963
+      },
+      "mcq": {
+        "options": [
+          "White painted porch railing visible on the left building",
+          "Dark rectangular window frame on the far right building",
+          "Small white swing set structure in the lawn",
+          "Small white object near the foundation of the central building"
+        ],
+        "correct": "B",
+        "answer": "none",
+        "what_i_see": "The center of the image is dominated by the trunk of a tree.",
+        "pass": false,
+        "ms": 6443
+      }
+    },
+    {
+      "label": "Small white exterior air conditioning unit on the brick wall",
+      "box_2d": [
+        397,
+        558,
+        522,
+        594
+      ],
+      "lens": "human_trace",
+      "why": "It is a modern, functional addition to the older masonry.",
+      "difficulty": "medium",
+      "clue": "It helps keep the interior comfortable when the outside heats up.",
+      "hint_semantic": "This mechanism regulates the temperature inside the building.",
+      "hint_concrete": "A small, light-colored rectangular box mounted on the brick.",
+      "reveal": "Modern needs often find a place on older foundations.",
+      "source": "full",
+      "idx": 4,
+      "box": {
+        "x": 0.558,
+        "y": 0.397,
+        "w": 0.03599999999999992,
+        "h": 0.125
+      },
+      "boxWarnings": [],
+      "crop": "crops/c106-4-ctx.jpg",
+      "verifyCrop": "crops/c106-4-verify.jpg",
+      "verify": {
+        "what_i_see": "Window",
+        "visible": false,
+        "ms": 3889
+      },
+      "mcq": {
+        "options": [
+          "Small white swing set structure in the lawn",
+          "Small white object near the foundation of the central building",
+          "White painted porch railing visible on the left building",
+          "Small white exterior air conditioning unit on the brick wall"
+        ],
+        "correct": "D",
+        "answer": "D",
+        "what_i_see": "A window and an air conditioning unit on a brick wall.",
+        "pass": true,
+        "ms": 4939
+      }
+    }
+  ]
+}

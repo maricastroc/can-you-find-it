@@ -1,0 +1,215 @@
+{
+  "image": "c009",
+  "width": 2560,
+  "height": 1660,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "single",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 60957,
+      "promptTokens": 1820,
+      "outputTokens": 869,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Small metal sign near building entrance\",\n      \"box_2d\": [\n        518,\n        327,\n        555,\n        355\n      ],\n      \"lens\": \"human_trace\",\n      \"why\": \"It's a small, specific fixture indicating something about the establishment.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"This small marker tells you something about the place nearby.\",\n      \"hint_semantic\": \"It indicates a service or a type of business.\",\n      \"hint_concrete\": \"A rectangular piece of metal attached to the building facade.\",\n      \"reveal\": \"It seems to be directing attention to a specific offering.\"\n    },\n    {\n      \"label\": \"Small decorative element on the fountain rim\",\n      \"box_2d\": [\n        605,\n        607,\n        640,\n        628\n      ],\n      \"lens\": \"landmark_detail\",\n      \"why\": \"It's a minute detail on the large fountain structure.\",\n      \"difficulty\": \"hard\",\n      \"clue\": \"Look closely at the edge of the central water feature.\",\n      \"hint_semantic\": \"It is part of the structure that catches the water flow.\",\n      \"hint_concrete\": \"A small, raised ornamental piece on the stone border.\",\n      \"reveal\": \"It adds a touch of design to the flowing water.\"\n    },\n    {\n      \"label\": \"Small potted plant near cafe seating area\",\n      \"box_2d\": [\n        584,\n        416,\n        626,\n        442\n      ],\n      \"lens\": \"nature_reclaiming\",\n      \"why\": \"It's a small, contained piece of nature amidst the urban furniture.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"Some life finds a way even in the paved gathering space.\",\n      \"hint_semantic\": \"It is a small, cultivated addition to the outdoor dining area.\",\n      \"hint_concrete\": \"A small, leafy green object held in a container.\",\n      \"reveal\": \"Even small greenery adds a welcome contrast to the stone.\"\n    },\n    {\n      \"label\": \"Small white rectangular window frame detail\",\n      \"box_2d\": [\n        398,\n        673,\n        495,\n        704\n      ],\n      \"lens\": \"shape_or_color\",\n      \"why\": \"It's a specific, unadorned architectural detail on the building.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"This repetitive feature defines the structure's rhythm.\",\n      \"hint_semantic\": \"It allows light into the rooms behind the facade.\",\n      \"hint_concrete\": \"A small, vertically oriented opening with a white surround.\",\n      \"reveal\": \"These openings help shape the character of the old buildings.\"\n    },\n    {\n      \"label\": \"Small dark plaque mounted on building wall\",\n      \"box_2d\": [\n        502,\n        540,\n        547,\n        571\n      ],\n      \"lens\": \"human_trace\",\n      \"why\": \"It's a small, fixed marker suggesting history or identity.\",\n      \"difficulty\": \"hard\",\n      \"clue\": \"A small plate affixed to the wall speaks of the building's identity.\",\n      \"hint_semantic\": \"It likely identifies the establishment or its history.\",\n      \"hint_concrete\": \"A dark, flat, rectangular surface attached to the light-colored wall.\",\n      \"reveal\": \"It marks a specific point of origin or purpose for the locale.\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 6537,
+      "promptTokens": 507,
+      "outputTokens": 41,
+      "raw": "{\n\"what_i_see\": \"A small, light-colored object hanging from a wire against a yellow building wall, near the center-right.\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4897,
+      "promptTokens": 508,
+      "outputTokens": 21,
+      "raw": "{\n\"what_i_see\": \"Water fountain\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4917,
+      "promptTokens": 508,
+      "outputTokens": 19,
+      "raw": "{\"what_i_see\": \"dark doorway with foliage\", \"visible\": false}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3954,
+      "promptTokens": 339,
+      "outputTokens": 26,
+      "raw": "{\n\"what_i_see\": \"A small white rectangular window frame detail\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5139,
+      "promptTokens": 508,
+      "outputTokens": 24,
+      "raw": "{\n\"what_i_see\": \"Text on a building wall\",\n\"visible\": true\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "label": "Small metal sign near building entrance",
+      "box_2d": [
+        518,
+        327,
+        555,
+        355
+      ],
+      "lens": "human_trace",
+      "why": "It's a small, specific fixture indicating something about the establishment.",
+      "difficulty": "medium",
+      "clue": "This small marker tells you something about the place nearby.",
+      "hint_semantic": "It indicates a service or a type of business.",
+      "hint_concrete": "A rectangular piece of metal attached to the building facade.",
+      "reveal": "It seems to be directing attention to a specific offering.",
+      "source": "full",
+      "idx": 0,
+      "box": {
+        "x": 0.327,
+        "y": 0.518,
+        "w": 0.02799999999999997,
+        "h": 0.03700000000000003
+      },
+      "boxWarnings": [],
+      "crop": "crops/c009-0-ctx.jpg",
+      "verifyCrop": "crops/c009-0-verify.jpg",
+      "verify": {
+        "what_i_see": "A small, light-colored object hanging from a wire against a yellow building wall, near the center-right.",
+        "visible": false,
+        "ms": 6537
+      }
+    },
+    {
+      "label": "Small decorative element on the fountain rim",
+      "box_2d": [
+        605,
+        607,
+        640,
+        628
+      ],
+      "lens": "landmark_detail",
+      "why": "It's a minute detail on the large fountain structure.",
+      "difficulty": "hard",
+      "clue": "Look closely at the edge of the central water feature.",
+      "hint_semantic": "It is part of the structure that catches the water flow.",
+      "hint_concrete": "A small, raised ornamental piece on the stone border.",
+      "reveal": "It adds a touch of design to the flowing water.",
+      "source": "full",
+      "idx": 1,
+      "box": {
+        "x": 0.607,
+        "y": 0.605,
+        "w": 0.02100000000000002,
+        "h": 0.03500000000000003
+      },
+      "boxWarnings": [],
+      "crop": "crops/c009-1-ctx.jpg",
+      "verifyCrop": "crops/c009-1-verify.jpg",
+      "verify": {
+        "what_i_see": "Water fountain",
+        "visible": false,
+        "ms": 4897
+      }
+    },
+    {
+      "label": "Small potted plant near cafe seating area",
+      "box_2d": [
+        584,
+        416,
+        626,
+        442
+      ],
+      "lens": "nature_reclaiming",
+      "why": "It's a small, contained piece of nature amidst the urban furniture.",
+      "difficulty": "medium",
+      "clue": "Some life finds a way even in the paved gathering space.",
+      "hint_semantic": "It is a small, cultivated addition to the outdoor dining area.",
+      "hint_concrete": "A small, leafy green object held in a container.",
+      "reveal": "Even small greenery adds a welcome contrast to the stone.",
+      "source": "full",
+      "idx": 2,
+      "box": {
+        "x": 0.416,
+        "y": 0.584,
+        "w": 0.026000000000000023,
+        "h": 0.04200000000000004
+      },
+      "boxWarnings": [],
+      "crop": "crops/c009-2-ctx.jpg",
+      "verifyCrop": "crops/c009-2-verify.jpg",
+      "verify": {
+        "what_i_see": "dark doorway with foliage",
+        "visible": false,
+        "ms": 4917
+      }
+    },
+    {
+      "label": "Small white rectangular window frame detail",
+      "box_2d": [
+        398,
+        673,
+        495,
+        704
+      ],
+      "lens": "shape_or_color",
+      "why": "It's a specific, unadorned architectural detail on the building.",
+      "difficulty": "medium",
+      "clue": "This repetitive feature defines the structure's rhythm.",
+      "hint_semantic": "It allows light into the rooms behind the facade.",
+      "hint_concrete": "A small, vertically oriented opening with a white surround.",
+      "reveal": "These openings help shape the character of the old buildings.",
+      "source": "full",
+      "idx": 3,
+      "box": {
+        "x": 0.673,
+        "y": 0.398,
+        "w": 0.030999999999999917,
+        "h": 0.09699999999999998
+      },
+      "boxWarnings": [],
+      "crop": "crops/c009-3-ctx.jpg",
+      "verifyCrop": "crops/c009-3-verify.jpg",
+      "verify": {
+        "what_i_see": "A small white rectangular window frame detail",
+        "visible": true,
+        "ms": 3954
+      }
+    },
+    {
+      "label": "Small dark plaque mounted on building wall",
+      "box_2d": [
+        502,
+        540,
+        547,
+        571
+      ],
+      "lens": "human_trace",
+      "why": "It's a small, fixed marker suggesting history or identity.",
+      "difficulty": "hard",
+      "clue": "A small plate affixed to the wall speaks of the building's identity.",
+      "hint_semantic": "It likely identifies the establishment or its history.",
+      "hint_concrete": "A dark, flat, rectangular surface attached to the light-colored wall.",
+      "reveal": "It marks a specific point of origin or purpose for the locale.",
+      "source": "full",
+      "idx": 4,
+      "box": {
+        "x": 0.54,
+        "y": 0.502,
+        "w": 0.030999999999999917,
+        "h": 0.04500000000000004
+      },
+      "boxWarnings": [],
+      "crop": "crops/c009-4-ctx.jpg",
+      "verifyCrop": "crops/c009-4-verify.jpg",
+      "verify": {
+        "what_i_see": "Text on a building wall",
+        "visible": true,
+        "ms": 5139
+      }
+    }
+  ]
+}

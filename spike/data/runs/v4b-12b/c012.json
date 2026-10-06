@@ -1,0 +1,144 @@
+{
+  "image": "c012",
+  "width": 2560,
+  "height": 1700,
+  "model": "gemma4:12b",
+  "verifier": "gemma4:12b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 53587,
+      "promptTokens": 1556,
+      "outputTokens": 216,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"small gold weather vane on the tip of the tower\",\n      \"box_2d\": [403, 424, 481, 441],\n      \"similar_count\": 0,\n      \"difficulty\": \"hard\"\n    },\n    {\n      \"label\": \"green and white flag with a red crest\",\n      \"box_2d\": [346, 754, 694, 839],\n      \"similar_count\": 2,\n      \"difficulty\": \"easy\"\n    },\n    {\n      \"label\": \"black metal hanging sign with white lettering\",\n      \"box_2d\": [614, 108, 668, 134],\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 13794,
+      "promptTokens": 477,
+      "outputTokens": 26,
+      "raw": "{\"what_i_see\": \"none\", \"answer\": \"none\", \"person_at_target\": false}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 14535,
+      "promptTokens": 582,
+      "outputTokens": 33,
+      "raw": "{\"what_i_see\": \"a green and white sign with white lettering\", \"answer\": \"none\", \"person_at_target\": false}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 12348,
+      "promptTokens": 309,
+      "outputTokens": 46,
+      "raw": "{\"what_i_see\": \"A black metal hanging sign with white lettering is near the center of the image.\", \"answer\": \"black metal hanging sign with white lettering\", \"person_at_target\": false}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "small gold weather vane on the tip of the tower",
+      "box_2d": [
+        403,
+        424,
+        481,
+        441
+      ],
+      "box": {
+        "x": 0.424,
+        "y": 0.403,
+        "w": 0.017,
+        "h": 0.078
+      },
+      "difficulty": "hard",
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "green and white flag with a red crest",
+          "black metal hanging sign with white lettering",
+          "a red fire hydrant",
+          "small gold weather vane on the tip of the tower"
+        ],
+        "correct": "small gold weather vane on the tip of the tower",
+        "answer": "none",
+        "what_i_see": "none",
+        "people": false,
+        "pass": false,
+        "ms": 0
+      },
+      "crop": "crops/c012-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "green and white flag with a red crest",
+      "box_2d": [
+        346,
+        754,
+        694,
+        839
+      ],
+      "box": {
+        "x": 0.754,
+        "y": 0.346,
+        "w": 0.085,
+        "h": 0.348
+      },
+      "difficulty": "easy",
+      "lens": "similar:2",
+      "mcq": {
+        "options": [
+          "black metal hanging sign with white lettering",
+          "green and white flag with a red crest",
+          "a red fire hydrant",
+          "small gold weather vane on the tip of the tower"
+        ],
+        "correct": "green and white flag with a red crest",
+        "answer": "black metal hanging sign with white lettering",
+        "what_i_see": "A black metal hanging sign with white lettering is near the center of the image.",
+        "people": false,
+        "pass": false,
+        "ms": 0
+      },
+      "crop": "crops/c012-1-ctx.jpg"
+    },
+    {
+      "idx": 2,
+      "source": "full",
+      "label": "black metal hanging sign with white lettering",
+      "box_2d": [
+        614,
+        108,
+        668,
+        134
+      ],
+      "box": {
+        "x": 0.108,
+        "y": 0.614,
+        "w": 0.026,
+        "h": 0.054
+      },
+      "difficulty": "medium",
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "black metal hanging sign with white lettering",
+          "small gold weather vane on the tip of the tower",
+          "green and white flag with a red crest"
+        ],
+        "correct": "black metal hanging sign with white lettering",
+        "answer": "none",
+        "what_i_see": "a green and white sign with white lettering",
+        "people": false,
+        "pass": false,
+        "ms": 0
+      },
+      "crop": "crops/c012-2-ctx.jpg"
+    }
+  ],
+  "waitMs": 94264
+}

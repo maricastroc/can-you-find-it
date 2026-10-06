@@ -1,0 +1,137 @@
+{
+  "image": "c002",
+  "width": 2560,
+  "height": 1707,
+  "model": "gemma4:12b",
+  "verifier": "gemma4:12b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 49174,
+      "promptTokens": 1556,
+      "outputTokens": 170,
+      "raw": "{\"targets\": [{\"label\": \"a small dark plaque with white text on a building\", \"box_2d\": [564, 406, 659, 451], \"similar_count\": 0, \"difficulty\": \"medium\"}, {\"label\": \"a small green bush in a stone-lined area\", \"box_2d\": [729, 360, 855, 420], \"similar_count\": 0, \"difficulty\": \"easy\"}, {\"label\": \"a tall black lamp post with a flat rectangular head\", \"box_2d\": [607, 798, 936, 845], \"similar_count\": 2, \"difficulty\": \"easy\"}]}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 16719,
+      "promptTokens": 461,
+      "outputTokens": 44,
+      "raw": "{\"what_i_see\": \"a small dark plaque with white text on a building\", \"answer\": \"a small dark plaque with white text on a building\", \"person_at_target\": false}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 13661,
+      "promptTokens": 251,
+      "outputTokens": 44,
+      "raw": "{\"what_i_see\": \"a small dark plaque with white text on a building\", \"answer\": \"a small dark plaque with white text on a building\", \"person_at_target\": false}"
+    },
+    {
+      "kind": "write",
+      "ms": 27158,
+      "promptTokens": 1350,
+      "outputTokens": 93,
+      "raw": "{\n  \"lens\": \"remember\",\n  \"evidence\": \"The plaque features a prominent year and a commemorative inscription.\",\n  \"hint_semantic\": \"It marks a significant historical starting point for this location.\",\n  \"hint_concrete\": \"A large dark rectangular plaque with white and yellow lettering on brick.\",\n  \"detail\": \"The year 1919 is written in large, stylized white numbers.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "a small dark plaque with white text on a building",
+      "box_2d": [
+        564,
+        406,
+        659,
+        451
+      ],
+      "box": {
+        "x": 0.406,
+        "y": 0.564,
+        "w": 0.045,
+        "h": 0.095
+      },
+      "difficulty": "medium",
+      "lens": "remember",
+      "mcq": {
+        "options": [
+          "a small green bush in a stone-lined area",
+          "a tall black lamp post with a flat rectangular head",
+          "a red fire hydrant",
+          "a small dark plaque with white text on a building"
+        ],
+        "correct": "a small dark plaque with white text on a building",
+        "answer": "a small dark plaque with white text on a building",
+        "what_i_see": "a small dark plaque with white text on a building",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "Someone wanted this place to remember something.",
+      "hint_semantic": "It marks a significant historical starting point for this location.",
+      "hint_concrete": "A large dark rectangular plaque with white and yellow lettering on brick.",
+      "reveal": "The year 1919 is written in large, stylized white numbers. (evidence: The plaque features a prominent year and a commemorative inscription.)",
+      "spatial": "Look roughly straight ahead from where you took the photo.",
+      "crop": "crops/c002-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "a small green bush in a stone-lined area",
+      "box_2d": [
+        729,
+        360,
+        855,
+        420
+      ],
+      "box": {
+        "x": 0.36,
+        "y": 0.729,
+        "w": 0.06,
+        "h": 0.126
+      },
+      "rejected": "mass_noun",
+      "difficulty": "easy",
+      "lens": "similar:0",
+      "crop": "crops/c002-1-ctx.jpg"
+    },
+    {
+      "idx": 2,
+      "source": "full",
+      "label": "a tall black lamp post with a flat rectangular head",
+      "box_2d": [
+        607,
+        798,
+        936,
+        845
+      ],
+      "box": {
+        "x": 0.798,
+        "y": 0.607,
+        "w": 0.047,
+        "h": 0.329
+      },
+      "difficulty": "easy",
+      "lens": "similar:2",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "a tall black lamp post with a flat rectangular head",
+          "a small dark plaque with white text on a building",
+          "a small green bush in a stone-lined area"
+        ],
+        "correct": "a tall black lamp post with a flat rectangular head",
+        "answer": "a small dark plaque with white text on a building",
+        "what_i_see": "a small dark plaque with white text on a building",
+        "people": false,
+        "pass": false,
+        "ms": 0
+      },
+      "crop": "crops/c002-2-ctx.jpg"
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 93051
+}

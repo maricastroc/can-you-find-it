@@ -1,0 +1,192 @@
+[
+  {
+    "id": "P1-monument",
+    "kind": "positive",
+    "expected": true,
+    "said": true,
+    "correct": true,
+    "confidence": 0.95,
+    "shows": "yes",
+    "ms": 5816
+  },
+  {
+    "id": "P2-obelisk",
+    "kind": "positive",
+    "expected": true,
+    "said": true,
+    "correct": true,
+    "confidence": 0.99,
+    "shows": "yes",
+    "ms": 5917
+  },
+  {
+    "id": "P3-rock",
+    "kind": "positive",
+    "expected": true,
+    "said": true,
+    "correct": true,
+    "confidence": 0.95,
+    "shows": "yes",
+    "ms": 7045
+  },
+  {
+    "id": "P4-hanok",
+    "kind": "positive",
+    "expected": true,
+    "said": true,
+    "correct": true,
+    "confidence": 0.99,
+    "shows": "yes",
+    "ms": 6084
+  },
+  {
+    "id": "P5-loosestrife",
+    "kind": "positive",
+    "expected": true,
+    "said": true,
+    "correct": true,
+    "confidence": 0.98,
+    "shows": "yes",
+    "ms": 7275
+  },
+  {
+    "id": "A1-fountain",
+    "kind": "positive_aug",
+    "expected": true,
+    "said": true,
+    "correct": true,
+    "confidence": 0.99,
+    "shows": "yes",
+    "ms": 6476
+  },
+  {
+    "id": "A2-bench",
+    "kind": "positive_aug",
+    "expected": true,
+    "said": true,
+    "correct": true,
+    "confidence": 0.99,
+    "shows": "yes",
+    "ms": 5591
+  },
+  {
+    "id": "A3-sign58",
+    "kind": "positive_aug",
+    "expected": true,
+    "said": true,
+    "correct": true,
+    "confidence": 0.99,
+    "shows": "yes",
+    "ms": 7726
+  },
+  {
+    "id": "A4-sign692",
+    "kind": "positive_aug",
+    "expected": true,
+    "said": true,
+    "correct": true,
+    "confidence": 0.99,
+    "shows": "yes",
+    "ms": 6775
+  },
+  {
+    "id": "A5-lamp",
+    "kind": "positive_aug",
+    "expected": true,
+    "said": true,
+    "correct": true,
+    "confidence": 0.95,
+    "shows": "yes",
+    "ms": 5558
+  },
+  {
+    "id": "N1-monument-vs-obelisk",
+    "kind": "hard_negative",
+    "expected": false,
+    "said": false,
+    "correct": true,
+    "confidence": 0.95,
+    "shows": "no",
+    "ms": 6178
+  },
+  {
+    "id": "N2-obelisk-vs-fountain",
+    "kind": "hard_negative",
+    "expected": false,
+    "said": false,
+    "correct": true,
+    "confidence": 0.95,
+    "shows": "no",
+    "ms": 6757
+  },
+  {
+    "id": "N3-hanok-vs-hanok",
+    "kind": "hard_negative",
+    "expected": false,
+    "said": true,
+    "correct": false,
+    "confidence": 0.95,
+    "shows": "yes",
+    "ms": 8192
+  },
+  {
+    "id": "N4-bench-vs-bench",
+    "kind": "hard_negative",
+    "expected": false,
+    "said": true,
+    "correct": false,
+    "confidence": 0.95,
+    "shows": "the same target",
+    "ms": 7286
+  },
+  {
+    "id": "N5-sign-vs-sign",
+    "kind": "hard_negative",
+    "expected": false,
+    "said": false,
+    "correct": true,
+    "confidence": 0.95,
+    "shows": "no",
+    "ms": 7172
+  },
+  {
+    "id": "N6-bridge-vs-bridge",
+    "kind": "hard_negative",
+    "expected": false,
+    "said": false,
+    "correct": true,
+    "confidence": 0.9,
+    "shows": "no",
+    "ms": 4759
+  },
+  {
+    "id": "N7-lamp-vs-lamp",
+    "kind": "hard_negative",
+    "expected": false,
+    "said": true,
+    "correct": false,
+    "confidence": 0.95,
+    "shows": "yes",
+    "ms": 5007
+  },
+  {
+    "id": "U1-fountain-vs-bench",
+    "kind": "negative",
+    "expected": false,
+    "said": false,
+    "correct": true,
+    "confidence": 0.95,
+    "shows": "no",
+    "ms": 5982
+  },
+  {
+    "id": "U2-monument-vs-sign",
+    "kind": "negative",
+    "expected": false,
+    "said": false,
+    "correct": true,
+    "confidence": 0.95,
+    "shows": "no",
+    "ms": 7558
+  }
+]

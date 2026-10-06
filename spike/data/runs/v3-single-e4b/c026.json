@@ -1,0 +1,317 @@
+{
+  "image": "c026",
+  "width": 2560,
+  "height": 1440,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "single",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 69237,
+      "promptTokens": 1741,
+      "outputTokens": 845,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Yellow and black striped roadside marker post\",\n      \"box_2d\": [506, 297, 814, 326],\n      \"lens\": \"shape_or_color\",\n      \"why\": \"It has a distinct, repeating pattern of yellow and black stripes.\",\n      \"difficulty\": \"easy\",\n      \"clue\": \"It stands by the curb to mark the edge.\",\n      \"hint_semantic\": \"It helps drivers know where the road ends.\",\n      \"hint_concrete\": \"A short, vertical pole with bright yellow and black bands.\",\n      \"reveal\": \"It seems designed to catch the eye of anyone driving by.\"\n    },\n    {\n      \"label\": \"Blue and white traffic sign on pole near curb\",\n      \"box_2d\": [438, 752, 517, 784],\n      \"lens\": \"purpose\",\n      \"why\": \"It displays traffic regulations, serving a specific directional purpose.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"It directs movement with its simple graphic message.\",\n      \"hint_semantic\": \"It informs drivers about required actions in this area.\",\n      \"hint_concrete\": \"A small, rectangular blue sign mounted on a pole.\",\n      \"reveal\": \"Even small signs hold important instructions for the flow of traffic.\"\n    },\n    {\n      \"label\": \"Light-colored rectangular building facade with many windows\",\n      \"box_2d\": [14, 592, 553, 1000],\n      \"lens\": \"human_trace\",\n      \"why\": \"The repeating pattern of windows and balconies shows evidence of many previous occupants.\",\n      \"difficulty\": \"hard\",\n      \"clue\": \"It shows where many lives have unfolded over time.\",\n      \"hint_semantic\": \"It is a large residential structure built for many people.\",\n      \"hint_concrete\": \"A multi-story structure with a beige/light brown exterior.\",\n      \"reveal\": \"Each window represents a different story within this large structure.\"\n    },\n    {\n      \"label\": \"Tall, light-colored high-rise building in the distance\",\n      \"box_2d\": [121, 385, 424, 542],\n      \"lens\": \"shape_or_color\",\n      \"why\": \"Its sheer height and uniform white/light tone make it stand out against the other buildings.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"It reaches up higher than all the neighbors around it.\",\n      \"hint_semantic\": \"It is a very tall, modern block structure in the cityscape.\",\n      \"hint_concrete\": \"A very tall, slender building with many stacked windows.\",\n      \"reveal\": \"It dominates the skyline, a stark vertical presence in the urban view.\"\n    },\n    {\n      \"label\": \"Small dark metal barrier or railing section near curb\",\n      \"box_2d\": [505, 104, 579, 124],\n      \"lens\": \"hidden_in_plain_sight\",\n      \"why\": \"It is a small, low fixture barely visible along the edge of the sidewalk.\",\n      \"difficulty\": \"hard\",\n      \"clue\": \"It marks the boundary where the walking space begins.\",\n      \"hint_semantic\": \"It serves as a low physical separator between pavement and street.\",\n      \"hint_concrete\": \"A short, dark vertical piece of metal near the edge of the walkway.\",\n      \"reveal\": \"These small fixtures help define the boundaries of the public space.\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 2860,
+      "promptTokens": 151,
+      "outputTokens": 23,
+      "raw": "{\n\"what_i_see\": \"Yellow roadside marker post\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 3751,
+      "promptTokens": 195,
+      "outputTokens": 31,
+      "raw": "{\n\"what_i_see\": \"A bright yellow, rectangular object is near the center.\",\n\"answer\": \"D\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4609,
+      "promptTokens": 384,
+      "outputTokens": 24,
+      "raw": "{\n\"what_i_see\": \"Dense network of tangled branches\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5520,
+      "promptTokens": 426,
+      "outputTokens": 31,
+      "raw": "{\n\"what_i_see\": \"A dense network of tangled, thin branches or twigs.\",\n\"answer\": \"none\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 6488,
+      "promptTokens": 405,
+      "outputTokens": 39,
+      "raw": "{\n\"what_i_see\": \"A large, light-colored apartment building dominates the center of the image, partially obscured by bare trees.\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5340,
+      "promptTokens": 439,
+      "outputTokens": 36,
+      "raw": "{\n\"what_i_see\": \"The center of the image is dominated by a large, light-colored building.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5983,
+      "promptTokens": 492,
+      "outputTokens": 27,
+      "raw": "{\"what_i_see\": \"Tall, light-colored high-rise building in the distance\", \"visible\": true}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6167,
+      "promptTokens": 531,
+      "outputTokens": 39,
+      "raw": "{\n\"what_i_see\": \"The center of the image is dominated by a tall, light-colored high-rise building.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4923,
+      "promptTokens": 405,
+      "outputTokens": 22,
+      "raw": "{\n\"what_i_see\": \"Bare tree branches\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5660,
+      "promptTokens": 444,
+      "outputTokens": 28,
+      "raw": "{\n\"what_i_see\": \"Bare tree branches and some building facade\",\n\"answer\": \"none\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "label": "Yellow and black striped roadside marker post",
+      "box_2d": [
+        506,
+        297,
+        814,
+        326
+      ],
+      "lens": "shape_or_color",
+      "why": "It has a distinct, repeating pattern of yellow and black stripes.",
+      "difficulty": "easy",
+      "clue": "It stands by the curb to mark the edge.",
+      "hint_semantic": "It helps drivers know where the road ends.",
+      "hint_concrete": "A short, vertical pole with bright yellow and black bands.",
+      "reveal": "It seems designed to catch the eye of anyone driving by.",
+      "source": "full",
+      "idx": 0,
+      "box": {
+        "x": 0.297,
+        "y": 0.506,
+        "w": 0.029000000000000026,
+        "h": 0.30799999999999994
+      },
+      "boxWarnings": [],
+      "crop": "crops/c026-0-ctx.jpg",
+      "verifyCrop": "crops/c026-0-verify.jpg",
+      "verify": {
+        "what_i_see": "Yellow roadside marker post",
+        "visible": false,
+        "ms": 2860
+      },
+      "mcq": {
+        "options": [
+          "Blue and white traffic sign on pole near curb",
+          "Light-colored rectangular building facade with many windows",
+          "Tall, light-colored high-rise building in the distance",
+          "Yellow and black striped roadside marker post"
+        ],
+        "correct": "D",
+        "answer": "D",
+        "what_i_see": "A bright yellow, rectangular object is near the center.",
+        "pass": true,
+        "ms": 3751
+      }
+    },
+    {
+      "label": "Blue and white traffic sign on pole near curb",
+      "box_2d": [
+        438,
+        752,
+        517,
+        784
+      ],
+      "lens": "purpose",
+      "why": "It displays traffic regulations, serving a specific directional purpose.",
+      "difficulty": "medium",
+      "clue": "It directs movement with its simple graphic message.",
+      "hint_semantic": "It informs drivers about required actions in this area.",
+      "hint_concrete": "A small, rectangular blue sign mounted on a pole.",
+      "reveal": "Even small signs hold important instructions for the flow of traffic.",
+      "source": "full",
+      "idx": 1,
+      "box": {
+        "x": 0.752,
+        "y": 0.438,
+        "w": 0.03200000000000003,
+        "h": 0.07900000000000001
+      },
+      "boxWarnings": [],
+      "crop": "crops/c026-1-ctx.jpg",
+      "verifyCrop": "crops/c026-1-verify.jpg",
+      "verify": {
+        "what_i_see": "Dense network of tangled branches",
+        "visible": false,
+        "ms": 4609
+      },
+      "mcq": {
+        "options": [
+          "Light-colored rectangular building facade with many windows",
+          "Blue and white traffic sign on pole near curb",
+          "Tall, light-colored high-rise building in the distance",
+          "Yellow and black striped roadside marker post"
+        ],
+        "correct": "B",
+        "answer": "none",
+        "what_i_see": "A dense network of tangled, thin branches or twigs.",
+        "pass": false,
+        "ms": 5520
+      }
+    },
+    {
+      "label": "Light-colored rectangular building facade with many windows",
+      "box_2d": [
+        14,
+        592,
+        553,
+        1000
+      ],
+      "lens": "human_trace",
+      "why": "The repeating pattern of windows and balconies shows evidence of many previous occupants.",
+      "difficulty": "hard",
+      "clue": "It shows where many lives have unfolded over time.",
+      "hint_semantic": "It is a large residential structure built for many people.",
+      "hint_concrete": "A multi-story structure with a beige/light brown exterior.",
+      "reveal": "Each window represents a different story within this large structure.",
+      "source": "full",
+      "idx": 2,
+      "box": {
+        "x": 0.592,
+        "y": 0.014,
+        "w": 0.40800000000000003,
+        "h": 0.539
+      },
+      "boxWarnings": [],
+      "crop": "crops/c026-2-ctx.jpg",
+      "verifyCrop": "crops/c026-2-verify.jpg",
+      "rejected": "mass_noun",
+      "verify": {
+        "what_i_see": "A large, light-colored apartment building dominates the center of the image, partially obscured by bare trees.",
+        "visible": true,
+        "ms": 6488
+      },
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "Light-colored rectangular building facade with many windows",
+          "Yellow and black striped roadside marker post",
+          "Small dark metal barrier or railing section near curb"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "The center of the image is dominated by a large, light-colored building.",
+        "pass": true,
+        "ms": 5340
+      }
+    },
+    {
+      "label": "Tall, light-colored high-rise building in the distance",
+      "box_2d": [
+        121,
+        385,
+        424,
+        542
+      ],
+      "lens": "shape_or_color",
+      "why": "Its sheer height and uniform white/light tone make it stand out against the other buildings.",
+      "difficulty": "medium",
+      "clue": "It reaches up higher than all the neighbors around it.",
+      "hint_semantic": "It is a very tall, modern block structure in the cityscape.",
+      "hint_concrete": "A very tall, slender building with many stacked windows.",
+      "reveal": "It dominates the skyline, a stark vertical presence in the urban view.",
+      "source": "full",
+      "idx": 3,
+      "box": {
+        "x": 0.385,
+        "y": 0.121,
+        "w": 0.15700000000000003,
+        "h": 0.303
+      },
+      "boxWarnings": [],
+      "crop": "crops/c026-3-ctx.jpg",
+      "verifyCrop": "crops/c026-3-verify.jpg",
+      "rejected": "mass_noun",
+      "verify": {
+        "what_i_see": "Tall, light-colored high-rise building in the distance",
+        "visible": true,
+        "ms": 5983
+      },
+      "mcq": {
+        "options": [
+          "Blue and white traffic sign on pole near curb",
+          "Tall, light-colored high-rise building in the distance",
+          "Yellow and black striped roadside marker post",
+          "Light-colored rectangular building facade with many windows"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "The center of the image is dominated by a tall, light-colored high-rise building.",
+        "pass": true,
+        "ms": 6167
+      }
+    },
+    {
+      "label": "Small dark metal barrier or railing section near curb",
+      "box_2d": [
+        505,
+        104,
+        579,
+        124
+      ],
+      "lens": "hidden_in_plain_sight",
+      "why": "It is a small, low fixture barely visible along the edge of the sidewalk.",
+      "difficulty": "hard",
+      "clue": "It marks the boundary where the walking space begins.",
+      "hint_semantic": "It serves as a low physical separator between pavement and street.",
+      "hint_concrete": "A short, dark vertical piece of metal near the edge of the walkway.",
+      "reveal": "These small fixtures help define the boundaries of the public space.",
+      "source": "full",
+      "idx": 4,
+      "box": {
+        "x": 0.104,
+        "y": 0.505,
+        "w": 0.020000000000000004,
+        "h": 0.07399999999999995
+      },
+      "boxWarnings": [],
+      "crop": "crops/c026-4-ctx.jpg",
+      "verifyCrop": "crops/c026-4-verify.jpg",
+      "verify": {
+        "what_i_see": "Bare tree branches",
+        "visible": false,
+        "ms": 4923
+      },
+      "mcq": {
+        "options": [
+          "Yellow and black striped roadside marker post",
+          "Light-colored rectangular building facade with many windows",
+          "Blue and white traffic sign on pole near curb",
+          "Small dark metal barrier or railing section near curb"
+        ],
+        "correct": "D",
+        "answer": "none",
+        "what_i_see": "Bare tree branches and some building facade",
+        "pass": false,
+        "ms": 5660
+      }
+    }
+  ]
+}

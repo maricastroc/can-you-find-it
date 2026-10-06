@@ -1,0 +1,316 @@
+{
+  "image": "c012",
+  "width": 2560,
+  "height": 1700,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "single",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 77545,
+      "promptTokens": 1901,
+      "outputTokens": 831,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Tall stone column topped with a small decorative element\",\n      \"box_2d\": [\n        178,\n        207,\n        653,\n        246\n      ],\n      \"lens\": \"human_trace\",\n      \"why\": \"It marks a spot in the center of the square.\",\n      \"difficulty\": \"easy\",\n      \"clue\": \"A weathered marker stands tall at the heart of the paving.\",\n      \"hint_semantic\": \"It helps define the central space of the gathering area.\",\n      \"hint_concrete\": \"A vertical, light-colored stone structure.\",\n      \"reveal\": \"It seems to have witnessed every gathering here.\"\n    },\n    {\n      \"label\": \"Clock tower atop the main administrative building\",\n      \"box_2d\": [\n        193,\n        427,\n        384,\n        462\n      ],\n      \"lens\": \"purpose\",\n      \"why\": \"It displays the time for everyone in the square.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"It keeps track of moments for everyone nearby.\",\n      \"hint_semantic\": \"It serves as a public indicator of the passing hours.\",\n      \"hint_concrete\": \"A square structure with visible clock faces.\",\n      \"reveal\": \"The moments it marks have shaped this whole place.\"\n    },\n    {\n      \"label\": \"White flag with a green and white emblem displayed\",\n      \"box_2d\": [\n        156,\n        761,\n        324,\n        835\n      ],\n      \"lens\": \"shape_or_color\",\n      \"why\": \"Its distinct colors make it stand out from surrounding elements.\",\n      \"difficulty\": \"easy\",\n      \"clue\": \"A standard displaying bold patches of two shades.\",\n      \"hint_semantic\": \"It might represent a local event or affiliation.\",\n      \"hint_concrete\": \"A rectangular piece of fabric attached to a pole.\",\n      \"reveal\": \"Its colors suggest a local celebration is taking place.\"\n    },\n    {\n      \"label\": \"Bicycle parked near the edge of the paved area\",\n      \"box_2d\": [\n        708,\n        715,\n        781,\n        791\n      ],\n      \"lens\": \"human_trace\",\n      \"why\": \"It suggests someone recently arrived or intends to leave.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"A mode of transit rests here, awaiting its rider.\",\n      \"hint_semantic\": \"It is a temporary fixture, indicating recent human activity.\",\n      \"hint_concrete\": \"A frame with two wheels and pedals.\",\n      \"reveal\": \"It waits patiently for its next journey through the city.\"\n    },\n    {\n      \"label\": \"Small dark bin near the building entrance on the right\",\n      \"box_2d\": [\n        664,\n        932,\n        761,\n        971\n      ],\n      \"lens\": \"hidden_in_plain_sight\",\n      \"why\": \"It is a functional object often overlooked in the main view.\",\n      \"difficulty\": \"hard\",\n      \"clue\": \"It is where discarded items are deposited.\",\n      \"hint_semantic\": \"It is provided for keeping the public area tidy.\",\n      \"hint_concrete\": \"A vertical, dark receptacle near the building facade.\",\n      \"reveal\": \"Even the smallest object plays a part in the square's order.\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3005,
+      "promptTokens": 141,
+      "outputTokens": 22,
+      "raw": "{\n\"what_i_see\": \"Tall stone column\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 3386,
+      "promptTokens": 180,
+      "outputTokens": 25,
+      "raw": "{\n\"what_i_see\": \"A tall stone column\",\n\"answer\": \"D\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3636,
+      "promptTokens": 193,
+      "outputTokens": 21,
+      "raw": "{\n\"what_i_see\": \"Clock tower\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4195,
+      "promptTokens": 234,
+      "outputTokens": 24,
+      "raw": "{\n\"what_i_see\": \"A clock tower\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5192,
+      "promptTokens": 363,
+      "outputTokens": 21,
+      "raw": "{\n\"what_i_see\": \"A flag\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6238,
+      "promptTokens": 402,
+      "outputTokens": 30,
+      "raw": "{\n\"what_i_see\": \"A flag is near the center of the image.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5752,
+      "promptTokens": 364,
+      "outputTokens": 28,
+      "raw": "{\n\"what_i_see\": \"A row of bicycles parked in a metal rack\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5862,
+      "promptTokens": 402,
+      "outputTokens": 26,
+      "raw": "{\n\"what_i_see\": \"A row of parked bicycles.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 7007,
+      "promptTokens": 343,
+      "outputTokens": 41,
+      "raw": "{\n\"what_i_see\": \"A blue sign with the text \\\"Zurnal24\\\" is visible near the center, leaning against a building.\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6952,
+      "promptTokens": 382,
+      "outputTokens": 40,
+      "raw": "{\n\"what_i_see\": \"A blue sign with white text, likely a newspaper or publication name, is visible near the center.\",\n\"answer\": \"none\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "label": "Tall stone column topped with a small decorative element",
+      "box_2d": [
+        178,
+        207,
+        653,
+        246
+      ],
+      "lens": "human_trace",
+      "why": "It marks a spot in the center of the square.",
+      "difficulty": "easy",
+      "clue": "A weathered marker stands tall at the heart of the paving.",
+      "hint_semantic": "It helps define the central space of the gathering area.",
+      "hint_concrete": "A vertical, light-colored stone structure.",
+      "reveal": "It seems to have witnessed every gathering here.",
+      "source": "full",
+      "idx": 0,
+      "box": {
+        "x": 0.207,
+        "y": 0.178,
+        "w": 0.03900000000000001,
+        "h": 0.47500000000000003
+      },
+      "boxWarnings": [],
+      "crop": "crops/c012-0-ctx.jpg",
+      "verifyCrop": "crops/c012-0-verify.jpg",
+      "verify": {
+        "what_i_see": "Tall stone column",
+        "visible": true,
+        "ms": 3005
+      },
+      "mcq": {
+        "options": [
+          "Clock tower atop the main administrative building",
+          "White flag with a green and white emblem displayed",
+          "Bicycle parked near the edge of the paved area",
+          "Tall stone column topped with a small decorative element"
+        ],
+        "correct": "D",
+        "answer": "D",
+        "what_i_see": "A tall stone column",
+        "pass": true,
+        "ms": 3386
+      }
+    },
+    {
+      "label": "Clock tower atop the main administrative building",
+      "box_2d": [
+        193,
+        427,
+        384,
+        462
+      ],
+      "lens": "purpose",
+      "why": "It displays the time for everyone in the square.",
+      "difficulty": "medium",
+      "clue": "It keeps track of moments for everyone nearby.",
+      "hint_semantic": "It serves as a public indicator of the passing hours.",
+      "hint_concrete": "A square structure with visible clock faces.",
+      "reveal": "The moments it marks have shaped this whole place.",
+      "source": "full",
+      "idx": 1,
+      "box": {
+        "x": 0.427,
+        "y": 0.193,
+        "w": 0.03500000000000003,
+        "h": 0.191
+      },
+      "boxWarnings": [],
+      "crop": "crops/c012-1-ctx.jpg",
+      "verifyCrop": "crops/c012-1-verify.jpg",
+      "rejected": "mass_noun",
+      "verify": {
+        "what_i_see": "Clock tower",
+        "visible": true,
+        "ms": 3636
+      },
+      "mcq": {
+        "options": [
+          "White flag with a green and white emblem displayed",
+          "Clock tower atop the main administrative building",
+          "Bicycle parked near the edge of the paved area",
+          "Tall stone column topped with a small decorative element"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A clock tower",
+        "pass": true,
+        "ms": 4195
+      }
+    },
+    {
+      "label": "White flag with a green and white emblem displayed",
+      "box_2d": [
+        156,
+        761,
+        324,
+        835
+      ],
+      "lens": "shape_or_color",
+      "why": "Its distinct colors make it stand out from surrounding elements.",
+      "difficulty": "easy",
+      "clue": "A standard displaying bold patches of two shades.",
+      "hint_semantic": "It might represent a local event or affiliation.",
+      "hint_concrete": "A rectangular piece of fabric attached to a pole.",
+      "reveal": "Its colors suggest a local celebration is taking place.",
+      "source": "full",
+      "idx": 2,
+      "box": {
+        "x": 0.761,
+        "y": 0.156,
+        "w": 0.07399999999999995,
+        "h": 0.168
+      },
+      "boxWarnings": [],
+      "crop": "crops/c012-2-ctx.jpg",
+      "verifyCrop": "crops/c012-2-verify.jpg",
+      "verify": {
+        "what_i_see": "A flag",
+        "visible": false,
+        "ms": 5192
+      },
+      "mcq": {
+        "options": [
+          "Bicycle parked near the edge of the paved area",
+          "White flag with a green and white emblem displayed",
+          "Tall stone column topped with a small decorative element",
+          "Clock tower atop the main administrative building"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A flag is near the center of the image.",
+        "pass": true,
+        "ms": 6238
+      }
+    },
+    {
+      "label": "Bicycle parked near the edge of the paved area",
+      "box_2d": [
+        708,
+        715,
+        781,
+        791
+      ],
+      "lens": "human_trace",
+      "why": "It suggests someone recently arrived or intends to leave.",
+      "difficulty": "medium",
+      "clue": "A mode of transit rests here, awaiting its rider.",
+      "hint_semantic": "It is a temporary fixture, indicating recent human activity.",
+      "hint_concrete": "A frame with two wheels and pedals.",
+      "reveal": "It waits patiently for its next journey through the city.",
+      "source": "full",
+      "idx": 3,
+      "box": {
+        "x": 0.715,
+        "y": 0.708,
+        "w": 0.07600000000000007,
+        "h": 0.07300000000000006
+      },
+      "boxWarnings": [],
+      "crop": "crops/c012-3-ctx.jpg",
+      "verifyCrop": "crops/c012-3-verify.jpg",
+      "verify": {
+        "what_i_see": "A row of bicycles parked in a metal rack",
+        "visible": true,
+        "ms": 5752
+      },
+      "mcq": {
+        "options": [
+          "Clock tower atop the main administrative building",
+          "Bicycle parked near the edge of the paved area",
+          "Tall stone column topped with a small decorative element",
+          "White flag with a green and white emblem displayed"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A row of parked bicycles.",
+        "pass": true,
+        "ms": 5862
+      }
+    },
+    {
+      "label": "Small dark bin near the building entrance on the right",
+      "box_2d": [
+        664,
+        932,
+        761,
+        971
+      ],
+      "lens": "hidden_in_plain_sight",
+      "why": "It is a functional object often overlooked in the main view.",
+      "difficulty": "hard",
+      "clue": "It is where discarded items are deposited.",
+      "hint_semantic": "It is provided for keeping the public area tidy.",
+      "hint_concrete": "A vertical, dark receptacle near the building facade.",
+      "reveal": "Even the smallest object plays a part in the square's order.",
+      "source": "full",
+      "idx": 4,
+      "box": {
+        "x": 0.932,
+        "y": 0.664,
+        "w": 0.038999999999999924,
+        "h": 0.09699999999999998
+      },
+      "boxWarnings": [],
+      "crop": "crops/c012-4-ctx.jpg",
+      "verifyCrop": "crops/c012-4-verify.jpg",
+      "verify": {
+        "what_i_see": "A blue sign with the text \"Zurnal24\" is visible near the center, leaning against a building.",
+        "visible": false,
+        "ms": 7007
+      },
+      "mcq": {
+        "options": [
+          "Tall stone column topped with a small decorative element",
+          "White flag with a green and white emblem displayed",
+          "Clock tower atop the main administrative building",
+          "Small dark bin near the building entrance on the right"
+        ],
+        "correct": "D",
+        "answer": "none",
+        "what_i_see": "A blue sign with white text, likely a newspaper or publication name, is visible near the center.",
+        "pass": false,
+        "ms": 6952
+      }
+    }
+  ]
+}

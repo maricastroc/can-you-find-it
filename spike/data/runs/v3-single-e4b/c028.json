@@ -1,0 +1,315 @@
+{
+  "image": "c028",
+  "width": 2560,
+  "height": 1920,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "single",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 59964,
+      "promptTokens": 1885,
+      "outputTokens": 781,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Small square marker indicating a property address\",\n      \"box_2d\": [519, 67, 565, 114],\n      \"lens\": \"human_trace\",\n      \"why\": \"It marks a specific place along the way.\",\n      \"difficulty\": \"easy\",\n      \"clue\": \"This small marker tells you where someone calls home.\",\n      \"hint_semantic\": \"It denotes a specific dwelling location.\",\n      \"hint_concrete\": \"A small rectangular sign attached to a post.\",\n      \"reveal\": \"It's just a simple way to keep track of addresses.\"\n    },\n    {\n      \"label\": \"Stone pillar structure marking the entrance to the drive\",\n      \"box_2d\": [347, 284, 581, 368],\n      \"lens\": \"nature_reclaiming\",\n      \"why\": \"Moss and age are softening the rigid stonework.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"Though built strong, time is slowly softening its edges.\",\n      \"hint_semantic\": \"It serves as a boundary marker for the property entrance.\",\n      \"hint_concrete\": \"A tall, rough-cut stone pillar.\",\n      \"reveal\": \"Even sturdy structures eventually yield to the passage of time.\"\n    },\n    {\n      \"label\": \"Sign indicating the road is private property\",\n      \"box_2d\": [469, 806, 502, 876],\n      \"lens\": \"purpose\",\n      \"why\": \"Its text warns about access limitations.\",\n      \"difficulty\": \"easy\",\n      \"clue\": \"Access here is restricted by a clear written rule.\",\n      \"hint_semantic\": \"It informs visitors about the nature of the road.\",\n      \"hint_concrete\": \"A dark sign with light lettering mounted on a post.\",\n      \"reveal\": \"Not every path is open to everyone.\"\n    },\n    {\n      \"label\": \"Circular metal cover embedded in the pavement\",\n      \"box_2d\": [888, 843, 934, 935],\n      \"lens\": \"hidden_in_plain_sight\",\n      \"why\": \"It is part of the infrastructure beneath the surface.\",\n      \"difficulty\": \"hard\",\n      \"clue\": \"It is a circular fixture hidden beneath the walkway.\",\n      \"hint_semantic\": \"It relates to underground utility systems.\",\n      \"hint_concrete\": \"A round, dark metal plate flush with the concrete.\",\n      \"reveal\": \"Even the ground has its own hidden services.\"\n    },\n    {\n      \"label\": \"Small plaque with a number near the entrance pillar\",\n      \"box_2d\": [508, 785, 536, 807],\n      \"lens\": \"human_trace\",\n      \"why\": \"It provides a specific identifier for the nearby structure.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"This small tag tells you the number of the nearby dwelling.\",\n      \"hint_semantic\": \"It functions as a unit identifier for the property.\",\n      \"hint_concrete\": \"A small, light-colored square attached to the stone wall.\",\n      \"reveal\": \"A simple number can define a whole place.\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5998,
+      "promptTokens": 487,
+      "outputTokens": 29,
+      "raw": "{\"what_i_see\": \"A green road sign with the number 692 in gold lettering.\", \"visible\": false}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 7759,
+      "promptTokens": 524,
+      "outputTokens": 46,
+      "raw": "{\n\"what_i_see\": \"A green road sign with the number 692 on it, mounted on a wooden post, with foliage in the background.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3728,
+      "promptTokens": 279,
+      "outputTokens": 22,
+      "raw": "{\n\"what_i_see\": \"Stone pillar structure\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4174,
+      "promptTokens": 314,
+      "outputTokens": 26,
+      "raw": "{\n\"what_i_see\": \"A large stone pillar structure\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4786,
+      "promptTokens": 340,
+      "outputTokens": 26,
+      "raw": "{\"what_i_see\": \"A wooden sign with the word 'PRIVATE' on it.\", \"visible\": true}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5175,
+      "promptTokens": 377,
+      "outputTokens": 37,
+      "raw": "{\n\"what_i_see\": \"A wooden sign with the word 'PRIVATE' on it, surrounded by green foliage.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4669,
+      "promptTokens": 277,
+      "outputTokens": 30,
+      "raw": "{\n\"what_i_see\": \"A close-up of a manhole or utility cover.\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5222,
+      "promptTokens": 314,
+      "outputTokens": 41,
+      "raw": "{\n\"what_i_see\": \"A close-up of a circular metal object embedded in a light-colored surface, showing embossed lettering.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 6191,
+      "promptTokens": 510,
+      "outputTokens": 26,
+      "raw": "{\n\"what_i_see\": \"A tree trunk with a sign attached\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6784,
+      "promptTokens": 547,
+      "outputTokens": 32,
+      "raw": "{\n\"what_i_see\": \"A tree trunk with a small white sign attached to it.\",\n\"answer\": \"D\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "label": "Small square marker indicating a property address",
+      "box_2d": [
+        519,
+        67,
+        565,
+        114
+      ],
+      "lens": "human_trace",
+      "why": "It marks a specific place along the way.",
+      "difficulty": "easy",
+      "clue": "This small marker tells you where someone calls home.",
+      "hint_semantic": "It denotes a specific dwelling location.",
+      "hint_concrete": "A small rectangular sign attached to a post.",
+      "reveal": "It's just a simple way to keep track of addresses.",
+      "source": "full",
+      "idx": 0,
+      "box": {
+        "x": 0.067,
+        "y": 0.519,
+        "w": 0.047,
+        "h": 0.04599999999999993
+      },
+      "boxWarnings": [],
+      "crop": "crops/c028-0-ctx.jpg",
+      "verifyCrop": "crops/c028-0-verify.jpg",
+      "verify": {
+        "what_i_see": "A green road sign with the number 692 in gold lettering.",
+        "visible": false,
+        "ms": 5998
+      },
+      "mcq": {
+        "options": [
+          "Stone pillar structure marking the entrance to the drive",
+          "Sign indicating the road is private property",
+          "Circular metal cover embedded in the pavement",
+          "Small square marker indicating a property address"
+        ],
+        "correct": "D",
+        "answer": "B",
+        "what_i_see": "A green road sign with the number 692 on it, mounted on a wooden post, with foliage in the background.",
+        "pass": false,
+        "ms": 7759
+      }
+    },
+    {
+      "label": "Stone pillar structure marking the entrance to the drive",
+      "box_2d": [
+        347,
+        284,
+        581,
+        368
+      ],
+      "lens": "nature_reclaiming",
+      "why": "Moss and age are softening the rigid stonework.",
+      "difficulty": "medium",
+      "clue": "Though built strong, time is slowly softening its edges.",
+      "hint_semantic": "It serves as a boundary marker for the property entrance.",
+      "hint_concrete": "A tall, rough-cut stone pillar.",
+      "reveal": "Even sturdy structures eventually yield to the passage of time.",
+      "source": "full",
+      "idx": 1,
+      "box": {
+        "x": 0.284,
+        "y": 0.347,
+        "w": 0.08400000000000002,
+        "h": 0.23399999999999999
+      },
+      "boxWarnings": [],
+      "crop": "crops/c028-1-ctx.jpg",
+      "verifyCrop": "crops/c028-1-verify.jpg",
+      "verify": {
+        "what_i_see": "Stone pillar structure",
+        "visible": true,
+        "ms": 3728
+      },
+      "mcq": {
+        "options": [
+          "Sign indicating the road is private property",
+          "Stone pillar structure marking the entrance to the drive",
+          "Circular metal cover embedded in the pavement",
+          "Small square marker indicating a property address"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A large stone pillar structure",
+        "pass": true,
+        "ms": 4174
+      }
+    },
+    {
+      "label": "Sign indicating the road is private property",
+      "box_2d": [
+        469,
+        806,
+        502,
+        876
+      ],
+      "lens": "purpose",
+      "why": "Its text warns about access limitations.",
+      "difficulty": "easy",
+      "clue": "Access here is restricted by a clear written rule.",
+      "hint_semantic": "It informs visitors about the nature of the road.",
+      "hint_concrete": "A dark sign with light lettering mounted on a post.",
+      "reveal": "Not every path is open to everyone.",
+      "source": "full",
+      "idx": 2,
+      "box": {
+        "x": 0.806,
+        "y": 0.469,
+        "w": 0.06999999999999995,
+        "h": 0.03300000000000003
+      },
+      "boxWarnings": [],
+      "crop": "crops/c028-2-ctx.jpg",
+      "verifyCrop": "crops/c028-2-verify.jpg",
+      "verify": {
+        "what_i_see": "A wooden sign with the word 'PRIVATE' on it.",
+        "visible": true,
+        "ms": 4786
+      },
+      "mcq": {
+        "options": [
+          "Circular metal cover embedded in the pavement",
+          "Sign indicating the road is private property",
+          "Small square marker indicating a property address",
+          "Stone pillar structure marking the entrance to the drive"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A wooden sign with the word 'PRIVATE' on it, surrounded by green foliage.",
+        "pass": true,
+        "ms": 5175
+      }
+    },
+    {
+      "label": "Circular metal cover embedded in the pavement",
+      "box_2d": [
+        888,
+        843,
+        934,
+        935
+      ],
+      "lens": "hidden_in_plain_sight",
+      "why": "It is part of the infrastructure beneath the surface.",
+      "difficulty": "hard",
+      "clue": "It is a circular fixture hidden beneath the walkway.",
+      "hint_semantic": "It relates to underground utility systems.",
+      "hint_concrete": "A round, dark metal plate flush with the concrete.",
+      "reveal": "Even the ground has its own hidden services.",
+      "source": "full",
+      "idx": 3,
+      "box": {
+        "x": 0.843,
+        "y": 0.888,
+        "w": 0.09200000000000008,
+        "h": 0.04600000000000004
+      },
+      "boxWarnings": [],
+      "crop": "crops/c028-3-ctx.jpg",
+      "verifyCrop": "crops/c028-3-verify.jpg",
+      "verify": {
+        "what_i_see": "A close-up of a manhole or utility cover.",
+        "visible": true,
+        "ms": 4669
+      },
+      "mcq": {
+        "options": [
+          "Stone pillar structure marking the entrance to the drive",
+          "Circular metal cover embedded in the pavement",
+          "Small square marker indicating a property address",
+          "Sign indicating the road is private property"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A close-up of a circular metal object embedded in a light-colored surface, showing embossed lettering.",
+        "pass": true,
+        "ms": 5222
+      }
+    },
+    {
+      "label": "Small plaque with a number near the entrance pillar",
+      "box_2d": [
+        508,
+        785,
+        536,
+        807
+      ],
+      "lens": "human_trace",
+      "why": "It provides a specific identifier for the nearby structure.",
+      "difficulty": "medium",
+      "clue": "This small tag tells you the number of the nearby dwelling.",
+      "hint_semantic": "It functions as a unit identifier for the property.",
+      "hint_concrete": "A small, light-colored square attached to the stone wall.",
+      "reveal": "A simple number can define a whole place.",
+      "source": "full",
+      "idx": 4,
+      "box": {
+        "x": 0.785,
+        "y": 0.508,
+        "w": 0.02200000000000002,
+        "h": 0.028000000000000025
+      },
+      "boxWarnings": [],
+      "crop": "crops/c028-4-ctx.jpg",
+      "verifyCrop": "crops/c028-4-verify.jpg",
+      "verify": {
+        "what_i_see": "A tree trunk with a sign attached",
+        "visible": true,
+        "ms": 6191
+      },
+      "mcq": {
+        "options": [
+          "Small square marker indicating a property address",
+          "Sign indicating the road is private property",
+          "Stone pillar structure marking the entrance to the drive",
+          "Small plaque with a number near the entrance pillar"
+        ],
+        "correct": "D",
+        "answer": "D",
+        "what_i_see": "A tree trunk with a small white sign attached to it.",
+        "pass": true,
+        "ms": 6784
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "1": {
+    "what_is_special": "A barrier interrupts the flow of movement here.",
+    "lens": "purpose",
+    "difficulty": "medium",
+    "clue": "This element controls passage into a designated area.",
+    "hint_semantic": "It is designed to mark where something starts or stops.",
+    "hint_concrete": "It is constructed of vertical, equally spaced bars.",
+    "reveal": "The bright surface shows signs of recent exposure to the elements.",
+    "ms": 12410,
+    "outputTokens": 114
+  },
+  "2": {
+    "what_is_special": "The metal frame anchors the movement of the suspended forms.",
+    "lens": "repaired",
+    "difficulty": "medium",
+    "clue": "A sturdy frame supports the swinging motion within.",
+    "hint_semantic": "It provides the necessary points for things to swing from.",
+    "hint_concrete": "A tall, rigid structure made of bolted metal sections.",
+    "reveal": "This support shows signs of weathering against the green backdrop.",
+    "ms": 12934,
+    "outputTokens": 115
+  }
+}

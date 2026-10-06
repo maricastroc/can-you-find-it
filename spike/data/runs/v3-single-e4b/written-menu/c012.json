@@ -1,0 +1,22 @@
+{
+  "0": {
+    "lens": "look_up",
+    "evidence": "The column extends high above the surrounding buildings.",
+    "hint_semantic": "It was built to be seen from a distance or from above.",
+    "hint_concrete": "Tall, light-colored stone column, tapering towards the top.",
+    "detail": "The small decorative element at the very top of the column.",
+    "clue": "You'd only see it if you looked up.",
+    "ms": 8720,
+    "outputTokens": 87
+  },
+  "1": {
+    "lens": "keeps_time",
+    "evidence": "The tower features a visible clock face.",
+    "hint_semantic": "It is a public timepiece that marks the hours for everyone nearby.",
+    "hint_concrete": "A multi-tiered tower structure with a visible clock face.",
+    "detail": "The clock face has Roman numerals marking the hours.",
+    "clue": "Everyone here trusts it to keep time.",
+    "ms": 9739,
+    "outputTokens": 88
+  }
+}

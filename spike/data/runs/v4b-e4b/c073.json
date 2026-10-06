@@ -1,0 +1,81 @@
+{
+  "image": "c073",
+  "width": 2560,
+  "height": 1920,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 29490,
+      "promptTokens": 1551,
+      "outputTokens": 255,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Dark, smooth rock formation jutting into the water\",\n      \"box_2d\": [598, 177, 896, 755],\n      \"special\": \"A large, natural feature in the middle\",\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    },\n    {\n      \"label\": \"Small, dark bird standing on the central rock\",\n      \"box_2d\": [635, 624, 715, 691],\n      \"special\": \"A specific bird among the group\",\n      \"similar_count\": 4,\n      \"difficulty\": \"easy\"\n    },\n    {\n      \"label\": \"Cluster of tall plants with purple flowers\",\n      \"box_2d\": [0, 41, 665, 491],\n      \"special\": \"A vibrant patch of colorful blooms\",\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    }\n  ]\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Dark, smooth rock formation jutting into the water",
+      "box_2d": [
+        598,
+        177,
+        896,
+        755
+      ],
+      "box": {
+        "x": 0.177,
+        "y": 0.598,
+        "w": 0.578,
+        "h": 0.298
+      },
+      "rejected": "too_large",
+      "difficulty": "medium",
+      "crop": "../v4-e4b/crops/c073-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Small, dark bird standing on the central rock",
+      "box_2d": [
+        635,
+        624,
+        715,
+        691
+      ],
+      "box": {
+        "x": 0.624,
+        "y": 0.635,
+        "w": 0.067,
+        "h": 0.08
+      },
+      "rejected": "animal",
+      "difficulty": "easy",
+      "crop": "../v4-e4b/crops/c073-1-ctx.jpg"
+    },
+    {
+      "idx": 2,
+      "source": "full",
+      "label": "Cluster of tall plants with purple flowers",
+      "box_2d": [
+        0,
+        41,
+        665,
+        491
+      ],
+      "box": {
+        "x": 0.041,
+        "y": 0,
+        "w": 0.45,
+        "h": 0.665
+      },
+      "rejected": "too_large",
+      "difficulty": "medium",
+      "crop": "../v4-e4b/crops/c073-2-ctx.jpg"
+    }
+  ],
+  "waitMs": 29490
+}

@@ -1,0 +1,140 @@
+{
+  "image": "c016",
+  "width": 2560,
+  "height": 1624,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 29521,
+      "promptTokens": 1487,
+      "outputTokens": 260,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"White building with arched upper level and 'Le Café' sign\",\n      \"box_2d\": [306, 206, 525, 602],\n      \"special\": \"A distinctive landmark in the evening setting.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"easy\"\n    },\n    {\n      \"label\": \"Tall street lamp post with bright light source\",\n      \"box_2d\": [0, 741, 595, 776],\n      \"special\": \"A prominent vertical feature illuminating the scene.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"easy\"\n    },\n    {\n      \"label\": \"Small, low white wall or railing section near the left\",\n      \"box_2d\": [485, 0, 538, 133],\n      \"special\": \"A subtle architectural detail along the building edge.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4309,
+      "promptTokens": 202,
+      "outputTokens": 44,
+      "raw": "{\n\"what_i_see\": \"A tall street lamp post with bright light source\",\n\"answer\": \"Tall street lamp post with bright light source\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5511,
+      "promptTokens": 247,
+      "outputTokens": 47,
+      "raw": "{\n\"what_i_see\": \"A vendor stall/cart with a bright light source above it.\",\n\"answer\": \"Tall street lamp post with bright light source\",\n\"people_visible\": true\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 9553,
+      "promptTokens": 1094,
+      "outputTokens": 93,
+      "raw": "{\n  \"lens\": \"after_dark\",\n  \"evidence\": \"The lamp post is illuminated against the dark night sky.\",\n  \"hint_semantic\": \"It provides necessary light for navigation and safety after sunset.\",\n  \"hint_concrete\": \"Tall, slender metal pole with a light fixture at the top.\",\n  \"detail\": \"The light source emits a very bright, star-like glare.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "White building with arched upper level and 'Le Café' sign",
+      "box_2d": [
+        306,
+        206,
+        525,
+        602
+      ],
+      "box": {
+        "x": 0.206,
+        "y": 0.306,
+        "w": 0.396,
+        "h": 0.219
+      },
+      "rejected": "mass_noun",
+      "difficulty": "easy",
+      "why": "A distinctive landmark in the evening setting.",
+      "lens": "similar:0",
+      "crop": "crops/c016-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Tall street lamp post with bright light source",
+      "box_2d": [
+        0,
+        741,
+        595,
+        776
+      ],
+      "box": {
+        "x": 0.741,
+        "y": 0,
+        "w": 0.035,
+        "h": 0.595
+      },
+      "difficulty": "easy",
+      "why": "A prominent vertical feature illuminating the scene.",
+      "lens": "after_dark",
+      "mcq": {
+        "options": [
+          "Small, low white wall or railing section near the left",
+          "Tall street lamp post with bright light source",
+          "a red fire hydrant",
+          "White building with arched upper level and 'Le Café' sign"
+        ],
+        "correct": "Tall street lamp post with bright light source",
+        "answer": "Tall street lamp post with bright light source",
+        "what_i_see": "A tall street lamp post with bright light source",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "It only does its job after dark.",
+      "hint_semantic": "It provides necessary light for navigation and safety after sunset.",
+      "hint_concrete": "Tall, slender metal pole with a light fixture at the top.",
+      "reveal": "The light source emits a very bright, star-like glare. (evidence: The lamp post is illuminated against the dark night sky.)",
+      "spatial": "Look toward the right of where you took the photo. It is quite close to where you stood.",
+      "crop": "crops/c016-1-ctx.jpg"
+    },
+    {
+      "idx": 2,
+      "source": "full",
+      "label": "Small, low white wall or railing section near the left",
+      "box_2d": [
+        485,
+        0,
+        538,
+        133
+      ],
+      "box": {
+        "x": 0,
+        "y": 0.485,
+        "w": 0.133,
+        "h": 0.053
+      },
+      "difficulty": "medium",
+      "why": "A subtle architectural detail along the building edge.",
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "Small, low white wall or railing section near the left",
+          "White building with arched upper level and 'Le Café' sign",
+          "Tall street lamp post with bright light source"
+        ],
+        "correct": "Small, low white wall or railing section near the left",
+        "answer": "Tall street lamp post with bright light source",
+        "what_i_see": "A vendor stall/cart with a bright light source above it.",
+        "people": true,
+        "pass": false,
+        "ms": 0
+      },
+      "crop": "crops/c016-2-ctx.jpg"
+    }
+  ],
+  "chosen": 1,
+  "waitMs": 43383
+}

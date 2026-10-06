@@ -1,0 +1,22 @@
+{
+  "0": {
+    "lens": "without_words",
+    "evidence": "The blue sign with the white 'P' symbol.",
+    "hint_semantic": "It indicates a specific area where vehicles may stop.",
+    "hint_concrete": "A rectangular, blue sign with a white letter.",
+    "detail": "The word 'RIZERVOTA' is printed beneath the letter P.",
+    "clue": "It tells everyone what to do without a single word.",
+    "ms": 12333,
+    "outputTokens": 91
+  },
+  "2": {
+    "lens": "plain_sight",
+    "evidence": "Bright yellow umbrella standing near the fountain area.",
+    "hint_semantic": "It provides shade for people enjoying the outdoor dining area.",
+    "hint_concrete": "Large, bright yellow fabric canopy, held up by a central pole.",
+    "detail": "Black lettering visible on the lower part of the umbrella fabric.",
+    "clue": "I found something hiding in plain sight.",
+    "ms": 10951,
+    "outputTokens": 91
+  }
+}

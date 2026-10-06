@@ -1,0 +1,215 @@
+{
+  "image": "c000",
+  "width": 2560,
+  "height": 1709,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "single",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 52785,
+      "promptTokens": 1713,
+      "outputTokens": 742,
+      "raw": "{\"targets\": [\n  {\"label\": \"small, worn wooden bench on path\", \"box_2d\": [755, 414, 915, 534], \"lens\": \"human_trace\", \"why\": \"It's a piece of park furniture, but the wood shows signs of age and wear.\", \"difficulty\": \"medium\", \"clue\": \"Where weary travelers pause to watch the turning season.\", \"hint_semantic\": \"This object is designed for rest and contemplation.\", \"hint_concrete\": \"A slatted seat made of dark, aged wood.\", \"reveal\": \"It bears the silent witness to countless moments of quiet reflection.\"},\n  {\"label\": \"single, tall street lamp on right\", \"box_2d\": [474, 814, 728, 841], \"lens\": \"hidden_in_plain_sight\", \"why\": \"It's a specific fixture that people often walk past without noticing.\", \"difficulty\": \"easy\", \"clue\": \"A solitary sentinel standing guard over the winding way.\", \"hint_semantic\": \"It provides light when the daylight starts to fade.\", \"hint_concrete\": \"A tall, dark metal pole topped with a lantern.\", \"reveal\": \"Its steady glow marks the passage of time in this tranquil space.\"},\n  {\"label\": \"patch of moss/lichen on low stone near path\", \"box_2d\": [645, 303, 678, 324], \"lens\": \"nature_reclaiming\", \"why\": \"It shows nature slowly covering man-made elements.\", \"difficulty\": \"hard\", \"clue\": \"A soft velvet touch claiming an ancient, silent stone.\", \"hint_semantic\": \"This growth signifies the slow, persistent return of the wild.\", \"hint_concrete\": \"A small patch of greenish-brown growth clinging to low ground.\", \"reveal\": \"Even the hardiest stone yields slowly to the gentle grip of life.\"},\n  {\"label\": \"bright orange autumn foliage on right tree\", \"box_2d\": [281, 721, 719, 1000], \"lens\": \"shape_or_color\", \"why\": \"The intense color is striking against the backdrop and is a specific feature of that tree.\", \"difficulty\": \"medium\", \"clue\": \"A vibrant burst of captured sunlight against the cooling air.\", \"hint_semantic\": \"The tree is showcasing its final, glorious act of the year.\", \"hint_concrete\": \"Dense canopy displaying brilliant shades of rust and fiery orange.\", \"reveal\": \"This spectacular display is nature's final, breathtaking flourish before slumber.\"},\n  {\"label\": \"fallen leaves scattered on grass near bench\", \"box_2d\": [688, 0, 935, 351], \"lens\": \"human_trace\", \"why\": \"They are the direct result of the season and the activity of the trees.\", \"difficulty\": \"easy\", \"clue\": \"Whispers of the recent canopy, scattered across the lawn.\", \"hint_semantic\": \"This litter is the evidence of the seasonal transition.\", \"hint_concrete\": \"Small, brittle fragments of brown and yellow resting on green turf.\", \"reveal\": \"Each tiny piece carries the memory of the high branches it once graced.\"}]\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5071,
+      "promptTokens": 463,
+      "outputTokens": 30,
+      "raw": "{\n\"what_i_see\": \"A set of dark, curved park benches with wooden slats.\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 2299,
+      "promptTokens": 169,
+      "outputTokens": 21,
+      "raw": "{\n\"what_i_see\": \"street lamp\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4842,
+      "promptTokens": 508,
+      "outputTokens": 24,
+      "raw": "{\n\"what_i_see\": \"dark green grass and trees\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4947,
+      "promptTokens": 484,
+      "outputTokens": 26,
+      "raw": "{\n\"what_i_see\": \"A large tree with vibrant orange leaves\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 2862,
+      "promptTokens": 274,
+      "outputTokens": 21,
+      "raw": "{\n\"what_i_see\": \"tree trunk\",\n\"visible\": true\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "label": "small, worn wooden bench on path",
+      "box_2d": [
+        755,
+        414,
+        915,
+        534
+      ],
+      "lens": "human_trace",
+      "why": "It's a piece of park furniture, but the wood shows signs of age and wear.",
+      "difficulty": "medium",
+      "clue": "Where weary travelers pause to watch the turning season.",
+      "hint_semantic": "This object is designed for rest and contemplation.",
+      "hint_concrete": "A slatted seat made of dark, aged wood.",
+      "reveal": "It bears the silent witness to countless moments of quiet reflection.",
+      "source": "full",
+      "idx": 0,
+      "box": {
+        "x": 0.414,
+        "y": 0.755,
+        "w": 0.12000000000000005,
+        "h": 0.16000000000000003
+      },
+      "boxWarnings": [],
+      "crop": "crops/c000-0-ctx.jpg",
+      "verifyCrop": "crops/c000-0-verify.jpg",
+      "verify": {
+        "what_i_see": "A set of dark, curved park benches with wooden slats.",
+        "visible": true,
+        "ms": 5071
+      }
+    },
+    {
+      "label": "single, tall street lamp on right",
+      "box_2d": [
+        474,
+        814,
+        728,
+        841
+      ],
+      "lens": "hidden_in_plain_sight",
+      "why": "It's a specific fixture that people often walk past without noticing.",
+      "difficulty": "easy",
+      "clue": "A solitary sentinel standing guard over the winding way.",
+      "hint_semantic": "It provides light when the daylight starts to fade.",
+      "hint_concrete": "A tall, dark metal pole topped with a lantern.",
+      "reveal": "Its steady glow marks the passage of time in this tranquil space.",
+      "source": "full",
+      "idx": 1,
+      "box": {
+        "x": 0.814,
+        "y": 0.474,
+        "w": 0.027000000000000024,
+        "h": 0.254
+      },
+      "boxWarnings": [],
+      "crop": "crops/c000-1-ctx.jpg",
+      "verifyCrop": "crops/c000-1-verify.jpg",
+      "verify": {
+        "what_i_see": "street lamp",
+        "visible": false,
+        "ms": 2299
+      }
+    },
+    {
+      "label": "patch of moss/lichen on low stone near path",
+      "box_2d": [
+        645,
+        303,
+        678,
+        324
+      ],
+      "lens": "nature_reclaiming",
+      "why": "It shows nature slowly covering man-made elements.",
+      "difficulty": "hard",
+      "clue": "A soft velvet touch claiming an ancient, silent stone.",
+      "hint_semantic": "This growth signifies the slow, persistent return of the wild.",
+      "hint_concrete": "A small patch of greenish-brown growth clinging to low ground.",
+      "reveal": "Even the hardiest stone yields slowly to the gentle grip of life.",
+      "source": "full",
+      "idx": 2,
+      "box": {
+        "x": 0.303,
+        "y": 0.645,
+        "w": 0.02100000000000002,
+        "h": 0.03300000000000003
+      },
+      "boxWarnings": [],
+      "crop": "crops/c000-2-ctx.jpg",
+      "verifyCrop": "crops/c000-2-verify.jpg",
+      "verify": {
+        "what_i_see": "dark green grass and trees",
+        "visible": false,
+        "ms": 4842
+      }
+    },
+    {
+      "label": "bright orange autumn foliage on right tree",
+      "box_2d": [
+        281,
+        721,
+        719,
+        1000
+      ],
+      "lens": "shape_or_color",
+      "why": "The intense color is striking against the backdrop and is a specific feature of that tree.",
+      "difficulty": "medium",
+      "clue": "A vibrant burst of captured sunlight against the cooling air.",
+      "hint_semantic": "The tree is showcasing its final, glorious act of the year.",
+      "hint_concrete": "Dense canopy displaying brilliant shades of rust and fiery orange.",
+      "reveal": "This spectacular display is nature's final, breathtaking flourish before slumber.",
+      "source": "full",
+      "idx": 3,
+      "box": {
+        "x": 0.721,
+        "y": 0.281,
+        "w": 0.279,
+        "h": 0.43799999999999994
+      },
+      "boxWarnings": [],
+      "crop": "crops/c000-3-ctx.jpg",
+      "verifyCrop": "crops/c000-3-verify.jpg",
+      "verify": {
+        "what_i_see": "A large tree with vibrant orange leaves",
+        "visible": true,
+        "ms": 4947
+      }
+    },
+    {
+      "label": "fallen leaves scattered on grass near bench",
+      "box_2d": [
+        688,
+        0,
+        935,
+        351
+      ],
+      "lens": "human_trace",
+      "why": "They are the direct result of the season and the activity of the trees.",
+      "difficulty": "easy",
+      "clue": "Whispers of the recent canopy, scattered across the lawn.",
+      "hint_semantic": "This litter is the evidence of the seasonal transition.",
+      "hint_concrete": "Small, brittle fragments of brown and yellow resting on green turf.",
+      "reveal": "Each tiny piece carries the memory of the high branches it once graced.",
+      "source": "full",
+      "idx": 4,
+      "box": {
+        "x": 0,
+        "y": 0.688,
+        "w": 0.351,
+        "h": 0.2470000000000001
+      },
+      "boxWarnings": [],
+      "crop": "crops/c000-4-ctx.jpg",
+      "verifyCrop": "crops/c000-4-verify.jpg",
+      "verify": {
+        "what_i_see": "tree trunk",
+        "visible": true,
+        "ms": 2862
+      }
+    }
+  ]
+}

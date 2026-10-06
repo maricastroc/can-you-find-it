@@ -1,0 +1,24 @@
+{
+  "0": {
+    "what_is_special": "It offers a place to pause from the working earth.",
+    "lens": "purpose",
+    "difficulty": "medium",
+    "clue": "A resting place built for watching the growing things.",
+    "hint_semantic": "It is designed for sitting and observing the cultivated plots.",
+    "hint_concrete": "Dark, wrought metal structure, featuring a slatted seat.",
+    "reveal": "The pattern of the backwork suggests interlocking vines.",
+    "ms": 14466,
+    "outputTokens": 118
+  },
+  "1": {
+    "what_is_special": "This structure organizes the growth of the cultivated earth.",
+    "lens": "nature_reclaiming",
+    "difficulty": "medium",
+    "clue": "It holds the earth in a measured, repeated pattern.",
+    "hint_semantic": "It serves to define and support the growing areas.",
+    "hint_concrete": "Thin, rigid tubing forming a rectangular boundary.",
+    "reveal": "The supports show slight bowing under the weight of the soil.",
+    "ms": 14722,
+    "outputTokens": 122
+  }
+}

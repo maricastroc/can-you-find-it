@@ -1,0 +1,22 @@
+{
+  "1": {
+    "lens": "waiting",
+    "evidence": "The dark pot holds foliage, waiting for care.",
+    "hint_semantic": "It holds something green and is stationary in the scene.",
+    "hint_concrete": "A large, dark, round container sitting on the ground.",
+    "detail": "The pot has visible horizontal ridges around its body.",
+    "clue": "It spends its days waiting for someone.",
+    "ms": 11544,
+    "outputTokens": 86
+  },
+  "2": {
+    "lens": "who_gets_in",
+    "evidence": "The dark metal gate is visible in the distance.",
+    "hint_semantic": "It controls access to a certain area or property.",
+    "hint_concrete": "A dark, metal gate structure seen down the lane.",
+    "detail": "The gate appears to have vertical bars.",
+    "clue": "It decides who gets in.",
+    "ms": 10357,
+    "outputTokens": 86
+  }
+}

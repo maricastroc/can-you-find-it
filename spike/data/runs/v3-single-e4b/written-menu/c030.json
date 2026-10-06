@@ -1,0 +1,22 @@
+{
+  "0": {
+    "lens": "plain_sight",
+    "evidence": "Small dark sign tucked near the base of a large tree.",
+    "hint_semantic": "It provides information about the natural area you are in.",
+    "hint_concrete": "Small, dark, rectangular sign, low to the ground.",
+    "detail": "The sign appears to have white or light-colored text/symbols.",
+    "clue": "I found something hiding in plain sight.",
+    "ms": 11440,
+    "outputTokens": 94
+  },
+  "1": {
+    "lens": "nature_taking_back",
+    "evidence": "Thick green moss covering the base of the large tree trunk.",
+    "hint_semantic": "This is where nature is reclaiming the structure.",
+    "hint_concrete": "A patch of vibrant green, soft, fuzzy growth on bark.",
+    "detail": "The moss appears unevenly distributed across the bark.",
+    "clue": "I found something nature is taking back.",
+    "ms": 9836,
+    "outputTokens": 92
+  }
+}

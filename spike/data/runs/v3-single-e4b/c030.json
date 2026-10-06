@@ -1,0 +1,315 @@
+{
+  "image": "c030",
+  "width": 2560,
+  "height": 1920,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "single",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 65460,
+      "promptTokens": 1885,
+      "outputTokens": 828,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"small dark informational sign near tree base\",\n      \"box_2d\": [557, 66, 601, 114],\n      \"lens\": \"human_trace\",\n      \"why\": \"A small, dark sign is visible low to the ground near the large tree trunk.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"It offers guidance to those who stop to learn.\",\n      \"hint_semantic\": \"It provides official information about the area.\",\n      \"hint_concrete\": \"A small, rectangular, dark-colored plate.\",\n      \"reveal\": \"It's a small marker telling visitors about the local environment.\"\n    },\n    {\n      \"label\": \"patch of moss on the base of the large tree\",\n      \"box_2d\": [498, 273, 585, 423],\n      \"lens\": \"nature_reclaiming\",\n      \"why\": \"Moss is visible growing on the lower, shaded part of the tree trunk.\",\n      \"difficulty\": \"easy\",\n      \"clue\": \"Life persists where the trunk meets the earth.\",\n      \"hint_semantic\": \"It shows plant life taking hold on wood.\",\n      \"hint_concrete\": \"Green, damp growth clinging to the bark.\",\n      \"reveal\": \"Even the base of a giant tree supports its own small ecosystem.\"\n    },\n    {\n      \"label\": \"small yellow wildflower growing in ground cover\",\n      \"box_2d\": [328, 654, 351, 674],\n      \"lens\": \"shape_or_color\",\n      \"why\": \"A distinct small yellow flower is visible in the mid-ground foliage.\",\n      \"difficulty\": \"hard\",\n      \"clue\": \"A bright spot appears amidst the deep green growth.\",\n      \"hint_semantic\": \"It is a small blooming plant in the undergrowth.\",\n      \"hint_concrete\": \"A tiny, bright yellow spot among the leaves.\",\n      \"reveal\": \"Sometimes the smallest bloom provides the most unexpected color.\"\n    },\n    {\n      \"label\": \"small dark stone or rock near pathway edge\",\n      \"box_2d\": [627, 367, 664, 393],\n      \"lens\": \"hidden_in_plain_sight\",\n      \"why\": \"A small, darker stone is visible where the path meets the ferns.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"It rests quietly where the walking surface ends.\",\n      \"hint_semantic\": \"It is a piece of natural debris on the trailside.\",\n      \"hint_concrete\": \"A small, irregular piece of earth-toned rock.\",\n      \"reveal\": \"The path is framed by countless small elements of the wild.\"\n    },\n    {\n      \"label\": \"dense cluster of bright green ferns by the path\",\n      \"box_2d\": [564, 664, 893, 996],\n      \"lens\": \"shape_or_color\",\n      \"why\": \"The cluster of bright, vibrant green ferns on the right side.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"Its delicate fronds guard the edge of the walking way.\",\n      \"hint_semantic\": \"It is a type of perennial plant common in damp areas.\",\n      \"hint_concrete\": \"Feathery, bright green foliage forming a thick border.\",\n      \"reveal\": \"These resilient plants thrive in the shady, moist forest floor.\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5541,
+      "promptTokens": 466,
+      "outputTokens": 24,
+      "raw": "{\n\"what_i_see\": \"A rectangular, striped object\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6824,
+      "promptTokens": 505,
+      "outputTokens": 38,
+      "raw": "{\n\"what_i_see\": \"A rectangular, striped object is near the center of the image, set against green foliage.\",\n\"answer\": \"D\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3536,
+      "promptTokens": 259,
+      "outputTokens": 21,
+      "raw": "{\n\"what_i_see\": \"tree trunk\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5479,
+      "promptTokens": 295,
+      "outputTokens": 49,
+      "raw": "{\n\"what_i_see\": \"The center of the image is dominated by the base of a large, moss-covered tree trunk, with some small green plants growing around it.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5484,
+      "promptTokens": 508,
+      "outputTokens": 17,
+      "raw": "{\"what_i_see\": \"dirt path\", \"visible\": false}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6331,
+      "promptTokens": 547,
+      "outputTokens": 28,
+      "raw": "{\n\"what_i_see\": \"A dirt pathway winding through lush greenery.\",\n\"answer\": \"A\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 6433,
+      "promptTokens": 509,
+      "outputTokens": 21,
+      "raw": "{\n\"what_i_see\": \"green plants\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 7968,
+      "promptTokens": 547,
+      "outputTokens": 49,
+      "raw": "{\n\"what_i_see\": \"The center of the image is dominated by a patch of dirt/sand pathway in the foreground, with some green foliage and brown leaves behind it.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4737,
+      "promptTokens": 405,
+      "outputTokens": 18,
+      "raw": "{\"what_i_see\": \"lush green foliage\", \"visible\": true}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6356,
+      "promptTokens": 443,
+      "outputTokens": 42,
+      "raw": "{\n\"what_i_see\": \"The center of the image is dominated by a dense cluster of bright green ferns growing right beside the dirt path.\",\n\"answer\": \"D\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "label": "small dark informational sign near tree base",
+      "box_2d": [
+        557,
+        66,
+        601,
+        114
+      ],
+      "lens": "human_trace",
+      "why": "A small, dark sign is visible low to the ground near the large tree trunk.",
+      "difficulty": "medium",
+      "clue": "It offers guidance to those who stop to learn.",
+      "hint_semantic": "It provides official information about the area.",
+      "hint_concrete": "A small, rectangular, dark-colored plate.",
+      "reveal": "It's a small marker telling visitors about the local environment.",
+      "source": "full",
+      "idx": 0,
+      "box": {
+        "x": 0.066,
+        "y": 0.557,
+        "w": 0.048,
+        "h": 0.04399999999999993
+      },
+      "boxWarnings": [],
+      "crop": "crops/c030-0-ctx.jpg",
+      "verifyCrop": "crops/c030-0-verify.jpg",
+      "verify": {
+        "what_i_see": "A rectangular, striped object",
+        "visible": false,
+        "ms": 5541
+      },
+      "mcq": {
+        "options": [
+          "patch of moss on the base of the large tree",
+          "small yellow wildflower growing in ground cover",
+          "small dark stone or rock near pathway edge",
+          "small dark informational sign near tree base"
+        ],
+        "correct": "D",
+        "answer": "D",
+        "what_i_see": "A rectangular, striped object is near the center of the image, set against green foliage.",
+        "pass": true,
+        "ms": 6824
+      }
+    },
+    {
+      "label": "patch of moss on the base of the large tree",
+      "box_2d": [
+        498,
+        273,
+        585,
+        423
+      ],
+      "lens": "nature_reclaiming",
+      "why": "Moss is visible growing on the lower, shaded part of the tree trunk.",
+      "difficulty": "easy",
+      "clue": "Life persists where the trunk meets the earth.",
+      "hint_semantic": "It shows plant life taking hold on wood.",
+      "hint_concrete": "Green, damp growth clinging to the bark.",
+      "reveal": "Even the base of a giant tree supports its own small ecosystem.",
+      "source": "full",
+      "idx": 1,
+      "box": {
+        "x": 0.273,
+        "y": 0.498,
+        "w": 0.14999999999999997,
+        "h": 0.08699999999999997
+      },
+      "boxWarnings": [],
+      "crop": "crops/c030-1-ctx.jpg",
+      "verifyCrop": "crops/c030-1-verify.jpg",
+      "verify": {
+        "what_i_see": "tree trunk",
+        "visible": true,
+        "ms": 3536
+      },
+      "mcq": {
+        "options": [
+          "small yellow wildflower growing in ground cover",
+          "patch of moss on the base of the large tree",
+          "small dark stone or rock near pathway edge",
+          "small dark informational sign near tree base"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "The center of the image is dominated by the base of a large, moss-covered tree trunk, with some small green plants growing around it.",
+        "pass": true,
+        "ms": 5479
+      }
+    },
+    {
+      "label": "small yellow wildflower growing in ground cover",
+      "box_2d": [
+        328,
+        654,
+        351,
+        674
+      ],
+      "lens": "shape_or_color",
+      "why": "A distinct small yellow flower is visible in the mid-ground foliage.",
+      "difficulty": "hard",
+      "clue": "A bright spot appears amidst the deep green growth.",
+      "hint_semantic": "It is a small blooming plant in the undergrowth.",
+      "hint_concrete": "A tiny, bright yellow spot among the leaves.",
+      "reveal": "Sometimes the smallest bloom provides the most unexpected color.",
+      "source": "full",
+      "idx": 2,
+      "box": {
+        "x": 0.654,
+        "y": 0.328,
+        "w": 0.020000000000000018,
+        "h": 0.022999999999999965
+      },
+      "boxWarnings": [],
+      "crop": "crops/c030-2-ctx.jpg",
+      "verifyCrop": "crops/c030-2-verify.jpg",
+      "verify": {
+        "what_i_see": "dirt path",
+        "visible": false,
+        "ms": 5484
+      },
+      "mcq": {
+        "options": [
+          "small dark stone or rock near pathway edge",
+          "small yellow wildflower growing in ground cover",
+          "small dark informational sign near tree base",
+          "patch of moss on the base of the large tree"
+        ],
+        "correct": "B",
+        "answer": "A",
+        "what_i_see": "A dirt pathway winding through lush greenery.",
+        "pass": false,
+        "ms": 6331
+      }
+    },
+    {
+      "label": "small dark stone or rock near pathway edge",
+      "box_2d": [
+        627,
+        367,
+        664,
+        393
+      ],
+      "lens": "hidden_in_plain_sight",
+      "why": "A small, darker stone is visible where the path meets the ferns.",
+      "difficulty": "medium",
+      "clue": "It rests quietly where the walking surface ends.",
+      "hint_semantic": "It is a piece of natural debris on the trailside.",
+      "hint_concrete": "A small, irregular piece of earth-toned rock.",
+      "reveal": "The path is framed by countless small elements of the wild.",
+      "source": "full",
+      "idx": 3,
+      "box": {
+        "x": 0.367,
+        "y": 0.627,
+        "w": 0.026000000000000023,
+        "h": 0.03700000000000003
+      },
+      "boxWarnings": [],
+      "crop": "crops/c030-3-ctx.jpg",
+      "verifyCrop": "crops/c030-3-verify.jpg",
+      "verify": {
+        "what_i_see": "green plants",
+        "visible": false,
+        "ms": 6433
+      },
+      "mcq": {
+        "options": [
+          "patch of moss on the base of the large tree",
+          "small dark stone or rock near pathway edge",
+          "small dark informational sign near tree base",
+          "small yellow wildflower growing in ground cover"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "The center of the image is dominated by a patch of dirt/sand pathway in the foreground, with some green foliage and brown leaves behind it.",
+        "pass": true,
+        "ms": 7968
+      }
+    },
+    {
+      "label": "dense cluster of bright green ferns by the path",
+      "box_2d": [
+        564,
+        664,
+        893,
+        996
+      ],
+      "lens": "shape_or_color",
+      "why": "The cluster of bright, vibrant green ferns on the right side.",
+      "difficulty": "medium",
+      "clue": "Its delicate fronds guard the edge of the walking way.",
+      "hint_semantic": "It is a type of perennial plant common in damp areas.",
+      "hint_concrete": "Feathery, bright green foliage forming a thick border.",
+      "reveal": "These resilient plants thrive in the shady, moist forest floor.",
+      "source": "full",
+      "idx": 4,
+      "box": {
+        "x": 0.664,
+        "y": 0.564,
+        "w": 0.33199999999999996,
+        "h": 0.32900000000000007
+      },
+      "boxWarnings": [],
+      "crop": "crops/c030-4-ctx.jpg",
+      "verifyCrop": "crops/c030-4-verify.jpg",
+      "verify": {
+        "what_i_see": "lush green foliage",
+        "visible": true,
+        "ms": 4737
+      },
+      "mcq": {
+        "options": [
+          "small dark informational sign near tree base",
+          "small yellow wildflower growing in ground cover",
+          "patch of moss on the base of the large tree",
+          "dense cluster of bright green ferns by the path"
+        ],
+        "correct": "D",
+        "answer": "D",
+        "what_i_see": "The center of the image is dominated by a dense cluster of bright green ferns growing right beside the dirt path.",
+        "pass": true,
+        "ms": 6356
+      }
+    }
+  ]
+}

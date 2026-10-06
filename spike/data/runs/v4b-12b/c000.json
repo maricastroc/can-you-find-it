@@ -1,0 +1,157 @@
+{
+  "image": "c000",
+  "width": 2560,
+  "height": 1709,
+  "model": "gemma4:12b",
+  "verifier": "gemma4:12b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 41480,
+      "promptTokens": 1556,
+      "outputTokens": 169,
+      "raw": "{\"targets\": [{\"label\": \"black metal park bench with wooden slats and curved armrests\", \"box_2d\": [739, 410, 986, 527], \"similar_count\": 2, \"difficulty\": \"easy\"}, {\"label\": \"tall black pole with a single white globe lamp\", \"box_2d\": [475, 816, 741, 835], \"similar_count\": 0, \"difficulty\": \"medium\"}, {\"label\": \"small black metal park bench in the middle distance\", \"box_2d\": [772, 571, 852, 617], \"similar_count\": 1, \"difficulty\": \"hard\"}]}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 8224,
+      "promptTokens": 250,
+      "outputTokens": 46,
+      "raw": "{\n  \"what_i_see\": \"A tall black lamp post\",\n  \"answer\": \"tall black pole with a single white globe lamp\",\n  \"person_at_target\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 10761,
+      "promptTokens": 460,
+      "outputTokens": 47,
+      "raw": "{\"what_i_see\": \"a black metal park bench with wooden slats and curved armrests\", \"answer\": \"black metal park bench with wooden slats and curved armrests\", \"person_at_target\": false}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 10002,
+      "promptTokens": 523,
+      "outputTokens": 26,
+      "raw": "{\"what_i_see\": \"none\", \"answer\": \"none\", \"person_at_target\": false}"
+    },
+    {
+      "kind": "write",
+      "ms": 26923,
+      "promptTokens": 1139,
+      "outputTokens": 96,
+      "raw": "{\n  \"lens\": \"after_dark\",\n  \"evidence\": \"A glass-enclosed lamp head sits atop a tall black pole.\",\n  \"hint_semantic\": \"It provides a glow to the park when the sun goes down.\",\n  \"hint_concrete\": \"A tall, black metal pole with a white, rounded glass top.\",\n  \"detail\": \"The base of the pole has a decorative, flared design.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "black metal park bench with wooden slats and curved armrests",
+      "box_2d": [
+        739,
+        410,
+        986,
+        527
+      ],
+      "box": {
+        "x": 0.41,
+        "y": 0.739,
+        "w": 0.117,
+        "h": 0.247
+      },
+      "difficulty": "easy",
+      "lens": "similar:2",
+      "mcq": {
+        "options": [
+          "tall black pole with a single white globe lamp",
+          "small black metal park bench in the middle distance",
+          "a red fire hydrant",
+          "black metal park bench with wooden slats and curved armrests"
+        ],
+        "correct": "black metal park bench with wooden slats and curved armrests",
+        "answer": "black metal park bench with wooden slats and curved armrests",
+        "what_i_see": "a black metal park bench with wooden slats and curved armrests",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "crop": "crops/c000-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "tall black pole with a single white globe lamp",
+      "box_2d": [
+        475,
+        816,
+        741,
+        835
+      ],
+      "box": {
+        "x": 0.816,
+        "y": 0.475,
+        "w": 0.019,
+        "h": 0.266
+      },
+      "difficulty": "medium",
+      "lens": "after_dark",
+      "mcq": {
+        "options": [
+          "small black metal park bench in the middle distance",
+          "tall black pole with a single white globe lamp",
+          "a red fire hydrant",
+          "black metal park bench with wooden slats and curved armrests"
+        ],
+        "correct": "tall black pole with a single white globe lamp",
+        "answer": "tall black pole with a single white globe lamp",
+        "what_i_see": "A tall black lamp post",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "It only does its job after dark.",
+      "hint_semantic": "It provides a glow to the park when the sun goes down.",
+      "hint_concrete": "A tall, black metal pole with a white, rounded glass top.",
+      "reveal": "The base of the pole has a decorative, flared design. (evidence: A glass-enclosed lamp head sits atop a tall black pole.)",
+      "spatial": "Look toward the right of where you took the photo. It is quite close to where you stood.",
+      "crop": "crops/c000-1-ctx.jpg"
+    },
+    {
+      "idx": 2,
+      "source": "full",
+      "label": "small black metal park bench in the middle distance",
+      "box_2d": [
+        772,
+        571,
+        852,
+        617
+      ],
+      "box": {
+        "x": 0.571,
+        "y": 0.772,
+        "w": 0.046,
+        "h": 0.08
+      },
+      "difficulty": "hard",
+      "lens": "similar:1",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "small black metal park bench in the middle distance",
+          "black metal park bench with wooden slats and curved armrests",
+          "tall black pole with a single white globe lamp"
+        ],
+        "correct": "small black metal park bench in the middle distance",
+        "answer": "none",
+        "what_i_see": "none",
+        "people": false,
+        "pass": false,
+        "ms": 0
+      },
+      "crop": "crops/c000-2-ctx.jpg"
+    }
+  ],
+  "chosen": 1,
+  "waitMs": 76627
+}

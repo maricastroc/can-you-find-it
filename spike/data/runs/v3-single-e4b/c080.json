@@ -1,0 +1,315 @@
+{
+  "image": "c080",
+  "width": 2560,
+  "height": 1707,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "single",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 73527,
+      "promptTokens": 1901,
+      "outputTokens": 849,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Small dark metal garden bench in the cultivated area\",\n      \"box_2d\": [\n        377,\n        357,\n        441,\n        435\n      ],\n      \"lens\": \"human_trace\",\n      \"why\": \"It shows where someone paused to rest among the plots.\",\n      \"difficulty\": \"easy\",\n      \"clue\": \"A spot designed for taking a brief pause from the work.\",\n      \"hint_semantic\": \"A place for resting while tending to the garden.\",\n      \"hint_concrete\": \"Dark metal frame with slats.\",\n      \"reveal\": \"It looks like a quiet place to observe the growth.\"\n    },\n    {\n      \"label\": \"White metal frame enclosure around the raised garden beds\",\n      \"box_2d\": [\n        406,\n        0,\n        597,\n        318\n      ],\n      \"lens\": \"purpose\",\n      \"why\": \"It serves to define the growing space from the surrounding area.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"It separates the nurtured earth from the wider surroundings.\",\n      \"hint_semantic\": \"It protects the plants inside from outside interference.\",\n      \"hint_concrete\": \"Thin white metal tubing forming a rectangular structure.\",\n      \"reveal\": \"It helps keep the growing areas neatly contained.\"\n    },\n    {\n      \"label\": \"Small wooden shed with white trim and green siding\",\n      \"box_2d\": [\n        184,\n        813,\n        369,\n        1000\n      ],\n      \"lens\": \"shape_or_color\",\n      \"why\": \"Its distinct light green paint color sets it apart from the surroundings.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"It offers shelter with a particular hue to its walls.\",\n      \"hint_semantic\": \"It is used for storing tools and supplies for the garden.\",\n      \"hint_concrete\": \"Small structure with white window frames and green clapboard.\",\n      \"reveal\": \"It serves as the storage hub for the gardening efforts.\"\n    },\n    {\n      \"label\": \"Small dark metal barrel or planter in the cultivated area\",\n      \"box_2d\": [\n        344,\n        517,\n        383,\n        547\n      ],\n      \"lens\": \"hidden_in_plain_sight\",\n      \"why\": \"It is a small, utilitarian object often overlooked in the dense planting.\",\n      \"difficulty\": \"hard\",\n      \"clue\": \"It holds soil or water, often tucked among the rows.\",\n      \"hint_semantic\": \"A container used to grow specific plants or hold amendments.\",\n      \"hint_concrete\": \"Small, dark, cylindrical object resting on the ground.\",\n      \"reveal\": \"Even small containers make a big difference in the garden.\"\n    },\n    {\n      \"label\": \"Concrete border blocks defining the foreground garden beds\",\n      \"box_2d\": [\n        665,\n        18,\n        889,\n        615\n      ],\n      \"lens\": \"repaired\",\n      \"why\": \"These blocks appear to be repurposed or placed deliberately to define new edges.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"Pieces were set here to create defined boundaries for planting.\",\n      \"hint_semantic\": \"They function as low retaining walls for the cultivated plots.\",\n      \"hint_concrete\": \"Rectangular, light-colored, sturdy blocks forming low walls.\",\n      \"reveal\": \"These sturdy borders help keep the soil in place.\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4697,
+      "promptTokens": 321,
+      "outputTokens": 23,
+      "raw": "{\n\"what_i_see\": \"wrought iron bench\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4413,
+      "promptTokens": 363,
+      "outputTokens": 26,
+      "raw": "{\n\"what_i_see\": \"A dark metal garden bench\",\n\"answer\": \"D\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3535,
+      "promptTokens": 258,
+      "outputTokens": 23,
+      "raw": "{\n\"what_i_see\": \"White metal frame enclosure\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4136,
+      "promptTokens": 299,
+      "outputTokens": 26,
+      "raw": "{\n\"what_i_see\": \"A white metal frame enclosure\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4901,
+      "promptTokens": 363,
+      "outputTokens": 24,
+      "raw": "{\"what_i_see\": \"A small house with white trim and green siding\", \"visible\": true}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5577,
+      "promptTokens": 405,
+      "outputTokens": 30,
+      "raw": "{\n\"what_i_see\": \"A small house with a porch in the center.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 6182,
+      "promptTokens": 511,
+      "outputTokens": 25,
+      "raw": "{\"what_i_see\": \"Fire hydrant and a white container on a wooden platform\", \"visible\": false}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 7219,
+      "promptTokens": 552,
+      "outputTokens": 33,
+      "raw": "{\n\"what_i_see\": \"A red fire hydrant and a white container on a wooden platform.\",\n\"answer\": \"none\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3481,
+      "promptTokens": 173,
+      "outputTokens": 26,
+      "raw": "{\n\"what_i_see\": \"Garden beds with plants and concrete borders\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4360,
+      "promptTokens": 214,
+      "outputTokens": 37,
+      "raw": "{\n\"what_i_see\": \"The center of the image is dominated by raised garden beds with plants growing in them.\",\n\"answer\": \"D\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "label": "Small dark metal garden bench in the cultivated area",
+      "box_2d": [
+        377,
+        357,
+        441,
+        435
+      ],
+      "lens": "human_trace",
+      "why": "It shows where someone paused to rest among the plots.",
+      "difficulty": "easy",
+      "clue": "A spot designed for taking a brief pause from the work.",
+      "hint_semantic": "A place for resting while tending to the garden.",
+      "hint_concrete": "Dark metal frame with slats.",
+      "reveal": "It looks like a quiet place to observe the growth.",
+      "source": "full",
+      "idx": 0,
+      "box": {
+        "x": 0.357,
+        "y": 0.377,
+        "w": 0.07800000000000001,
+        "h": 0.064
+      },
+      "boxWarnings": [],
+      "crop": "crops/c080-0-ctx.jpg",
+      "verifyCrop": "crops/c080-0-verify.jpg",
+      "verify": {
+        "what_i_see": "wrought iron bench",
+        "visible": true,
+        "ms": 4697
+      },
+      "mcq": {
+        "options": [
+          "White metal frame enclosure around the raised garden beds",
+          "Small wooden shed with white trim and green siding",
+          "Small dark metal barrel or planter in the cultivated area",
+          "Small dark metal garden bench in the cultivated area"
+        ],
+        "correct": "D",
+        "answer": "D",
+        "what_i_see": "A dark metal garden bench",
+        "pass": true,
+        "ms": 4413
+      }
+    },
+    {
+      "label": "White metal frame enclosure around the raised garden beds",
+      "box_2d": [
+        406,
+        0,
+        597,
+        318
+      ],
+      "lens": "purpose",
+      "why": "It serves to define the growing space from the surrounding area.",
+      "difficulty": "medium",
+      "clue": "It separates the nurtured earth from the wider surroundings.",
+      "hint_semantic": "It protects the plants inside from outside interference.",
+      "hint_concrete": "Thin white metal tubing forming a rectangular structure.",
+      "reveal": "It helps keep the growing areas neatly contained.",
+      "source": "full",
+      "idx": 1,
+      "box": {
+        "x": 0,
+        "y": 0.406,
+        "w": 0.318,
+        "h": 0.19099999999999995
+      },
+      "boxWarnings": [],
+      "crop": "crops/c080-1-ctx.jpg",
+      "verifyCrop": "crops/c080-1-verify.jpg",
+      "verify": {
+        "what_i_see": "White metal frame enclosure",
+        "visible": true,
+        "ms": 3535
+      },
+      "mcq": {
+        "options": [
+          "Small dark metal barrel or planter in the cultivated area",
+          "White metal frame enclosure around the raised garden beds",
+          "Concrete border blocks defining the foreground garden beds",
+          "Small wooden shed with white trim and green siding"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A white metal frame enclosure",
+        "pass": true,
+        "ms": 4136
+      }
+    },
+    {
+      "label": "Small wooden shed with white trim and green siding",
+      "box_2d": [
+        184,
+        813,
+        369,
+        1000
+      ],
+      "lens": "shape_or_color",
+      "why": "Its distinct light green paint color sets it apart from the surroundings.",
+      "difficulty": "medium",
+      "clue": "It offers shelter with a particular hue to its walls.",
+      "hint_semantic": "It is used for storing tools and supplies for the garden.",
+      "hint_concrete": "Small structure with white window frames and green clapboard.",
+      "reveal": "It serves as the storage hub for the gardening efforts.",
+      "source": "full",
+      "idx": 2,
+      "box": {
+        "x": 0.813,
+        "y": 0.184,
+        "w": 0.18700000000000006,
+        "h": 0.185
+      },
+      "boxWarnings": [],
+      "crop": "crops/c080-2-ctx.jpg",
+      "verifyCrop": "crops/c080-2-verify.jpg",
+      "verify": {
+        "what_i_see": "A small house with white trim and green siding",
+        "visible": true,
+        "ms": 4901
+      },
+      "mcq": {
+        "options": [
+          "Small dark metal barrel or planter in the cultivated area",
+          "Small wooden shed with white trim and green siding",
+          "Small dark metal garden bench in the cultivated area",
+          "White metal frame enclosure around the raised garden beds"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A small house with a porch in the center.",
+        "pass": true,
+        "ms": 5577
+      }
+    },
+    {
+      "label": "Small dark metal barrel or planter in the cultivated area",
+      "box_2d": [
+        344,
+        517,
+        383,
+        547
+      ],
+      "lens": "hidden_in_plain_sight",
+      "why": "It is a small, utilitarian object often overlooked in the dense planting.",
+      "difficulty": "hard",
+      "clue": "It holds soil or water, often tucked among the rows.",
+      "hint_semantic": "A container used to grow specific plants or hold amendments.",
+      "hint_concrete": "Small, dark, cylindrical object resting on the ground.",
+      "reveal": "Even small containers make a big difference in the garden.",
+      "source": "full",
+      "idx": 3,
+      "box": {
+        "x": 0.517,
+        "y": 0.344,
+        "w": 0.030000000000000027,
+        "h": 0.039000000000000035
+      },
+      "boxWarnings": [],
+      "crop": "crops/c080-3-ctx.jpg",
+      "verifyCrop": "crops/c080-3-verify.jpg",
+      "verify": {
+        "what_i_see": "Fire hydrant and a white container on a wooden platform",
+        "visible": false,
+        "ms": 6182
+      },
+      "mcq": {
+        "options": [
+          "White metal frame enclosure around the raised garden beds",
+          "Small dark metal barrel or planter in the cultivated area",
+          "Small dark metal garden bench in the cultivated area",
+          "Small wooden shed with white trim and green siding"
+        ],
+        "correct": "B",
+        "answer": "none",
+        "what_i_see": "A red fire hydrant and a white container on a wooden platform.",
+        "pass": false,
+        "ms": 7219
+      }
+    },
+    {
+      "label": "Concrete border blocks defining the foreground garden beds",
+      "box_2d": [
+        665,
+        18,
+        889,
+        615
+      ],
+      "lens": "repaired",
+      "why": "These blocks appear to be repurposed or placed deliberately to define new edges.",
+      "difficulty": "medium",
+      "clue": "Pieces were set here to create defined boundaries for planting.",
+      "hint_semantic": "They function as low retaining walls for the cultivated plots.",
+      "hint_concrete": "Rectangular, light-colored, sturdy blocks forming low walls.",
+      "reveal": "These sturdy borders help keep the soil in place.",
+      "source": "full",
+      "idx": 4,
+      "box": {
+        "x": 0.018,
+        "y": 0.665,
+        "w": 0.597,
+        "h": 0.22399999999999998
+      },
+      "boxWarnings": [],
+      "crop": "crops/c080-4-ctx.jpg",
+      "verifyCrop": "crops/c080-4-verify.jpg",
+      "verify": {
+        "what_i_see": "Garden beds with plants and concrete borders",
+        "visible": true,
+        "ms": 3481
+      },
+      "mcq": {
+        "options": [
+          "Small dark metal garden bench in the cultivated area",
+          "Small wooden shed with white trim and green siding",
+          "White metal frame enclosure around the raised garden beds",
+          "Concrete border blocks defining the foreground garden beds"
+        ],
+        "correct": "D",
+        "answer": "D",
+        "what_i_see": "The center of the image is dominated by raised garden beds with plants growing in them.",
+        "pass": true,
+        "ms": 4360
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "1": {
+    "what_is_special": "A contained patch of life thrives within this dark vessel.",
+    "lens": "repaired",
+    "difficulty": "easy",
+    "clue": "Some small life finds a home in this dark container.",
+    "hint_semantic": "It provides a stable environment for growth.",
+    "hint_concrete": "It is a deep, wide container, resting directly on the ground.",
+    "reveal": "The leaves show varying shades of deep green and shadow.",
+    "ms": 15160,
+    "outputTokens": 120
+  },
+  "2": {
+    "what_is_special": "A dark metal gate visible in the distance.",
+    "lens": "repaired",
+    "difficulty": "medium",
+    "clue": "It guards a boundary where journeys begin and end.",
+    "hint_semantic": "It controls passage between two separate areas.",
+    "hint_concrete": "The structure is composed of vertical bars and horizontal cross-members.",
+    "reveal": "A small section of rust has started to bloom near the latch.",
+    "ms": 14871,
+    "outputTokens": 116
+  }
+}

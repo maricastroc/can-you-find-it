@@ -1,0 +1,315 @@
+{
+  "image": "c002",
+  "width": 2560,
+  "height": 1707,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "single",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 63121,
+      "promptTokens": 1901,
+      "outputTokens": 809,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Stone plaque with engraved text on white pedestal\",\n      \"box_2d\": [638, 168, 789, 327],\n      \"lens\": \"human_trace\",\n      \"why\": \"Evidence someone was here before\",\n      \"difficulty\": \"easy\",\n      \"clue\": \"A record of names is set into this low stone block.\",\n      \"hint_semantic\": \"It commemorates people associated with this place.\",\n      \"hint_concrete\": \"Rectangular white stone base with dark inscribed surface.\",\n      \"reveal\": \"These markers help connect the past to the present grounds.\"\n    },\n    {\n      \"label\": \"Second stone plaque with engraved text on white pedestal\",\n      \"box_2d\": [631, 447, 747, 560],\n      \"lens\": \"human_trace\",\n      \"why\": \"Evidence someone was here before\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"Another etched surface tells a story of this location.\",\n      \"hint_semantic\": \"It provides historical information about the site.\",\n      \"hint_concrete\": \"White square base supporting a dark, inscribed slab.\",\n      \"reveal\": \"Each marker contributes a piece to the site's overall history.\"\n    },\n    {\n      \"label\": \"Large dark inscribed plate on a low white rectangular base\",\n      \"box_2d\": [663, 764, 905, 1000],\n      \"lens\": \"human_trace\",\n      \"why\": \"Evidence someone was here before\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"This dark surface holds a visual memory for visitors.\",\n      \"hint_semantic\": \"It displays imagery related to the history of the area.\",\n      \"hint_concrete\": \"Large, low, white rectangular block topped with a dark, flat panel.\",\n      \"reveal\": \"The images etched here offer a glimpse into earlier times.\"\n    },\n    {\n      \"label\": \"Black lamppost with a visible lantern fixture on top\",\n      \"box_2d\": [305, 57, 767, 102],\n      \"lens\": \"hidden_in_plain_sight\",\n      \"why\": \"A fixture often overlooked in the busy scene\",\n      \"difficulty\": \"easy\",\n      \"clue\": \"It stands tall to provide light when the day ends.\",\n      \"hint_semantic\": \"It is designed to illuminate the path after sunset.\",\n      \"hint_concrete\": \"Tall, slender black pole topped with a distinct lantern shape.\",\n      \"reveal\": \"It serves as a simple guide for those walking through the area.\"\n    },\n    {\n      \"label\": \"Tall black street lamp attached to a pole on the right\",\n      \"box_2d\": [292, 803, 673, 843],\n      \"lens\": \"purpose\",\n      \"why\": \"Its function is clearly to illuminate the surroundings\",\n      \"difficulty\": \"easy\",\n      \"clue\": \"It performs its duty by casting light into the gathering gloom.\",\n      \"hint_semantic\": \"It is a fixture intended for public illumination.\",\n      \"hint_concrete\": \"Slender black pole with a modern-looking light fixture at the top.\",\n      \"reveal\": \"This fixture helps define the boundaries of the public space at night.\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5165,
+      "promptTokens": 362,
+      "outputTokens": 28,
+      "raw": "{\n\"what_i_see\": \"A white pedestal with an engraved plaque on top.\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5517,
+      "promptTokens": 406,
+      "outputTokens": 32,
+      "raw": "{\n\"what_i_see\": \"A large dark inscribed plate on a low white rectangular base\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5677,
+      "promptTokens": 384,
+      "outputTokens": 28,
+      "raw": "{\n\"what_i_see\": \"A white pedestal with a dark plaque on top.\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5826,
+      "promptTokens": 427,
+      "outputTokens": 32,
+      "raw": "{\n\"what_i_see\": \"A large dark inscribed plate on a low white rectangular base\",\n\"answer\": \"A\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5636,
+      "promptTokens": 385,
+      "outputTokens": 31,
+      "raw": "{\n\"what_i_see\": \"A low white rectangular base with a dark inscribed plate on top.\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5595,
+      "promptTokens": 427,
+      "outputTokens": 33,
+      "raw": "{\n\"what_i_see\": \"A low white rectangular base with a dark inscribed plate on top.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3078,
+      "promptTokens": 159,
+      "outputTokens": 23,
+      "raw": "{\n\"what_i_see\": \"Black lamppost\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4035,
+      "promptTokens": 200,
+      "outputTokens": 34,
+      "raw": "{\n\"what_i_see\": \"A tall black lamppost is near the center of the image.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3530,
+      "promptTokens": 159,
+      "outputTokens": 27,
+      "raw": "{\n\"what_i_see\": \"Tall black street lamp attached to a pole\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4762,
+      "promptTokens": 200,
+      "outputTokens": 43,
+      "raw": "{\n\"what_i_see\": \"A tall black pole with a lamp attached, and near the base of the pole, there is a small plaque.\",\n\"answer\": \"A\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "label": "Stone plaque with engraved text on white pedestal",
+      "box_2d": [
+        638,
+        168,
+        789,
+        327
+      ],
+      "lens": "human_trace",
+      "why": "Evidence someone was here before",
+      "difficulty": "easy",
+      "clue": "A record of names is set into this low stone block.",
+      "hint_semantic": "It commemorates people associated with this place.",
+      "hint_concrete": "Rectangular white stone base with dark inscribed surface.",
+      "reveal": "These markers help connect the past to the present grounds.",
+      "source": "full",
+      "idx": 0,
+      "box": {
+        "x": 0.168,
+        "y": 0.638,
+        "w": 0.159,
+        "h": 0.15100000000000002
+      },
+      "boxWarnings": [],
+      "crop": "crops/c002-0-ctx.jpg",
+      "verifyCrop": "crops/c002-0-verify.jpg",
+      "verify": {
+        "what_i_see": "A white pedestal with an engraved plaque on top.",
+        "visible": true,
+        "ms": 5165
+      },
+      "mcq": {
+        "options": [
+          "Second stone plaque with engraved text on white pedestal",
+          "Large dark inscribed plate on a low white rectangular base",
+          "Black lamppost with a visible lantern fixture on top",
+          "Stone plaque with engraved text on white pedestal"
+        ],
+        "correct": "D",
+        "answer": "B",
+        "what_i_see": "A large dark inscribed plate on a low white rectangular base",
+        "pass": false,
+        "ms": 5517
+      }
+    },
+    {
+      "label": "Second stone plaque with engraved text on white pedestal",
+      "box_2d": [
+        631,
+        447,
+        747,
+        560
+      ],
+      "lens": "human_trace",
+      "why": "Evidence someone was here before",
+      "difficulty": "medium",
+      "clue": "Another etched surface tells a story of this location.",
+      "hint_semantic": "It provides historical information about the site.",
+      "hint_concrete": "White square base supporting a dark, inscribed slab.",
+      "reveal": "Each marker contributes a piece to the site's overall history.",
+      "source": "full",
+      "idx": 1,
+      "box": {
+        "x": 0.447,
+        "y": 0.631,
+        "w": 0.11300000000000004,
+        "h": 0.11599999999999999
+      },
+      "boxWarnings": [],
+      "crop": "crops/c002-1-ctx.jpg",
+      "verifyCrop": "crops/c002-1-verify.jpg",
+      "verify": {
+        "what_i_see": "A white pedestal with a dark plaque on top.",
+        "visible": true,
+        "ms": 5677
+      },
+      "mcq": {
+        "options": [
+          "Large dark inscribed plate on a low white rectangular base",
+          "Second stone plaque with engraved text on white pedestal",
+          "Black lamppost with a visible lantern fixture on top",
+          "Stone plaque with engraved text on white pedestal"
+        ],
+        "correct": "B",
+        "answer": "A",
+        "what_i_see": "A large dark inscribed plate on a low white rectangular base",
+        "pass": false,
+        "ms": 5826
+      }
+    },
+    {
+      "label": "Large dark inscribed plate on a low white rectangular base",
+      "box_2d": [
+        663,
+        764,
+        905,
+        1000
+      ],
+      "lens": "human_trace",
+      "why": "Evidence someone was here before",
+      "difficulty": "medium",
+      "clue": "This dark surface holds a visual memory for visitors.",
+      "hint_semantic": "It displays imagery related to the history of the area.",
+      "hint_concrete": "Large, low, white rectangular block topped with a dark, flat panel.",
+      "reveal": "The images etched here offer a glimpse into earlier times.",
+      "source": "full",
+      "idx": 2,
+      "box": {
+        "x": 0.764,
+        "y": 0.663,
+        "w": 0.236,
+        "h": 0.242
+      },
+      "boxWarnings": [],
+      "crop": "crops/c002-2-ctx.jpg",
+      "verifyCrop": "crops/c002-2-verify.jpg",
+      "verify": {
+        "what_i_see": "A low white rectangular base with a dark inscribed plate on top.",
+        "visible": true,
+        "ms": 5636
+      },
+      "mcq": {
+        "options": [
+          "Black lamppost with a visible lantern fixture on top",
+          "Large dark inscribed plate on a low white rectangular base",
+          "Stone plaque with engraved text on white pedestal",
+          "Second stone plaque with engraved text on white pedestal"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A low white rectangular base with a dark inscribed plate on top.",
+        "pass": true,
+        "ms": 5595
+      }
+    },
+    {
+      "label": "Black lamppost with a visible lantern fixture on top",
+      "box_2d": [
+        305,
+        57,
+        767,
+        102
+      ],
+      "lens": "hidden_in_plain_sight",
+      "why": "A fixture often overlooked in the busy scene",
+      "difficulty": "easy",
+      "clue": "It stands tall to provide light when the day ends.",
+      "hint_semantic": "It is designed to illuminate the path after sunset.",
+      "hint_concrete": "Tall, slender black pole topped with a distinct lantern shape.",
+      "reveal": "It serves as a simple guide for those walking through the area.",
+      "source": "full",
+      "idx": 3,
+      "box": {
+        "x": 0.057,
+        "y": 0.305,
+        "w": 0.04499999999999999,
+        "h": 0.462
+      },
+      "boxWarnings": [],
+      "crop": "crops/c002-3-ctx.jpg",
+      "verifyCrop": "crops/c002-3-verify.jpg",
+      "verify": {
+        "what_i_see": "Black lamppost",
+        "visible": true,
+        "ms": 3078
+      },
+      "mcq": {
+        "options": [
+          "Second stone plaque with engraved text on white pedestal",
+          "Black lamppost with a visible lantern fixture on top",
+          "Stone plaque with engraved text on white pedestal",
+          "Large dark inscribed plate on a low white rectangular base"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A tall black lamppost is near the center of the image.",
+        "pass": true,
+        "ms": 4035
+      }
+    },
+    {
+      "label": "Tall black street lamp attached to a pole on the right",
+      "box_2d": [
+        292,
+        803,
+        673,
+        843
+      ],
+      "lens": "purpose",
+      "why": "Its function is clearly to illuminate the surroundings",
+      "difficulty": "easy",
+      "clue": "It performs its duty by casting light into the gathering gloom.",
+      "hint_semantic": "It is a fixture intended for public illumination.",
+      "hint_concrete": "Slender black pole with a modern-looking light fixture at the top.",
+      "reveal": "This fixture helps define the boundaries of the public space at night.",
+      "source": "full",
+      "idx": 4,
+      "box": {
+        "x": 0.803,
+        "y": 0.292,
+        "w": 0.039999999999999925,
+        "h": 0.38100000000000006
+      },
+      "boxWarnings": [],
+      "crop": "crops/c002-4-ctx.jpg",
+      "verifyCrop": "crops/c002-4-verify.jpg",
+      "verify": {
+        "what_i_see": "Tall black street lamp attached to a pole",
+        "visible": true,
+        "ms": 3530
+      },
+      "mcq": {
+        "options": [
+          "Stone plaque with engraved text on white pedestal",
+          "Large dark inscribed plate on a low white rectangular base",
+          "Second stone plaque with engraved text on white pedestal",
+          "Tall black street lamp attached to a pole on the right"
+        ],
+        "correct": "D",
+        "answer": "A",
+        "what_i_see": "A tall black pole with a lamp attached, and near the base of the pole, there is a small plaque.",
+        "pass": false,
+        "ms": 4762
+      }
+    }
+  ]
+}

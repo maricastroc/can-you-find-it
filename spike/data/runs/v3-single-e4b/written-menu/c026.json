@@ -1,0 +1,12 @@
+{
+  "0": {
+    "lens": "plain_sight",
+    "evidence": "The yellow and black striped post is visible on the sidewalk.",
+    "hint_semantic": "It marks the edge of the walkway or road.",
+    "hint_concrete": "A tall, slender post, yellow and black, mounted on a pole.",
+    "detail": "The yellow section has small, dark rectangular markings.",
+    "clue": "I found something hiding in plain sight.",
+    "ms": 9333,
+    "outputTokens": 92
+  }
+}

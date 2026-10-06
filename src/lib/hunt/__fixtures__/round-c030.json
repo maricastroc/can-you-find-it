@@ -1,0 +1,28 @@
+{
+  "image": "c030",
+  "width": 2560,
+  "height": 1920,
+  "model": "gemma4:e4b",
+  "chosen": 0,
+  "label": "Small dark informational sign attached to the ground",
+  "calls": [
+    {
+      "kind": "propose",
+      "prompt": "Pick the 3 best different targets in this photo, best first.",
+      "content": "{\n  \"targets\": [\n    {\n      \"label\": \"Small dark informational sign attached to the ground\",\n      \"box_2d\": [\n        557,\n        64,\n        594,\n        104\n      ],\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    },\n    {\n      \"label\": \"Small yellow wildflower growing near the path edge\",\n      \"box_2d\": [\n        347,\n        575,\n        371,\n        594\n      ],\n      \"similar_count\": 0,\n      \"difficulty\": \"hard\"\n    },\n    {\n      \"label\": \"Small patch of bright yellow flowers in the distance\",\n      \"box_2d\": [\n        377,\n        547,\n        402,\n        570\n      ],\n      \"similar_count\": 1,\n      \"difficulty\": \"hard\"\n    }\n  ]\n}",
+      "ms": 19909
+    },
+    {
+      "kind": "verify",
+      "prompt": "Look only at this image. Which ONE of these is clearly visible near the center of the image? If none of them is clearly visible, answer \"none\".\n- Small yellow w",
+      "content": "{\n\"what_i_see\": \"A small, rectangular, dark object with white horizontal stripes is near the center.\",\n\"answer\": \"Small dark informational sign attached to the ground\",\n\"person_at_target\": false\n}",
+      "ms": 5918
+    },
+    {
+      "kind": "write",
+      "prompt": "The target is: \"Small dark informational sign attached to the ground\".",
+      "content": "{\n  \"lens\": \"read_me\",\n  \"evidence\": \"Small dark sign visible near the tree trunk on the left.\",\n  \"hint_semantic\": \"It provides information about the natural area you are walking through.\",\n  \"hint_concrete\": \"A small, dark, rectangular plaque mounted low to the ground.\",\n  \"detail\": \"The sign appears to have some faint, light-colored text on it.\"\n}",
+      "ms": 11626
+    }
+  ]
+}

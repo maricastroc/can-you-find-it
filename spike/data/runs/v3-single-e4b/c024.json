@@ -1,0 +1,316 @@
+{
+  "image": "c024",
+  "width": 2560,
+  "height": 1920,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "single",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 62563,
+      "promptTokens": 1885,
+      "outputTokens": 797,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Tall, thin metal pole supporting overhead wires\",\n      \"box_2d\": [317, 342, 774, 384],\n      \"lens\": \"human_trace\",\n      \"why\": \"It has weathered signs of age and attachment points.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"It holds lines that cross the sky above things.\",\n      \"hint_semantic\": \"It is a utility fixture for communication or power.\",\n      \"hint_concrete\": \"A vertical metal support structure.\",\n      \"reveal\": \"It connects the unseen parts of this busy street.\"\n    },\n    {\n      \"label\": \"Low, dark metal fence with patterned vertical bars\",\n      \"box_2d\": [613, 340, 736, 513],\n      \"lens\": \"nature_reclaiming\",\n      \"why\": \"The metal shows signs of rust and weathering.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"It guards the building, slowly yielding to time.\",\n      \"hint_semantic\": \"It marks the boundary between public space and private property.\",\n      \"hint_concrete\": \"A low barrier made of dark, repeating metal shapes.\",\n      \"reveal\": \"Even barriers eventually show the passage of time.\"\n    },\n    {\n      \"label\": \"Small, dark rectangular sign on the building facade\",\n      \"box_2d\": [717, 650, 738, 704],\n      \"lens\": \"hidden_in_plain_sight\",\n      \"why\": \"It is a small administrative marker near the entrance.\",\n      \"difficulty\": \"hard\",\n      \"clue\": \"It names the place, though its words are small.\",\n      \"hint_semantic\": \"It identifies the building or the entity housed within.\",\n      \"hint_concrete\": \"A small, light-colored plaque mounted low on the wall.\",\n      \"reveal\": \"Small details often hold the biggest pieces of information.\"\n    },\n    {\n      \"label\": \"Tall, dark evergreen tree framing the left side\",\n      \"box_2d\": [0, 0, 653, 303],\n      \"lens\": \"shape_or_color\",\n      \"why\": \"Its dense, dark silhouette contrasts sharply with the bright sky.\",\n      \"difficulty\": \"easy\",\n      \"clue\": \"It stands so tall its shadow touches the wet road.\",\n      \"hint_semantic\": \"It provides shade and defines the edge of the walkway.\",\n      \"hint_concrete\": \"A large mass of very dark, pointed foliage.\",\n      \"reveal\": \"Nature always finds a way to frame the urban scene.\"\n    },\n    {\n      \"label\": \"Set of metal gates near the building entrance\",\n      \"box_2d\": [561, 909, 855, 994],\n      \"lens\": \"human_trace\",\n      \"why\": \"The gates show signs of being used and secured.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"These barriers keep things in or keep things out.\",\n      \"hint_semantic\": \"They control access to the secured area of the structure.\",\n      \"hint_concrete\": \"A tall section of vertical, weathered metal fencing.\",\n      \"reveal\": \"Every lock and gate tells a story of entry and exit.\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3048,
+      "promptTokens": 140,
+      "outputTokens": 24,
+      "raw": "{\n\"what_i_see\": \"A tall, dark pole\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 3261,
+      "promptTokens": 181,
+      "outputTokens": 34,
+      "raw": "{\n\"what_i_see\": \"A tall, dark metal pole is near the center of the image.\",\n\"answer\": \"D\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4428,
+      "promptTokens": 300,
+      "outputTokens": 25,
+      "raw": "{\n\"what_i_see\": \"A large, geometric metal gate\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4819,
+      "promptTokens": 340,
+      "outputTokens": 32,
+      "raw": "{\n\"what_i_see\": \"A large, patterned metal gate structure is near the center.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5879,
+      "promptTokens": 426,
+      "outputTokens": 32,
+      "raw": "{\"what_i_see\": \"A small, light-colored rectangular sign mounted on a dark surface, likely a building.\", \"visible\": true}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5478,
+      "promptTokens": 466,
+      "outputTokens": 37,
+      "raw": "{\n\"what_i_see\": \"A small, light-colored rectangular sign is visible near the center of the image.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4628,
+      "promptTokens": 342,
+      "outputTokens": 28,
+      "raw": "{\"what_i_see\": \"A street scene with buildings and a wet road under an overcast sky.\", \"visible\": true}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6100,
+      "promptTokens": 382,
+      "outputTokens": 45,
+      "raw": "{\n\"what_i_see\": \"The center of the image features a street with buildings lining it, and a prominent metal fence is visible on the right side.\",\n\"answer\": \"C\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3289,
+      "promptTokens": 236,
+      "outputTokens": 21,
+      "raw": "{\n\"what_i_see\": \"Metal gates\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 3883,
+      "promptTokens": 276,
+      "outputTokens": 26,
+      "raw": "{\n\"what_i_see\": \"A set of metal gates\",\n\"answer\": \"D\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "label": "Tall, thin metal pole supporting overhead wires",
+      "box_2d": [
+        317,
+        342,
+        774,
+        384
+      ],
+      "lens": "human_trace",
+      "why": "It has weathered signs of age and attachment points.",
+      "difficulty": "medium",
+      "clue": "It holds lines that cross the sky above things.",
+      "hint_semantic": "It is a utility fixture for communication or power.",
+      "hint_concrete": "A vertical metal support structure.",
+      "reveal": "It connects the unseen parts of this busy street.",
+      "source": "full",
+      "idx": 0,
+      "box": {
+        "x": 0.342,
+        "y": 0.317,
+        "w": 0.04199999999999998,
+        "h": 0.457
+      },
+      "boxWarnings": [],
+      "crop": "crops/c024-0-ctx.jpg",
+      "verifyCrop": "crops/c024-0-verify.jpg",
+      "verify": {
+        "what_i_see": "A tall, dark pole",
+        "visible": true,
+        "ms": 3048
+      },
+      "mcq": {
+        "options": [
+          "Low, dark metal fence with patterned vertical bars",
+          "Small, dark rectangular sign on the building facade",
+          "Tall, dark evergreen tree framing the left side",
+          "Tall, thin metal pole supporting overhead wires"
+        ],
+        "correct": "D",
+        "answer": "D",
+        "what_i_see": "A tall, dark metal pole is near the center of the image.",
+        "pass": true,
+        "ms": 3261
+      }
+    },
+    {
+      "label": "Low, dark metal fence with patterned vertical bars",
+      "box_2d": [
+        613,
+        340,
+        736,
+        513
+      ],
+      "lens": "nature_reclaiming",
+      "why": "The metal shows signs of rust and weathering.",
+      "difficulty": "medium",
+      "clue": "It guards the building, slowly yielding to time.",
+      "hint_semantic": "It marks the boundary between public space and private property.",
+      "hint_concrete": "A low barrier made of dark, repeating metal shapes.",
+      "reveal": "Even barriers eventually show the passage of time.",
+      "source": "full",
+      "idx": 1,
+      "box": {
+        "x": 0.34,
+        "y": 0.613,
+        "w": 0.173,
+        "h": 0.123
+      },
+      "boxWarnings": [],
+      "crop": "crops/c024-1-ctx.jpg",
+      "verifyCrop": "crops/c024-1-verify.jpg",
+      "verify": {
+        "what_i_see": "A large, geometric metal gate",
+        "visible": true,
+        "ms": 4428
+      },
+      "mcq": {
+        "options": [
+          "Small, dark rectangular sign on the building facade",
+          "Low, dark metal fence with patterned vertical bars",
+          "Tall, dark evergreen tree framing the left side",
+          "Tall, thin metal pole supporting overhead wires"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A large, patterned metal gate structure is near the center.",
+        "pass": true,
+        "ms": 4819
+      }
+    },
+    {
+      "label": "Small, dark rectangular sign on the building facade",
+      "box_2d": [
+        717,
+        650,
+        738,
+        704
+      ],
+      "lens": "hidden_in_plain_sight",
+      "why": "It is a small administrative marker near the entrance.",
+      "difficulty": "hard",
+      "clue": "It names the place, though its words are small.",
+      "hint_semantic": "It identifies the building or the entity housed within.",
+      "hint_concrete": "A small, light-colored plaque mounted low on the wall.",
+      "reveal": "Small details often hold the biggest pieces of information.",
+      "source": "full",
+      "idx": 2,
+      "box": {
+        "x": 0.65,
+        "y": 0.717,
+        "w": 0.05399999999999994,
+        "h": 0.02100000000000002
+      },
+      "boxWarnings": [],
+      "crop": "crops/c024-2-ctx.jpg",
+      "verifyCrop": "crops/c024-2-verify.jpg",
+      "verify": {
+        "what_i_see": "A small, light-colored rectangular sign mounted on a dark surface, likely a building.",
+        "visible": true,
+        "ms": 5879
+      },
+      "mcq": {
+        "options": [
+          "Tall, dark evergreen tree framing the left side",
+          "Small, dark rectangular sign on the building facade",
+          "Tall, thin metal pole supporting overhead wires",
+          "Low, dark metal fence with patterned vertical bars"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A small, light-colored rectangular sign is visible near the center of the image.",
+        "pass": true,
+        "ms": 5478
+      }
+    },
+    {
+      "label": "Tall, dark evergreen tree framing the left side",
+      "box_2d": [
+        0,
+        0,
+        653,
+        303
+      ],
+      "lens": "shape_or_color",
+      "why": "Its dense, dark silhouette contrasts sharply with the bright sky.",
+      "difficulty": "easy",
+      "clue": "It stands so tall its shadow touches the wet road.",
+      "hint_semantic": "It provides shade and defines the edge of the walkway.",
+      "hint_concrete": "A large mass of very dark, pointed foliage.",
+      "reveal": "Nature always finds a way to frame the urban scene.",
+      "source": "full",
+      "idx": 3,
+      "box": {
+        "x": 0,
+        "y": 0,
+        "w": 0.303,
+        "h": 0.653
+      },
+      "boxWarnings": [],
+      "crop": "crops/c024-3-ctx.jpg",
+      "verifyCrop": "crops/c024-3-verify.jpg",
+      "rejected": "too_large",
+      "verify": {
+        "what_i_see": "A street scene with buildings and a wet road under an overcast sky.",
+        "visible": true,
+        "ms": 4628
+      },
+      "mcq": {
+        "options": [
+          "Small, dark rectangular sign on the building facade",
+          "Tall, dark evergreen tree framing the left side",
+          "Low, dark metal fence with patterned vertical bars",
+          "Set of metal gates near the building entrance"
+        ],
+        "correct": "B",
+        "answer": "C",
+        "what_i_see": "The center of the image features a street with buildings lining it, and a prominent metal fence is visible on the right side.",
+        "pass": false,
+        "ms": 6100
+      }
+    },
+    {
+      "label": "Set of metal gates near the building entrance",
+      "box_2d": [
+        561,
+        909,
+        855,
+        994
+      ],
+      "lens": "human_trace",
+      "why": "The gates show signs of being used and secured.",
+      "difficulty": "medium",
+      "clue": "These barriers keep things in or keep things out.",
+      "hint_semantic": "They control access to the secured area of the structure.",
+      "hint_concrete": "A tall section of vertical, weathered metal fencing.",
+      "reveal": "Every lock and gate tells a story of entry and exit.",
+      "source": "full",
+      "idx": 4,
+      "box": {
+        "x": 0.909,
+        "y": 0.561,
+        "w": 0.08499999999999996,
+        "h": 0.29399999999999993
+      },
+      "boxWarnings": [],
+      "crop": "crops/c024-4-ctx.jpg",
+      "verifyCrop": "crops/c024-4-verify.jpg",
+      "verify": {
+        "what_i_see": "Metal gates",
+        "visible": true,
+        "ms": 3289
+      },
+      "mcq": {
+        "options": [
+          "Tall, thin metal pole supporting overhead wires",
+          "Small, dark rectangular sign on the building facade",
+          "Low, dark metal fence with patterned vertical bars",
+          "Set of metal gates near the building entrance"
+        ],
+        "correct": "D",
+        "answer": "D",
+        "what_i_see": "A set of metal gates",
+        "pass": true,
+        "ms": 3883
+      }
+    }
+  ]
+}

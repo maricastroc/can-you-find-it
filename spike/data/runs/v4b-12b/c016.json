@@ -1,0 +1,157 @@
+{
+  "image": "c016",
+  "width": 2560,
+  "height": 1624,
+  "model": "gemma4:12b",
+  "verifier": "gemma4:12b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 47539,
+      "promptTokens": 1476,
+      "outputTokens": 167,
+      "raw": "{\"targets\": [{\"label\": \"small white sign with black text on a pole\", \"box_2d\": [571, 748, 643, 764], \"similar_count\": 0, \"difficulty\": \"hard\"}, {\"label\": \"small white box-shaped object on the building wall\", \"box_2d\": [576, 472, 609, 496], \"similar_count\": 0, \"difficulty\": \"medium\"}, {\"label\": \"black sign with white text on a pole\", \"box_2d\": [587, 591, 627, 608], \"similar_count\": 0, \"difficulty\": \"medium\"}]}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 17661,
+      "promptTokens": 500,
+      "outputTokens": 44,
+      "raw": "{\"what_i_see\": \"a small white box-shaped object on a pole\", \"answer\": \"small white box-shaped object on the building wall\", \"person_at_target\": false}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 17560,
+      "promptTokens": 584,
+      "outputTokens": 45,
+      "raw": "{\"what_i_see\": \"a small white box-shaped object on the building wall\", \"answer\": \"small white box-shaped object on the building wall\", \"person_at_target\": false}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 15108,
+      "promptTokens": 584,
+      "outputTokens": 26,
+      "raw": "{\"what_i_see\": \"none\", \"answer\": \"none\", \"person_at_target\": false}"
+    },
+    {
+      "kind": "write",
+      "ms": 29196,
+      "promptTokens": 1460,
+      "outputTokens": 97,
+      "raw": "{\n  \"lens\": \"plain_sight\",\n  \"evidence\": \"A small white box is mounted on the exterior wall.\",\n  \"hint_semantic\": \"It is a small utility fixture attached to the building's facade.\",\n  \"hint_concrete\": \"A small, white, rectangular box mounted on the light-colored wall.\",\n  \"detail\": \"The box has a small dark opening or slot on its front.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "small white sign with black text on a pole",
+      "box_2d": [
+        571,
+        748,
+        643,
+        764
+      ],
+      "box": {
+        "x": 0.748,
+        "y": 0.571,
+        "w": 0.016,
+        "h": 0.072
+      },
+      "difficulty": "hard",
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "small white box-shaped object on the building wall",
+          "black sign with white text on a pole",
+          "a red fire hydrant",
+          "small white sign with black text on a pole"
+        ],
+        "correct": "small white sign with black text on a pole",
+        "answer": "small white box-shaped object on the building wall",
+        "what_i_see": "a small white box-shaped object on a pole",
+        "people": false,
+        "pass": false,
+        "ms": 0
+      },
+      "crop": "crops/c016-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "small white box-shaped object on the building wall",
+      "box_2d": [
+        576,
+        472,
+        609,
+        496
+      ],
+      "box": {
+        "x": 0.472,
+        "y": 0.576,
+        "w": 0.024,
+        "h": 0.033
+      },
+      "difficulty": "medium",
+      "lens": "plain_sight",
+      "mcq": {
+        "options": [
+          "black sign with white text on a pole",
+          "small white box-shaped object on the building wall",
+          "a red fire hydrant",
+          "small white sign with black text on a pole"
+        ],
+        "correct": "small white box-shaped object on the building wall",
+        "answer": "small white box-shaped object on the building wall",
+        "what_i_see": "a small white box-shaped object on the building wall",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "I found something hiding in plain sight.",
+      "hint_semantic": "It is a small utility fixture attached to the building's facade.",
+      "hint_concrete": "A small, white, rectangular box mounted on the light-colored wall.",
+      "reveal": "The box has a small dark opening or slot on its front. (evidence: A small white box is mounted on the exterior wall.)",
+      "spatial": "Look roughly straight ahead from where you took the photo. It is further away than you might think.",
+      "crop": "crops/c016-1-ctx.jpg"
+    },
+    {
+      "idx": 2,
+      "source": "full",
+      "label": "black sign with white text on a pole",
+      "box_2d": [
+        587,
+        591,
+        627,
+        608
+      ],
+      "box": {
+        "x": 0.591,
+        "y": 0.587,
+        "w": 0.017,
+        "h": 0.04
+      },
+      "difficulty": "medium",
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "black sign with white text on a pole",
+          "small white sign with black text on a pole",
+          "small white box-shaped object on the building wall"
+        ],
+        "correct": "black sign with white text on a pole",
+        "answer": "none",
+        "what_i_see": "none",
+        "people": false,
+        "pass": false,
+        "ms": 0
+      },
+      "crop": "crops/c016-2-ctx.jpg"
+    }
+  ],
+  "chosen": 1,
+  "waitMs": 111956
+}

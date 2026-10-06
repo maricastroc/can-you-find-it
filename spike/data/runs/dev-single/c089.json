@@ -1,0 +1,59 @@
+{
+  "image": "c089",
+  "width": 2560,
+  "height": 1707,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "single",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 21985,
+      "promptTokens": 1713,
+      "outputTokens": 167,
+      "raw": "{\"targets\": [\n{\"label\": \"small circular plaque on concrete pillar\", \"box_2d\": [596, 563, 760, 623], \"lens\": \"hidden_in_plain_sight\", \"why\": \"It's a small, specific detail on the heavily decorated pillar that someone might walk past without noticing.\", \"difficulty\": \"medium\", \"clue\": \"A small, round marker speaks of a past intention.\", \"hint_semantic\": \"It might indicate a dedication or a specific point of interest.\", \"hint_concrete\": \"It is a small, circular fixture mounted on the heavily painted, lower section of the pillar.\", \"reveal\": \"It seems this pillar has seen many layers of history and expression.\"}\n]}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4282,
+      "promptTokens": 315,
+      "outputTokens": 30,
+      "raw": "{\n\"what_i_see\": \"A green circle with a black pupil on a colorful pillar\",\n\"visible\": true\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "label": "small circular plaque on concrete pillar",
+      "box_2d": [
+        596,
+        563,
+        760,
+        623
+      ],
+      "lens": "hidden_in_plain_sight",
+      "why": "It's a small, specific detail on the heavily decorated pillar that someone might walk past without noticing.",
+      "difficulty": "medium",
+      "clue": "A small, round marker speaks of a past intention.",
+      "hint_semantic": "It might indicate a dedication or a specific point of interest.",
+      "hint_concrete": "It is a small, circular fixture mounted on the heavily painted, lower section of the pillar.",
+      "reveal": "It seems this pillar has seen many layers of history and expression.",
+      "source": "full",
+      "idx": 0,
+      "box": {
+        "x": 0.563,
+        "y": 0.596,
+        "w": 0.06000000000000005,
+        "h": 0.16400000000000003
+      },
+      "boxWarnings": [],
+      "crop": "crops/c089-0-ctx.jpg",
+      "verifyCrop": "crops/c089-0-verify.jpg",
+      "verify": {
+        "what_i_see": "A green circle with a black pupil on a colorful pillar",
+        "visible": true,
+        "ms": 4282
+      }
+    }
+  ]
+}

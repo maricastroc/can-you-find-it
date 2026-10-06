@@ -1,0 +1,24 @@
+{
+  "0": {
+    "what_is_special": "Light travels through glass, illuminating the cobbled square.",
+    "lens": "nature_reclaiming",
+    "difficulty": "medium",
+    "clue": "It once held a steady light for passing travelers.",
+    "hint_semantic": "It was designed to project light into the surrounding public space.",
+    "hint_concrete": "A tall, dark structure with multiple globes attached.",
+    "reveal": "The metalwork shows intricate, weathered carvings along its shaft.",
+    "ms": 15598,
+    "outputTokens": 120
+  },
+  "2": {
+    "what_is_special": "It holds refuse, concealing daily discarded remnants.",
+    "lens": "nature_reclaiming",
+    "difficulty": "easy",
+    "clue": "What is ejected from this upright metal vessel?",
+    "hint_semantic": "It serves a function for public waste disposal.",
+    "hint_concrete": "It is a tall, rectangular container made of metal.",
+    "reveal": "The surface shows signs of weathering and accumulated patina.",
+    "ms": 14171,
+    "outputTokens": 115
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "image": "c024",
+  "width": 2560,
+  "height": 1920,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 32721,
+      "promptTokens": 1551,
+      "outputTokens": 290,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Silver metal gate with geometric pattern attached to fence\",\n      \"box_2d\": [\n        613,\n        343,\n        734,\n        504\n      ],\n      \"special\": \"A unique, patterned section of the building's boundary.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    },\n    {\n      \"label\": \"Small square informational sign near the building entrance\",\n      \"box_2d\": [\n        708,\n        651,\n        736,\n        687\n      ],\n      \"special\": \"A small, official-looking plaque near the main structure.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"hard\"\n    },\n    {\n      \"label\": \"Tall, thin utility pole standing near the center building\",\n      \"box_2d\": [\n        319,\n        345,\n        769,\n        376\n      ],\n      \"special\": \"A prominent vertical fixture breaking the building line.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"easy\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5665,
+      "promptTokens": 369,
+      "outputTokens": 46,
+      "raw": "{\n\"what_i_see\": \"A silver metal gate with geometric pattern attached to fence\",\n\"answer\": \"Silver metal gate with geometric pattern attached to fence\",\n\"people_visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4324,
+      "promptTokens": 189,
+      "outputTokens": 47,
+      "raw": "{\n\"what_i_see\": \"A tall, thin utility pole is near the center.\",\n\"answer\": \"Tall, thin utility pole standing near the center building\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 8513,
+      "promptTokens": 558,
+      "outputTokens": 49,
+      "raw": "{\n\"what_i_see\": \"A small, rectangular, light-colored object is visible near the center.\",\n\"answer\": \"Small square informational sign near the building entrance\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 10162,
+      "promptTokens": 1119,
+      "outputTokens": 88,
+      "raw": "{\n\"lens\": \"plain_sight\",\n\"evidence\": \"The pole is a standard utility pole, blending with the urban setting.\",\n\"hint_semantic\": \"It carries the necessary connections for modern communication and power.\",\n\"hint_concrete\": \"Tall, dark, vertical pole made of metal or wood.\",\n\"detail\": \"It has multiple insulators or attachments running along its length.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Silver metal gate with geometric pattern attached to fence",
+      "box_2d": [
+        613,
+        343,
+        734,
+        504
+      ],
+      "box": {
+        "x": 0.343,
+        "y": 0.613,
+        "w": 0.161,
+        "h": 0.121
+      },
+      "difficulty": "medium",
+      "why": "A unique, patterned section of the building's boundary.",
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "Small square informational sign near the building entrance",
+          "Tall, thin utility pole standing near the center building",
+          "a red fire hydrant",
+          "Silver metal gate with geometric pattern attached to fence"
+        ],
+        "correct": "Silver metal gate with geometric pattern attached to fence",
+        "answer": "Silver metal gate with geometric pattern attached to fence",
+        "what_i_see": "A silver metal gate with geometric pattern attached to fence",
+        "people": true,
+        "pass": false,
+        "ms": 0
+      },
+      "crop": "crops/c024-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Small square informational sign near the building entrance",
+      "box_2d": [
+        708,
+        651,
+        736,
+        687
+      ],
+      "box": {
+        "x": 0.651,
+        "y": 0.708,
+        "w": 0.036,
+        "h": 0.028
+      },
+      "difficulty": "hard",
+      "why": "A small, official-looking plaque near the main structure.",
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "Tall, thin utility pole standing near the center building",
+          "Small square informational sign near the building entrance",
+          "a red fire hydrant",
+          "Silver metal gate with geometric pattern attached to fence"
+        ],
+        "correct": "Small square informational sign near the building entrance",
+        "answer": "Small square informational sign near the building entrance",
+        "what_i_see": "A small, rectangular, light-colored object is visible near the center.",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "crop": "crops/c024-1-ctx.jpg"
+    },
+    {
+      "idx": 2,
+      "source": "full",
+      "label": "Tall, thin utility pole standing near the center building",
+      "box_2d": [
+        319,
+        345,
+        769,
+        376
+      ],
+      "box": {
+        "x": 0.345,
+        "y": 0.319,
+        "w": 0.031,
+        "h": 0.45
+      },
+      "difficulty": "easy",
+      "why": "A prominent vertical fixture breaking the building line.",
+      "lens": "plain_sight",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "Tall, thin utility pole standing near the center building",
+          "Silver metal gate with geometric pattern attached to fence",
+          "Small square informational sign near the building entrance"
+        ],
+        "correct": "Tall, thin utility pole standing near the center building",
+        "answer": "Tall, thin utility pole standing near the center building",
+        "what_i_see": "A tall, thin utility pole is near the center.",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "I found something hiding in plain sight.",
+      "hint_semantic": "It carries the necessary connections for modern communication and power.",
+      "hint_concrete": "Tall, dark, vertical pole made of metal or wood.",
+      "reveal": "It has multiple insulators or attachments running along its length. (evidence: The pole is a standard utility pole, blending with the urban setting.)",
+      "spatial": "Look roughly straight ahead from where you took the photo. It is quite close to where you stood.",
+      "crop": "crops/c024-2-ctx.jpg"
+    }
+  ],
+  "chosen": 2,
+  "waitMs": 52872
+}

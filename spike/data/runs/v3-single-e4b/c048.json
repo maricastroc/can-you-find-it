@@ -1,0 +1,317 @@
+{
+  "image": "c048",
+  "width": 2560,
+  "height": 1707,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "single",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 72395,
+      "promptTokens": 1901,
+      "outputTokens": 850,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Dark metal railing with decorative chain along walkway\",\n      \"box_2d\": [494, 248, 994, 562],\n      \"lens\": \"shape_or_color\",\n      \"why\": \"The chain adds a specific texture and pattern to the otherwise simple railing.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"It connects the path to the water below.\",\n      \"hint_semantic\": \"It serves as a barrier for safety along the edge.\",\n      \"hint_concrete\": \"Dark metal structure with linked chains hanging down.\",\n      \"reveal\": \"It marks the boundary between the walking area and the river.\"\n    },\n    {\n      \"label\": \"Low concrete retaining wall lining the riverbank\",\n      \"box_2d\": [479, 0, 548, 128],\n      \"lens\": \"human_trace\",\n      \"why\": \"This wall shows signs of age and human construction/modification to hold the bank.\",\n      \"difficulty\": \"easy\",\n      \"clue\": \"It holds back the earth from the flowing water.\",\n      \"hint_semantic\": \"It is part of the infrastructure stabilizing the shoreline.\",\n      \"hint_concrete\": \"A solid, light-colored vertical barrier made of concrete.\",\n      \"reveal\": \"It's a quiet testament to keeping the bank stable over time.\"\n    },\n    {\n      \"label\": \"Stone bridge abutment supporting the roadway\",\n      \"box_2d\": [475, 314, 517, 786],\n      \"lens\": \"repaired\",\n      \"why\": \"The stone structure shows signs of weathering and patching, suggesting repair.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"It bears the weight of passage across the moving water.\",\n      \"hint_semantic\": \"It is a foundational support for the crossing structure.\",\n      \"hint_concrete\": \"Massive, grey stone blocks forming the base of the arch.\",\n      \"reveal\": \"These sturdy blocks have withstood the flow for many years.\"\n    },\n    {\n      \"label\": \"Light-colored building with rounded turret tops in distance\",\n      \"box_2d\": [361, 460, 475, 571],\n      \"lens\": \"shape_or_color\",\n      \"why\": \"The distinct, dome-like or turreted tops make this building unique among the skyline.\",\n      \"difficulty\": \"hard\",\n      \"clue\": \"It boasts a distinctive crown against the clear sky.\",\n      \"hint_semantic\": \"It suggests a specific, perhaps older, architectural style.\",\n      \"hint_concrete\": \"A mid-rise structure with light-colored walls and elevated roof features.\",\n      \"reveal\": \"Its unique silhouette gives it presence on the distant skyline.\"\n    },\n    {\n      \"label\": \"Small circular structure on the far bank near water\",\n      \"box_2d\": [431, 636, 485, 675],\n      \"lens\": \"hidden_in_plain_sight\",\n      \"why\": \"This small structure, possibly part of the bridge supports or bank reinforcement, is easily overlooked.\",\n      \"difficulty\": \"hard\",\n      \"clue\": \"It stands quietly near where the current rushes past.\",\n      \"hint_semantic\": \"It is a small piece of infrastructure managing the river's edge.\",\n      \"hint_concrete\": \"A short, stout, possibly concrete or stone fixture near the water line.\",\n      \"reveal\": \"Even the smallest element helps manage the power of the river.\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5812,
+      "promptTokens": 488,
+      "outputTokens": 22,
+      "raw": "{\"what_i_see\": \"river with a bridge in the background\", \"visible\": true}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 7089,
+      "promptTokens": 523,
+      "outputTokens": 42,
+      "raw": "{\n\"what_i_see\": \"The center of the image is dominated by the river water, with the railing and the far bank structures visible.\",\n\"answer\": \"D\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3711,
+      "promptTokens": 236,
+      "outputTokens": 22,
+      "raw": "{\n\"what_i_see\": \"Large concrete structure\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4426,
+      "promptTokens": 275,
+      "outputTokens": 33,
+      "raw": "{\n\"what_i_see\": \"A large, textured concrete structure dominates the center of the image.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 2863,
+      "promptTokens": 157,
+      "outputTokens": 27,
+      "raw": "{\n\"what_i_see\": \"A stone bridge abutment supporting the roadway\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4097,
+      "promptTokens": 197,
+      "outputTokens": 36,
+      "raw": "{\n\"what_i_see\": \"The center of the image is dominated by the stone bridge structure spanning the river.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5413,
+      "promptTokens": 385,
+      "outputTokens": 28,
+      "raw": "{\n\"what_i_see\": \"Large, mostly blank, light-colored building\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5836,
+      "promptTokens": 424,
+      "outputTokens": 37,
+      "raw": "{\n\"what_i_see\": \"A large, mostly blank, light-colored building dominates the center of the image.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 6009,
+      "promptTokens": 510,
+      "outputTokens": 28,
+      "raw": "{\n\"what_i_see\": \"A large, grey, tower-like building\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 7259,
+      "promptTokens": 547,
+      "outputTokens": 43,
+      "raw": "{\n\"what_i_see\": \"A large, grey, tower-like structure dominates the center of the image, situated above a dark foreground area.\",\n\"answer\": \"A\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "label": "Dark metal railing with decorative chain along walkway",
+      "box_2d": [
+        494,
+        248,
+        994,
+        562
+      ],
+      "lens": "shape_or_color",
+      "why": "The chain adds a specific texture and pattern to the otherwise simple railing.",
+      "difficulty": "medium",
+      "clue": "It connects the path to the water below.",
+      "hint_semantic": "It serves as a barrier for safety along the edge.",
+      "hint_concrete": "Dark metal structure with linked chains hanging down.",
+      "reveal": "It marks the boundary between the walking area and the river.",
+      "source": "full",
+      "idx": 0,
+      "box": {
+        "x": 0.248,
+        "y": 0.494,
+        "w": 0.31400000000000006,
+        "h": 0.5
+      },
+      "boxWarnings": [],
+      "crop": "crops/c048-0-ctx.jpg",
+      "verifyCrop": "crops/c048-0-verify.jpg",
+      "rejected": "too_large",
+      "verify": {
+        "what_i_see": "river with a bridge in the background",
+        "visible": true,
+        "ms": 5812
+      },
+      "mcq": {
+        "options": [
+          "Low concrete retaining wall lining the riverbank",
+          "Small circular structure on the far bank near water",
+          "a red fire hydrant",
+          "Dark metal railing with decorative chain along walkway"
+        ],
+        "correct": "D",
+        "answer": "D",
+        "what_i_see": "The center of the image is dominated by the river water, with the railing and the far bank structures visible.",
+        "pass": true,
+        "ms": 7089
+      }
+    },
+    {
+      "label": "Low concrete retaining wall lining the riverbank",
+      "box_2d": [
+        479,
+        0,
+        548,
+        128
+      ],
+      "lens": "human_trace",
+      "why": "This wall shows signs of age and human construction/modification to hold the bank.",
+      "difficulty": "easy",
+      "clue": "It holds back the earth from the flowing water.",
+      "hint_semantic": "It is part of the infrastructure stabilizing the shoreline.",
+      "hint_concrete": "A solid, light-colored vertical barrier made of concrete.",
+      "reveal": "It's a quiet testament to keeping the bank stable over time.",
+      "source": "full",
+      "idx": 1,
+      "box": {
+        "x": 0,
+        "y": 0.479,
+        "w": 0.128,
+        "h": 0.06900000000000006
+      },
+      "boxWarnings": [],
+      "crop": "crops/c048-1-ctx.jpg",
+      "verifyCrop": "crops/c048-1-verify.jpg",
+      "verify": {
+        "what_i_see": "Large concrete structure",
+        "visible": false,
+        "ms": 3711
+      },
+      "mcq": {
+        "options": [
+          "Stone bridge abutment supporting the roadway",
+          "Low concrete retaining wall lining the riverbank",
+          "Light-colored building with rounded turret tops in distance",
+          "Dark metal railing with decorative chain along walkway"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A large, textured concrete structure dominates the center of the image.",
+        "pass": true,
+        "ms": 4426
+      }
+    },
+    {
+      "label": "Stone bridge abutment supporting the roadway",
+      "box_2d": [
+        475,
+        314,
+        517,
+        786
+      ],
+      "lens": "repaired",
+      "why": "The stone structure shows signs of weathering and patching, suggesting repair.",
+      "difficulty": "medium",
+      "clue": "It bears the weight of passage across the moving water.",
+      "hint_semantic": "It is a foundational support for the crossing structure.",
+      "hint_concrete": "Massive, grey stone blocks forming the base of the arch.",
+      "reveal": "These sturdy blocks have withstood the flow for many years.",
+      "source": "full",
+      "idx": 2,
+      "box": {
+        "x": 0.314,
+        "y": 0.475,
+        "w": 0.47200000000000003,
+        "h": 0.04200000000000004
+      },
+      "boxWarnings": [],
+      "crop": "crops/c048-2-ctx.jpg",
+      "verifyCrop": "crops/c048-2-verify.jpg",
+      "verify": {
+        "what_i_see": "A stone bridge abutment supporting the roadway",
+        "visible": true,
+        "ms": 2863
+      },
+      "mcq": {
+        "options": [
+          "Light-colored building with rounded turret tops in distance",
+          "Stone bridge abutment supporting the roadway",
+          "Dark metal railing with decorative chain along walkway",
+          "Low concrete retaining wall lining the riverbank"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "The center of the image is dominated by the stone bridge structure spanning the river.",
+        "pass": true,
+        "ms": 4097
+      }
+    },
+    {
+      "label": "Light-colored building with rounded turret tops in distance",
+      "box_2d": [
+        361,
+        460,
+        475,
+        571
+      ],
+      "lens": "shape_or_color",
+      "why": "The distinct, dome-like or turreted tops make this building unique among the skyline.",
+      "difficulty": "hard",
+      "clue": "It boasts a distinctive crown against the clear sky.",
+      "hint_semantic": "It suggests a specific, perhaps older, architectural style.",
+      "hint_concrete": "A mid-rise structure with light-colored walls and elevated roof features.",
+      "reveal": "Its unique silhouette gives it presence on the distant skyline.",
+      "source": "full",
+      "idx": 3,
+      "box": {
+        "x": 0.46,
+        "y": 0.361,
+        "w": 0.11099999999999993,
+        "h": 0.11399999999999999
+      },
+      "boxWarnings": [],
+      "crop": "crops/c048-3-ctx.jpg",
+      "verifyCrop": "crops/c048-3-verify.jpg",
+      "rejected": "mass_noun",
+      "verify": {
+        "what_i_see": "Large, mostly blank, light-colored building",
+        "visible": true,
+        "ms": 5413
+      },
+      "mcq": {
+        "options": [
+          "Low concrete retaining wall lining the riverbank",
+          "Light-colored building with rounded turret tops in distance",
+          "Dark metal railing with decorative chain along walkway",
+          "Small circular structure on the far bank near water"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A large, mostly blank, light-colored building dominates the center of the image.",
+        "pass": true,
+        "ms": 5836
+      }
+    },
+    {
+      "label": "Small circular structure on the far bank near water",
+      "box_2d": [
+        431,
+        636,
+        485,
+        675
+      ],
+      "lens": "hidden_in_plain_sight",
+      "why": "This small structure, possibly part of the bridge supports or bank reinforcement, is easily overlooked.",
+      "difficulty": "hard",
+      "clue": "It stands quietly near where the current rushes past.",
+      "hint_semantic": "It is a small piece of infrastructure managing the river's edge.",
+      "hint_concrete": "A short, stout, possibly concrete or stone fixture near the water line.",
+      "reveal": "Even the smallest element helps manage the power of the river.",
+      "source": "full",
+      "idx": 4,
+      "box": {
+        "x": 0.636,
+        "y": 0.431,
+        "w": 0.039000000000000035,
+        "h": 0.05399999999999999
+      },
+      "boxWarnings": [],
+      "crop": "crops/c048-4-ctx.jpg",
+      "verifyCrop": "crops/c048-4-verify.jpg",
+      "verify": {
+        "what_i_see": "A large, grey, tower-like building",
+        "visible": false,
+        "ms": 6009
+      },
+      "mcq": {
+        "options": [
+          "Dark metal railing with decorative chain along walkway",
+          "Stone bridge abutment supporting the roadway",
+          "Low concrete retaining wall lining the riverbank",
+          "Small circular structure on the far bank near water"
+        ],
+        "correct": "D",
+        "answer": "A",
+        "what_i_see": "A large, grey, tower-like structure dominates the center of the image, situated above a dark foreground area.",
+        "pass": false,
+        "ms": 7259
+      }
+    }
+  ]
+}

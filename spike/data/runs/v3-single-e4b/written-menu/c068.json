@@ -1,0 +1,22 @@
+{
+  "0": {
+    "lens": "look_up",
+    "evidence": "The lamppost has ornate carvings and multiple lanterns.",
+    "hint_semantic": "It illuminates the street and adds character to the architecture.",
+    "hint_concrete": "Tall, dark metal post with multiple glass-encased lights.",
+    "detail": "The base of the pole has detailed, carved relief patterns.",
+    "clue": "You'd only see it if you looked up.",
+    "ms": 10811,
+    "outputTokens": 92
+  },
+  "2": {
+    "lens": "unwanted",
+    "evidence": "The dark green bin is clearly designed to hold refuse.",
+    "hint_semantic": "It is a place where unwanted things are deposited and disposed of.",
+    "hint_concrete": "A tall, cylindrical, dark green metal container.",
+    "detail": "The front has a small, rectangular metal plaque with text.",
+    "clue": "It swallows what nobody wants.",
+    "ms": 10028,
+    "outputTokens": 90
+  }
+}

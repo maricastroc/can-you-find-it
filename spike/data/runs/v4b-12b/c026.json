@@ -1,0 +1,137 @@
+{
+  "image": "c026",
+  "width": 2560,
+  "height": 1440,
+  "model": "gemma4:12b",
+  "verifier": "gemma4:12b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 51976,
+      "promptTokens": 1396,
+      "outputTokens": 233,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"yellow and grey vertical rectangular street sign post\",\n      \"box_2d\": [\n        718,\n        294,\n        875,\n        323\n      ],\n      \"similar_count\": 0,\n      \"difficulty\": \"easy\"\n    },\n    {\n      \"label\": \"small blue and white pedestrian crossing sign\",\n      \"box_2d\": [\n        758,\n        758,\n        813,\n        778\n      ],\n      \"similar_count\": 0,\n      \"difficulty\": \"hard\"\n    },\n    {\n      \"label\": \"small grey rectangular metal sign on pole\",\n      \"box_2d\": [\n        512,\n        166,\n        674,\n        222\n      ],\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 12913,
+      "promptTokens": 306,
+      "outputTokens": 41,
+      "raw": "{\"what_i_see\": \"a yellow and grey vertical rectangular street sign post\", \"answer\": \"yellow and grey vertical rectangular street sign post\", \"person_at_target\": false}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 13682,
+      "promptTokens": 411,
+      "outputTokens": 41,
+      "raw": "{\"what_i_see\": \"a yellow and grey vertical rectangular street sign post\", \"answer\": \"yellow and grey vertical rectangular street sign post\", \"person_at_target\": false}"
+    },
+    {
+      "kind": "write",
+      "ms": 24914,
+      "promptTokens": 1169,
+      "outputTokens": 92,
+      "raw": "{\n  \"lens\": \"plain_sight\",\n  \"evidence\": \"A small yellow box and bracket attached to a grey pole.\",\n  \"hint_semantic\": \"It provides a service for those traveling in vehicles.\",\n  \"hint_concrete\": \"A yellow rectangular box on a grey metal pole near the curb.\",\n  \"detail\": \"A small black circular button on the side of the yellow box.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "yellow and grey vertical rectangular street sign post",
+      "box_2d": [
+        718,
+        294,
+        875,
+        323
+      ],
+      "box": {
+        "x": 0.294,
+        "y": 0.718,
+        "w": 0.029,
+        "h": 0.157
+      },
+      "difficulty": "easy",
+      "lens": "where_you_are",
+      "mcq": {
+        "options": [
+          "small blue and white pedestrian crossing sign",
+          "small grey rectangular metal sign on pole",
+          "a red fire hydrant",
+          "yellow and grey vertical rectangular street sign post"
+        ],
+        "correct": "yellow and grey vertical rectangular street sign post",
+        "answer": "yellow and grey vertical rectangular street sign post",
+        "what_i_see": "a yellow and grey vertical rectangular street sign post",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "It tells you where you are, if you know how to read it.",
+      "hint_semantic": "It provides a service for those traveling in vehicles.",
+      "hint_concrete": "A yellow rectangular box on a grey metal pole near the curb.",
+      "reveal": "A small black circular button on the side of the yellow box. (evidence: A small yellow box and bracket attached to a grey pole.)",
+      "spatial": "Look toward the left of where you took the photo. Look down, close to the ground. It is quite close to where you stood.",
+      "crop": "crops/c026-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "small blue and white pedestrian crossing sign",
+      "box_2d": [
+        758,
+        758,
+        813,
+        778
+      ],
+      "box": {
+        "x": 0.758,
+        "y": 0.758,
+        "w": 0.02,
+        "h": 0.055
+      },
+      "rejected": "person",
+      "difficulty": "hard",
+      "lens": "similar:0",
+      "crop": "crops/c026-1-ctx.jpg"
+    },
+    {
+      "idx": 2,
+      "source": "full",
+      "label": "small grey rectangular metal sign on pole",
+      "box_2d": [
+        512,
+        166,
+        674,
+        222
+      ],
+      "box": {
+        "x": 0.166,
+        "y": 0.512,
+        "w": 0.056,
+        "h": 0.162
+      },
+      "difficulty": "medium",
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "small grey rectangular metal sign on pole",
+          "yellow and grey vertical rectangular street sign post",
+          "small blue and white pedestrian crossing sign"
+        ],
+        "correct": "small grey rectangular metal sign on pole",
+        "answer": "yellow and grey vertical rectangular street sign post",
+        "what_i_see": "a yellow and grey vertical rectangular street sign post",
+        "people": false,
+        "pass": false,
+        "ms": 0
+      },
+      "crop": "crops/c026-2-ctx.jpg"
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 89803
+}

@@ -1,0 +1,225 @@
+{
+  "image": "c000",
+  "width": 2560,
+  "height": 1709,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "single",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 59721,
+      "promptTokens": 1897,
+      "outputTokens": 718,
+      "raw": "{\"seen\": [\"bright blue sky\", \"tall autumn tree\", \"grassy park lawn\", \"paved walking path\", \"orange autumn foliage\", \"black park bench\", \"street lamp post\", \"distant dark green trees\"], \"targets\": [{\"label\": \"black metal park bench\", \"box_2d\": [746, 409, 914, 531], \"lens\": \"human_trace\", \"why\": \"It's a fixture suggesting people rest here, but it's not the main focus.\", \"difficulty\": \"medium\", \"clue\": \"A place designed for brief pauses along the journey.\", \"hint_semantic\": \"It provides a spot to sit and observe the surroundings.\", \"hint_concrete\": \"It is made of black painted metal with slats.\", \"reveal\": \"These benches have witnessed countless moments of quiet reflection.\"}, {\"label\": \"street lamp post with lantern\", \"box_2d\": [481, 809, 733, 833], \"lens\": \"hidden_in_plain_sight\", \"why\": \"It's a specific, functional detail usually overlooked in a wide shot.\", \"difficulty\": \"medium\", \"clue\": \"It waits until the light fades to perform its duty.\", \"hint_semantic\": \"It serves to illuminate the pathway after sunset.\", \"hint_concrete\": \"It is a tall, dark pole topped with a glass fixture.\", \"reveal\": \"It stands ready to guide those walking after dusk.\"}, {\"label\": \"bright orange autumn foliage\", \"box_2d\": [283, 720, 688, 1000], \"lens\": \"shape_or_color\", \"why\": \"The specific vibrant color of this cluster of leaves is striking.\", \"difficulty\": \"easy\", \"clue\": \"This fiery display signals the turning of the year.\", \"hint_semantic\": \"It is a seasonal change in the canopy.\", \"hint_concrete\": \"The leaves are a deep, rich shade of burnt orange.\", \"reveal\": \"Nature puts on its most dramatic show during this time.\"}, {\"label\": \"tall tree with red leaves\", \"box_2d\": [65, 131, 672, 448], \"lens\": \"shape_or_color\", \"why\": \"The striking color and shape of this central tree make it interesting.\", \"difficulty\": \"medium\", \"clue\": \"Its changing colors mark the transition between seasons.\", \"hint_semantic\": \"It is a deciduous tree displaying fall coloration.\", \"hint_concrete\": \"The leaves range from bright red to yellow-orange.\", \"reveal\": \"This single specimen captures the essence of the season.\"}, {\"label\": \"paved stone walkway path\", \"box_2d\": [652, 432, 959, 1000], \"lens\": \"human_trace\", \"why\": \"The texture and material of the path show repeated use.\", \"difficulty\": \"medium\", \"clue\": \"It guides movement through the open space.\", \"hint_semantic\": \"It is a constructed surface for foot traffic.\", \"hint_concrete\": \"It is made of irregularly shaped, interlocking stones.\", \"reveal\": \"This path has led countless feet through this peaceful park.\"}]\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5645,
+      "promptTokens": 484,
+      "outputTokens": 25,
+      "raw": "{\n\"what_i_see\": \"A set of dark park benches\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3265,
+      "promptTokens": 170,
+      "outputTokens": 22,
+      "raw": "{\n\"what_i_see\": \"street lamp post\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 6125,
+      "promptTokens": 505,
+      "outputTokens": 26,
+      "raw": "{\n\"what_i_see\": \"A large tree with vibrant orange leaves\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4699,
+      "promptTokens": 422,
+      "outputTokens": 24,
+      "raw": "{\n\"what_i_see\": \"tall tree with red leaves\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4116,
+      "promptTokens": 233,
+      "outputTokens": 27,
+      "raw": "{\n\"what_i_see\": \"A winding, cobbled path through a park\",\n\"visible\": true\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "label": "black metal park bench",
+      "box_2d": [
+        746,
+        409,
+        914,
+        531
+      ],
+      "lens": "human_trace",
+      "why": "It's a fixture suggesting people rest here, but it's not the main focus.",
+      "difficulty": "medium",
+      "clue": "A place designed for brief pauses along the journey.",
+      "hint_semantic": "It provides a spot to sit and observe the surroundings.",
+      "hint_concrete": "It is made of black painted metal with slats.",
+      "reveal": "These benches have witnessed countless moments of quiet reflection.",
+      "source": "full",
+      "idx": 0,
+      "box": {
+        "x": 0.409,
+        "y": 0.746,
+        "w": 0.12200000000000005,
+        "h": 0.16800000000000004
+      },
+      "boxWarnings": [],
+      "crop": "crops/c000-0-ctx.jpg",
+      "verifyCrop": "crops/c000-0-verify.jpg",
+      "verify": {
+        "what_i_see": "A set of dark park benches",
+        "visible": true,
+        "ms": 5645
+      }
+    },
+    {
+      "label": "street lamp post with lantern",
+      "box_2d": [
+        481,
+        809,
+        733,
+        833
+      ],
+      "lens": "hidden_in_plain_sight",
+      "why": "It's a specific, functional detail usually overlooked in a wide shot.",
+      "difficulty": "medium",
+      "clue": "It waits until the light fades to perform its duty.",
+      "hint_semantic": "It serves to illuminate the pathway after sunset.",
+      "hint_concrete": "It is a tall, dark pole topped with a glass fixture.",
+      "reveal": "It stands ready to guide those walking after dusk.",
+      "source": "full",
+      "idx": 1,
+      "box": {
+        "x": 0.809,
+        "y": 0.481,
+        "w": 0.02399999999999991,
+        "h": 0.252
+      },
+      "boxWarnings": [],
+      "crop": "crops/c000-1-ctx.jpg",
+      "verifyCrop": "crops/c000-1-verify.jpg",
+      "verify": {
+        "what_i_see": "street lamp post",
+        "visible": true,
+        "ms": 3265
+      }
+    },
+    {
+      "label": "bright orange autumn foliage",
+      "box_2d": [
+        283,
+        720,
+        688,
+        1000
+      ],
+      "lens": "shape_or_color",
+      "why": "The specific vibrant color of this cluster of leaves is striking.",
+      "difficulty": "easy",
+      "clue": "This fiery display signals the turning of the year.",
+      "hint_semantic": "It is a seasonal change in the canopy.",
+      "hint_concrete": "The leaves are a deep, rich shade of burnt orange.",
+      "reveal": "Nature puts on its most dramatic show during this time.",
+      "source": "full",
+      "idx": 2,
+      "box": {
+        "x": 0.72,
+        "y": 0.283,
+        "w": 0.28,
+        "h": 0.40499999999999997
+      },
+      "boxWarnings": [],
+      "crop": "crops/c000-2-ctx.jpg",
+      "verifyCrop": "crops/c000-2-verify.jpg",
+      "verify": {
+        "what_i_see": "A large tree with vibrant orange leaves",
+        "visible": true,
+        "ms": 6125
+      }
+    },
+    {
+      "label": "tall tree with red leaves",
+      "box_2d": [
+        65,
+        131,
+        672,
+        448
+      ],
+      "lens": "shape_or_color",
+      "why": "The striking color and shape of this central tree make it interesting.",
+      "difficulty": "medium",
+      "clue": "Its changing colors mark the transition between seasons.",
+      "hint_semantic": "It is a deciduous tree displaying fall coloration.",
+      "hint_concrete": "The leaves range from bright red to yellow-orange.",
+      "reveal": "This single specimen captures the essence of the season.",
+      "source": "full",
+      "idx": 3,
+      "box": {
+        "x": 0.131,
+        "y": 0.065,
+        "w": 0.317,
+        "h": 0.607
+      },
+      "boxWarnings": [],
+      "crop": "crops/c000-3-ctx.jpg",
+      "verifyCrop": "crops/c000-3-verify.jpg",
+      "verify": {
+        "what_i_see": "tall tree with red leaves",
+        "visible": true,
+        "ms": 4699
+      }
+    },
+    {
+      "label": "paved stone walkway path",
+      "box_2d": [
+        652,
+        432,
+        959,
+        1000
+      ],
+      "lens": "human_trace",
+      "why": "The texture and material of the path show repeated use.",
+      "difficulty": "medium",
+      "clue": "It guides movement through the open space.",
+      "hint_semantic": "It is a constructed surface for foot traffic.",
+      "hint_concrete": "It is made of irregularly shaped, interlocking stones.",
+      "reveal": "This path has led countless feet through this peaceful park.",
+      "source": "full",
+      "idx": 4,
+      "box": {
+        "x": 0.432,
+        "y": 0.652,
+        "w": 0.5680000000000001,
+        "h": 0.30699999999999994
+      },
+      "boxWarnings": [],
+      "crop": "crops/c000-4-ctx.jpg",
+      "verifyCrop": "crops/c000-4-verify.jpg",
+      "verify": {
+        "what_i_see": "A winding, cobbled path through a park",
+        "visible": true,
+        "ms": 4116
+      }
+    }
+  ],
+  "seen": [
+    "bright blue sky",
+    "tall autumn tree",
+    "grassy park lawn",
+    "paved walking path",
+    "orange autumn foliage",
+    "black park bench",
+    "street lamp post",
+    "distant dark green trees"
+  ]
+}

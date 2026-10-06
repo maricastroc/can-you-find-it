@@ -1,0 +1,155 @@
+{
+  "image": "c028",
+  "width": 2560,
+  "height": 1920,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 29436,
+      "promptTokens": 1551,
+      "outputTokens": 261,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Stone pillar with rounded top flanking the driveway entrance\",\n      \"box_2d\": [335, 285, 583, 372],\n      \"special\": \"A solid architectural element marking the entrance.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    },\n    {\n      \"label\": \"Small wooden sign reading 'PRIVATE' next to gate\",\n      \"box_2d\": [467, 802, 500, 872],\n      \"special\": \"Indicates restricted access to the property.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"easy\"\n    },\n    {\n      \"label\": \"Small green sign with number 692 on a post\",\n      \"box_2d\": [519, 65, 572, 117],\n      \"special\": \"A clear, identifiable address marker.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"easy\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5077,
+      "promptTokens": 331,
+      "outputTokens": 45,
+      "raw": "{\n\"what_i_see\": \"Stone pillar with rounded top flanking the driveway entrance\",\n\"answer\": \"Stone pillar with rounded top flanking the driveway entrance\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6484,
+      "promptTokens": 394,
+      "outputTokens": 46,
+      "raw": "{\n\"what_i_see\": \"A wooden sign with the word PRIVATE on it.\",\n\"answer\": \"Small wooden sign reading 'PRIVATE' next to gate\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 8977,
+      "promptTokens": 499,
+      "outputTokens": 66,
+      "raw": "{\n\"what_i_see\": \"A green road sign with the number 692 on it, mounted on a wooden post, is near the center of the image.\",\n\"answer\": \"Small green sign with number 692 on a post\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 12137,
+      "promptTokens": 1256,
+      "outputTokens": 95,
+      "raw": "{\n  \"lens\": \"remember\",\n  \"evidence\": \"Inscription 'SEAVERAGE' is visible on the stone pillar.\",\n  \"hint_semantic\": \"It marks a significant place or family associated with this location.\",\n  \"hint_concrete\": \"A tall, rectangular pillar made of rough, grey stone blocks.\",\n  \"detail\": \"The top of the pillar has a rounded, cap-like structure.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Stone pillar with rounded top flanking the driveway entrance",
+      "box_2d": [
+        335,
+        285,
+        583,
+        372
+      ],
+      "box": {
+        "x": 0.285,
+        "y": 0.335,
+        "w": 0.087,
+        "h": 0.248
+      },
+      "difficulty": "medium",
+      "crop": "../v4-e4b/crops/c028-0-ctx.jpg",
+      "mcq": {
+        "options": [
+          "Small wooden sign reading 'PRIVATE' next to gate",
+          "Small green sign with number 692 on a post",
+          "a red fire hydrant",
+          "Stone pillar with rounded top flanking the driveway entrance"
+        ],
+        "correct": "Stone pillar with rounded top flanking the driveway entrance",
+        "answer": "Stone pillar with rounded top flanking the driveway entrance",
+        "what_i_see": "Stone pillar with rounded top flanking the driveway entrance",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "I found something hiding in plain sight.",
+      "lens": "plain_sight",
+      "hint_semantic": "It marks a significant place or family associated with this entrance.",
+      "hint_concrete": "A large, rough-hewn stone pillar with a rounded cap.",
+      "reveal": "The stone blocks have visible mortar lines between them. (evidence: Inscription 'SEAVERAGE' on the stone pillar top.)",
+      "spatial": "Look toward the left of where you took the photo."
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Small wooden sign reading 'PRIVATE' next to gate",
+      "box_2d": [
+        467,
+        802,
+        500,
+        872
+      ],
+      "box": {
+        "x": 0.802,
+        "y": 0.467,
+        "w": 0.07,
+        "h": 0.033
+      },
+      "difficulty": "easy",
+      "crop": "../v4-e4b/crops/c028-1-ctx.jpg",
+      "mcq": {
+        "options": [
+          "Small green sign with number 692 on a post",
+          "Small wooden sign reading 'PRIVATE' next to gate",
+          "a red fire hydrant",
+          "Stone pillar with rounded top flanking the driveway entrance"
+        ],
+        "correct": "Small wooden sign reading 'PRIVATE' next to gate",
+        "answer": "Small wooden sign reading 'PRIVATE' next to gate",
+        "what_i_see": "A wooden sign with the word PRIVATE on it.",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      }
+    },
+    {
+      "idx": 2,
+      "source": "full",
+      "label": "Small green sign with number 692 on a post",
+      "box_2d": [
+        519,
+        65,
+        572,
+        117
+      ],
+      "box": {
+        "x": 0.065,
+        "y": 0.519,
+        "w": 0.052,
+        "h": 0.053
+      },
+      "difficulty": "easy",
+      "crop": "../v4-e4b/crops/c028-2-ctx.jpg",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "Small green sign with number 692 on a post",
+          "Stone pillar with rounded top flanking the driveway entrance",
+          "Small wooden sign reading 'PRIVATE' next to gate"
+        ],
+        "correct": "Small green sign with number 692 on a post",
+        "answer": "Small green sign with number 692 on a post",
+        "what_i_see": "A green road sign with the number 692 on it, mounted on a wooden post, is near the center of the image.",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      }
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 44004
+}

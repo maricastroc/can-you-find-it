@@ -1,0 +1,24 @@
+{
+  "1": {
+    "what_is_special": "The bars repeat in a rigid, geometric pattern.",
+    "lens": "purpose",
+    "difficulty": "medium",
+    "clue": "Many intersecting lines form a barrier of containment.",
+    "hint_semantic": "It separates one area from another, controlling passage.",
+    "hint_concrete": "The structure is made of light-colored metal, forming a large grid.",
+    "reveal": "The precise intersection points catch the overhead light.",
+    "ms": 11563,
+    "outputTokens": 117
+  },
+  "2": {
+    "what_is_special": "Some words have been etched here for others to read.",
+    "lens": "nature_reclaiming",
+    "difficulty": "medium",
+    "clue": "These short words speak of something established here.",
+    "hint_semantic": "It serves as a formal notice or identification for the structure.",
+    "hint_concrete": "A small, rectangular plate with raised lettering.",
+    "reveal": "The inscription appears faded, suggesting age beneath the grime.",
+    "ms": 13327,
+    "outputTokens": 121
+  }
+}

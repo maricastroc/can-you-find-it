@@ -1,0 +1,157 @@
+{
+  "image": "c024",
+  "width": 2560,
+  "height": 1920,
+  "model": "gemma4:12b",
+  "verifier": "gemma4:12b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 48952,
+      "promptTokens": 1540,
+      "outputTokens": 164,
+      "raw": "{\"targets\": [{\"label\": \"small white rectangular sign with black text on wall\", \"box_2d\": [794, 648, 842, 679], \"similar_count\": 0, \"difficulty\": \"hard\"}, {\"label\": \"vertical black pole with small white markings\", \"box_2d\": [533, 352, 863, 376], \"similar_count\": 1, \"difficulty\": \"easy\"}, {\"label\": \"small black rectangular object mounted on building wall\", \"box_2d\": [755, 300, 809, 314], \"similar_count\": 0, \"difficulty\": \"hard\"}]}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 14408,
+      "promptTokens": 581,
+      "outputTokens": 26,
+      "raw": "{\"what_i_see\": \"none\", \"answer\": \"none\", \"person_at_target\": false}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 14655,
+      "promptTokens": 581,
+      "outputTokens": 37,
+      "raw": "{\"what_i_see\": \"a small black rectangular object\", \"answer\": \"small black rectangular object mounted on building wall\", \"person_at_target\": false}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 12025,
+      "promptTokens": 224,
+      "outputTokens": 50,
+      "raw": "{\n  \"what_i_see\": \"A vertical black pole is near the center of the image.\",\n  \"answer\": \"vertical black pole with small white markings\",\n  \"person_at_target\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 28751,
+      "promptTokens": 1490,
+      "outputTokens": 97,
+      "raw": "{\n  \"lens\": \"plain_sight\",\n  \"evidence\": \"A small black rectangular box attached to the building's exterior wall.\",\n  \"hint_semantic\": \"It might be a piece of technology watching over the area.\",\n  \"hint_concrete\": \"A small, dark, rectangular box mounted at eye level on the wall.\",\n  \"detail\": \"The object has a small white label or marking on its surface.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "small white rectangular sign with black text on wall",
+      "box_2d": [
+        794,
+        648,
+        842,
+        679
+      ],
+      "box": {
+        "x": 0.648,
+        "y": 0.794,
+        "w": 0.031,
+        "h": 0.048
+      },
+      "difficulty": "hard",
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "vertical black pole with small white markings",
+          "small black rectangular object mounted on building wall",
+          "a red fire hydrant",
+          "small white rectangular sign with black text on wall"
+        ],
+        "correct": "small white rectangular sign with black text on wall",
+        "answer": "none",
+        "what_i_see": "none",
+        "people": false,
+        "pass": false,
+        "ms": 0
+      },
+      "crop": "crops/c024-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "vertical black pole with small white markings",
+      "box_2d": [
+        533,
+        352,
+        863,
+        376
+      ],
+      "box": {
+        "x": 0.352,
+        "y": 0.533,
+        "w": 0.024,
+        "h": 0.33
+      },
+      "difficulty": "easy",
+      "lens": "similar:1",
+      "mcq": {
+        "options": [
+          "small black rectangular object mounted on building wall",
+          "vertical black pole with small white markings",
+          "a red fire hydrant",
+          "small white rectangular sign with black text on wall"
+        ],
+        "correct": "vertical black pole with small white markings",
+        "answer": "vertical black pole with small white markings",
+        "what_i_see": "A vertical black pole is near the center of the image.",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "crop": "crops/c024-1-ctx.jpg"
+    },
+    {
+      "idx": 2,
+      "source": "full",
+      "label": "small black rectangular object mounted on building wall",
+      "box_2d": [
+        755,
+        300,
+        809,
+        314
+      ],
+      "box": {
+        "x": 0.3,
+        "y": 0.755,
+        "w": 0.014,
+        "h": 0.054
+      },
+      "difficulty": "hard",
+      "lens": "plain_sight",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "small black rectangular object mounted on building wall",
+          "small white rectangular sign with black text on wall",
+          "vertical black pole with small white markings"
+        ],
+        "correct": "small black rectangular object mounted on building wall",
+        "answer": "small black rectangular object mounted on building wall",
+        "what_i_see": "a small black rectangular object",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "I found something hiding in plain sight.",
+      "hint_semantic": "It might be a piece of technology watching over the area.",
+      "hint_concrete": "A small, dark, rectangular box mounted at eye level on the wall.",
+      "reveal": "The object has a small white label or marking on its surface. (evidence: A small black rectangular box attached to the building's exterior wall.)",
+      "spatial": "Look toward the left of where you took the photo. Look down, close to the ground.",
+      "crop": "crops/c024-2-ctx.jpg"
+    }
+  ],
+  "chosen": 2,
+  "waitMs": 106766
+}

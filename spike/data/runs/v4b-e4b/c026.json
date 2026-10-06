@@ -1,0 +1,121 @@
+{
+  "image": "c026",
+  "width": 2560,
+  "height": 1440,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 29987,
+      "promptTokens": 1407,
+      "outputTokens": 296,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Yellow and black striped traffic bollard on the sidewalk\",\n      \"box_2d\": [\n        509,\n        298,\n        664,\n        322\n      ],\n      \"special\": \"Its bright, unusual color stands out against the pavement.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"easy\"\n    },\n    {\n      \"label\": \"Blue and white rectangular street sign near the curb\",\n      \"box_2d\": [\n        444,\n        755,\n        502,\n        789\n      ],\n      \"special\": \"It provides a clue about the local area or street name.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    },\n    {\n      \"label\": \"Tall, light-colored, high-rise apartment building in the background\",\n      \"box_2d\": [\n        102,\n        382,\n        474,\n        613\n      ],\n      \"special\": \"It's a distinct architectural feature dominating the skyline.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5723,
+      "promptTokens": 291,
+      "outputTokens": 49,
+      "raw": "{\n\"what_i_see\": \"A bright yellow object is near the center.\",\n\"answer\": \"Tall, light-colored, high-rise apartment building in the background\",\n\"people_visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6987,
+      "promptTokens": 543,
+      "outputTokens": 35,
+      "raw": "{\n\"what_i_see\": \"Dense network of bare branches and twigs\",\n\"answer\": \"none\",\n\"people_visible\": false\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Yellow and black striped traffic bollard on the sidewalk",
+      "box_2d": [
+        509,
+        298,
+        664,
+        322
+      ],
+      "box": {
+        "x": 0.298,
+        "y": 0.509,
+        "w": 0.024,
+        "h": 0.155
+      },
+      "difficulty": "easy",
+      "crop": "../v4-e4b/crops/c026-0-ctx.jpg",
+      "mcq": {
+        "options": [
+          "Blue and white rectangular street sign near the curb",
+          "Tall, light-colored, high-rise apartment building in the background",
+          "a red fire hydrant",
+          "Yellow and black striped traffic bollard on the sidewalk"
+        ],
+        "correct": "Yellow and black striped traffic bollard on the sidewalk",
+        "answer": "Tall, light-colored, high-rise apartment building in the background",
+        "what_i_see": "A bright yellow object dominates the foreground near the center.",
+        "people": false,
+        "pass": false,
+        "ms": 0
+      }
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Blue and white rectangular street sign near the curb",
+      "box_2d": [
+        444,
+        755,
+        502,
+        789
+      ],
+      "box": {
+        "x": 0.755,
+        "y": 0.444,
+        "w": 0.034,
+        "h": 0.058
+      },
+      "difficulty": "medium",
+      "crop": "../v4-e4b/crops/c026-1-ctx.jpg",
+      "mcq": {
+        "options": [
+          "Tall, light-colored, high-rise apartment building in the background",
+          "Blue and white rectangular street sign near the curb",
+          "a red fire hydrant",
+          "Yellow and black striped traffic bollard on the sidewalk"
+        ],
+        "correct": "Blue and white rectangular street sign near the curb",
+        "answer": "none",
+        "what_i_see": "Dense network of bare branches and twigs",
+        "people": false,
+        "pass": false,
+        "ms": 0
+      }
+    },
+    {
+      "idx": 2,
+      "source": "full",
+      "label": "Tall, light-colored, high-rise apartment building in the background",
+      "box_2d": [
+        102,
+        382,
+        474,
+        613
+      ],
+      "box": {
+        "x": 0.382,
+        "y": 0.102,
+        "w": 0.231,
+        "h": 0.372
+      },
+      "rejected": "mass_noun",
+      "difficulty": "medium",
+      "crop": "../v4-e4b/crops/c026-2-ctx.jpg"
+    }
+  ],
+  "waitMs": 39781
+}

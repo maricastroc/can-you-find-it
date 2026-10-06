@@ -1,0 +1,12 @@
+{
+  "4": {
+    "lens": "plain_sight",
+    "evidence": "The small, rectangular white unit is mounted on the brick wall.",
+    "hint_semantic": "It helps regulate the temperature inside the building.",
+    "hint_concrete": "Small, rectangular, white metal unit attached to the brick.",
+    "detail": "The unit has visible horizontal louvers on its front face.",
+    "clue": "I found something hiding in plain sight.",
+    "ms": 10031,
+    "outputTokens": 91
+  }
+}

@@ -1,0 +1,316 @@
+{
+  "image": "c068",
+  "width": 2560,
+  "height": 1706,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "single",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 71237,
+      "promptTokens": 1901,
+      "outputTokens": 849,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Ornate black lamppost with multiple lanterns on top\",\n      \"box_2d\": [\n        192,\n        685,\n        388,\n        767\n      ],\n      \"lens\": \"shape_or_color\",\n      \"why\": \"The cluster of multiple, distinct lanterns gives it a unique profile compared to other street fixtures.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"It shines only when the light fades from the sky.\",\n      \"hint_semantic\": \"It provides illumination for the open area.\",\n      \"hint_concrete\": \"Tall metal fixture with glass enclosures.\",\n      \"reveal\": \"The light it casts defines the evening's atmosphere.\"\n    },\n    {\n      \"label\": \"Stone base of a large, dark planter near the left\",\n      \"box_2d\": [\n        529,\n        58,\n        742,\n        163\n      ],\n      \"lens\": \"human_trace\",\n      \"why\": \"The base shows signs of wear and interaction with the ground/objects around it.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"It has held something green, though it is now empty.\",\n      \"hint_semantic\": \"It is a container meant to hold decorative plants.\",\n      \"hint_concrete\": \"Heavy, rectangular stone structure.\",\n      \"reveal\": \"Even empty, it marks a place for beauty.\"\n    },\n    {\n      \"label\": \"Small dark green trash receptacle near the center right\",\n      \"box_2d\": [\n        522,\n        718,\n        647,\n        760\n      ],\n      \"lens\": \"hidden_in_plain_sight\",\n      \"why\": \"It's a standard, functional piece of street furniture easily overlooked.\",\n      \"difficulty\": \"easy\",\n      \"clue\": \"It waits patiently for discarded moments.\",\n      \"hint_semantic\": \"It is designed for waste disposal.\",\n      \"hint_concrete\": \"Vertical, dark container with a simple shape.\",\n      \"reveal\": \"It quietly collects the remnants of the day.\"\n    },\n    {\n      \"label\": \"White awning/tent structure visible in the background\",\n      \"box_2d\": [\n        395,\n        633,\n        486,\n        860\n      ],\n      \"lens\": \"purpose\",\n      \"why\": \"The structure's function is clearly to provide shade or shelter to vendors.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"It offers relief from the sun for those who gather.\",\n      \"hint_semantic\": \"It covers a selling or dining area.\",\n      \"hint_concrete\": \"Large, stretched fabric canopy supported by poles.\",\n      \"reveal\": \"It creates a temporary haven in the busy square.\"\n    },\n    {\n      \"label\": \"Building facade with distinct upper row of rectangular windows\",\n      \"box_2d\": [\n        103,\n        633,\n        381,\n        999\n      ],\n      \"lens\": \"shape_or_color\",\n      \"why\": \"The consistent, repeating pattern of the upper windows across the large building is unique.\",\n      \"difficulty\": \"hard\",\n      \"clue\": \"Many small eyes watch over the street from this height.\",\n      \"hint_semantic\": \"These openings allow light into the upper floors of the structure.\",\n      \"hint_concrete\": \"A long band of regularly spaced, square openings.\",\n      \"reveal\": \"These windows have seen countless days pass by.\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4474,
+      "promptTokens": 344,
+      "outputTokens": 26,
+      "raw": "{\"what_i_see\": \"Ornate black lamppost with multiple lanterns on top\", \"visible\": true}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5261,
+      "promptTokens": 387,
+      "outputTokens": 36,
+      "raw": "{\n\"what_i_see\": \"The center of the image is dominated by a tall, ornate lamppost.\",\n\"answer\": \"D\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5487,
+      "promptTokens": 407,
+      "outputTokens": 34,
+      "raw": "{\"what_i_see\": \"A large, dark, rounded object, possibly a planter or bollard, is near the center.\", \"visible\": false}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6654,
+      "promptTokens": 450,
+      "outputTokens": 52,
+      "raw": "{\n\"what_i_see\": \"A large, dark, rounded object, possibly a bollard or base, is near the center, with a backpack and a black case in front of it.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4203,
+      "promptTokens": 300,
+      "outputTokens": 20,
+      "raw": "{\"what_i_see\": \"A dark green trash receptacle\", \"visible\": true}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4370,
+      "promptTokens": 345,
+      "outputTokens": 26,
+      "raw": "{\n\"what_i_see\": \"A dark green trash receptacle\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4080,
+      "promptTokens": 195,
+      "outputTokens": 23,
+      "raw": "{\n\"what_i_see\": \"A white tent structure\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 3924,
+      "promptTokens": 240,
+      "outputTokens": 29,
+      "raw": "{\n\"what_i_see\": \"A white tent structure is near the center.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4937,
+      "promptTokens": 300,
+      "outputTokens": 40,
+      "raw": "{\n\"what_i_see\": \"A street scene featuring a row of multi-story buildings, with a prominent lamppost in the foreground.\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5478,
+      "promptTokens": 343,
+      "outputTokens": 34,
+      "raw": "{\n\"what_i_see\": \"A street scene with buildings and a lamppost in the foreground.\",\n\"answer\": \"D\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "label": "Ornate black lamppost with multiple lanterns on top",
+      "box_2d": [
+        192,
+        685,
+        388,
+        767
+      ],
+      "lens": "shape_or_color",
+      "why": "The cluster of multiple, distinct lanterns gives it a unique profile compared to other street fixtures.",
+      "difficulty": "medium",
+      "clue": "It shines only when the light fades from the sky.",
+      "hint_semantic": "It provides illumination for the open area.",
+      "hint_concrete": "Tall metal fixture with glass enclosures.",
+      "reveal": "The light it casts defines the evening's atmosphere.",
+      "source": "full",
+      "idx": 0,
+      "box": {
+        "x": 0.685,
+        "y": 0.192,
+        "w": 0.08199999999999996,
+        "h": 0.196
+      },
+      "boxWarnings": [],
+      "crop": "crops/c068-0-ctx.jpg",
+      "verifyCrop": "crops/c068-0-verify.jpg",
+      "verify": {
+        "what_i_see": "Ornate black lamppost with multiple lanterns on top",
+        "visible": true,
+        "ms": 4474
+      },
+      "mcq": {
+        "options": [
+          "Stone base of a large, dark planter near the left",
+          "Small dark green trash receptacle near the center right",
+          "White awning/tent structure visible in the background",
+          "Ornate black lamppost with multiple lanterns on top"
+        ],
+        "correct": "D",
+        "answer": "D",
+        "what_i_see": "The center of the image is dominated by a tall, ornate lamppost.",
+        "pass": true,
+        "ms": 5261
+      }
+    },
+    {
+      "label": "Stone base of a large, dark planter near the left",
+      "box_2d": [
+        529,
+        58,
+        742,
+        163
+      ],
+      "lens": "human_trace",
+      "why": "The base shows signs of wear and interaction with the ground/objects around it.",
+      "difficulty": "medium",
+      "clue": "It has held something green, though it is now empty.",
+      "hint_semantic": "It is a container meant to hold decorative plants.",
+      "hint_concrete": "Heavy, rectangular stone structure.",
+      "reveal": "Even empty, it marks a place for beauty.",
+      "source": "full",
+      "idx": 1,
+      "box": {
+        "x": 0.058,
+        "y": 0.529,
+        "w": 0.10500000000000001,
+        "h": 0.21299999999999997
+      },
+      "boxWarnings": [],
+      "crop": "crops/c068-1-ctx.jpg",
+      "verifyCrop": "crops/c068-1-verify.jpg",
+      "verify": {
+        "what_i_see": "A large, dark, rounded object, possibly a planter or bollard, is near the center.",
+        "visible": false,
+        "ms": 5487
+      },
+      "mcq": {
+        "options": [
+          "Small dark green trash receptacle near the center right",
+          "Stone base of a large, dark planter near the left",
+          "White awning/tent structure visible in the background",
+          "Ornate black lamppost with multiple lanterns on top"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A large, dark, rounded object, possibly a bollard or base, is near the center, with a backpack and a black case in front of it.",
+        "pass": true,
+        "ms": 6654
+      }
+    },
+    {
+      "label": "Small dark green trash receptacle near the center right",
+      "box_2d": [
+        522,
+        718,
+        647,
+        760
+      ],
+      "lens": "hidden_in_plain_sight",
+      "why": "It's a standard, functional piece of street furniture easily overlooked.",
+      "difficulty": "easy",
+      "clue": "It waits patiently for discarded moments.",
+      "hint_semantic": "It is designed for waste disposal.",
+      "hint_concrete": "Vertical, dark container with a simple shape.",
+      "reveal": "It quietly collects the remnants of the day.",
+      "source": "full",
+      "idx": 2,
+      "box": {
+        "x": 0.718,
+        "y": 0.522,
+        "w": 0.04200000000000004,
+        "h": 0.125
+      },
+      "boxWarnings": [],
+      "crop": "crops/c068-2-ctx.jpg",
+      "verifyCrop": "crops/c068-2-verify.jpg",
+      "verify": {
+        "what_i_see": "A dark green trash receptacle",
+        "visible": true,
+        "ms": 4203
+      },
+      "mcq": {
+        "options": [
+          "White awning/tent structure visible in the background",
+          "Small dark green trash receptacle near the center right",
+          "Ornate black lamppost with multiple lanterns on top",
+          "Stone base of a large, dark planter near the left"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A dark green trash receptacle",
+        "pass": true,
+        "ms": 4370
+      }
+    },
+    {
+      "label": "White awning/tent structure visible in the background",
+      "box_2d": [
+        395,
+        633,
+        486,
+        860
+      ],
+      "lens": "purpose",
+      "why": "The structure's function is clearly to provide shade or shelter to vendors.",
+      "difficulty": "medium",
+      "clue": "It offers relief from the sun for those who gather.",
+      "hint_semantic": "It covers a selling or dining area.",
+      "hint_concrete": "Large, stretched fabric canopy supported by poles.",
+      "reveal": "It creates a temporary haven in the busy square.",
+      "source": "full",
+      "idx": 3,
+      "box": {
+        "x": 0.633,
+        "y": 0.395,
+        "w": 0.22699999999999998,
+        "h": 0.09099999999999997
+      },
+      "boxWarnings": [],
+      "crop": "crops/c068-3-ctx.jpg",
+      "verifyCrop": "crops/c068-3-verify.jpg",
+      "verify": {
+        "what_i_see": "A white tent structure",
+        "visible": true,
+        "ms": 4080
+      },
+      "mcq": {
+        "options": [
+          "Stone base of a large, dark planter near the left",
+          "White awning/tent structure visible in the background",
+          "Ornate black lamppost with multiple lanterns on top",
+          "Small dark green trash receptacle near the center right"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A white tent structure is near the center.",
+        "pass": true,
+        "ms": 3924
+      }
+    },
+    {
+      "label": "Building facade with distinct upper row of rectangular windows",
+      "box_2d": [
+        103,
+        633,
+        381,
+        999
+      ],
+      "lens": "shape_or_color",
+      "why": "The consistent, repeating pattern of the upper windows across the large building is unique.",
+      "difficulty": "hard",
+      "clue": "Many small eyes watch over the street from this height.",
+      "hint_semantic": "These openings allow light into the upper floors of the structure.",
+      "hint_concrete": "A long band of regularly spaced, square openings.",
+      "reveal": "These windows have seen countless days pass by.",
+      "source": "full",
+      "idx": 4,
+      "box": {
+        "x": 0.633,
+        "y": 0.103,
+        "w": 0.366,
+        "h": 0.278
+      },
+      "boxWarnings": [],
+      "crop": "crops/c068-4-ctx.jpg",
+      "verifyCrop": "crops/c068-4-verify.jpg",
+      "rejected": "mass_noun",
+      "verify": {
+        "what_i_see": "A street scene featuring a row of multi-story buildings, with a prominent lamppost in the foreground.",
+        "visible": true,
+        "ms": 4937
+      },
+      "mcq": {
+        "options": [
+          "Stone base of a large, dark planter near the left",
+          "White awning/tent structure visible in the background",
+          "Small dark green trash receptacle near the center right",
+          "Building facade with distinct upper row of rectangular windows"
+        ],
+        "correct": "D",
+        "answer": "D",
+        "what_i_see": "A street scene with buildings and a lamppost in the foreground.",
+        "pass": true,
+        "ms": 5478
+      }
+    }
+  ]
+}

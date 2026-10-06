@@ -1,0 +1,13 @@
+{
+  "0": {
+    "what_is_special": "It marks the boundary where pavement meets the street.",
+    "lens": "nature_reclaiming",
+    "difficulty": "easy",
+    "clue": "This vertical marker guides passage along the thoroughfare.",
+    "hint_semantic": "It indicates a specific division in the travel surface.",
+    "hint_concrete": "A narrow, upright post with distinct banded markings.",
+    "reveal": "The markings suggest it has been subjected to constant weather exposure.",
+    "ms": 10859,
+    "outputTokens": 119
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "image": "c041",
+  "width": 2190,
+  "height": 1643,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 33647,
+      "promptTokens": 1551,
+      "outputTokens": 274,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Small red and brown playhouse structure\",\n      \"box_2d\": [\n        622,\n        393,\n        767,\n        494\n      ],\n      \"special\": \"A miniature building perfect for imaginative play.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"easy\"\n    },\n    {\n      \"label\": \"Metal swing set frame with wooden supports\",\n      \"box_2d\": [\n        527,\n        84,\n        702,\n        318\n      ],\n      \"special\": \"Classic playground equipment for swinging high.\",\n      \"similar_count\": 1,\n      \"difficulty\": \"medium\"\n    },\n    {\n      \"label\": \"Yellow metal gate section near the foreground\",\n      \"box_2d\": [\n        785,\n        631,\n        953,\n        725\n      ],\n      \"special\": \"A bright splash of color along the fence line.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 7212,
+      "promptTokens": 531,
+      "outputTokens": 46,
+      "raw": "{\n\"what_i_see\": \"A small red and brown playhouse structure is near the center.\",\n\"answer\": \"Small red and brown playhouse structure\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6700,
+      "promptTokens": 447,
+      "outputTokens": 49,
+      "raw": "{\n\"what_i_see\": \"A bright yellow metal gate section is clearly visible near the center of the image.\",\n\"answer\": \"Yellow metal gate section near the foreground\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5501,
+      "promptTokens": 363,
+      "outputTokens": 41,
+      "raw": "{\n\"what_i_see\": \"Metal swing set frame with wooden supports\",\n\"answer\": \"Metal swing set frame with wooden supports\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 12629,
+      "promptTokens": 1464,
+      "outputTokens": 95,
+      "raw": "{\n  \"lens\": \"smaller_people\",\n  \"evidence\": \"The structure is clearly designed for children's play.\",\n  \"hint_semantic\": \"It is a place for young ones to play and imagine.\",\n  \"hint_concrete\": \"A small, wooden playhouse with a brown roof and red walls.\",\n  \"detail\": \"There are small cut-out windows visible on the side panels.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Small red and brown playhouse structure",
+      "box_2d": [
+        622,
+        393,
+        767,
+        494
+      ],
+      "box": {
+        "x": 0.393,
+        "y": 0.622,
+        "w": 0.101,
+        "h": 0.145
+      },
+      "difficulty": "easy",
+      "crop": "../v4-e4b/crops/c041-0-ctx.jpg",
+      "mcq": {
+        "options": [
+          "Metal swing set frame with wooden supports",
+          "Yellow metal gate section near the foreground",
+          "a red fire hydrant",
+          "Small red and brown playhouse structure"
+        ],
+        "correct": "Small red and brown playhouse structure",
+        "answer": "Small red and brown playhouse structure",
+        "what_i_see": "A small red and brown playhouse structure",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "It was made for someone smaller than you.",
+      "lens": "smaller_people",
+      "hint_semantic": "It is a structure designed for imaginative play and fun.",
+      "hint_concrete": "A small, wooden structure, primarily red and brown.",
+      "reveal": "It has a curved, brown slide attached to one side. (evidence: The playhouse is clearly sized for children to use.)",
+      "spatial": "Look roughly straight ahead from where you took the photo."
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Metal swing set frame with wooden supports",
+      "box_2d": [
+        527,
+        84,
+        702,
+        318
+      ],
+      "box": {
+        "x": 0.084,
+        "y": 0.527,
+        "w": 0.234,
+        "h": 0.175
+      },
+      "difficulty": "medium",
+      "crop": "../v4-e4b/crops/c041-1-ctx.jpg",
+      "mcq": {
+        "options": [
+          "Yellow metal gate section near the foreground",
+          "Metal swing set frame with wooden supports",
+          "a red fire hydrant",
+          "Small red and brown playhouse structure"
+        ],
+        "correct": "Metal swing set frame with wooden supports",
+        "answer": "Metal swing set frame with wooden supports",
+        "what_i_see": "Metal swing set frame with wooden supports",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      }
+    },
+    {
+      "idx": 2,
+      "source": "full",
+      "label": "Yellow metal gate section near the foreground",
+      "box_2d": [
+        785,
+        631,
+        953,
+        725
+      ],
+      "box": {
+        "x": 0.631,
+        "y": 0.785,
+        "w": 0.094,
+        "h": 0.168
+      },
+      "difficulty": "medium",
+      "crop": "../v4-e4b/crops/c041-2-ctx.jpg",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "Yellow metal gate section near the foreground",
+          "Small red and brown playhouse structure",
+          "Metal swing set frame with wooden supports"
+        ],
+        "correct": "Yellow metal gate section near the foreground",
+        "answer": "Yellow metal gate section near the foreground",
+        "what_i_see": "A bright yellow metal gate section is clearly visible near the center of the image.",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      }
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 51682
+}

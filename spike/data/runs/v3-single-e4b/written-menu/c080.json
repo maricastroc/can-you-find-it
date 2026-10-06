@@ -1,0 +1,22 @@
+{
+  "0": {
+    "lens": "waiting",
+    "evidence": "The metal bench is situated in a garden area.",
+    "hint_semantic": "A place for rest and quiet contemplation in the outdoors.",
+    "hint_concrete": "Dark, ornate metal bench with a slatted seat and back.",
+    "detail": "The backrest features decorative scrolling patterns.",
+    "clue": "It spends its days waiting for someone.",
+    "ms": 10014,
+    "outputTokens": 85
+  },
+  "1": {
+    "lens": "plain_sight",
+    "evidence": "The white metal frame is visible in the foreground.",
+    "hint_semantic": "It separates the cultivated area from the surrounding space.",
+    "hint_concrete": "A rectangular structure made of thin white metal tubing.",
+    "detail": "The frame has several horizontal and vertical bars.",
+    "clue": "I found something hiding in plain sight.",
+    "ms": 9442,
+    "outputTokens": 84
+  }
+}

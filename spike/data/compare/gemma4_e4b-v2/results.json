@@ -1,0 +1,287 @@
+[
+  {
+    "id": "P1-monument",
+    "kind": "positive",
+    "expected": true,
+    "said": false,
+    "correct": false,
+    "shows": "A large bronze statue of a man, identified by text on the pedestal as Adam Mickiewicz, standing on a tall, dark stone pedestal, with wreaths and banners at the base.",
+    "ms": 10686,
+    "sameKind": true,
+    "details": [
+      "The statue is of a robed figure standing on a tall, dark stone pedestal.",
+      "The pedestal has visible text on its front face.",
+      "The base of the pedestal features several smaller, sculpted figures."
+    ]
+  },
+  {
+    "id": "P2-obelisk",
+    "kind": "positive",
+    "expected": true,
+    "said": true,
+    "correct": true,
+    "shows": "A wide view of the same fountain and obelisk in a city square, showing surrounding buildings and people.",
+    "ms": 8153,
+    "sameKind": true,
+    "details": [
+      "tall stone obelisk",
+      "rising from a fountain",
+      "with white marble sculptures"
+    ]
+  },
+  {
+    "id": "P3-rock",
+    "kind": "positive",
+    "expected": true,
+    "said": true,
+    "correct": true,
+    "shows": "A close-up photo of the large flat grey rock jutting into the pond, showing the texture and surface details.",
+    "ms": 9493,
+    "sameKind": true,
+    "details": [
+      "large flat grey rock",
+      "jutting into the pond",
+      "surrounded by water and greenery"
+    ]
+  },
+  {
+    "id": "P4-hanok",
+    "kind": "positive",
+    "expected": true,
+    "said": true,
+    "correct": true,
+    "shows": "A close-up photo of the grey patterned brick wall with a small wooden lattice window and wooden doors.",
+    "ms": 7522,
+    "sameKind": true,
+    "details": [
+      "Grey patterned brick wall",
+      "Small wooden lattice window",
+      "Wooden doors"
+    ]
+  },
+  {
+    "id": "P5-loosestrife",
+    "kind": "positive",
+    "expected": true,
+    "said": true,
+    "correct": true,
+    "shows": "A close-up view of the same tall bush of purple loosestrife flowers by the water.",
+    "ms": 10278,
+    "sameKind": true,
+    "details": [
+      "Tall, dense cluster of plants",
+      "Abundant purple/pink flowers",
+      "Located right at the water's edge"
+    ]
+  },
+  {
+    "id": "A1-fountain",
+    "kind": "positive_aug",
+    "expected": true,
+    "said": true,
+    "correct": true,
+    "shows": "A close-up view of the fountain, focusing on the water jets and the basin.",
+    "ms": 10604,
+    "sameKind": true,
+    "details": [
+      "The fountain is in a round stone basin.",
+      "There are water jets spraying upwards from the fountain.",
+      "There is a sign with the number '19' visible in the background to the left of the fountain."
+    ]
+  },
+  {
+    "id": "A2-bench",
+    "kind": "positive_aug",
+    "expected": true,
+    "said": true,
+    "correct": true,
+    "shows": "A close-up photo of the bench, focusing on the seat and the iron legs.",
+    "ms": 9684,
+    "sameKind": true,
+    "details": [
+      "It is a long bench.",
+      "It has a light-colored (white/light grey) seat and backrest.",
+      "It has black iron legs/supports."
+    ]
+  },
+  {
+    "id": "A3-sign58",
+    "kind": "positive_aug",
+    "expected": true,
+    "said": true,
+    "correct": true,
+    "shows": "Image 2 shows a close-up photograph of the same dark blue, shield-shaped street sign with the number '58' and the street name '북촌로11길' on it.",
+    "ms": 15393,
+    "sameKind": true,
+    "details": [
+      "The sign is a dark blue, shield-shaped street sign.",
+      "It features Korean text '북촌로11길' and English text 'Bukchon-ro 11-gil' at the top.",
+      "The large number '58' is prominently displayed in white in the center."
+    ]
+  },
+  {
+    "id": "A4-sign692",
+    "kind": "positive_aug",
+    "expected": true,
+    "said": true,
+    "correct": true,
+    "shows": "A close-up of a green sign with the numbers '692' in a light/cream color.",
+    "ms": 10686,
+    "sameKind": true,
+    "details": [
+      "The sign is rectangular.",
+      "The background color is teal/green.",
+      "The numbers '692' are displayed in a light/cream color."
+    ]
+  },
+  {
+    "id": "A5-lamp",
+    "kind": "positive_aug",
+    "expected": true,
+    "said": true,
+    "correct": true,
+    "shows": "A close-up photo of a black iron lamp post with a lantern on top, set against a background of autumn trees.",
+    "ms": 7384,
+    "sameKind": true,
+    "details": [
+      "black iron lamp post",
+      "lantern on top",
+      "tall and slender"
+    ]
+  },
+  {
+    "id": "N1-monument-vs-obelisk",
+    "kind": "hard_negative",
+    "expected": false,
+    "said": false,
+    "correct": true,
+    "shows": "A large, light-colored stone monument/fountain with a tall central pillar and sculptures at the base.",
+    "ms": 10705,
+    "sameKind": true,
+    "details": [
+      "The statue is a bronze figure of a man.",
+      "The statue is mounted on a tall, dark stone pedestal.",
+      "There is some visible text/inscription on the pedestal."
+    ]
+  },
+  {
+    "id": "N2-obelisk-vs-fountain",
+    "kind": "hard_negative",
+    "expected": false,
+    "said": false,
+    "correct": true,
+    "shows": "A large fountain with many jets of water spraying high into the air, and a central basin.",
+    "ms": 9824,
+    "sameKind": true,
+    "details": [
+      "tall stone obelisk",
+      "rising from a fountain",
+      "with white marble sculptures"
+    ]
+  },
+  {
+    "id": "N3-hanok-vs-hanok",
+    "kind": "hard_negative",
+    "expected": false,
+    "said": false,
+    "correct": true,
+    "shows": "A traditional Korean building facade with a tiled roof, wooden doors, and a patterned lower wall.",
+    "ms": 10619,
+    "sameKind": true,
+    "details": [
+      "grey patterned brick wall",
+      "small wooden lattice window",
+      "wooden doors"
+    ]
+  },
+  {
+    "id": "N4-bench-vs-bench",
+    "kind": "hard_negative",
+    "expected": false,
+    "said": false,
+    "correct": true,
+    "shows": "A close-up of a dark, ornate wooden and metal bench.",
+    "ms": 10849,
+    "sameKind": true,
+    "details": [
+      "It is a long, white bench.",
+      "It has black iron legs.",
+      "It is situated on a grassy area next to a paved walkway."
+    ]
+  },
+  {
+    "id": "N5-sign-vs-sign",
+    "kind": "hard_negative",
+    "expected": false,
+    "said": false,
+    "correct": true,
+    "shows": "Image 2 shows a green sign with the number '692' on it, partially obscured by leaves.",
+    "ms": 14725,
+    "sameKind": false,
+    "details": [
+      "The target is a blue and white sign.",
+      "It has Korean text above the number, which reads '북촌로11길' (Bukchon-ro 11-gil).",
+      "The number '58' is prominently displayed in white on the blue background."
+    ]
+  },
+  {
+    "id": "N6-bridge-vs-bridge",
+    "kind": "hard_negative",
+    "expected": false,
+    "said": false,
+    "correct": true,
+    "shows": "A close-up view of a bridge structure, likely a section of a bridge over water, with visible architectural elements and a roadway.",
+    "ms": 8786,
+    "sameKind": true,
+    "details": [
+      "It is a low concrete road bridge.",
+      "It spans a river.",
+      "It has a relatively flat, utilitarian appearance."
+    ]
+  },
+  {
+    "id": "N7-lamp-vs-lamp",
+    "kind": "hard_negative",
+    "expected": false,
+    "said": false,
+    "correct": true,
+    "shows": "A green lamp post with a round, glowing lantern on top, situated in front of a building with a balcony and hanging flower baskets.",
+    "ms": 8063,
+    "sameKind": true,
+    "details": [
+      "black iron lamp post",
+      "lantern on top",
+      "tall and slender"
+    ]
+  },
+  {
+    "id": "U1-fountain-vs-bench",
+    "kind": "negative",
+    "expected": false,
+    "said": false,
+    "correct": true,
+    "shows": "A long, metal park bench situated on a patch of grass.",
+    "ms": 11873,
+    "sameKind": false,
+    "details": [
+      "The fountain is in a round stone basin.",
+      "There are multiple jets of water spraying upwards.",
+      "There is a sign visible in the background with the number '19' and some text."
+    ]
+  },
+  {
+    "id": "U2-monument-vs-sign",
+    "kind": "negative",
+    "expected": false,
+    "said": false,
+    "correct": true,
+    "shows": "A street sign in Korean that reads '북촌로11길' (Bukchon-ro 11-gil) and the number '58'.",
+    "ms": 13271,
+    "sameKind": false,
+    "details": [
+      "The statue is a bronze figure of a man.",
+      "The statue is mounted on a tall, dark stone pedestal.",
+      "There is some visible text/inscription on the pedestal."
+    ]
+  }
+]

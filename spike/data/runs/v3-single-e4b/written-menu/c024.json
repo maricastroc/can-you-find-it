@@ -1,0 +1,22 @@
+{
+  "1": {
+    "lens": "plain_sight",
+    "evidence": "The patterned metal fence is visible in the close-up.",
+    "hint_semantic": "It separates a private area from the public walkway.",
+    "hint_concrete": "A low, dark metal barrier with a geometric pattern.",
+    "detail": "The fence has a repeating crisscross pattern across its surface.",
+    "clue": "I found something hiding in plain sight.",
+    "ms": 11397,
+    "outputTokens": 90
+  },
+  "2": {
+    "lens": "plain_sight",
+    "evidence": "Small, dark rectangular sign on the building facade.",
+    "hint_semantic": "It provides information about the building or its occupants.",
+    "hint_concrete": "Small, dark, rectangular plaque attached to the light-colored building.",
+    "detail": "The sign appears to have some faint, small lettering or markings.",
+    "clue": "I found something hiding in plain sight.",
+    "ms": 11755,
+    "outputTokens": 92
+  }
+}

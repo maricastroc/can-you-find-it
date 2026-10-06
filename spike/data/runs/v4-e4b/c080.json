@@ -1,0 +1,160 @@
+{
+  "image": "c080",
+  "width": 2560,
+  "height": 1707,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 29257,
+      "promptTokens": 1567,
+      "outputTokens": 259,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Small wooden garden structure with a dark top\",\n      \"box_2d\": [379, 490, 439, 541],\n      \"special\": \"A quaint little feature in the garden area.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    },\n    {\n      \"label\": \"White metal frame of a garden enclosure\",\n      \"box_2d\": [399, 0, 589, 318],\n      \"special\": \"A noticeable boundary defining part of the garden.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"easy\"\n    },\n    {\n      \"label\": \"Light green clapboard siding on the small house\",\n      \"box_2d\": [187, 818, 386, 1000],\n      \"special\": \"The distinct color of the small outbuilding.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6948,
+      "promptTokens": 471,
+      "outputTokens": 47,
+      "raw": "{\n\"what_i_see\": \"A small wooden structure with a dark top is near the center.\",\n\"answer\": \"Small wooden garden structure with a dark top\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4968,
+      "promptTokens": 303,
+      "outputTokens": 41,
+      "raw": "{\n\"what_i_see\": \"White metal frame of a garden enclosure\",\n\"answer\": \"White metal frame of a garden enclosure\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 7003,
+      "promptTokens": 450,
+      "outputTokens": 48,
+      "raw": "{\n\"what_i_see\": \"The center of the image features the front of a small house.\",\n\"answer\": \"Light green clapboard siding on the small house\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 11062,
+      "promptTokens": 1386,
+      "outputTokens": 89,
+      "raw": "{\n  \"lens\": \"handmade\",\n  \"evidence\": \"The structure is made of rough, visible wooden planks.\",\n  \"hint_semantic\": \"It provides shelter or a decorative focal point in the garden.\",\n  \"hint_concrete\": \"A small, rectangular wooden shelter with a dark, flat top.\",\n  \"detail\": \"The wood appears weathered and dark brown in color.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Small wooden garden structure with a dark top",
+      "box_2d": [
+        379,
+        490,
+        439,
+        541
+      ],
+      "box": {
+        "x": 0.49,
+        "y": 0.379,
+        "w": 0.051,
+        "h": 0.06
+      },
+      "difficulty": "medium",
+      "why": "A quaint little feature in the garden area.",
+      "lens": "handmade",
+      "mcq": {
+        "options": [
+          "White metal frame of a garden enclosure",
+          "Light green clapboard siding on the small house",
+          "a red fire hydrant",
+          "Small wooden garden structure with a dark top"
+        ],
+        "correct": "Small wooden garden structure with a dark top",
+        "answer": "Small wooden garden structure with a dark top",
+        "what_i_see": "A small wooden structure with a dark top is near the center.",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "Somebody made this by hand.",
+      "hint_semantic": "It provides shelter or a decorative focal point in the garden.",
+      "hint_concrete": "A small, rectangular wooden shelter with a dark, flat top.",
+      "reveal": "The wood appears weathered and dark brown in color. (evidence: The structure is made of rough, visible wooden planks.)",
+      "spatial": "Look roughly straight ahead from where you took the photo. Look up.",
+      "crop": "crops/c080-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "White metal frame of a garden enclosure",
+      "box_2d": [
+        399,
+        0,
+        589,
+        318
+      ],
+      "box": {
+        "x": 0,
+        "y": 0.399,
+        "w": 0.318,
+        "h": 0.19
+      },
+      "difficulty": "easy",
+      "why": "A noticeable boundary defining part of the garden.",
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "Light green clapboard siding on the small house",
+          "White metal frame of a garden enclosure",
+          "a red fire hydrant",
+          "Small wooden garden structure with a dark top"
+        ],
+        "correct": "White metal frame of a garden enclosure",
+        "answer": "White metal frame of a garden enclosure",
+        "what_i_see": "White metal frame of a garden enclosure",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "crop": "crops/c080-1-ctx.jpg"
+    },
+    {
+      "idx": 2,
+      "source": "full",
+      "label": "Light green clapboard siding on the small house",
+      "box_2d": [
+        187,
+        818,
+        386,
+        1000
+      ],
+      "box": {
+        "x": 0.818,
+        "y": 0.187,
+        "w": 0.182,
+        "h": 0.199
+      },
+      "difficulty": "medium",
+      "why": "The distinct color of the small outbuilding.",
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "Light green clapboard siding on the small house",
+          "Small wooden garden structure with a dark top",
+          "White metal frame of a garden enclosure"
+        ],
+        "correct": "Light green clapboard siding on the small house",
+        "answer": "Light green clapboard siding on the small house",
+        "what_i_see": "The center of the image features the front of a small house.",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "crop": "crops/c080-2-ctx.jpg"
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 47267
+}

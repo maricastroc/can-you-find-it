@@ -1,0 +1,24 @@
+{
+  "0": {
+    "what_is_special": "A vertical marker speaks of something important.",
+    "lens": "purpose",
+    "difficulty": "medium",
+    "clue": "It rises from a base, marking a significant presence.",
+    "hint_semantic": "This vertical structure once served as a public display point.",
+    "hint_concrete": "It is a tall, worn shaft with a small finial at the top.",
+    "reveal": "The stone shows varying layers of age and weathering.",
+    "ms": 9667,
+    "outputTokens": 121
+  },
+  "1": {
+    "what_is_special": "Time's steady measure marks events passing by.",
+    "lens": "hidden_in_plain_sight",
+    "difficulty": "medium",
+    "clue": "A steady rhythm dictates the hours passing by.",
+    "hint_semantic": "It helps regulate the daily flow of activity.",
+    "hint_concrete": "A circular face displaying numbered markers.",
+    "reveal": "The hands move with a noticeable, precise sweep.",
+    "ms": 10288,
+    "outputTokens": 115
+  }
+}

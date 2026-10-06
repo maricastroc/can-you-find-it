@@ -1,0 +1,135 @@
+{
+  "image": "c048",
+  "width": 2560,
+  "height": 1707,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 29698,
+      "promptTokens": 1567,
+      "outputTokens": 260,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Small arched stone bridge structure spanning the river\",\n      \"box_2d\": [467, 278, 517, 788],\n      \"special\": \"A classic architectural feature over the water.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    },\n    {\n      \"label\": \"Modern blue glass building visible in the distance\",\n      \"box_2d\": [337, 832, 386, 997],\n      \"special\": \"A striking contrast to the older surrounding buildings.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"hard\"\n    },\n    {\n      \"label\": \"Light-colored stone pillar supporting the bridge structure\",\n      \"box_2d\": [421, 646, 484, 672],\n      \"special\": \"A distinct, sturdy vertical element on the bridge.\",\n      \"similar_count\": 1,\n      \"difficulty\": \"medium\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 7382,
+      "promptTokens": 535,
+      "outputTokens": 40,
+      "raw": "{\n\"what_i_see\": \"A stone tower structure\",\n\"answer\": \"Light-colored stone pillar supporting the bridge structure\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5024,
+      "promptTokens": 220,
+      "outputTokens": 46,
+      "raw": "{\n\"what_i_see\": \"A modern blue glass building is clearly visible near the center.\",\n\"answer\": \"Modern blue glass building visible in the distance\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 11967,
+      "promptTokens": 1450,
+      "outputTokens": 87,
+      "raw": "{\n  \"lens\": \"remember\",\n  \"evidence\": \"The stone pillar is part of the bridge structure.\",\n  \"hint_semantic\": \"It marks a significant point or entrance along the waterway.\",\n  \"hint_concrete\": \"A light-colored, solid stone pillar supporting the bridge.\",\n  \"detail\": \"It has visible vertical lines or joints in the stone.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Small arched stone bridge structure spanning the river",
+      "box_2d": [
+        467,
+        278,
+        517,
+        788
+      ],
+      "box": {
+        "x": 0.278,
+        "y": 0.467,
+        "w": 0.51,
+        "h": 0.05
+      },
+      "difficulty": "medium",
+      "crop": "../v4-e4b/crops/c048-0-ctx.jpg",
+      "mcq": {
+        "options": [
+          "Modern blue glass building visible in the distance",
+          "a red fire hydrant",
+          "a bicycle leaning on a post",
+          "Small arched stone bridge structure spanning the river"
+        ],
+        "correct": "Small arched stone bridge structure spanning the river",
+        "answer": "Small arched stone bridge structure spanning the river",
+        "what_i_see": "A stone bridge spanning a river.",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "I found something hiding in plain sight.",
+      "lens": "plain_sight",
+      "hint_semantic": "It connects two sides, often marking a passage through time.",
+      "hint_concrete": "A long, low structure made of grey stone arches.",
+      "reveal": "The stone blocks show signs of weathering and age. (evidence: The bridge structure has an old, established appearance.)",
+      "spatial": "Look roughly straight ahead from where you took the photo. It is further away than you might think."
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Modern blue glass building visible in the distance",
+      "box_2d": [
+        337,
+        832,
+        386,
+        997
+      ],
+      "box": {
+        "x": 0.832,
+        "y": 0.337,
+        "w": 0.165,
+        "h": 0.049
+      },
+      "rejected": "mass_noun",
+      "difficulty": "hard",
+      "crop": "../v4-e4b/crops/c048-1-ctx.jpg"
+    },
+    {
+      "idx": 2,
+      "source": "full",
+      "label": "Light-colored stone pillar supporting the bridge structure",
+      "box_2d": [
+        421,
+        646,
+        484,
+        672
+      ],
+      "box": {
+        "x": 0.646,
+        "y": 0.421,
+        "w": 0.026,
+        "h": 0.063
+      },
+      "difficulty": "medium",
+      "crop": "../v4-e4b/crops/c048-2-ctx.jpg",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "Light-colored stone pillar supporting the bridge structure",
+          "Small arched stone bridge structure spanning the river",
+          "Modern blue glass building visible in the distance"
+        ],
+        "correct": "Light-colored stone pillar supporting the bridge structure",
+        "answer": "Light-colored stone pillar supporting the bridge structure",
+        "what_i_see": "A stone tower structure",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      }
+    }
+  ],
+  "chosen": 2,
+  "waitMs": 42593
+}

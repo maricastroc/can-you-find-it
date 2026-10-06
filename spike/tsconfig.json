@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "module": "esnext",
+    "target": "ES2022",
+    "plugins": []
+  },
+  "include": [
+    "src/**/*.ts",
+    "../src/lib/hunt/**/*.ts"
+  ],
+  "exclude": []
+}

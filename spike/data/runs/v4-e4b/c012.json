@@ -1,0 +1,140 @@
+{
+  "image": "c012",
+  "width": 2560,
+  "height": 1700,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 31494,
+      "promptTokens": 1567,
+      "outputTokens": 284,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Stone column with carved figures at the fountain\",\n      \"box_2d\": [\n        176,\n        195,\n        700,\n        247\n      ],\n      \"special\": \"A grand, sculptural centerpiece in the square.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    },\n    {\n      \"label\": \"Clock tower on the central historical building\",\n      \"box_2d\": [\n        204,\n        426,\n        386,\n        463\n      ],\n      \"special\": \"A distinct architectural landmark with visible clock faces.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"easy\"\n    },\n    {\n      \"label\": \"Hanging red flowers in a window box on the right\",\n      \"box_2d\": [\n        527,\n        859,\n        614,\n        915\n      ],\n      \"special\": \"A small splash of color against the building facade.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"hard\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5242,
+      "promptTokens": 203,
+      "outputTokens": 50,
+      "raw": "{\n\"what_i_see\": \"A tall stone column dominates the center, with carved figures visible at the base.\",\n\"answer\": \"Stone column with carved figures at the fountain\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4803,
+      "promptTokens": 262,
+      "outputTokens": 41,
+      "raw": "{\n\"what_i_see\": \"A clock tower on a historical building.\",\n\"answer\": \"Clock tower on the central historical building\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 12274,
+      "promptTokens": 1117,
+      "outputTokens": 82,
+      "raw": "{\n\"lens\": \"remember\",\n\"evidence\": \"The column and figures are part of a fountain structure.\",\n\"hint_semantic\": \"It commemorates a historical event or figure in this square.\",\n\"hint_concrete\": \"Tall stone column with sculpted figures at the base.\",\n\"detail\": \"The figures appear to be draped in flowing, classical robes.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Stone column with carved figures at the fountain",
+      "box_2d": [
+        176,
+        195,
+        700,
+        247
+      ],
+      "box": {
+        "x": 0.195,
+        "y": 0.176,
+        "w": 0.052,
+        "h": 0.524
+      },
+      "difficulty": "medium",
+      "why": "A grand, sculptural centerpiece in the square.",
+      "lens": "water",
+      "mcq": {
+        "options": [
+          "Clock tower on the central historical building",
+          "Hanging red flowers in a window box on the right",
+          "a red fire hydrant",
+          "Stone column with carved figures at the fountain"
+        ],
+        "correct": "Stone column with carved figures at the fountain",
+        "answer": "Stone column with carved figures at the fountain",
+        "what_i_see": "A tall stone column dominates the center, with carved figures visible at the base.",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "It has something to do with water.",
+      "hint_semantic": "It commemorates a historical event or figure in this square.",
+      "hint_concrete": "Tall stone column with sculpted figures at the base.",
+      "reveal": "The figures appear to be draped in flowing, classical robes. (evidence: The column and figures are part of a fountain structure.)",
+      "spatial": "Look toward the left of where you took the photo. It is quite close to where you stood.",
+      "crop": "crops/c012-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Clock tower on the central historical building",
+      "box_2d": [
+        204,
+        426,
+        386,
+        463
+      ],
+      "box": {
+        "x": 0.426,
+        "y": 0.204,
+        "w": 0.037,
+        "h": 0.182
+      },
+      "difficulty": "easy",
+      "why": "A distinct architectural landmark with visible clock faces.",
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "Hanging red flowers in a window box on the right",
+          "Clock tower on the central historical building",
+          "a red fire hydrant",
+          "Stone column with carved figures at the fountain"
+        ],
+        "correct": "Clock tower on the central historical building",
+        "answer": "Clock tower on the central historical building",
+        "what_i_see": "A clock tower on a historical building.",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "crop": "crops/c012-1-ctx.jpg"
+    },
+    {
+      "idx": 2,
+      "source": "full",
+      "label": "Hanging red flowers in a window box on the right",
+      "box_2d": [
+        527,
+        859,
+        614,
+        915
+      ],
+      "box": {
+        "x": 0.859,
+        "y": 0.527,
+        "w": 0.056,
+        "h": 0.087
+      },
+      "rejected": "mass_noun",
+      "difficulty": "hard",
+      "why": "A small splash of color against the building facade.",
+      "lens": "similar:0",
+      "crop": "crops/c012-2-ctx.jpg"
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 49010
+}

@@ -1,0 +1,24 @@
+{
+  "0": {
+    "what_is_special": "This formation has been weathered by countless seasonal shifts.",
+    "lens": "purpose",
+    "difficulty": "medium",
+    "clue": "It has absorbed the slow passing of many seasons.",
+    "hint_semantic": "It serves as a resting spot for the nearby wildlife.",
+    "hint_concrete": "It is a large, irregularly shaped mass with a pale, uneven surface.",
+    "reveal": "The surface bears streaks where water has repeatedly flowed over it.",
+    "ms": 13049,
+    "outputTokens": 121
+  },
+  "1": {
+    "what_is_special": "A vibrant burst provides shelter for small creatures.",
+    "lens": "out_of_place",
+    "difficulty": "easy",
+    "clue": "Its growth offers a vertical screen near the water's edge.",
+    "hint_semantic": "It serves as a natural hiding spot and food source.",
+    "hint_concrete": "Tall stalks reach high, covered in small, dense blossoms.",
+    "reveal": "The cluster supports several resting waterfowl.",
+    "ms": 16100,
+    "outputTokens": 117
+  }
+}

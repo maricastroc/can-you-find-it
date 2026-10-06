@@ -1,0 +1,40 @@
+{
+  "image": "c054",
+  "width": 1440,
+  "height": 2560,
+  "model": "gemma4:e4b",
+  "chosen": 1,
+  "label": "Small, dense cluster of bright green bushes on the slope",
+  "calls": [
+    {
+      "kind": "propose",
+      "prompt": "Pick the 3 best different targets in this photo, best first.",
+      "content": "{\"targets\": [\n  {\"label\": \"Small, bright green sapling growing in the mossy hillside\", \"box_2d\": [847, 894, 913, 990], \"similar_count\": 0, \"difficulty\": \"hard\"},\n  {\"label\": \"Small, dense cluster of bright green bushes on the slope\", \"box_2d\": [395, 415, 474, 737], \"similar_count\": 1, \"difficulty\": \"medium\"},\n  {\"label\": \"Small, dark green conifer cluster in the middle distance\", \"box_2d\": [375, 775, 500, 910], \"similar_count\": 0, \"difficulty\": \"medium\"}\n]}",
+      "ms": 17946
+    },
+    {
+      "kind": "verify",
+      "prompt": "Look only at this image. Which ONE of these is clearly visible near the center of the image? If none of them is clearly visible, answer \"none\".\n- Small, dense c",
+      "content": "{\n\"what_i_see\": \"A cluster of bright green plants\",\n\"answer\": \"Small, dense cluster of bright green bushes on the slope\",\n\"person_at_target\": false\n}",
+      "ms": 5760
+    },
+    {
+      "kind": "verify",
+      "prompt": "Look only at this image. Which ONE of these is clearly visible near the center of the image? If none of them is clearly visible, answer \"none\".\n- a red fire hyd",
+      "content": "{\n\"what_i_see\": \"A mossy, wooded hillside with dense foliage.\",\n\"answer\": \"Small, dense cluster of bright green bushes on the slope\",\n\"person_at_target\": false\n}",
+      "ms": 5485
+    },
+    {
+      "kind": "verify",
+      "prompt": "Look only at this image. Which ONE of these is clearly visible near the center of the image? If none of them is clearly visible, answer \"none\".\n- Small, dark gr",
+      "content": "{\n\"what_i_see\": \"A dense cluster of bright green foliage is near the center.\",\n\"answer\": \"Small, dense cluster of bright green bushes on the slope\",\n\"person_at_target\": false\n}",
+      "ms": 5040
+    },
+    {
+      "kind": "write",
+      "prompt": "The target is: \"Small, dense cluster of bright green bushes on the slope\".",
+      "content": "{\n  \"lens\": \"cared_for\",\n  \"evidence\": \"Small, dense cluster of bright green bushes on the slope.\",\n  \"hint_semantic\": \"This small patch is being tended to by someone nearby.\",\n  \"hint_concrete\": \"Low, bushy, vibrant green foliage growing on the hillside.\",\n  \"detail\": \"The leaves appear tightly packed and uniformly bright green.\"\n}",
+      "ms": 7809
+    }
+  ]
+}

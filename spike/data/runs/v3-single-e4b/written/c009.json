@@ -1,0 +1,24 @@
+{
+  "0": {
+    "what_is_special": "A designated spot requires prior arrangement for arrival.",
+    "lens": "purpose",
+    "difficulty": "easy",
+    "clue": "Designated spot requires prior arrangement for arrival.",
+    "hint_semantic": "It indicates a space reserved for temporary stopping.",
+    "hint_concrete": "Rectangular, featuring a prominent letter shape.",
+    "reveal": "The stark blue panel contrasts sharply with the surrounding weathered stone.",
+    "ms": 10428,
+    "outputTokens": 112
+  },
+  "2": {
+    "what_is_special": "A temporary shelter awaits sudden downpours.",
+    "lens": "nature_reclaiming",
+    "difficulty": "medium",
+    "clue": "Its purpose is to divert moisture from its occupants.",
+    "hint_semantic": "It provides overhead coverage for people seated outside.",
+    "hint_concrete": "It is a tall, draped fabric structure.",
+    "reveal": "The gathered material shows multiple securing ties along its base.",
+    "ms": 10773,
+    "outputTokens": 116
+  }
+}

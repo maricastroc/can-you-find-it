@@ -1,0 +1,315 @@
+{
+  "image": "c098",
+  "width": 2000,
+  "height": 1500,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "single",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 67137,
+      "promptTokens": 1885,
+      "outputTokens": 788,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Black framed window on the left white building\",\n      \"box_2d\": [382, 58, 574, 150],\n      \"lens\": \"shape_or_color\",\n      \"why\": \"It has a distinct black frame against the white wall.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"Its panes reflect the light in a specific pattern.\",\n      \"hint_semantic\": \"It allows light into a living space.\",\n      \"hint_concrete\": \"Rectangular glass with multiple small divisions.\",\n      \"reveal\": \"It frames a view of the quiet street.\"\n    },\n    {\n      \"label\": \"Dark potted plant near the right doorway\",\n      \"box_2d\": [646, 699, 743, 784],\n      \"lens\": \"human_trace\",\n      \"why\": \"It is a deliberate, placed decoration near the entrance.\",\n      \"difficulty\": \"easy\",\n      \"clue\": \"Someone placed this greenery to soften the hard lines.\",\n      \"hint_semantic\": \"It is used for decoration or boundary marking.\",\n      \"hint_concrete\": \"A dark, round container holding green foliage.\",\n      \"reveal\": \"It adds a touch of life to the stoic facade.\"\n    },\n    {\n      \"label\": \"Dark metal gate visible in the distance\",\n      \"box_2d\": [497, 634, 537, 667],\n      \"lens\": \"hidden_in_plain_sight\",\n      \"why\": \"It is a small, dark barrier at the end of the lane.\",\n      \"difficulty\": \"hard\",\n      \"clue\": \"It marks the boundary where the lane continues onward.\",\n      \"hint_semantic\": \"It controls access to the property beyond.\",\n      \"hint_concrete\": \"A small, dark metal structure at the far end.\",\n      \"reveal\": \"It suggests a private area beyond the view.\"\n    },\n    {\n      \"label\": \"Small dark rectangular doorway on the left\",\n      \"box_2d\": [419, 319, 608, 354],\n      \"lens\": \"human_trace\",\n      \"why\": \"It is a plain, functional entry point on the long wall.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"It offers passage into a dwelling, kept simple.\",\n      \"hint_semantic\": \"It is the main entry point for one of the structures.\",\n      \"hint_concrete\": \"A vertical, recessed opening with dark trim.\",\n      \"reveal\": \"It leads into the cozy world behind the thick wall.\"\n    },\n    {\n      \"label\": \"White window with dark frame on the upper right\",\n      \"box_2d\": [15, 768, 215, 807],\n      \"lens\": \"shape_or_color\",\n      \"why\": \"It is a distinct, vertically oriented window on the taller building.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"This vertical opening lets light into the upper stories.\",\n      \"hint_semantic\": \"It is a necessary opening in the exterior wall.\",\n      \"hint_concrete\": \"A tall, narrow window with a dark outline.\",\n      \"reveal\": \"It catches the sunlight high above the street.\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5949,
+      "promptTokens": 362,
+      "outputTokens": 38,
+      "raw": "{\n\"what_i_see\": \"A white-framed, multi-paned window set in a black frame against a white wall.\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5257,
+      "promptTokens": 397,
+      "outputTokens": 29,
+      "raw": "{\n\"what_i_see\": \"A black framed window on a white building.\",\n\"answer\": \"D\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5213,
+      "promptTokens": 445,
+      "outputTokens": 22,
+      "raw": "{\n\"what_i_see\": \"Dark potted plant\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5732,
+      "promptTokens": 481,
+      "outputTokens": 34,
+      "raw": "{\n\"what_i_see\": \"A large, dark potted plant is near the center of the image.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 6299,
+      "promptTokens": 508,
+      "outputTokens": 27,
+      "raw": "{\n\"what_i_see\": \"A brown, textured wall in the center\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 8111,
+      "promptTokens": 544,
+      "outputTokens": 51,
+      "raw": "{\n\"what_i_see\": \"The center of the image is dominated by a large, textured, light brown/orange wall, with some greenery and a wooden gate structure in the foreground.\",\n\"answer\": \"none\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3908,
+      "promptTokens": 193,
+      "outputTokens": 29,
+      "raw": "{\"what_i_see\": \"A tall, dark, rectangular doorway in the center of a white wall.\", \"visible\": false}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4097,
+      "promptTokens": 229,
+      "outputTokens": 33,
+      "raw": "{\n\"what_i_see\": \"A tall, dark doorway in the center of a white building.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3614,
+      "promptTokens": 195,
+      "outputTokens": 32,
+      "raw": "{\n\"what_i_see\": \"A tall, narrow window with a dark frame on a white wall.\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4091,
+      "promptTokens": 231,
+      "outputTokens": 38,
+      "raw": "{\n\"what_i_see\": \"A tall, narrow window with a dark frame is visible near the center of the image.\",\n\"answer\": \"D\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "label": "Black framed window on the left white building",
+      "box_2d": [
+        382,
+        58,
+        574,
+        150
+      ],
+      "lens": "shape_or_color",
+      "why": "It has a distinct black frame against the white wall.",
+      "difficulty": "medium",
+      "clue": "Its panes reflect the light in a specific pattern.",
+      "hint_semantic": "It allows light into a living space.",
+      "hint_concrete": "Rectangular glass with multiple small divisions.",
+      "reveal": "It frames a view of the quiet street.",
+      "source": "full",
+      "idx": 0,
+      "box": {
+        "x": 0.058,
+        "y": 0.382,
+        "w": 0.092,
+        "h": 0.19199999999999995
+      },
+      "boxWarnings": [],
+      "crop": "crops/c098-0-ctx.jpg",
+      "verifyCrop": "crops/c098-0-verify.jpg",
+      "verify": {
+        "what_i_see": "A white-framed, multi-paned window set in a black frame against a white wall.",
+        "visible": true,
+        "ms": 5949
+      },
+      "mcq": {
+        "options": [
+          "Dark potted plant near the right doorway",
+          "Dark metal gate visible in the distance",
+          "Small dark rectangular doorway on the left",
+          "Black framed window on the left white building"
+        ],
+        "correct": "D",
+        "answer": "D",
+        "what_i_see": "A black framed window on a white building.",
+        "pass": true,
+        "ms": 5257
+      }
+    },
+    {
+      "label": "Dark potted plant near the right doorway",
+      "box_2d": [
+        646,
+        699,
+        743,
+        784
+      ],
+      "lens": "human_trace",
+      "why": "It is a deliberate, placed decoration near the entrance.",
+      "difficulty": "easy",
+      "clue": "Someone placed this greenery to soften the hard lines.",
+      "hint_semantic": "It is used for decoration or boundary marking.",
+      "hint_concrete": "A dark, round container holding green foliage.",
+      "reveal": "It adds a touch of life to the stoic facade.",
+      "source": "full",
+      "idx": 1,
+      "box": {
+        "x": 0.699,
+        "y": 0.646,
+        "w": 0.08500000000000008,
+        "h": 0.09699999999999998
+      },
+      "boxWarnings": [],
+      "crop": "crops/c098-1-ctx.jpg",
+      "verifyCrop": "crops/c098-1-verify.jpg",
+      "verify": {
+        "what_i_see": "Dark potted plant",
+        "visible": false,
+        "ms": 5213
+      },
+      "mcq": {
+        "options": [
+          "Dark metal gate visible in the distance",
+          "Dark potted plant near the right doorway",
+          "Small dark rectangular doorway on the left",
+          "Black framed window on the left white building"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A large, dark potted plant is near the center of the image.",
+        "pass": true,
+        "ms": 5732
+      }
+    },
+    {
+      "label": "Dark metal gate visible in the distance",
+      "box_2d": [
+        497,
+        634,
+        537,
+        667
+      ],
+      "lens": "hidden_in_plain_sight",
+      "why": "It is a small, dark barrier at the end of the lane.",
+      "difficulty": "hard",
+      "clue": "It marks the boundary where the lane continues onward.",
+      "hint_semantic": "It controls access to the property beyond.",
+      "hint_concrete": "A small, dark metal structure at the far end.",
+      "reveal": "It suggests a private area beyond the view.",
+      "source": "full",
+      "idx": 2,
+      "box": {
+        "x": 0.634,
+        "y": 0.497,
+        "w": 0.03300000000000003,
+        "h": 0.040000000000000036
+      },
+      "boxWarnings": [],
+      "crop": "crops/c098-2-ctx.jpg",
+      "verifyCrop": "crops/c098-2-verify.jpg",
+      "verify": {
+        "what_i_see": "A brown, textured wall in the center",
+        "visible": false,
+        "ms": 6299
+      },
+      "mcq": {
+        "options": [
+          "Small dark rectangular doorway on the left",
+          "Dark metal gate visible in the distance",
+          "Black framed window on the left white building",
+          "Dark potted plant near the right doorway"
+        ],
+        "correct": "B",
+        "answer": "none",
+        "what_i_see": "The center of the image is dominated by a large, textured, light brown/orange wall, with some greenery and a wooden gate structure in the foreground.",
+        "pass": false,
+        "ms": 8111
+      }
+    },
+    {
+      "label": "Small dark rectangular doorway on the left",
+      "box_2d": [
+        419,
+        319,
+        608,
+        354
+      ],
+      "lens": "human_trace",
+      "why": "It is a plain, functional entry point on the long wall.",
+      "difficulty": "medium",
+      "clue": "It offers passage into a dwelling, kept simple.",
+      "hint_semantic": "It is the main entry point for one of the structures.",
+      "hint_concrete": "A vertical, recessed opening with dark trim.",
+      "reveal": "It leads into the cozy world behind the thick wall.",
+      "source": "full",
+      "idx": 3,
+      "box": {
+        "x": 0.319,
+        "y": 0.419,
+        "w": 0.034999999999999976,
+        "h": 0.189
+      },
+      "boxWarnings": [],
+      "crop": "crops/c098-3-ctx.jpg",
+      "verifyCrop": "crops/c098-3-verify.jpg",
+      "verify": {
+        "what_i_see": "A tall, dark, rectangular doorway in the center of a white wall.",
+        "visible": false,
+        "ms": 3908
+      },
+      "mcq": {
+        "options": [
+          "Dark potted plant near the right doorway",
+          "Small dark rectangular doorway on the left",
+          "Black framed window on the left white building",
+          "Dark metal gate visible in the distance"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A tall, dark doorway in the center of a white building.",
+        "pass": true,
+        "ms": 4097
+      }
+    },
+    {
+      "label": "White window with dark frame on the upper right",
+      "box_2d": [
+        15,
+        768,
+        215,
+        807
+      ],
+      "lens": "shape_or_color",
+      "why": "It is a distinct, vertically oriented window on the taller building.",
+      "difficulty": "medium",
+      "clue": "This vertical opening lets light into the upper stories.",
+      "hint_semantic": "It is a necessary opening in the exterior wall.",
+      "hint_concrete": "A tall, narrow window with a dark outline.",
+      "reveal": "It catches the sunlight high above the street.",
+      "source": "full",
+      "idx": 4,
+      "box": {
+        "x": 0.768,
+        "y": 0.015,
+        "w": 0.039000000000000035,
+        "h": 0.2
+      },
+      "boxWarnings": [],
+      "crop": "crops/c098-4-ctx.jpg",
+      "verifyCrop": "crops/c098-4-verify.jpg",
+      "verify": {
+        "what_i_see": "A tall, narrow window with a dark frame on a white wall.",
+        "visible": true,
+        "ms": 3614
+      },
+      "mcq": {
+        "options": [
+          "Black framed window on the left white building",
+          "Dark metal gate visible in the distance",
+          "Dark potted plant near the right doorway",
+          "White window with dark frame on the upper right"
+        ],
+        "correct": "D",
+        "answer": "D",
+        "what_i_see": "A tall, narrow window with a dark frame is visible near the center of the image.",
+        "pass": true,
+        "ms": 4091
+      }
+    }
+  ]
+}

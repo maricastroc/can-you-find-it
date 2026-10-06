@@ -1,0 +1,160 @@
+{
+  "image": "c000",
+  "width": 2560,
+  "height": 1709,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 21805,
+      "promptTokens": 1567,
+      "outputTokens": 279,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Ornate black lamppost with glowing head\",\n      \"box_2d\": [\n        474,\n        817,\n        732,\n        841\n      ],\n      \"special\": \"A classic, distinctive park light fixture.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    },\n    {\n      \"label\": \"Wooden park bench with dark metal frame\",\n      \"box_2d\": [\n        747,\n        416,\n        918,\n        533\n      ],\n      \"special\": \"A classic wooden bench for a peaceful rest.\",\n      \"similar_count\": 1,\n      \"difficulty\": \"easy\"\n    },\n    {\n      \"label\": \"Small dark metal park bench along the path\",\n      \"box_2d\": [\n        703,\n        578,\n        759,\n        621\n      ],\n      \"special\": \"A simple, solitary bench near the walkway.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"hard\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 3165,
+      "promptTokens": 219,
+      "outputTokens": 45,
+      "raw": "{\n\"what_i_see\": \"Ornate black lamppost with glowing head\",\n\"answer\": \"Ornate black lamppost with glowing head\",\n\"people_visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5338,
+      "promptTokens": 555,
+      "outputTokens": 41,
+      "raw": "{\n\"what_i_see\": \"Wooden park bench with dark metal frame\",\n\"answer\": \"Wooden park bench with dark metal frame\",\n\"people_visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5457,
+      "promptTokens": 513,
+      "outputTokens": 44,
+      "raw": "{\n\"what_i_see\": \"A dark metal park bench is near the center.\",\n\"answer\": \"Small dark metal park bench along the path\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 11350,
+      "promptTokens": 1428,
+      "outputTokens": 91,
+      "raw": "{\n  \"lens\": \"waiting\",\n  \"evidence\": \"Small dark metal bench situated along the paved pathway.\",\n  \"hint_semantic\": \"It is a place for people to rest and pause during their walk.\",\n  \"hint_concrete\": \"Dark metal frame with wooden slats, low to the ground.\",\n  \"detail\": \"The wooden slats appear to be a reddish-brown color.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Ornate black lamppost with glowing head",
+      "box_2d": [
+        474,
+        817,
+        732,
+        841
+      ],
+      "box": {
+        "x": 0.817,
+        "y": 0.474,
+        "w": 0.024,
+        "h": 0.258
+      },
+      "difficulty": "medium",
+      "why": "A classic, distinctive park light fixture.",
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "Wooden park bench with dark metal frame",
+          "Small dark metal park bench along the path",
+          "a red fire hydrant",
+          "Ornate black lamppost with glowing head"
+        ],
+        "correct": "Ornate black lamppost with glowing head",
+        "answer": "Ornate black lamppost with glowing head",
+        "what_i_see": "Ornate black lamppost with glowing head",
+        "people": true,
+        "pass": false,
+        "ms": 0
+      },
+      "crop": "crops/c000-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Wooden park bench with dark metal frame",
+      "box_2d": [
+        747,
+        416,
+        918,
+        533
+      ],
+      "box": {
+        "x": 0.416,
+        "y": 0.747,
+        "w": 0.117,
+        "h": 0.171
+      },
+      "difficulty": "easy",
+      "why": "A classic wooden bench for a peaceful rest.",
+      "lens": "similar:1",
+      "mcq": {
+        "options": [
+          "Small dark metal park bench along the path",
+          "Wooden park bench with dark metal frame",
+          "a red fire hydrant",
+          "Ornate black lamppost with glowing head"
+        ],
+        "correct": "Wooden park bench with dark metal frame",
+        "answer": "Wooden park bench with dark metal frame",
+        "what_i_see": "Wooden park bench with dark metal frame",
+        "people": true,
+        "pass": false,
+        "ms": 0
+      },
+      "crop": "crops/c000-1-ctx.jpg"
+    },
+    {
+      "idx": 2,
+      "source": "full",
+      "label": "Small dark metal park bench along the path",
+      "box_2d": [
+        703,
+        578,
+        759,
+        621
+      ],
+      "box": {
+        "x": 0.578,
+        "y": 0.703,
+        "w": 0.043,
+        "h": 0.056
+      },
+      "difficulty": "hard",
+      "why": "A simple, solitary bench near the walkway.",
+      "lens": "waiting",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "Small dark metal park bench along the path",
+          "Ornate black lamppost with glowing head",
+          "Wooden park bench with dark metal frame"
+        ],
+        "correct": "Small dark metal park bench along the path",
+        "answer": "Small dark metal park bench along the path",
+        "what_i_see": "A dark metal park bench is near the center.",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "It spends its days waiting for someone.",
+      "hint_semantic": "It is a place for people to rest and pause during their walk.",
+      "hint_concrete": "Dark metal frame with wooden slats, low to the ground.",
+      "reveal": "The wooden slats appear to be a reddish-brown color. (evidence: Small dark metal bench situated along the paved pathway.)",
+      "spatial": "Look roughly straight ahead from where you took the photo. Look down, close to the ground.",
+      "crop": "crops/c000-2-ctx.jpg"
+    }
+  ],
+  "chosen": 2,
+  "waitMs": 47115
+}

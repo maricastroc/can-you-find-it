@@ -1,0 +1,315 @@
+{
+  "image": "c041",
+  "width": 2190,
+  "height": 1643,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "single",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 66449,
+      "promptTokens": 1885,
+      "outputTokens": 778,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Small wooden bench near the playground entrance\",\n      \"box_2d\": [705, 20, 778, 146],\n      \"lens\": \"human_trace\",\n      \"why\": \"It shows where people have paused to rest.\",\n      \"difficulty\": \"easy\",\n      \"clue\": \"Someone has rested here while watching the activity.\",\n      \"hint_semantic\": \"A place for sitting down and watching.\",\n      \"hint_concrete\": \"A simple, rectangular structure made of wood.\",\n      \"reveal\": \"It suggests moments of quiet observation in the busy space.\"\n    },\n    {\n      \"label\": \"Bright yellow metal gate section near the path\",\n      \"box_2d\": [783, 630, 963, 723],\n      \"lens\": \"shape_or_color\",\n      \"why\": \"Its vibrant color stands out against the surroundings.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"It guards a boundary with a striking hue.\",\n      \"hint_semantic\": \"It controls access to the play area.\",\n      \"hint_concrete\": \"A vertical structure made of bright, solid yellow metal.\",\n      \"reveal\": \"This barrier marks the transition from the walkway to the enclosed area.\"\n    },\n    {\n      \"label\": \"Metal swing set support pole structure\",\n      \"box_2d\": [528, 78, 702, 275],\n      \"lens\": \"human_trace\",\n      \"why\": \"The structure shows signs of weathering and use.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"This framework has held many joyful movements.\",\n      \"hint_semantic\": \"It supports the equipment for swinging.\",\n      \"hint_concrete\": \"Tall, angled poles made of light-colored metal or wood.\",\n      \"reveal\": \"It is a sturdy anchor for childhood fun.\"\n    },\n    {\n      \"label\": \"Red and brown plastic play structure with slide\",\n      \"box_2d\": [620, 397, 785, 501],\n      \"lens\": \"shape_or_color\",\n      \"why\": \"The combination of red and brown is distinct.\",\n      \"difficulty\": \"easy\",\n      \"clue\": \"It offers a fast descent from its highest point.\",\n      \"hint_semantic\": \"This equipment allows climbing and sliding.\",\n      \"hint_concrete\": \"A multi-level unit featuring red and dark brown components.\",\n      \"reveal\": \"It is a hub of energy and climbing adventure.\"\n    },\n    {\n      \"label\": \"Low wooden bench situated on the dirt path\",\n      \"box_2d\": [888, 229, 994, 473],\n      \"lens\": \"human_trace\",\n      \"why\": \"It is placed along the edge of the unpaved area.\",\n      \"difficulty\": \"hard\",\n      \"clue\": \"It waits patiently where the ground meets the border.\",\n      \"hint_semantic\": \"A place for resting while walking along the edge.\",\n      \"hint_concrete\": \"A long, low seating piece constructed from dark wood planks.\",\n      \"reveal\": \"It offers a spot to pause before continuing the walk.\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3705,
+      "promptTokens": 256,
+      "outputTokens": 21,
+      "raw": "{\n\"what_i_see\": \"wooden bench\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 3438,
+      "promptTokens": 292,
+      "outputTokens": 24,
+      "raw": "{\n\"what_i_see\": \"A wooden bench\",\n\"answer\": \"D\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4653,
+      "promptTokens": 383,
+      "outputTokens": 24,
+      "raw": "{\n\"what_i_see\": \"Bright yellow metal gate section\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5077,
+      "promptTokens": 418,
+      "outputTokens": 30,
+      "raw": "{\n\"what_i_see\": \"A bright yellow metal gate section near the path\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5673,
+      "promptTokens": 360,
+      "outputTokens": 24,
+      "raw": "{\n\"what_i_see\": \"A wooden swing set structure\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5227,
+      "promptTokens": 397,
+      "outputTokens": 26,
+      "raw": "{\n\"what_i_see\": \"A wooden swing set structure\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5113,
+      "promptTokens": 446,
+      "outputTokens": 24,
+      "raw": "{\n\"what_i_see\": \"Red and brown play structure\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5682,
+      "promptTokens": 481,
+      "outputTokens": 40,
+      "raw": "{\n\"what_i_see\": \"A red and brown plastic play structure with a slide is clearly visible near the center of the image.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3303,
+      "promptTokens": 215,
+      "outputTokens": 23,
+      "raw": "{\n\"what_i_see\": \"Wooden railing/barrier\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4361,
+      "promptTokens": 250,
+      "outputTokens": 30,
+      "raw": "{\n\"what_i_see\": \"A wooden barrier/bench structure near the center.\",\n\"answer\": \"D\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "label": "Small wooden bench near the playground entrance",
+      "box_2d": [
+        705,
+        20,
+        778,
+        146
+      ],
+      "lens": "human_trace",
+      "why": "It shows where people have paused to rest.",
+      "difficulty": "easy",
+      "clue": "Someone has rested here while watching the activity.",
+      "hint_semantic": "A place for sitting down and watching.",
+      "hint_concrete": "A simple, rectangular structure made of wood.",
+      "reveal": "It suggests moments of quiet observation in the busy space.",
+      "source": "full",
+      "idx": 0,
+      "box": {
+        "x": 0.02,
+        "y": 0.705,
+        "w": 0.126,
+        "h": 0.07300000000000006
+      },
+      "boxWarnings": [],
+      "crop": "crops/c041-0-ctx.jpg",
+      "verifyCrop": "crops/c041-0-verify.jpg",
+      "verify": {
+        "what_i_see": "wooden bench",
+        "visible": true,
+        "ms": 3705
+      },
+      "mcq": {
+        "options": [
+          "Bright yellow metal gate section near the path",
+          "Metal swing set support pole structure",
+          "Red and brown plastic play structure with slide",
+          "Small wooden bench near the playground entrance"
+        ],
+        "correct": "D",
+        "answer": "D",
+        "what_i_see": "A wooden bench",
+        "pass": true,
+        "ms": 3438
+      }
+    },
+    {
+      "label": "Bright yellow metal gate section near the path",
+      "box_2d": [
+        783,
+        630,
+        963,
+        723
+      ],
+      "lens": "shape_or_color",
+      "why": "Its vibrant color stands out against the surroundings.",
+      "difficulty": "medium",
+      "clue": "It guards a boundary with a striking hue.",
+      "hint_semantic": "It controls access to the play area.",
+      "hint_concrete": "A vertical structure made of bright, solid yellow metal.",
+      "reveal": "This barrier marks the transition from the walkway to the enclosed area.",
+      "source": "full",
+      "idx": 1,
+      "box": {
+        "x": 0.63,
+        "y": 0.783,
+        "w": 0.09299999999999997,
+        "h": 0.17999999999999994
+      },
+      "boxWarnings": [],
+      "crop": "crops/c041-1-ctx.jpg",
+      "verifyCrop": "crops/c041-1-verify.jpg",
+      "verify": {
+        "what_i_see": "Bright yellow metal gate section",
+        "visible": true,
+        "ms": 4653
+      },
+      "mcq": {
+        "options": [
+          "Metal swing set support pole structure",
+          "Bright yellow metal gate section near the path",
+          "Red and brown plastic play structure with slide",
+          "Small wooden bench near the playground entrance"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A bright yellow metal gate section near the path",
+        "pass": true,
+        "ms": 5077
+      }
+    },
+    {
+      "label": "Metal swing set support pole structure",
+      "box_2d": [
+        528,
+        78,
+        702,
+        275
+      ],
+      "lens": "human_trace",
+      "why": "The structure shows signs of weathering and use.",
+      "difficulty": "medium",
+      "clue": "This framework has held many joyful movements.",
+      "hint_semantic": "It supports the equipment for swinging.",
+      "hint_concrete": "Tall, angled poles made of light-colored metal or wood.",
+      "reveal": "It is a sturdy anchor for childhood fun.",
+      "source": "full",
+      "idx": 2,
+      "box": {
+        "x": 0.078,
+        "y": 0.528,
+        "w": 0.197,
+        "h": 0.17399999999999993
+      },
+      "boxWarnings": [],
+      "crop": "crops/c041-2-ctx.jpg",
+      "verifyCrop": "crops/c041-2-verify.jpg",
+      "verify": {
+        "what_i_see": "A wooden swing set structure",
+        "visible": true,
+        "ms": 5673
+      },
+      "mcq": {
+        "options": [
+          "Red and brown plastic play structure with slide",
+          "Metal swing set support pole structure",
+          "Small wooden bench near the playground entrance",
+          "Bright yellow metal gate section near the path"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A wooden swing set structure",
+        "pass": true,
+        "ms": 5227
+      }
+    },
+    {
+      "label": "Red and brown plastic play structure with slide",
+      "box_2d": [
+        620,
+        397,
+        785,
+        501
+      ],
+      "lens": "shape_or_color",
+      "why": "The combination of red and brown is distinct.",
+      "difficulty": "easy",
+      "clue": "It offers a fast descent from its highest point.",
+      "hint_semantic": "This equipment allows climbing and sliding.",
+      "hint_concrete": "A multi-level unit featuring red and dark brown components.",
+      "reveal": "It is a hub of energy and climbing adventure.",
+      "source": "full",
+      "idx": 3,
+      "box": {
+        "x": 0.397,
+        "y": 0.62,
+        "w": 0.10399999999999998,
+        "h": 0.16500000000000004
+      },
+      "boxWarnings": [],
+      "crop": "crops/c041-3-ctx.jpg",
+      "verifyCrop": "crops/c041-3-verify.jpg",
+      "verify": {
+        "what_i_see": "Red and brown play structure",
+        "visible": true,
+        "ms": 5113
+      },
+      "mcq": {
+        "options": [
+          "Bright yellow metal gate section near the path",
+          "Red and brown plastic play structure with slide",
+          "Small wooden bench near the playground entrance",
+          "Metal swing set support pole structure"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A red and brown plastic play structure with a slide is clearly visible near the center of the image.",
+        "pass": true,
+        "ms": 5682
+      }
+    },
+    {
+      "label": "Low wooden bench situated on the dirt path",
+      "box_2d": [
+        888,
+        229,
+        994,
+        473
+      ],
+      "lens": "human_trace",
+      "why": "It is placed along the edge of the unpaved area.",
+      "difficulty": "hard",
+      "clue": "It waits patiently where the ground meets the border.",
+      "hint_semantic": "A place for resting while walking along the edge.",
+      "hint_concrete": "A long, low seating piece constructed from dark wood planks.",
+      "reveal": "It offers a spot to pause before continuing the walk.",
+      "source": "full",
+      "idx": 4,
+      "box": {
+        "x": 0.229,
+        "y": 0.888,
+        "w": 0.24399999999999997,
+        "h": 0.10599999999999998
+      },
+      "boxWarnings": [],
+      "crop": "crops/c041-4-ctx.jpg",
+      "verifyCrop": "crops/c041-4-verify.jpg",
+      "verify": {
+        "what_i_see": "Wooden railing/barrier",
+        "visible": false,
+        "ms": 3303
+      },
+      "mcq": {
+        "options": [
+          "Small wooden bench near the playground entrance",
+          "Metal swing set support pole structure",
+          "Bright yellow metal gate section near the path",
+          "Low wooden bench situated on the dirt path"
+        ],
+        "correct": "D",
+        "answer": "D",
+        "what_i_see": "A wooden barrier/bench structure near the center.",
+        "pass": true,
+        "ms": 4361
+      }
+    }
+  ]
+}

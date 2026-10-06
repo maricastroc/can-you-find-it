@@ -1,0 +1,121 @@
+{
+  "image": "c106",
+  "width": 2560,
+  "height": 1707,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 29732,
+      "promptTokens": 1567,
+      "outputTokens": 278,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"White swing set frame in the grassy area\",\n      \"box_2d\": [\n        597,\n        590,\n        725,\n        729\n      ],\n      \"special\": \"A recognizable piece of outdoor playground equipment.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"easy\"\n    },\n    {\n      \"label\": \"Small white play structure on the left lawn\",\n      \"box_2d\": [\n        637,\n        38,\n        703,\n        93\n      ],\n      \"special\": \"A small, distinct piece of outdoor play equipment.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    },\n    {\n      \"label\": \"Brick building with multiple windows in background\",\n      \"box_2d\": [\n        330,\n        267,\n        688,\n        999\n      ],\n      \"special\": \"The large, distinctive brick structure in the scene.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"hard\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5866,
+      "promptTokens": 386,
+      "outputTokens": 44,
+      "raw": "{\n\"what_i_see\": \"A white swing set frame in the grassy area\",\n\"answer\": \"White swing set frame in the grassy area\",\n\"people_visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6469,
+      "promptTokens": 470,
+      "outputTokens": 44,
+      "raw": "{\n\"what_i_see\": \"A white swing set frame in the grassy area\",\n\"answer\": \"White swing set frame in the grassy area\",\n\"people_visible\": false\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "White swing set frame in the grassy area",
+      "box_2d": [
+        597,
+        590,
+        725,
+        729
+      ],
+      "box": {
+        "x": 0.59,
+        "y": 0.597,
+        "w": 0.139,
+        "h": 0.128
+      },
+      "difficulty": "easy",
+      "crop": "../v4-e4b/crops/c106-0-ctx.jpg",
+      "mcq": {
+        "options": [
+          "Small white play structure on the left lawn",
+          "Brick building with multiple windows in background",
+          "a red fire hydrant",
+          "White swing set frame in the grassy area"
+        ],
+        "correct": "White swing set frame in the grassy area",
+        "answer": "White swing set frame in the grassy area",
+        "what_i_see": "White swing set frame in the grassy area",
+        "people": true,
+        "pass": false,
+        "ms": 0
+      }
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Small white play structure on the left lawn",
+      "box_2d": [
+        637,
+        38,
+        703,
+        93
+      ],
+      "box": {
+        "x": 0.038,
+        "y": 0.637,
+        "w": 0.055,
+        "h": 0.066
+      },
+      "difficulty": "medium",
+      "crop": "../v4-e4b/crops/c106-1-ctx.jpg",
+      "mcq": {
+        "options": [
+          "Brick building with multiple windows in background",
+          "Small white play structure on the left lawn",
+          "a red fire hydrant",
+          "White swing set frame in the grassy area"
+        ],
+        "correct": "Small white play structure on the left lawn",
+        "answer": "White swing set frame in the grassy area",
+        "what_i_see": "White swing set frame in the grassy area",
+        "people": false,
+        "pass": false,
+        "ms": 0
+      }
+    },
+    {
+      "idx": 2,
+      "source": "full",
+      "label": "Brick building with multiple windows in background",
+      "box_2d": [
+        330,
+        267,
+        688,
+        999
+      ],
+      "box": {
+        "x": 0.267,
+        "y": 0.33,
+        "w": 0.732,
+        "h": 0.358
+      },
+      "rejected": "mass_noun",
+      "difficulty": "hard",
+      "crop": "../v4-e4b/crops/c106-2-ctx.jpg"
+    }
+  ],
+  "waitMs": 39062
+}

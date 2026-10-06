@@ -1,0 +1,160 @@
+{
+  "image": "c068",
+  "width": 2560,
+  "height": 1706,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 30665,
+      "promptTokens": 1567,
+      "outputTokens": 278,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Ornate black lamppost with decorative top\",\n      \"box_2d\": [\n        177,\n        685,\n        358,\n        731\n      ],\n      \"special\": \"A striking piece of street furniture.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    },\n    {\n      \"label\": \"Small dark green trash receptacle on the ground\",\n      \"box_2d\": [\n        527,\n        717,\n        643,\n        754\n      ],\n      \"special\": \"A functional, non-obvious city fixture.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"easy\"\n    },\n    {\n      \"label\": \"Dark metal bike rack structure near the left\",\n      \"box_2d\": [\n        524,\n        36,\n        738,\n        173\n      ],\n      \"special\": \"A piece of urban infrastructure for bikes.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4777,
+      "promptTokens": 283,
+      "outputTokens": 45,
+      "raw": "{\n\"what_i_see\": \"Ornate black lamppost with decorative top\",\n\"answer\": \"Ornate black lamppost with decorative top\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5272,
+      "promptTokens": 346,
+      "outputTokens": 36,
+      "raw": "{\"what_i_see\": \"A dark green public trash receptacle.\", \"answer\": \"Small dark green trash receptacle on the ground\", \"people_visible\": true}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 7577,
+      "promptTokens": 535,
+      "outputTokens": 46,
+      "raw": "{\n\"what_i_see\": \"A collection of bags and equipment near a large stone structure.\",\n\"answer\": \"Dark metal bike rack structure near the left\",\n\"people_visible\": true\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 10300,
+      "promptTokens": 1198,
+      "outputTokens": 84,
+      "raw": "{\n\"lens\": \"look_up\",\n\"evidence\": \"The lamp fixture is high up on the ornate post.\",\n\"hint_semantic\": \"It provides illumination for the area around it.\",\n\"hint_concrete\": \"Tall, dark, cast-iron post with a glass lantern.\",\n\"detail\": \"The base of the post features carved, leafy ornamentation.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Ornate black lamppost with decorative top",
+      "box_2d": [
+        177,
+        685,
+        358,
+        731
+      ],
+      "box": {
+        "x": 0.685,
+        "y": 0.177,
+        "w": 0.046,
+        "h": 0.181
+      },
+      "difficulty": "medium",
+      "why": "A striking piece of street furniture.",
+      "lens": "after_dark",
+      "mcq": {
+        "options": [
+          "Small dark green trash receptacle on the ground",
+          "Dark metal bike rack structure near the left",
+          "a red fire hydrant",
+          "Ornate black lamppost with decorative top"
+        ],
+        "correct": "Ornate black lamppost with decorative top",
+        "answer": "Ornate black lamppost with decorative top",
+        "what_i_see": "Ornate black lamppost with decorative top",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "It only does its job after dark.",
+      "hint_semantic": "It provides illumination for the area around it.",
+      "hint_concrete": "Tall, dark, cast-iron post with a glass lantern.",
+      "reveal": "The base of the post features carved, leafy ornamentation. (evidence: The lamp fixture is high up on the ornate post.)",
+      "spatial": "Look toward the right of where you took the photo. Look up.",
+      "crop": "crops/c068-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Small dark green trash receptacle on the ground",
+      "box_2d": [
+        527,
+        717,
+        643,
+        754
+      ],
+      "box": {
+        "x": 0.717,
+        "y": 0.527,
+        "w": 0.037,
+        "h": 0.116
+      },
+      "difficulty": "easy",
+      "why": "A functional, non-obvious city fixture.",
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "Dark metal bike rack structure near the left",
+          "Small dark green trash receptacle on the ground",
+          "a red fire hydrant",
+          "Ornate black lamppost with decorative top"
+        ],
+        "correct": "Small dark green trash receptacle on the ground",
+        "answer": "Small dark green trash receptacle on the ground",
+        "what_i_see": "A dark green public trash receptacle.",
+        "people": true,
+        "pass": false,
+        "ms": 0
+      },
+      "crop": "crops/c068-1-ctx.jpg"
+    },
+    {
+      "idx": 2,
+      "source": "full",
+      "label": "Dark metal bike rack structure near the left",
+      "box_2d": [
+        524,
+        36,
+        738,
+        173
+      ],
+      "box": {
+        "x": 0.036,
+        "y": 0.524,
+        "w": 0.137,
+        "h": 0.214
+      },
+      "difficulty": "medium",
+      "why": "A piece of urban infrastructure for bikes.",
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "Dark metal bike rack structure near the left",
+          "Ornate black lamppost with decorative top",
+          "Small dark green trash receptacle on the ground"
+        ],
+        "correct": "Dark metal bike rack structure near the left",
+        "answer": "Dark metal bike rack structure near the left",
+        "what_i_see": "A collection of bags and equipment near a large stone structure.",
+        "people": true,
+        "pass": false,
+        "ms": 0
+      },
+      "crop": "crops/c068-2-ctx.jpg"
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 45742
+}

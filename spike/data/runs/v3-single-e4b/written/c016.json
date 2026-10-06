@@ -1,0 +1,13 @@
+{
+  "0": {
+    "what_is_special": "Its openings suggest a place meant for gathering.",
+    "lens": "purpose",
+    "difficulty": "medium",
+    "clue": "Openings suggest a place meant for gathering.",
+    "hint_semantic": "It provides shelter and a space for conversation.",
+    "hint_concrete": "It has repeated, rounded structural elements on its upper level.",
+    "reveal": "The smooth plaster reflects the warm glow from within.",
+    "ms": 9973,
+    "outputTokens": 113
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "4": {
+    "what_is_special": "It helps regulate the temperature within the structure.",
+    "lens": "nature_reclaiming",
+    "difficulty": "medium",
+    "clue": "A small mechanism manages the inside climate control.",
+    "hint_semantic": "It moves air to maintain a stable indoor temperature.",
+    "hint_concrete": "Rectangular, metallic housing attached low on the facade.",
+    "reveal": "Its surface shows faint streaks from summer humidity.",
+    "ms": 14313,
+    "outputTokens": 118
+  }
+}

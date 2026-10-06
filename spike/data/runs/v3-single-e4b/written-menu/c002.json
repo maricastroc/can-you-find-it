@@ -1,0 +1,22 @@
+{
+  "0": {
+    "lens": "remember",
+    "evidence": "Engraved text on the white stone pedestal.",
+    "hint_semantic": "It commemorates a significant historical event or group.",
+    "hint_concrete": "A rectangular, light-colored stone block with engraved lettering.",
+    "detail": "The text includes the word 'SLASK' and a date.",
+    "clue": "Someone wanted this place to remember something.",
+    "ms": 11791,
+    "outputTokens": 86
+  },
+  "1": {
+    "lens": "remember",
+    "evidence": "The plaque has engraved text and a date.",
+    "hint_semantic": "It commemorates a significant event or person from the past.",
+    "hint_concrete": "A rectangular, dark plaque set on a white, square pedestal.",
+    "detail": "The date '28.8.1919' is visible on the plaque.",
+    "clue": "Someone wanted this place to remember something.",
+    "ms": 11969,
+    "outputTokens": 95
+  }
+}

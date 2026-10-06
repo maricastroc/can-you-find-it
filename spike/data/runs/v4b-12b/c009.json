@@ -1,0 +1,137 @@
+{
+  "image": "c009",
+  "width": 2560,
+  "height": 1660,
+  "model": "gemma4:12b",
+  "verifier": "gemma4:12b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 57257,
+      "promptTokens": 1516,
+      "outputTokens": 236,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"small black street lamp attached to a pole\",\n      \"box_2d\": [\n        818,\n        358,\n        910,\n        389\n      ],\n      \"similar_count\": 4,\n      \"difficulty\": \"medium\"\n    },\n    {\n      \"label\": \"round red and white traffic sign on a post\",\n      \"box_2d\": [\n        604,\n        601,\n        661,\n        623\n      ],\n      \"similar_count\": 0,\n      \"difficulty\": \"hard\"\n    },\n    {\n      \"label\": \"blue rectangular parking sign with a white P\",\n      \"box_2d\": [\n        513,\n        721,\n        584,\n        742\n      ],\n      \"similar_count\": 1,\n      \"difficulty\": \"medium\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 17347,
+      "promptTokens": 582,
+      "outputTokens": 29,
+      "raw": "{\"what_i_see\": \"a spray of water\", \"answer\": \"none\", \"person_at_target\": false}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 15259,
+      "promptTokens": 498,
+      "outputTokens": 40,
+      "raw": "{\"what_i_see\": \"blue rectangular parking sign with a white P\", \"answer\": \"blue rectangular parking sign with a white P\", \"person_at_target\": false}"
+    },
+    {
+      "kind": "write",
+      "ms": 27489,
+      "promptTokens": 1374,
+      "outputTokens": 98,
+      "raw": "{\n  \"lens\": \"plain_sight\",\n  \"evidence\": \"A blue sign with a white letter is mounted on a pole.\",\n  \"hint_semantic\": \"It indicates a specific spot where a vehicle is allowed to stay.\",\n  \"hint_concrete\": \"A blue rectangular metal sign with a white letter, mounted on a pole.\",\n  \"detail\": \"There is a word written in white capital letters at the bottom.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "small black street lamp attached to a pole",
+      "box_2d": [
+        818,
+        358,
+        910,
+        389
+      ],
+      "box": {
+        "x": 0.358,
+        "y": 0.818,
+        "w": 0.031,
+        "h": 0.092
+      },
+      "rejected": "not_unique",
+      "difficulty": "medium",
+      "lens": "similar:4",
+      "crop": "crops/c009-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "round red and white traffic sign on a post",
+      "box_2d": [
+        604,
+        601,
+        661,
+        623
+      ],
+      "box": {
+        "x": 0.601,
+        "y": 0.604,
+        "w": 0.022,
+        "h": 0.057
+      },
+      "difficulty": "hard",
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "blue rectangular parking sign with a white P",
+          "round red and white traffic sign on a post",
+          "a red fire hydrant",
+          "small black street lamp attached to a pole"
+        ],
+        "correct": "round red and white traffic sign on a post",
+        "answer": "none",
+        "what_i_see": "a spray of water",
+        "people": false,
+        "pass": false,
+        "ms": 0
+      },
+      "crop": "crops/c009-1-ctx.jpg"
+    },
+    {
+      "idx": 2,
+      "source": "full",
+      "label": "blue rectangular parking sign with a white P",
+      "box_2d": [
+        513,
+        721,
+        584,
+        742
+      ],
+      "box": {
+        "x": 0.721,
+        "y": 0.513,
+        "w": 0.021,
+        "h": 0.071
+      },
+      "difficulty": "medium",
+      "lens": "without_words",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "blue rectangular parking sign with a white P",
+          "small black street lamp attached to a pole",
+          "round red and white traffic sign on a post"
+        ],
+        "correct": "blue rectangular parking sign with a white P",
+        "answer": "blue rectangular parking sign with a white P",
+        "what_i_see": "blue rectangular parking sign with a white P",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "It tells everyone what to do without a single word.",
+      "hint_semantic": "It indicates a specific spot where a vehicle is allowed to stay.",
+      "hint_concrete": "A blue rectangular metal sign with a white letter, mounted on a pole.",
+      "reveal": "There is a word written in white capital letters at the bottom. (evidence: A blue sign with a white letter is mounted on a pole.)",
+      "spatial": "Look toward the right of where you took the photo.",
+      "crop": "crops/c009-2-ctx.jpg"
+    }
+  ],
+  "chosen": 2,
+  "waitMs": 117352
+}

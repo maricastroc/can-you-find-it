@@ -1,0 +1,317 @@
+{
+  "image": "c089",
+  "width": 2560,
+  "height": 1707,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "single",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 76092,
+      "promptTokens": 1901,
+      "outputTokens": 853,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Round sign displaying a yellow and blue logo\",\n      \"box_2d\": [182, 790, 383, 904],\n      \"lens\": \"shape_or_color\",\n      \"why\": \"The sign has a very distinct, bright yellow and blue color scheme against the muted background.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"It shows a sweet promise, often found on a pole.\",\n      \"hint_semantic\": \"It advertises a refreshing, sweet treat.\",\n      \"hint_concrete\": \"Circular shape, bright yellow and blue graphics.\",\n      \"reveal\": \"This advertisement speaks of cool refreshment on a warm day.\"\n    },\n    {\n      \"label\": \"Yellow metal gate securing the entrance area\",\n      \"box_2d\": [576, 221, 848, 553],\n      \"lens\": \"human_trace\",\n      \"why\": \"The gate is a clear barrier, showing evidence of being installed to control access.\",\n      \"difficulty\": \"easy\",\n      \"clue\": \"It is a barrier meant to keep the world out.\",\n      \"hint_semantic\": \"It regulates who can enter the brightly decorated space.\",\n      \"hint_concrete\": \"Bright yellow, metal construction, waist-high.\",\n      \"reveal\": \"This barrier guards a colorful world behind it.\"\n    },\n    {\n      \"label\": \"Orange-red painted concrete pillar with abstract markings\",\n      \"box_2d\": [246, 675, 820, 745],\n      \"lens\": \"shape_or_color\",\n      \"why\": \"This pillar is painted a vibrant, unique reddish-orange and covered in bold, abstract patterns.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"It stands as a painted monument amidst the chaos.\",\n      \"hint_semantic\": \"It is a structural support covered in artistic decoration.\",\n      \"hint_concrete\": \"Tall, rectangular support, vibrant orange and red paint.\",\n      \"reveal\": \"Its surface tells a story through bold, geometric shapes.\"\n    },\n    {\n      \"label\": \"Large mural depicting a blue fish-like creature\",\n      \"box_2d\": [517, 92, 960, 224],\n      \"lens\": \"nature_reclaiming\",\n      \"why\": \"The mural itself depicts a creature that seems to be emerging from or interacting with the wall's texture.\",\n      \"difficulty\": \"hard\",\n      \"clue\": \"A large form swims across the painted barrier.\",\n      \"hint_semantic\": \"It is a large piece of street art showing aquatic life.\",\n      \"hint_concrete\": \"A detailed, large-scale painting on the lower left wall.\",\n      \"reveal\": \"This painted life seems to flow right out of the structure.\"\n    },\n    {\n      \"label\": \"Small rectangular window set into the building facade\",\n      \"box_2d\": [393, 755, 496, 825],\n      \"lens\": \"hidden_in_plain_sight\",\n      \"why\": \"This window is tucked into the heavily decorated wall, not a prominent feature.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"A small aperture offers a glimpse into the structure.\",\n      \"hint_semantic\": \"It is a small opening in the painted wall, possibly for light.\",\n      \"hint_concrete\": \"Small, dark, rectangular opening on the lower right wall.\",\n      \"reveal\": \"Even the smallest openings hold a piece of the story.\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5883,
+      "promptTokens": 446,
+      "outputTokens": 28,
+      "raw": "{\n\"what_i_see\": \"A round sign with a yellow and black logo\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6379,
+      "promptTokens": 485,
+      "outputTokens": 30,
+      "raw": "{\n\"what_i_see\": \"A round sign with a yellow and blue logo.\",\n\"answer\": \"D\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4465,
+      "promptTokens": 319,
+      "outputTokens": 22,
+      "raw": "{\n\"what_i_see\": \"Yellow metal gate\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4904,
+      "promptTokens": 358,
+      "outputTokens": 34,
+      "raw": "{\n\"what_i_see\": \"The center of the image is dominated by a bright yellow metal gate.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3591,
+      "promptTokens": 153,
+      "outputTokens": 33,
+      "raw": "{\n\"what_i_see\": \"A large, textured, orange-red painted concrete pillar with abstract markings.\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4202,
+      "promptTokens": 191,
+      "outputTokens": 41,
+      "raw": "{\n\"what_i_see\": \"A large, textured, orange-red painted concrete pillar dominates the center-left area of the image.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5946,
+      "promptTokens": 279,
+      "outputTokens": 34,
+      "raw": "{\n\"what_i_see\": \"A large, colorful mural featuring a stylized, blue, fish-like creature.\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5214,
+      "promptTokens": 317,
+      "outputTokens": 38,
+      "raw": "{\n\"what_i_see\": \"The center of the image is dominated by a large, colorful mural on a concrete pillar.\",\n\"answer\": \"D\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 6988,
+      "promptTokens": 509,
+      "outputTokens": 33,
+      "raw": "{\n\"what_i_see\": \"A large, stylized eye and a shark mouth design on a building facade.\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 7018,
+      "promptTokens": 547,
+      "outputTokens": 38,
+      "raw": "{\n\"what_i_see\": \"The center of the image is dominated by a large window with graffiti and a QR code.\",\n\"answer\": \"D\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "label": "Round sign displaying a yellow and blue logo",
+      "box_2d": [
+        182,
+        790,
+        383,
+        904
+      ],
+      "lens": "shape_or_color",
+      "why": "The sign has a very distinct, bright yellow and blue color scheme against the muted background.",
+      "difficulty": "medium",
+      "clue": "It shows a sweet promise, often found on a pole.",
+      "hint_semantic": "It advertises a refreshing, sweet treat.",
+      "hint_concrete": "Circular shape, bright yellow and blue graphics.",
+      "reveal": "This advertisement speaks of cool refreshment on a warm day.",
+      "source": "full",
+      "idx": 0,
+      "box": {
+        "x": 0.79,
+        "y": 0.182,
+        "w": 0.11399999999999999,
+        "h": 0.201
+      },
+      "boxWarnings": [],
+      "crop": "crops/c089-0-ctx.jpg",
+      "verifyCrop": "crops/c089-0-verify.jpg",
+      "verify": {
+        "what_i_see": "A round sign with a yellow and black logo",
+        "visible": true,
+        "ms": 5883
+      },
+      "mcq": {
+        "options": [
+          "Yellow metal gate securing the entrance area",
+          "Orange-red painted concrete pillar with abstract markings",
+          "Large mural depicting a blue fish-like creature",
+          "Round sign displaying a yellow and blue logo"
+        ],
+        "correct": "D",
+        "answer": "D",
+        "what_i_see": "A round sign with a yellow and blue logo.",
+        "pass": true,
+        "ms": 6379
+      }
+    },
+    {
+      "label": "Yellow metal gate securing the entrance area",
+      "box_2d": [
+        576,
+        221,
+        848,
+        553
+      ],
+      "lens": "human_trace",
+      "why": "The gate is a clear barrier, showing evidence of being installed to control access.",
+      "difficulty": "easy",
+      "clue": "It is a barrier meant to keep the world out.",
+      "hint_semantic": "It regulates who can enter the brightly decorated space.",
+      "hint_concrete": "Bright yellow, metal construction, waist-high.",
+      "reveal": "This barrier guards a colorful world behind it.",
+      "source": "full",
+      "idx": 1,
+      "box": {
+        "x": 0.221,
+        "y": 0.576,
+        "w": 0.3320000000000001,
+        "h": 0.272
+      },
+      "boxWarnings": [],
+      "crop": "crops/c089-1-ctx.jpg",
+      "verifyCrop": "crops/c089-1-verify.jpg",
+      "rejected": "mass_noun",
+      "verify": {
+        "what_i_see": "Yellow metal gate",
+        "visible": true,
+        "ms": 4465
+      },
+      "mcq": {
+        "options": [
+          "Orange-red painted concrete pillar with abstract markings",
+          "Yellow metal gate securing the entrance area",
+          "Small rectangular window set into the building facade",
+          "Round sign displaying a yellow and blue logo"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "The center of the image is dominated by a bright yellow metal gate.",
+        "pass": true,
+        "ms": 4904
+      }
+    },
+    {
+      "label": "Orange-red painted concrete pillar with abstract markings",
+      "box_2d": [
+        246,
+        675,
+        820,
+        745
+      ],
+      "lens": "shape_or_color",
+      "why": "This pillar is painted a vibrant, unique reddish-orange and covered in bold, abstract patterns.",
+      "difficulty": "medium",
+      "clue": "It stands as a painted monument amidst the chaos.",
+      "hint_semantic": "It is a structural support covered in artistic decoration.",
+      "hint_concrete": "Tall, rectangular support, vibrant orange and red paint.",
+      "reveal": "Its surface tells a story through bold, geometric shapes.",
+      "source": "full",
+      "idx": 2,
+      "box": {
+        "x": 0.675,
+        "y": 0.246,
+        "w": 0.06999999999999995,
+        "h": 0.574
+      },
+      "boxWarnings": [],
+      "crop": "crops/c089-2-ctx.jpg",
+      "verifyCrop": "crops/c089-2-verify.jpg",
+      "verify": {
+        "what_i_see": "A large, textured, orange-red painted concrete pillar with abstract markings.",
+        "visible": true,
+        "ms": 3591
+      },
+      "mcq": {
+        "options": [
+          "Large mural depicting a blue fish-like creature",
+          "Orange-red painted concrete pillar with abstract markings",
+          "Round sign displaying a yellow and blue logo",
+          "Yellow metal gate securing the entrance area"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A large, textured, orange-red painted concrete pillar dominates the center-left area of the image.",
+        "pass": true,
+        "ms": 4202
+      }
+    },
+    {
+      "label": "Large mural depicting a blue fish-like creature",
+      "box_2d": [
+        517,
+        92,
+        960,
+        224
+      ],
+      "lens": "nature_reclaiming",
+      "why": "The mural itself depicts a creature that seems to be emerging from or interacting with the wall's texture.",
+      "difficulty": "hard",
+      "clue": "A large form swims across the painted barrier.",
+      "hint_semantic": "It is a large piece of street art showing aquatic life.",
+      "hint_concrete": "A detailed, large-scale painting on the lower left wall.",
+      "reveal": "This painted life seems to flow right out of the structure.",
+      "source": "full",
+      "idx": 3,
+      "box": {
+        "x": 0.092,
+        "y": 0.517,
+        "w": 0.132,
+        "h": 0.44299999999999995
+      },
+      "boxWarnings": [],
+      "crop": "crops/c089-3-ctx.jpg",
+      "verifyCrop": "crops/c089-3-verify.jpg",
+      "verify": {
+        "what_i_see": "A large, colorful mural featuring a stylized, blue, fish-like creature.",
+        "visible": true,
+        "ms": 5946
+      },
+      "mcq": {
+        "options": [
+          "Yellow metal gate securing the entrance area",
+          "Large mural depicting a blue fish-like creature",
+          "Round sign displaying a yellow and blue logo",
+          "Orange-red painted concrete pillar with abstract markings"
+        ],
+        "correct": "B",
+        "answer": "D",
+        "what_i_see": "The center of the image is dominated by a large, colorful mural on a concrete pillar.",
+        "pass": false,
+        "ms": 5214
+      }
+    },
+    {
+      "label": "Small rectangular window set into the building facade",
+      "box_2d": [
+        393,
+        755,
+        496,
+        825
+      ],
+      "lens": "hidden_in_plain_sight",
+      "why": "This window is tucked into the heavily decorated wall, not a prominent feature.",
+      "difficulty": "medium",
+      "clue": "A small aperture offers a glimpse into the structure.",
+      "hint_semantic": "It is a small opening in the painted wall, possibly for light.",
+      "hint_concrete": "Small, dark, rectangular opening on the lower right wall.",
+      "reveal": "Even the smallest openings hold a piece of the story.",
+      "source": "full",
+      "idx": 4,
+      "box": {
+        "x": 0.755,
+        "y": 0.393,
+        "w": 0.06999999999999995,
+        "h": 0.10299999999999998
+      },
+      "boxWarnings": [],
+      "crop": "crops/c089-4-ctx.jpg",
+      "verifyCrop": "crops/c089-4-verify.jpg",
+      "rejected": "mass_noun",
+      "verify": {
+        "what_i_see": "A large, stylized eye and a shark mouth design on a building facade.",
+        "visible": true,
+        "ms": 6988
+      },
+      "mcq": {
+        "options": [
+          "Round sign displaying a yellow and blue logo",
+          "Orange-red painted concrete pillar with abstract markings",
+          "Yellow metal gate securing the entrance area",
+          "Small rectangular window set into the building facade"
+        ],
+        "correct": "D",
+        "answer": "D",
+        "what_i_see": "The center of the image is dominated by a large window with graffiti and a QR code.",
+        "pass": true,
+        "ms": 7018
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "image": "c117",
+  "width": 1707,
+  "height": 2560,
+  "model": "gemma4:e4b",
+  "chosen": 0,
+  "label": "Stone coat of arms carved into the structure's facade",
+  "calls": [
+    {
+      "kind": "propose",
+      "prompt": "Pick the 3 best different targets in this photo, best first.",
+      "content": "{\n  \"targets\": [\n    {\n      \"label\": \"Stone coat of arms carved into the structure's facade\",\n      \"box_2d\": [\n        365,\n        257,\n        484,\n        361\n      ],\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    },\n    {\n      \"label\": \"Small stone pedestal with a decorative urn on the left\",\n      \"box_2d\": [\n        626,\n        135,\n        744,\n        203\n      ],\n      \"similar_count\": 0,\n      \"difficulty\": \"hard\"\n    },\n    {\n      \"label\": \"White wooden bench tucked beneath the pavilion structure\",\n      \"box_2d\": [\n        718,\n        303,\n        766,\n        537\n      ],\n      \"similar_count\": 0,\n      \"difficulty\": \"easy\"\n    }\n  ]\n}",
+      "ms": 20697
+    },
+    {
+      "kind": "verify",
+      "prompt": "Look only at this image. Which ONE of these is clearly visible near the center of the image? If none of them is clearly visible, answer \"none\".\n- Small stone pe",
+      "content": "{\n\"what_i_see\": \"A carved stone relief\",\n\"answer\": \"Stone coat of arms carved into the structure's facade\",\n\"person_at_target\": false\n}",
+      "ms": 4678
+    },
+    {
+      "kind": "write",
+      "prompt": "The target is: \"Stone coat of arms carved into the structure's facade\".",
+      "content": "{\n  \"lens\": \"remember\",\n  \"evidence\": \"The carved coat of arms is set into the stone facade.\",\n  \"hint_semantic\": \"It represents the history or lineage of the place.\",\n  \"hint_concrete\": \"A weathered, carved stone relief mounted on a rough wall.\",\n  \"detail\": \"The carving includes a depiction of a castle or building.\"\n}",
+      "ms": 10452
+    }
+  ]
+}

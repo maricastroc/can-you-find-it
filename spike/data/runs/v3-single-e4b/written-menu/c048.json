@@ -1,0 +1,12 @@
+{
+  "0": {
+    "lens": "handmade",
+    "evidence": "The decorative chain on the railing appears to be crafted.",
+    "hint_semantic": "It adds a decorative touch to the boundary along the water.",
+    "hint_concrete": "A dark, wrought-iron chain attached to a concrete railing.",
+    "detail": "The chain links have a distinct, looped, and heavy appearance.",
+    "clue": "Somebody made this by hand.",
+    "ms": 11552,
+    "outputTokens": 92
+  }
+}

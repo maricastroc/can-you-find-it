@@ -1,0 +1,215 @@
+{
+  "image": "c000",
+  "width": 2560,
+  "height": 1709,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "single",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 51743,
+      "promptTokens": 1860,
+      "outputTokens": 818,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Black metal park bench with curved back supports\",\n      \"box_2d\": [736, 397, 914, 532],\n      \"lens\": \"human_trace\",\n      \"why\": \"It's a piece of furniture left for visitors to use.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"Resting here suggests a pause in the journey.\",\n      \"hint_semantic\": \"A place for people to sit and observe the surroundings.\",\n      \"hint_concrete\": \"Dark, wrought iron structure with wooden slats.\",\n      \"reveal\": \"These benches have witnessed countless moments of quiet contemplation.\"\n    },\n    {\n      \"label\": \"Ornate black lamppost along the pathway edge\",\n      \"box_2d\": [477, 804, 731, 833],\n      \"lens\": \"hidden_in_plain_sight\",\n      \"why\": \"It's a functional piece of street furniture often overlooked.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"It waits for the light to change before it shines.\",\n      \"hint_semantic\": \"It provides illumination for those walking after sunset.\",\n      \"hint_concrete\": \"Tall, dark pole topped with a glass-encased fixture.\",\n      \"reveal\": \"It stands ready to guide travelers when the daylight fades.\"\n    },\n    {\n      \"label\": \"Small dark figure near the path carrying something\",\n      \"box_2d\": [632, 403, 741, 423],\n      \"lens\": \"human_trace\",\n      \"why\": \"It's a small detail of someone passing through the park.\",\n      \"difficulty\": \"hard\",\n      \"clue\": \"Movement suggests a purpose within this open space.\",\n      \"hint_semantic\": \"Someone is traversing the grounds, perhaps with gear.\",\n      \"hint_concrete\": \"A small, dark shape walking near the walkway.\",\n      \"reveal\": \"Even in a quiet park, there is always a journey unfolding.\"\n    },\n    {\n      \"label\": \"Patch of yellowing leaves on the grass verge\",\n      \"box_2d\": [691, 0, 771, 163],\n      \"lens\": \"nature_reclaiming\",\n      \"why\": \"It shows the seasonal change actively happening on the ground.\",\n      \"difficulty\": \"easy\",\n      \"clue\": \"The ground is softening under the turning season.\",\n      \"hint_semantic\": \"The trees are shedding their colorful autumn attire.\",\n      \"hint_concrete\": \"Scattered, small, bright yellow and brown leaf shapes.\",\n      \"reveal\": \"Nature's constant cycle is painted across the lawn.\"\n    },\n    {\n      \"label\": \"Dark, dense foliage mass behind the bright tree\",\n      \"box_2d\": [366, 376, 645, 508],\n      \"lens\": \"landmark_detail\",\n      \"why\": \"It's a specific, large cluster of mature trees providing a backdrop.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"A deep shadow hides the secrets of the older growth.\",\n      \"hint_semantic\": \"This collection of trees offers a dense, unbroken screen.\",\n      \"hint_concrete\": \"A large, deep green area of many overlapping canopies.\",\n      \"reveal\": \"These established trees have watched this park change over many years.\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4801,
+      "promptTokens": 467,
+      "outputTokens": 28,
+      "raw": "{\n\"what_i_see\": \"A set of wooden and black metal park benches\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 2435,
+      "promptTokens": 175,
+      "outputTokens": 18,
+      "raw": "{\"what_i_see\": \"lamppost\", \"visible\": true}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3889,
+      "promptTokens": 299,
+      "outputTokens": 38,
+      "raw": "{\n\"what_i_see\": \"Two people standing in a grassy area, with a small dark figure near the ground to the right.\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 2765,
+      "promptTokens": 216,
+      "outputTokens": 25,
+      "raw": "{\n\"what_i_see\": \"Grass lawn with sunlight and shadows\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3734,
+      "promptTokens": 384,
+      "outputTokens": 24,
+      "raw": "{\n\"what_i_see\": \"Large, dark tree mass\",\n\"visible\": true\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "label": "Black metal park bench with curved back supports",
+      "box_2d": [
+        736,
+        397,
+        914,
+        532
+      ],
+      "lens": "human_trace",
+      "why": "It's a piece of furniture left for visitors to use.",
+      "difficulty": "medium",
+      "clue": "Resting here suggests a pause in the journey.",
+      "hint_semantic": "A place for people to sit and observe the surroundings.",
+      "hint_concrete": "Dark, wrought iron structure with wooden slats.",
+      "reveal": "These benches have witnessed countless moments of quiet contemplation.",
+      "source": "full",
+      "idx": 0,
+      "box": {
+        "x": 0.397,
+        "y": 0.736,
+        "w": 0.135,
+        "h": 0.17800000000000005
+      },
+      "boxWarnings": [],
+      "crop": "crops/c000-0-ctx.jpg",
+      "verifyCrop": "crops/c000-0-verify.jpg",
+      "verify": {
+        "what_i_see": "A set of wooden and black metal park benches",
+        "visible": true,
+        "ms": 4801
+      }
+    },
+    {
+      "label": "Ornate black lamppost along the pathway edge",
+      "box_2d": [
+        477,
+        804,
+        731,
+        833
+      ],
+      "lens": "hidden_in_plain_sight",
+      "why": "It's a functional piece of street furniture often overlooked.",
+      "difficulty": "medium",
+      "clue": "It waits for the light to change before it shines.",
+      "hint_semantic": "It provides illumination for those walking after sunset.",
+      "hint_concrete": "Tall, dark pole topped with a glass-encased fixture.",
+      "reveal": "It stands ready to guide travelers when the daylight fades.",
+      "source": "full",
+      "idx": 1,
+      "box": {
+        "x": 0.804,
+        "y": 0.477,
+        "w": 0.028999999999999915,
+        "h": 0.254
+      },
+      "boxWarnings": [],
+      "crop": "crops/c000-1-ctx.jpg",
+      "verifyCrop": "crops/c000-1-verify.jpg",
+      "verify": {
+        "what_i_see": "lamppost",
+        "visible": true,
+        "ms": 2435
+      }
+    },
+    {
+      "label": "Small dark figure near the path carrying something",
+      "box_2d": [
+        632,
+        403,
+        741,
+        423
+      ],
+      "lens": "human_trace",
+      "why": "It's a small detail of someone passing through the park.",
+      "difficulty": "hard",
+      "clue": "Movement suggests a purpose within this open space.",
+      "hint_semantic": "Someone is traversing the grounds, perhaps with gear.",
+      "hint_concrete": "A small, dark shape walking near the walkway.",
+      "reveal": "Even in a quiet park, there is always a journey unfolding.",
+      "source": "full",
+      "idx": 2,
+      "box": {
+        "x": 0.403,
+        "y": 0.632,
+        "w": 0.019999999999999962,
+        "h": 0.10899999999999999
+      },
+      "boxWarnings": [],
+      "crop": "crops/c000-2-ctx.jpg",
+      "verifyCrop": "crops/c000-2-verify.jpg",
+      "verify": {
+        "what_i_see": "Two people standing in a grassy area, with a small dark figure near the ground to the right.",
+        "visible": false,
+        "ms": 3889
+      }
+    },
+    {
+      "label": "Patch of yellowing leaves on the grass verge",
+      "box_2d": [
+        691,
+        0,
+        771,
+        163
+      ],
+      "lens": "nature_reclaiming",
+      "why": "It shows the seasonal change actively happening on the ground.",
+      "difficulty": "easy",
+      "clue": "The ground is softening under the turning season.",
+      "hint_semantic": "The trees are shedding their colorful autumn attire.",
+      "hint_concrete": "Scattered, small, bright yellow and brown leaf shapes.",
+      "reveal": "Nature's constant cycle is painted across the lawn.",
+      "source": "full",
+      "idx": 3,
+      "box": {
+        "x": 0,
+        "y": 0.691,
+        "w": 0.163,
+        "h": 0.08000000000000007
+      },
+      "boxWarnings": [],
+      "crop": "crops/c000-3-ctx.jpg",
+      "verifyCrop": "crops/c000-3-verify.jpg",
+      "verify": {
+        "what_i_see": "Grass lawn with sunlight and shadows",
+        "visible": true,
+        "ms": 2765
+      }
+    },
+    {
+      "label": "Dark, dense foliage mass behind the bright tree",
+      "box_2d": [
+        366,
+        376,
+        645,
+        508
+      ],
+      "lens": "landmark_detail",
+      "why": "It's a specific, large cluster of mature trees providing a backdrop.",
+      "difficulty": "medium",
+      "clue": "A deep shadow hides the secrets of the older growth.",
+      "hint_semantic": "This collection of trees offers a dense, unbroken screen.",
+      "hint_concrete": "A large, deep green area of many overlapping canopies.",
+      "reveal": "These established trees have watched this park change over many years.",
+      "source": "full",
+      "idx": 4,
+      "box": {
+        "x": 0.376,
+        "y": 0.366,
+        "w": 0.132,
+        "h": 0.279
+      },
+      "boxWarnings": [],
+      "crop": "crops/c000-4-ctx.jpg",
+      "verifyCrop": "crops/c000-4-verify.jpg",
+      "verify": {
+        "what_i_see": "Large, dark tree mass",
+        "visible": true,
+        "ms": 3734
+      }
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "image": "c054",
+  "width": 1440,
+  "height": 2560,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 27299,
+      "promptTokens": 1407,
+      "outputTokens": 263,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Small, bright green shrub growing on mossy hillside\",\n      \"box_2d\": [382, 392, 465, 722],\n      \"special\": \"A splash of bright color in the woods.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    },\n    {\n      \"label\": \"Person wearing a dark backpack walking on the trail\",\n      \"box_2d\": [276, 225, 458, 308],\n      \"special\": \"Observing the scene from a different perspective.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"easy\"\n    },\n    {\n      \"label\": \"Patches of bright green moss covering the slope\",\n      \"box_2d\": [375, 682, 500, 991],\n      \"special\": \"A textural element on the forest slope.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"hard\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5465,
+      "promptTokens": 328,
+      "outputTokens": 42,
+      "raw": "{\n\"what_i_see\": \"Dense green foliage and trees\",\n\"answer\": \"Small, bright green shrub growing on mossy hillside\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6654,
+      "promptTokens": 433,
+      "outputTokens": 49,
+      "raw": "{\n\"what_i_see\": \"A mossy, wooded slope with a fallen log near the center.\",\n\"answer\": \"Patches of bright green moss covering the slope\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 9138,
+      "promptTokens": 1209,
+      "outputTokens": 95,
+      "raw": "{\n  \"lens\": \"nature_taking_back\",\n  \"evidence\": \"Small, bright green shrub growing on mossy hillside.\",\n  \"hint_semantic\": \"It is a sign of nature reclaiming the environment.\",\n  \"hint_concrete\": \"A small, bright green, leafy shrub on a mossy slope.\",\n  \"detail\": \"The shrub has a vibrant, almost neon, bright green color.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Small, bright green shrub growing on mossy hillside",
+      "box_2d": [
+        382,
+        392,
+        465,
+        722
+      ],
+      "box": {
+        "x": 0.392,
+        "y": 0.382,
+        "w": 0.33,
+        "h": 0.083
+      },
+      "difficulty": "medium",
+      "why": "A splash of bright color in the woods.",
+      "lens": "nature_taking_back",
+      "mcq": {
+        "options": [
+          "Person wearing a dark backpack walking on the trail",
+          "Patches of bright green moss covering the slope",
+          "a red fire hydrant",
+          "Small, bright green shrub growing on mossy hillside"
+        ],
+        "correct": "Small, bright green shrub growing on mossy hillside",
+        "answer": "Small, bright green shrub growing on mossy hillside",
+        "what_i_see": "Dense green foliage and trees",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "I found something nature is taking back.",
+      "hint_semantic": "It is a sign of nature reclaiming the environment.",
+      "hint_concrete": "A small, bright green, leafy shrub on a mossy slope.",
+      "reveal": "The shrub has a vibrant, almost neon, bright green color. (evidence: Small, bright green shrub growing on mossy hillside.)",
+      "spatial": "Look roughly straight ahead from where you took the photo.",
+      "crop": "crops/c054-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Person wearing a dark backpack walking on the trail",
+      "box_2d": [
+        276,
+        225,
+        458,
+        308
+      ],
+      "box": {
+        "x": 0.225,
+        "y": 0.276,
+        "w": 0.083,
+        "h": 0.182
+      },
+      "rejected": "person",
+      "difficulty": "easy",
+      "why": "Observing the scene from a different perspective.",
+      "lens": "similar:0",
+      "crop": "crops/c054-1-ctx.jpg"
+    },
+    {
+      "idx": 2,
+      "source": "full",
+      "label": "Patches of bright green moss covering the slope",
+      "box_2d": [
+        375,
+        682,
+        500,
+        991
+      ],
+      "box": {
+        "x": 0.682,
+        "y": 0.375,
+        "w": 0.309,
+        "h": 0.125
+      },
+      "difficulty": "hard",
+      "why": "A textural element on the forest slope.",
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "Patches of bright green moss covering the slope",
+          "Small, bright green shrub growing on mossy hillside",
+          "Person wearing a dark backpack walking on the trail"
+        ],
+        "correct": "Patches of bright green moss covering the slope",
+        "answer": "Patches of bright green moss covering the slope",
+        "what_i_see": "A mossy, wooded slope with a fallen log near the center.",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "crop": "crops/c054-2-ctx.jpg"
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 41902
+}

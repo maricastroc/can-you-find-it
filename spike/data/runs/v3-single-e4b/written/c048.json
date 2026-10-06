@@ -1,0 +1,13 @@
+{
+  "0": {
+    "what_is_special": "A looped length grips the side of the structure.",
+    "lens": "nature_reclaiming",
+    "difficulty": "medium",
+    "clue": "This looping fixture once served a specific purpose for passersby.",
+    "hint_semantic": "It provides a means for someone to hold onto while moving along the edge.",
+    "hint_concrete": "The material is dark and appears heavily textured, set against a smooth, grey stone.",
+    "reveal": "The woven links show signs of weathering from the constant exposure to the water's spray.",
+    "ms": 17747,
+    "outputTokens": 139
+  }
+}

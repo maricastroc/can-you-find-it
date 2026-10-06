@@ -1,0 +1,315 @@
+{
+  "image": "c000",
+  "width": 2560,
+  "height": 1709,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "single",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 48983,
+      "promptTokens": 1901,
+      "outputTokens": 802,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Black metal park bench with slats and curved arms\",\n      \"box_2d\": [755, 416, 916, 534],\n      \"lens\": \"shape_or_color\",\n      \"why\": \"It has a distinct, dark, curved shape against the grass.\",\n      \"difficulty\": \"easy\",\n      \"clue\": \"It waits for company, but remains empty now.\",\n      \"hint_semantic\": \"A place for rest or conversation.\",\n      \"hint_concrete\": \"Dark metal, slatted seat, curved armrests.\",\n      \"reveal\": \"It seems to hold the memory of shared conversations.\"\n    },\n    {\n      \"label\": \"Black ornamental street lamp with a single fixture\",\n      \"box_2d\": [472, 807, 734, 834],\n      \"lens\": \"purpose\",\n      \"why\": \"It is designed to illuminate the path after sunset.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"It only does its job after dark.\",\n      \"hint_semantic\": \"A source of artificial light for pathways.\",\n      \"hint_concrete\": \"Tall, slender pole with a dark fixture at the top.\",\n      \"reveal\": \"Its purpose is to guide travelers when the sun goes down.\"\n    },\n    {\n      \"label\": \"Small dark wooden bench near the path entrance\",\n      \"box_2d\": [699, 576, 757, 627],\n      \"lens\": \"human_trace\",\n      \"why\": \"It shows signs of being weathered by the elements.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"It has seen many seasons pass by.\",\n      \"hint_semantic\": \"A spot for quiet reflection along the walkway.\",\n      \"hint_concrete\": \"Dark wood, slatted design, low to the ground.\",\n      \"reveal\": \"It has witnessed countless moments of quiet contemplation.\"\n    },\n    {\n      \"label\": \"Circular stone drainage cover near the path edge\",\n      \"box_2d\": [864, 501, 910, 533],\n      \"lens\": \"hidden_in_plain_sight\",\n      \"why\": \"It is a small, utilitarian fixture on the ground.\",\n      \"difficulty\": \"hard\",\n      \"clue\": \"It quietly channels what falls from above.\",\n      \"hint_semantic\": \"A fixture designed to manage surface water flow.\",\n      \"hint_concrete\": \"Round, flat stone or metal cover embedded in the path/ground.\",\n      \"reveal\": \"It ensures the path remains dry, even after a heavy rain.\"\n    },\n    {\n      \"label\": \"Small dark object possibly a bollard near trees\",\n      \"box_2d\": [671, 337, 695, 348],\n      \"lens\": \"out_of_place\",\n      \"why\": \"It is a small, solitary vertical element amidst the foliage.\",\n      \"difficulty\": \"hard\",\n      \"clue\": \"It stands alone where the path meets the woods.\",\n      \"hint_semantic\": \"A low marker or protective barrier.\",\n      \"hint_concrete\": \"Short, dark vertical post, near the edge of the lawn.\",\n      \"reveal\": \"It serves as a subtle boundary between the open space and the trees.\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4126,
+      "promptTokens": 468,
+      "outputTokens": 23,
+      "raw": "{\n\"what_i_see\": \"Black metal park bench\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4808,
+      "promptTokens": 507,
+      "outputTokens": 35,
+      "raw": "{\n\"what_i_see\": \"A black metal park bench with slats and curved arms is near the center.\",\n\"answer\": \"D\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 2329,
+      "promptTokens": 173,
+      "outputTokens": 23,
+      "raw": "{\n\"what_i_see\": \"Black ornamental street lamp\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 3029,
+      "promptTokens": 212,
+      "outputTokens": 35,
+      "raw": "{\n\"what_i_see\": \"A tall, black ornamental street lamp is near the center of the image.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4376,
+      "promptTokens": 404,
+      "outputTokens": 26,
+      "raw": "{\n\"what_i_see\": \"A row of dark metal park benches\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4168,
+      "promptTokens": 443,
+      "outputTokens": 26,
+      "raw": "{\n\"what_i_see\": \"A black metal park bench\",\n\"answer\": \"C\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5459,
+      "promptTokens": 509,
+      "outputTokens": 37,
+      "raw": "{\n\"what_i_see\": \"A dark, curved object dominating the center, likely part of a piece of machinery or structure.\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6350,
+      "promptTokens": 548,
+      "outputTokens": 57,
+      "raw": "{\n\"what_i_see\": \"The center of the image is dominated by a large, dark, curved object, likely part of a piece of street furniture or a structure, with a paved path extending into the background.\",\n\"answer\": \"C\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4626,
+      "promptTokens": 510,
+      "outputTokens": 21,
+      "raw": "{\n\"what_i_see\": \"tree trunk\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5136,
+      "promptTokens": 549,
+      "outputTokens": 24,
+      "raw": "{\n\"what_i_see\": \"A tree trunk\",\n\"answer\": \"none\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "label": "Black metal park bench with slats and curved arms",
+      "box_2d": [
+        755,
+        416,
+        916,
+        534
+      ],
+      "lens": "shape_or_color",
+      "why": "It has a distinct, dark, curved shape against the grass.",
+      "difficulty": "easy",
+      "clue": "It waits for company, but remains empty now.",
+      "hint_semantic": "A place for rest or conversation.",
+      "hint_concrete": "Dark metal, slatted seat, curved armrests.",
+      "reveal": "It seems to hold the memory of shared conversations.",
+      "source": "full",
+      "idx": 0,
+      "box": {
+        "x": 0.416,
+        "y": 0.755,
+        "w": 0.11800000000000005,
+        "h": 0.16100000000000003
+      },
+      "boxWarnings": [],
+      "crop": "crops/c000-0-ctx.jpg",
+      "verifyCrop": "crops/c000-0-verify.jpg",
+      "verify": {
+        "what_i_see": "Black metal park bench",
+        "visible": true,
+        "ms": 4126
+      },
+      "mcq": {
+        "options": [
+          "Black ornamental street lamp with a single fixture",
+          "Small dark wooden bench near the path entrance",
+          "Small dark object possibly a bollard near trees",
+          "Black metal park bench with slats and curved arms"
+        ],
+        "correct": "D",
+        "answer": "D",
+        "what_i_see": "A black metal park bench with slats and curved arms is near the center.",
+        "pass": true,
+        "ms": 4808
+      }
+    },
+    {
+      "label": "Black ornamental street lamp with a single fixture",
+      "box_2d": [
+        472,
+        807,
+        734,
+        834
+      ],
+      "lens": "purpose",
+      "why": "It is designed to illuminate the path after sunset.",
+      "difficulty": "medium",
+      "clue": "It only does its job after dark.",
+      "hint_semantic": "A source of artificial light for pathways.",
+      "hint_concrete": "Tall, slender pole with a dark fixture at the top.",
+      "reveal": "Its purpose is to guide travelers when the sun goes down.",
+      "source": "full",
+      "idx": 1,
+      "box": {
+        "x": 0.807,
+        "y": 0.472,
+        "w": 0.026999999999999913,
+        "h": 0.262
+      },
+      "boxWarnings": [],
+      "crop": "crops/c000-1-ctx.jpg",
+      "verifyCrop": "crops/c000-1-verify.jpg",
+      "verify": {
+        "what_i_see": "Black ornamental street lamp",
+        "visible": true,
+        "ms": 2329
+      },
+      "mcq": {
+        "options": [
+          "Small dark wooden bench near the path entrance",
+          "Black ornamental street lamp with a single fixture",
+          "Circular stone drainage cover near the path edge",
+          "Black metal park bench with slats and curved arms"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A tall, black ornamental street lamp is near the center of the image.",
+        "pass": true,
+        "ms": 3029
+      }
+    },
+    {
+      "label": "Small dark wooden bench near the path entrance",
+      "box_2d": [
+        699,
+        576,
+        757,
+        627
+      ],
+      "lens": "human_trace",
+      "why": "It shows signs of being weathered by the elements.",
+      "difficulty": "medium",
+      "clue": "It has seen many seasons pass by.",
+      "hint_semantic": "A spot for quiet reflection along the walkway.",
+      "hint_concrete": "Dark wood, slatted design, low to the ground.",
+      "reveal": "It has witnessed countless moments of quiet contemplation.",
+      "source": "full",
+      "idx": 2,
+      "box": {
+        "x": 0.576,
+        "y": 0.699,
+        "w": 0.051000000000000045,
+        "h": 0.05800000000000005
+      },
+      "boxWarnings": [],
+      "crop": "crops/c000-2-ctx.jpg",
+      "verifyCrop": "crops/c000-2-verify.jpg",
+      "verify": {
+        "what_i_see": "A row of dark metal park benches",
+        "visible": true,
+        "ms": 4376
+      },
+      "mcq": {
+        "options": [
+          "Circular stone drainage cover near the path edge",
+          "Small dark wooden bench near the path entrance",
+          "Black metal park bench with slats and curved arms",
+          "Black ornamental street lamp with a single fixture"
+        ],
+        "correct": "B",
+        "answer": "C",
+        "what_i_see": "A black metal park bench",
+        "pass": false,
+        "ms": 4168
+      }
+    },
+    {
+      "label": "Circular stone drainage cover near the path edge",
+      "box_2d": [
+        864,
+        501,
+        910,
+        533
+      ],
+      "lens": "hidden_in_plain_sight",
+      "why": "It is a small, utilitarian fixture on the ground.",
+      "difficulty": "hard",
+      "clue": "It quietly channels what falls from above.",
+      "hint_semantic": "A fixture designed to manage surface water flow.",
+      "hint_concrete": "Round, flat stone or metal cover embedded in the path/ground.",
+      "reveal": "It ensures the path remains dry, even after a heavy rain.",
+      "source": "full",
+      "idx": 3,
+      "box": {
+        "x": 0.501,
+        "y": 0.864,
+        "w": 0.03200000000000003,
+        "h": 0.04600000000000004
+      },
+      "boxWarnings": [],
+      "crop": "crops/c000-3-ctx.jpg",
+      "verifyCrop": "crops/c000-3-verify.jpg",
+      "verify": {
+        "what_i_see": "A dark, curved object dominating the center, likely part of a piece of machinery or structure.",
+        "visible": false,
+        "ms": 5459
+      },
+      "mcq": {
+        "options": [
+          "Black ornamental street lamp with a single fixture",
+          "Circular stone drainage cover near the path edge",
+          "Black metal park bench with slats and curved arms",
+          "Small dark wooden bench near the path entrance"
+        ],
+        "correct": "B",
+        "answer": "C",
+        "what_i_see": "The center of the image is dominated by a large, dark, curved object, likely part of a piece of street furniture or a structure, with a paved path extending into the background.",
+        "pass": false,
+        "ms": 6350
+      }
+    },
+    {
+      "label": "Small dark object possibly a bollard near trees",
+      "box_2d": [
+        671,
+        337,
+        695,
+        348
+      ],
+      "lens": "out_of_place",
+      "why": "It is a small, solitary vertical element amidst the foliage.",
+      "difficulty": "hard",
+      "clue": "It stands alone where the path meets the woods.",
+      "hint_semantic": "A low marker or protective barrier.",
+      "hint_concrete": "Short, dark vertical post, near the edge of the lawn.",
+      "reveal": "It serves as a subtle boundary between the open space and the trees.",
+      "source": "full",
+      "idx": 4,
+      "box": {
+        "x": 0.337,
+        "y": 0.671,
+        "w": 0.010999999999999954,
+        "h": 0.02399999999999991
+      },
+      "boxWarnings": [],
+      "crop": "crops/c000-4-ctx.jpg",
+      "verifyCrop": "crops/c000-4-verify.jpg",
+      "verify": {
+        "what_i_see": "tree trunk",
+        "visible": false,
+        "ms": 4626
+      },
+      "mcq": {
+        "options": [
+          "Black metal park bench with slats and curved arms",
+          "Small dark wooden bench near the path entrance",
+          "Black ornamental street lamp with a single fixture",
+          "Small dark object possibly a bollard near trees"
+        ],
+        "correct": "D",
+        "answer": "none",
+        "what_i_see": "A tree trunk",
+        "pass": false,
+        "ms": 5136
+      }
+    }
+  ]
+}

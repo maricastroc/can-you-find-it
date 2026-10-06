@@ -1,0 +1,140 @@
+{
+  "image": "c089",
+  "width": 2560,
+  "height": 1707,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 29569,
+      "promptTokens": 1567,
+      "outputTokens": 260,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Bright yellow umbrella covering outdoor seating area\",\n      \"box_2d\": [372, 94, 568, 434],\n      \"special\": \"A vibrant splash of color against the muted surroundings.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"easy\"\n    },\n    {\n      \"label\": \"Circular sign with stylized yellow and red lettering\",\n      \"box_2d\": [172, 787, 384, 906],\n      \"special\": \"A distinct, colorful sign advertising a beverage.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    },\n    {\n      \"label\": \"Colorful, abstract painted pillar near entrance gate\",\n      \"box_2d\": [564, 554, 861, 730],\n      \"special\": \"A small piece of vibrant, unique street art.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"hard\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 7146,
+      "promptTokens": 491,
+      "outputTokens": 44,
+      "raw": "{\n\"what_i_see\": \"A circular sign with stylized yellow and red lettering\",\n\"answer\": \"Circular sign with stylized yellow and red lettering\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6996,
+      "promptTokens": 512,
+      "outputTokens": 43,
+      "raw": "{\n\"what_i_see\": \"Colorful, abstract painted pillar near entrance gate\",\n\"answer\": \"Colorful, abstract painted pillar near entrance gate\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 11441,
+      "promptTokens": 1407,
+      "outputTokens": 89,
+      "raw": "{\n  \"lens\": \"handmade\",\n  \"evidence\": \"The lettering on the sign is highly stylized and painted.\",\n  \"hint_semantic\": \"It advertises a refreshing, chilled beverage.\",\n  \"hint_concrete\": \"Circular metal sign, primarily yellow and black, mounted on a pole.\",\n  \"detail\": \"The sign features a stylized image of ice and a bottle.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Bright yellow umbrella covering outdoor seating area",
+      "box_2d": [
+        372,
+        94,
+        568,
+        434
+      ],
+      "box": {
+        "x": 0.094,
+        "y": 0.372,
+        "w": 0.34,
+        "h": 0.196
+      },
+      "rejected": "mass_noun",
+      "difficulty": "easy",
+      "why": "A vibrant splash of color against the muted surroundings.",
+      "lens": "similar:0",
+      "crop": "crops/c089-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Circular sign with stylized yellow and red lettering",
+      "box_2d": [
+        172,
+        787,
+        384,
+        906
+      ],
+      "box": {
+        "x": 0.787,
+        "y": 0.172,
+        "w": 0.119,
+        "h": 0.212
+      },
+      "difficulty": "medium",
+      "why": "A distinct, colorful sign advertising a beverage.",
+      "lens": "handmade",
+      "mcq": {
+        "options": [
+          "Colorful, abstract painted pillar near entrance gate",
+          "Circular sign with stylized yellow and red lettering",
+          "a red fire hydrant",
+          "Bright yellow umbrella covering outdoor seating area"
+        ],
+        "correct": "Circular sign with stylized yellow and red lettering",
+        "answer": "Circular sign with stylized yellow and red lettering",
+        "what_i_see": "A circular sign with stylized yellow and red lettering",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "Somebody made this by hand.",
+      "hint_semantic": "It advertises a refreshing, chilled beverage.",
+      "hint_concrete": "Circular metal sign, primarily yellow and black, mounted on a pole.",
+      "reveal": "The sign features a stylized image of ice and a bottle. (evidence: The lettering on the sign is highly stylized and painted.)",
+      "spatial": "Look toward the right of where you took the photo. Look up.",
+      "crop": "crops/c089-1-ctx.jpg"
+    },
+    {
+      "idx": 2,
+      "source": "full",
+      "label": "Colorful, abstract painted pillar near entrance gate",
+      "box_2d": [
+        564,
+        554,
+        861,
+        730
+      ],
+      "box": {
+        "x": 0.554,
+        "y": 0.564,
+        "w": 0.176,
+        "h": 0.297
+      },
+      "difficulty": "hard",
+      "why": "A small piece of vibrant, unique street art.",
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "Colorful, abstract painted pillar near entrance gate",
+          "Bright yellow umbrella covering outdoor seating area",
+          "Circular sign with stylized yellow and red lettering"
+        ],
+        "correct": "Colorful, abstract painted pillar near entrance gate",
+        "answer": "Colorful, abstract painted pillar near entrance gate",
+        "what_i_see": "Colorful, abstract painted pillar near entrance gate",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "crop": "crops/c089-2-ctx.jpg"
+    }
+  ],
+  "chosen": 1,
+  "waitMs": 48156
+}

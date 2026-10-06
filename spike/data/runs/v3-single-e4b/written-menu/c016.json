@@ -1,0 +1,12 @@
+{
+  "0": {
+    "lens": "look_up",
+    "evidence": "The arched structure is part of the building's upper facade.",
+    "hint_semantic": "It frames the upper part of the establishment.",
+    "hint_concrete": "White, semi-circular arches across the building's top.",
+    "detail": "The arches are illuminated by small, warm-toned lights.",
+    "clue": "You'd only see it if you looked up.",
+    "ms": 9231,
+    "outputTokens": 92
+  }
+}

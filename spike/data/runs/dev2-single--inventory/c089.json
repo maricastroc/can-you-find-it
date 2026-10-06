@@ -1,0 +1,227 @@
+{
+  "image": "c089",
+  "width": 2560,
+  "height": 1707,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "single",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 61936,
+      "promptTokens": 1897,
+      "outputTokens": 761,
+      "raw": "{\"seen\": [\"yellow canvas awning\", \"metal security gate\", \"painted ceramic tile\", \"tall concrete building facade\", \"red painted wall mural\", \"circular yellow sign\", \"wooden fence section\", \"metal utility pole\", \"green potted plants\", \"gray cobblestone path\"], \"targets\": [{\"label\": \"circular yellow sign with lettering\", \"box_2d\": [176, 791, 387, 905], \"lens\": \"hidden_in_plain_sight\", \"why\": \"The sign is a specific, distinct object, not just part of the wall art, and is positioned on a pole.\", \"difficulty\": \"medium\", \"clue\": \"It advertises a sweet treat you might crave.\", \"hint_semantic\": \"It relates to a sugary, chilled item.\", \"hint_concrete\": \"Circular, bright yellow with dark lettering.\", \"reveal\": \"It seems to be a local favorite spot for a cold treat.\"}, {\"label\": \"red painted wall mural with bird\", \"box_2d\": [379, 468, 619, 714], \"lens\": \"shape_or_color\", \"why\": \"The mural is complex, but the bird shape is a distinct feature within the larger artwork, not the whole wall.\", \"difficulty\": \"hard\", \"clue\": \"Its wings suggest a powerful flight or sudden stop.\", \"hint_semantic\": \"It depicts a creature of striking visual power.\", \"hint_concrete\": \"Large, detailed depiction in shades of red and black.\", \"reveal\": \"The artist poured a lot of energy into capturing this creature's form.\"}, {\"label\": \"bright yellow canvas awning structure\", \"box_2d\": [359, 98, 567, 438], \"lens\": \"human_trace\", \"why\": \"The awning is a distinct, functional object providing cover over the storefront.\", \"difficulty\": \"easy\", \"clue\": \"It offers shelter from the elements for those below.\", \"hint_semantic\": \"This structure helps keep the immediate area dry.\", \"hint_concrete\": \"A large, taut piece of yellow fabric supported by a frame.\", \"reveal\": \"It gives the small shop a very vibrant, welcoming appearance.\"}, {\"label\": \"metal security gate in front\", \"box_2d\": [577, 214, 845, 559], \"lens\": \"human_trace\", \"why\": \"The gate is a specific, functional barrier made of metal.\", \"difficulty\": \"easy\", \"clue\": \"It guards the entrance when the place is closed.\", \"hint_semantic\": \"It controls access to the area behind it.\", \"hint_concrete\": \"Made of bright yellow metal bars arranged in a grid.\", \"reveal\": \"It suggests the space is often protected when unattended.\"}, {\"label\": \"painted ceramic tile on wall\", \"box_2d\": [582, 563, 845, 728], \"lens\": \"out_of_place\", \"why\": \"The colorful, abstract tilework on the lower wall contrasts sharply with the surrounding graffiti.\", \"difficulty\": \"medium\", \"clue\": \"It features a pattern of bold, disconnected shapes.\", \"hint_semantic\": \"This decorative element seems to be a distinct artistic addition.\", \"hint_concrete\": \"Small, square or irregularly shaped pieces with varied, bright colors.\", \"reveal\": \"It adds a layer of unexpected, vibrant pattern to the rough surface.\"}]\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4418,
+      "promptTokens": 422,
+      "outputTokens": 24,
+      "raw": "{\n\"what_i_see\": \"circular yellow sign with lettering\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4664,
+      "promptTokens": 360,
+      "outputTokens": 32,
+      "raw": "{\n\"what_i_see\": \"A large, vibrant mural featuring a stylized bird on a red wall.\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3341,
+      "promptTokens": 254,
+      "outputTokens": 21,
+      "raw": "{\n\"what_i_see\": \"yellow awning\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3703,
+      "promptTokens": 296,
+      "outputTokens": 22,
+      "raw": "{\n\"what_i_see\": \"yellow metal gate\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5782,
+      "promptTokens": 485,
+      "outputTokens": 27,
+      "raw": "{\n\"what_i_see\": \"A colorful, abstractly painted concrete barrier.\",\n\"visible\": false\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "label": "circular yellow sign with lettering",
+      "box_2d": [
+        176,
+        791,
+        387,
+        905
+      ],
+      "lens": "hidden_in_plain_sight",
+      "why": "The sign is a specific, distinct object, not just part of the wall art, and is positioned on a pole.",
+      "difficulty": "medium",
+      "clue": "It advertises a sweet treat you might crave.",
+      "hint_semantic": "It relates to a sugary, chilled item.",
+      "hint_concrete": "Circular, bright yellow with dark lettering.",
+      "reveal": "It seems to be a local favorite spot for a cold treat.",
+      "source": "full",
+      "idx": 0,
+      "box": {
+        "x": 0.791,
+        "y": 0.176,
+        "w": 0.11399999999999999,
+        "h": 0.21100000000000002
+      },
+      "boxWarnings": [],
+      "crop": "crops/c089-0-ctx.jpg",
+      "verifyCrop": "crops/c089-0-verify.jpg",
+      "verify": {
+        "what_i_see": "circular yellow sign with lettering",
+        "visible": true,
+        "ms": 4418
+      }
+    },
+    {
+      "label": "red painted wall mural with bird",
+      "box_2d": [
+        379,
+        468,
+        619,
+        714
+      ],
+      "lens": "shape_or_color",
+      "why": "The mural is complex, but the bird shape is a distinct feature within the larger artwork, not the whole wall.",
+      "difficulty": "hard",
+      "clue": "Its wings suggest a powerful flight or sudden stop.",
+      "hint_semantic": "It depicts a creature of striking visual power.",
+      "hint_concrete": "Large, detailed depiction in shades of red and black.",
+      "reveal": "The artist poured a lot of energy into capturing this creature's form.",
+      "source": "full",
+      "idx": 1,
+      "box": {
+        "x": 0.468,
+        "y": 0.379,
+        "w": 0.24599999999999994,
+        "h": 0.24
+      },
+      "boxWarnings": [],
+      "crop": "crops/c089-1-ctx.jpg",
+      "verifyCrop": "crops/c089-1-verify.jpg",
+      "verify": {
+        "what_i_see": "A large, vibrant mural featuring a stylized bird on a red wall.",
+        "visible": true,
+        "ms": 4664
+      }
+    },
+    {
+      "label": "bright yellow canvas awning structure",
+      "box_2d": [
+        359,
+        98,
+        567,
+        438
+      ],
+      "lens": "human_trace",
+      "why": "The awning is a distinct, functional object providing cover over the storefront.",
+      "difficulty": "easy",
+      "clue": "It offers shelter from the elements for those below.",
+      "hint_semantic": "This structure helps keep the immediate area dry.",
+      "hint_concrete": "A large, taut piece of yellow fabric supported by a frame.",
+      "reveal": "It gives the small shop a very vibrant, welcoming appearance.",
+      "source": "full",
+      "idx": 2,
+      "box": {
+        "x": 0.098,
+        "y": 0.359,
+        "w": 0.33999999999999997,
+        "h": 0.20799999999999996
+      },
+      "boxWarnings": [],
+      "crop": "crops/c089-2-ctx.jpg",
+      "verifyCrop": "crops/c089-2-verify.jpg",
+      "verify": {
+        "what_i_see": "yellow awning",
+        "visible": true,
+        "ms": 3341
+      }
+    },
+    {
+      "label": "metal security gate in front",
+      "box_2d": [
+        577,
+        214,
+        845,
+        559
+      ],
+      "lens": "human_trace",
+      "why": "The gate is a specific, functional barrier made of metal.",
+      "difficulty": "easy",
+      "clue": "It guards the entrance when the place is closed.",
+      "hint_semantic": "It controls access to the area behind it.",
+      "hint_concrete": "Made of bright yellow metal bars arranged in a grid.",
+      "reveal": "It suggests the space is often protected when unattended.",
+      "source": "full",
+      "idx": 3,
+      "box": {
+        "x": 0.214,
+        "y": 0.577,
+        "w": 0.3450000000000001,
+        "h": 0.268
+      },
+      "boxWarnings": [],
+      "crop": "crops/c089-3-ctx.jpg",
+      "verifyCrop": "crops/c089-3-verify.jpg",
+      "verify": {
+        "what_i_see": "yellow metal gate",
+        "visible": true,
+        "ms": 3703
+      }
+    },
+    {
+      "label": "painted ceramic tile on wall",
+      "box_2d": [
+        582,
+        563,
+        845,
+        728
+      ],
+      "lens": "out_of_place",
+      "why": "The colorful, abstract tilework on the lower wall contrasts sharply with the surrounding graffiti.",
+      "difficulty": "medium",
+      "clue": "It features a pattern of bold, disconnected shapes.",
+      "hint_semantic": "This decorative element seems to be a distinct artistic addition.",
+      "hint_concrete": "Small, square or irregularly shaped pieces with varied, bright colors.",
+      "reveal": "It adds a layer of unexpected, vibrant pattern to the rough surface.",
+      "source": "full",
+      "idx": 4,
+      "box": {
+        "x": 0.563,
+        "y": 0.582,
+        "w": 0.16500000000000004,
+        "h": 0.263
+      },
+      "boxWarnings": [],
+      "crop": "crops/c089-4-ctx.jpg",
+      "verifyCrop": "crops/c089-4-verify.jpg",
+      "verify": {
+        "what_i_see": "A colorful, abstractly painted concrete barrier.",
+        "visible": false,
+        "ms": 5782
+      }
+    }
+  ],
+  "seen": [
+    "yellow canvas awning",
+    "metal security gate",
+    "painted ceramic tile",
+    "tall concrete building facade",
+    "red painted wall mural",
+    "circular yellow sign",
+    "wooden fence section",
+    "metal utility pole",
+    "green potted plants",
+    "gray cobblestone path"
+  ]
+}

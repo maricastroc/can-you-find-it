@@ -1,0 +1,316 @@
+{
+  "image": "c054",
+  "width": 1440,
+  "height": 2560,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "single",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 77442,
+      "promptTokens": 1741,
+      "outputTokens": 917,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Small moss-covered patch on a fallen log\",\n      \"box_2d\": [\n        647,\n        290,\n        710,\n        370\n      ],\n      \"lens\": \"nature_reclaiming\",\n      \"why\": \"Moss is growing on the decaying wood, showing nature taking over.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"Life clings to the fallen timber, softening its rough edges.\",\n      \"hint_semantic\": \"It is a small patch of green growth on the ground structure.\",\n      \"hint_concrete\": \"Small, vibrant green growth on dark, decaying wood.\",\n      \"reveal\": \"Even in the deepest woods, life finds a way to persist.\"\n    },\n    {\n      \"label\": \"Dark brown exposed tree root structure in path\",\n      \"box_2d\": [\n        483,\n        10,\n        883,\n        990\n      ],\n      \"lens\": \"shape_or_color\",\n      \"why\": \"The network of roots creates a distinct, complex, dark brown pattern across the path.\",\n      \"difficulty\": \"easy\",\n      \"clue\": \"The ground itself has woven a complex, sprawling pattern.\",\n      \"hint_semantic\": \"It is the visible network of the forest floor's anchors.\",\n      \"hint_concrete\": \"Thick, winding, dark brown, woody structures covering the path.\",\n      \"reveal\": \"These hidden foundations support the entire canopy above.\"\n    },\n    {\n      \"label\": \"Small, bright green low-growing shrubbery near path edge\",\n      \"box_2d\": [\n        377,\n        420,\n        437,\n        540\n      ],\n      \"lens\": \"shape_or_color\",\n      \"why\": \"This cluster of small bushes has a noticeably bright, fresh green color compared to surrounding moss.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"A vibrant patch of growth thrives where the path meets the slope.\",\n      \"hint_semantic\": \"This is a dense, low-growing cluster of leafy plants.\",\n      \"hint_concrete\": \"A compact mass of bright, light-green, leafy foliage.\",\n      \"reveal\": \"New growth always finds its way into the shaded understory.\"\n    },\n    {\n      \"label\": \"Distant small, bright green conifer cluster in midground\",\n      \"box_2d\": [\n        360,\n        510,\n        440,\n        760\n      ],\n      \"lens\": \"out_of_place\",\n      \"why\": \"This cluster of trees has a slightly different, bushier profile than the tall, straight pines surrounding it.\",\n      \"difficulty\": \"hard\",\n      \"clue\": \"A dense clump stands apart from the straight, towering giants nearby.\",\n      \"hint_semantic\": \"It is a patch of shorter, denser evergreen trees.\",\n      \"hint_concrete\": \"A rounded, dark green mass of shorter, bushy trees.\",\n      \"reveal\": \"Different species thrive in different pockets of the forest.\"\n    },\n    {\n      \"label\": \"Fallen, lighter colored log partially covered in debris\",\n      \"box_2d\": [\n        736,\n        14,\n        836,\n        350\n      ],\n      \"lens\": \"human_trace\",\n      \"why\": \"This log appears to have been recently pushed or is distinct from the main root mass, suggesting some disturbance.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"This piece of wood settled here, perhaps moved by passing footsteps.\",\n      \"hint_semantic\": \"It is a long, horizontal piece of dead wood on the ground.\",\n      \"hint_concrete\": \"A long, pale brown, horizontal piece of decaying timber.\",\n      \"reveal\": \"Even the forest floor shows signs of recent passage.\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4950,
+      "promptTokens": 384,
+      "outputTokens": 24,
+      "raw": "{\n\"what_i_see\": \"Fallen logs/roots\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5699,
+      "promptTokens": 430,
+      "outputTokens": 36,
+      "raw": "{\n\"what_i_see\": \"The center of the image is dominated by dark, exposed tree roots and soil.\",\n\"answer\": \"A\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 6053,
+      "promptTokens": 509,
+      "outputTokens": 23,
+      "raw": "{\n\"what_i_see\": \"Exposed tree roots\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 7194,
+      "promptTokens": 545,
+      "outputTokens": 39,
+      "raw": "{\n\"what_i_see\": \"The center of the image is dominated by a dense network of exposed tree roots covering the path.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5460,
+      "promptTokens": 471,
+      "outputTokens": 22,
+      "raw": "{\n\"what_i_see\": \"Dense evergreen foliage\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6339,
+      "promptTokens": 514,
+      "outputTokens": 35,
+      "raw": "{\n\"what_i_see\": \"The center of the image is dominated by dense, dark green coniferous foliage.\",\n\"answer\": \"A\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4237,
+      "promptTokens": 324,
+      "outputTokens": 22,
+      "raw": "{\n\"what_i_see\": \"Dense evergreen forest\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4556,
+      "promptTokens": 364,
+      "outputTokens": 24,
+      "raw": "{\n\"what_i_see\": \"Dense evergreen foliage\",\n\"answer\": \"none\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4104,
+      "promptTokens": 301,
+      "outputTokens": 27,
+      "raw": "{\n\"what_i_see\": \"Thick, gnarled tree roots\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4798,
+      "promptTokens": 343,
+      "outputTokens": 36,
+      "raw": "{\n\"what_i_see\": \"The center of the image is dominated by thick, dark, exposed tree roots.\",\n\"answer\": \"C\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "label": "Small moss-covered patch on a fallen log",
+      "box_2d": [
+        647,
+        290,
+        710,
+        370
+      ],
+      "lens": "nature_reclaiming",
+      "why": "Moss is growing on the decaying wood, showing nature taking over.",
+      "difficulty": "medium",
+      "clue": "Life clings to the fallen timber, softening its rough edges.",
+      "hint_semantic": "It is a small patch of green growth on the ground structure.",
+      "hint_concrete": "Small, vibrant green growth on dark, decaying wood.",
+      "reveal": "Even in the deepest woods, life finds a way to persist.",
+      "source": "full",
+      "idx": 0,
+      "box": {
+        "x": 0.29,
+        "y": 0.647,
+        "w": 0.08000000000000002,
+        "h": 0.06299999999999994
+      },
+      "boxWarnings": [],
+      "crop": "crops/c054-0-ctx.jpg",
+      "verifyCrop": "crops/c054-0-verify.jpg",
+      "verify": {
+        "what_i_see": "Fallen logs/roots",
+        "visible": false,
+        "ms": 4950
+      },
+      "mcq": {
+        "options": [
+          "Dark brown exposed tree root structure in path",
+          "Small, bright green low-growing shrubbery near path edge",
+          "Distant small, bright green conifer cluster in midground",
+          "Small moss-covered patch on a fallen log"
+        ],
+        "correct": "D",
+        "answer": "A",
+        "what_i_see": "The center of the image is dominated by dark, exposed tree roots and soil.",
+        "pass": false,
+        "ms": 5699
+      }
+    },
+    {
+      "label": "Dark brown exposed tree root structure in path",
+      "box_2d": [
+        483,
+        10,
+        883,
+        990
+      ],
+      "lens": "shape_or_color",
+      "why": "The network of roots creates a distinct, complex, dark brown pattern across the path.",
+      "difficulty": "easy",
+      "clue": "The ground itself has woven a complex, sprawling pattern.",
+      "hint_semantic": "It is the visible network of the forest floor's anchors.",
+      "hint_concrete": "Thick, winding, dark brown, woody structures covering the path.",
+      "reveal": "These hidden foundations support the entire canopy above.",
+      "source": "full",
+      "idx": 1,
+      "box": {
+        "x": 0.01,
+        "y": 0.483,
+        "w": 0.98,
+        "h": 0.4
+      },
+      "boxWarnings": [],
+      "crop": "crops/c054-1-ctx.jpg",
+      "verifyCrop": "crops/c054-1-verify.jpg",
+      "rejected": "too_large",
+      "verify": {
+        "what_i_see": "Exposed tree roots",
+        "visible": true,
+        "ms": 6053
+      },
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "Dark brown exposed tree root structure in path",
+          "a bicycle leaning on a post",
+          "Distant small, bright green conifer cluster in midground"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "The center of the image is dominated by a dense network of exposed tree roots covering the path.",
+        "pass": true,
+        "ms": 7194
+      }
+    },
+    {
+      "label": "Small, bright green low-growing shrubbery near path edge",
+      "box_2d": [
+        377,
+        420,
+        437,
+        540
+      ],
+      "lens": "shape_or_color",
+      "why": "This cluster of small bushes has a noticeably bright, fresh green color compared to surrounding moss.",
+      "difficulty": "medium",
+      "clue": "A vibrant patch of growth thrives where the path meets the slope.",
+      "hint_semantic": "This is a dense, low-growing cluster of leafy plants.",
+      "hint_concrete": "A compact mass of bright, light-green, leafy foliage.",
+      "reveal": "New growth always finds its way into the shaded understory.",
+      "source": "full",
+      "idx": 2,
+      "box": {
+        "x": 0.42,
+        "y": 0.377,
+        "w": 0.12000000000000005,
+        "h": 0.06
+      },
+      "boxWarnings": [],
+      "crop": "crops/c054-2-ctx.jpg",
+      "verifyCrop": "crops/c054-2-verify.jpg",
+      "verify": {
+        "what_i_see": "Dense evergreen foliage",
+        "visible": false,
+        "ms": 5460
+      },
+      "mcq": {
+        "options": [
+          "Distant small, bright green conifer cluster in midground",
+          "Small, bright green low-growing shrubbery near path edge",
+          "Small moss-covered patch on a fallen log",
+          "Dark brown exposed tree root structure in path"
+        ],
+        "correct": "B",
+        "answer": "A",
+        "what_i_see": "The center of the image is dominated by dense, dark green coniferous foliage.",
+        "pass": false,
+        "ms": 6339
+      }
+    },
+    {
+      "label": "Distant small, bright green conifer cluster in midground",
+      "box_2d": [
+        360,
+        510,
+        440,
+        760
+      ],
+      "lens": "out_of_place",
+      "why": "This cluster of trees has a slightly different, bushier profile than the tall, straight pines surrounding it.",
+      "difficulty": "hard",
+      "clue": "A dense clump stands apart from the straight, towering giants nearby.",
+      "hint_semantic": "It is a patch of shorter, denser evergreen trees.",
+      "hint_concrete": "A rounded, dark green mass of shorter, bushy trees.",
+      "reveal": "Different species thrive in different pockets of the forest.",
+      "source": "full",
+      "idx": 3,
+      "box": {
+        "x": 0.51,
+        "y": 0.36,
+        "w": 0.25,
+        "h": 0.08000000000000002
+      },
+      "boxWarnings": [],
+      "crop": "crops/c054-3-ctx.jpg",
+      "verifyCrop": "crops/c054-3-verify.jpg",
+      "verify": {
+        "what_i_see": "Dense evergreen forest",
+        "visible": false,
+        "ms": 4237
+      },
+      "mcq": {
+        "options": [
+          "Dark brown exposed tree root structure in path",
+          "Distant small, bright green conifer cluster in midground",
+          "Small moss-covered patch on a fallen log",
+          "Fallen, lighter colored log partially covered in debris"
+        ],
+        "correct": "B",
+        "answer": "none",
+        "what_i_see": "Dense evergreen foliage",
+        "pass": false,
+        "ms": 4556
+      }
+    },
+    {
+      "label": "Fallen, lighter colored log partially covered in debris",
+      "box_2d": [
+        736,
+        14,
+        836,
+        350
+      ],
+      "lens": "human_trace",
+      "why": "This log appears to have been recently pushed or is distinct from the main root mass, suggesting some disturbance.",
+      "difficulty": "medium",
+      "clue": "This piece of wood settled here, perhaps moved by passing footsteps.",
+      "hint_semantic": "It is a long, horizontal piece of dead wood on the ground.",
+      "hint_concrete": "A long, pale brown, horizontal piece of decaying timber.",
+      "reveal": "Even the forest floor shows signs of recent passage.",
+      "source": "full",
+      "idx": 4,
+      "box": {
+        "x": 0.014,
+        "y": 0.736,
+        "w": 0.33599999999999997,
+        "h": 0.09999999999999998
+      },
+      "boxWarnings": [],
+      "crop": "crops/c054-4-ctx.jpg",
+      "verifyCrop": "crops/c054-4-verify.jpg",
+      "verify": {
+        "what_i_see": "Thick, gnarled tree roots",
+        "visible": false,
+        "ms": 4104
+      },
+      "mcq": {
+        "options": [
+          "Small moss-covered patch on a fallen log",
+          "Small, bright green low-growing shrubbery near path edge",
+          "Dark brown exposed tree root structure in path",
+          "Fallen, lighter colored log partially covered in debris"
+        ],
+        "correct": "D",
+        "answer": "C",
+        "what_i_see": "The center of the image is dominated by thick, dark, exposed tree roots.",
+        "pass": false,
+        "ms": 4798
+      }
+    }
+  ]
+}

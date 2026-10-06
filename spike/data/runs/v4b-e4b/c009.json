@@ -1,0 +1,155 @@
+{
+  "image": "c009",
+  "width": 2560,
+  "height": 1660,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 31163,
+      "promptTokens": 1527,
+      "outputTokens": 281,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Blue parking sign with white 'P' symbol\",\n      \"box_2d\": [\n        498,\n        736,\n        570,\n        761\n      ],\n      \"special\": \"A clear, recognizable sign in the busy square.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"easy\"\n    },\n    {\n      \"label\": \"Yellow umbrella next to building entrance\",\n      \"box_2d\": [\n        491,\n        849,\n        652,\n        876\n      ],\n      \"special\": \"A brightly colored, distinct object near the fountain.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    },\n    {\n      \"label\": \"Ornate black street lamp attached to pole\",\n      \"box_2d\": [\n        385,\n        24,\n        527,\n        50\n      ],\n      \"special\": \"A classic, detailed lighting fixture on the left side.\",\n      \"similar_count\": 1,\n      \"difficulty\": \"medium\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 7402,
+      "promptTokens": 470,
+      "outputTokens": 58,
+      "raw": "{\n\"what_i_see\": \"A blue parking sign with a white 'P' symbol is clearly visible near the center-left of the image.\",\n\"answer\": \"Blue parking sign with white 'P' symbol\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5702,
+      "promptTokens": 281,
+      "outputTokens": 44,
+      "raw": "{\n\"what_i_see\": \"A bright yellow umbrella is near the center of the image.\",\n\"answer\": \"Yellow umbrella next to building entrance\",\n\"people_visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5280,
+      "promptTokens": 302,
+      "outputTokens": 43,
+      "raw": "{\n\"what_i_see\": \"Ornate black street lamp attached to pole\",\n\"answer\": \"Ornate black street lamp attached to pole\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 14603,
+      "promptTokens": 1371,
+      "outputTokens": 91,
+      "raw": "{\n  \"lens\": \"without_words\",\n  \"evidence\": \"The blue sign features a white 'P' symbol.\",\n  \"hint_semantic\": \"It communicates a specific permission or restriction to drivers.\",\n  \"hint_concrete\": \"A rectangular, bright blue sign with a large white letter.\",\n  \"detail\": \"The word 'REZERVOTA' is visible beneath the symbol.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Blue parking sign with white 'P' symbol",
+      "box_2d": [
+        498,
+        736,
+        570,
+        761
+      ],
+      "box": {
+        "x": 0.736,
+        "y": 0.498,
+        "w": 0.025,
+        "h": 0.072
+      },
+      "difficulty": "easy",
+      "crop": "../v4-e4b/crops/c009-0-ctx.jpg",
+      "mcq": {
+        "options": [
+          "Yellow umbrella next to building entrance",
+          "Ornate black street lamp attached to pole",
+          "a red fire hydrant",
+          "Blue parking sign with white 'P' symbol"
+        ],
+        "correct": "Blue parking sign with white 'P' symbol",
+        "answer": "Blue parking sign with white 'P' symbol",
+        "what_i_see": "A blue parking sign with a white 'P' symbol is clearly visible near the center-left of the image.",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "It tells everyone what to do without a single word.",
+      "lens": "without_words",
+      "hint_semantic": "It communicates a specific permission or restriction to drivers.",
+      "hint_concrete": "A rectangular blue sign with a white letter P.",
+      "reveal": "The word 'REZERVOTA' is visible beneath the symbol. (evidence: The blue sign features a white 'P' symbol.)",
+      "spatial": "Look toward the right of where you took the photo."
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Yellow umbrella next to building entrance",
+      "box_2d": [
+        491,
+        849,
+        652,
+        876
+      ],
+      "box": {
+        "x": 0.849,
+        "y": 0.491,
+        "w": 0.027,
+        "h": 0.161
+      },
+      "difficulty": "medium",
+      "crop": "../v4-e4b/crops/c009-1-ctx.jpg",
+      "mcq": {
+        "options": [
+          "Ornate black street lamp attached to pole",
+          "Yellow umbrella next to building entrance",
+          "a red fire hydrant",
+          "Blue parking sign with white 'P' symbol"
+        ],
+        "correct": "Yellow umbrella next to building entrance",
+        "answer": "Yellow umbrella next to building entrance",
+        "what_i_see": "A bright yellow umbrella is near the center of the image.",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      }
+    },
+    {
+      "idx": 2,
+      "source": "full",
+      "label": "Ornate black street lamp attached to pole",
+      "box_2d": [
+        385,
+        24,
+        527,
+        50
+      ],
+      "box": {
+        "x": 0.024,
+        "y": 0.385,
+        "w": 0.026,
+        "h": 0.142
+      },
+      "difficulty": "medium",
+      "crop": "../v4-e4b/crops/c009-2-ctx.jpg",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "Ornate black street lamp attached to pole",
+          "Blue parking sign with white 'P' symbol",
+          "Yellow umbrella next to building entrance"
+        ],
+        "correct": "Ornate black street lamp attached to pole",
+        "answer": "Ornate black street lamp attached to pole",
+        "what_i_see": "Ornate black street lamp attached to pole",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      }
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 44178
+}

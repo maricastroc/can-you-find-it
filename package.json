@@ -6,21 +6,41 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "next typegen && tsc --noEmit && tsc --noEmit -p spike",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "doctor": "node scripts/doctor.mjs",
+    "field": "next build && next start -H 0.0.0.0 -p 3000",
+    "field:https": "node scripts/https-proxy.mjs",
+    "certs": "bash scripts/certs.sh",
+    "fixtures": "tsx scripts/record-fixtures.mts"
   },
   "dependencies": {
     "next": "16.3.8",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "server-only": "^0.0.1",
+    "sharp": "^0.35.5",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.7",
     "@types/node": "^20",
+    "@types/qrcode-terminal": "^0.12.2",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "axe-core": "^4.14.0",
     "eslint": "^9",
     "eslint-config-next": "16.3.8",
+    "jsdom": "^30.1.2",
+    "qrcode-terminal": "^0.12.0",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "tsx": "^4.23.15",
+    "typescript": "^5",
+    "vitest": "^3.2.7"
   }
 }

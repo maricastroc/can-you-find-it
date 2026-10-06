@@ -1,0 +1,157 @@
+{
+  "image": "c028",
+  "width": 2560,
+  "height": 1920,
+  "model": "gemma4:12b",
+  "verifier": "gemma4:12b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 45518,
+      "promptTokens": 1540,
+      "outputTokens": 169,
+      "raw": "{\"targets\": [{\"label\": \"small green rectangular sign with white numbers 692\", \"box_2d\": [521, 69, 656, 109], \"similar_count\": 0, \"difficulty\": \"easy\"}, {\"label\": \"small white rectangular sign with black numbers 760\", \"box_2d\": [514, 759, 547, 782], \"similar_count\": 0, \"difficulty\": \"hard\"}, {\"label\": \"small dark brown sign with white letters PRIVATE\", \"box_2d\": [546, 804, 607, 872], \"similar_count\": 0, \"difficulty\": \"easy\"}]}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 12759,
+      "promptTokens": 335,
+      "outputTokens": 47,
+      "raw": "{\"what_i_see\": \"a small green rectangular sign with white numbers 692\", \"answer\": \"small green rectangular sign with white numbers 692\", \"person_at_target\": false}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 15730,
+      "promptTokens": 587,
+      "outputTokens": 47,
+      "raw": "{\"what_i_see\": \"a small white rectangular sign with black numbers 760\", \"answer\": \"small white rectangular sign with black numbers 760\", \"person_at_target\": false}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 12250,
+      "promptTokens": 440,
+      "outputTokens": 28,
+      "raw": "{\"what_i_see\": \"large green leaves\", \"answer\": \"none\", \"person_at_target\": false}"
+    },
+    {
+      "kind": "write",
+      "ms": 23657,
+      "promptTokens": 1241,
+      "outputTokens": 92,
+      "raw": "{\n  \"lens\": \"where_you_are\",\n  \"evidence\": \"The sign displays the number 692 in a clear font.\",\n  \"hint_semantic\": \"It identifies the specific location of this property.\",\n  \"hint_concrete\": \"A small green rectangular plate mounted on a wooden post.\",\n  \"detail\": \"The numbers are painted in a serif style with thin lines.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "small green rectangular sign with white numbers 692",
+      "box_2d": [
+        521,
+        69,
+        656,
+        109
+      ],
+      "box": {
+        "x": 0.069,
+        "y": 0.521,
+        "w": 0.04,
+        "h": 0.135
+      },
+      "difficulty": "easy",
+      "lens": "plain_sight",
+      "mcq": {
+        "options": [
+          "small white rectangular sign with black numbers 760",
+          "small dark brown sign with white letters PRIVATE",
+          "a red fire hydrant",
+          "small green rectangular sign with white numbers 692"
+        ],
+        "correct": "small green rectangular sign with white numbers 692",
+        "answer": "small green rectangular sign with white numbers 692",
+        "what_i_see": "a small green rectangular sign with white numbers 692",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "I found something hiding in plain sight.",
+      "hint_semantic": "It identifies the specific location of this property.",
+      "hint_concrete": "A small green rectangular plate mounted on a wooden post.",
+      "reveal": "The numbers are painted in a serif style with thin lines. (evidence: The sign displays the number 692 in a clear font.)",
+      "spatial": "Look toward the left of where you took the photo.",
+      "crop": "crops/c028-0-ctx.jpg"
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "small white rectangular sign with black numbers 760",
+      "box_2d": [
+        514,
+        759,
+        547,
+        782
+      ],
+      "box": {
+        "x": 0.759,
+        "y": 0.514,
+        "w": 0.023,
+        "h": 0.033
+      },
+      "difficulty": "hard",
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "small dark brown sign with white letters PRIVATE",
+          "small white rectangular sign with black numbers 760",
+          "a red fire hydrant",
+          "small green rectangular sign with white numbers 692"
+        ],
+        "correct": "small white rectangular sign with black numbers 760",
+        "answer": "small white rectangular sign with black numbers 760",
+        "what_i_see": "a small white rectangular sign with black numbers 760",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "crop": "crops/c028-1-ctx.jpg"
+    },
+    {
+      "idx": 2,
+      "source": "full",
+      "label": "small dark brown sign with white letters PRIVATE",
+      "box_2d": [
+        546,
+        804,
+        607,
+        872
+      ],
+      "box": {
+        "x": 0.804,
+        "y": 0.546,
+        "w": 0.068,
+        "h": 0.061
+      },
+      "difficulty": "easy",
+      "lens": "similar:0",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "small dark brown sign with white letters PRIVATE",
+          "small green rectangular sign with white numbers 692",
+          "small white rectangular sign with black numbers 760"
+        ],
+        "correct": "small dark brown sign with white letters PRIVATE",
+        "answer": "none",
+        "what_i_see": "large green leaves",
+        "people": false,
+        "pass": false,
+        "ms": 0
+      },
+      "crop": "crops/c028-2-ctx.jpg"
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 81934
+}

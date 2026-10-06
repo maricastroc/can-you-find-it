@@ -1,0 +1,22 @@
+{
+  "0": {
+    "lens": "waiting",
+    "evidence": "The object is a park bench, designed for rest.",
+    "hint_semantic": "It is a place where people pause their journey to rest.",
+    "hint_concrete": "Black metal frame with wooden slats, curved arms.",
+    "detail": "The wooden slats show a visible grain pattern.",
+    "clue": "It spends its days waiting for someone.",
+    "ms": 14805,
+    "outputTokens": 85
+  },
+  "1": {
+    "lens": "waiting",
+    "evidence": "The lamp stands still, waiting for the darkness to come.",
+    "hint_semantic": "It provides light when the day is done.",
+    "hint_concrete": "Tall, black, ornate metal post with a glass lantern.",
+    "detail": "The glass enclosure has decorative molding around the bulb.",
+    "clue": "It spends its days waiting for someone.",
+    "ms": 13837,
+    "outputTokens": 86
+  }
+}

@@ -1,0 +1,1966 @@
+{
+ "v3-single-e4b/c000#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "nearest bench; obvious in a park",
+  "safe": true
+ },
+ "v3-single-e4b/c000#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "clue copied verbatim from prompt example",
+  "safe": true
+ },
+ "v3-single-e4b/c000#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "second identical bench",
+  "safe": true
+ },
+ "v3-single-e4b/c000#3": {
+  "clue": 0,
+  "contains": "no",
+  "exists": false,
+  "findable": false,
+  "interesting": 0,
+  "note": "hallucinated drain",
+  "safe": true
+ },
+ "v3-single-e4b/c000#4": {
+  "clue": 0,
+  "contains": "no",
+  "exists": false,
+  "findable": false,
+  "interesting": 0,
+  "note": "hallucinated bollard",
+  "safe": true
+ },
+ "v3-single-e4b/c002#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "one of three similar memorial stones",
+  "safe": true
+ },
+ "v3-single-e4b/c002#1": {
+  "clue": 0,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "clue depends on another target",
+  "safe": true
+ },
+ "v3-single-e4b/c002#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "safe": true
+ },
+ "v3-single-e4b/c002#3": {
+  "clue": 0,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "clue gives away (provide light)",
+  "safe": true
+ },
+ "v3-single-e4b/c002#4": {
+  "clue": 0,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "clue gives away + flowery",
+  "safe": true
+ },
+ "v3-single-e4b/c009#0": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": true,
+  "interesting": 1,
+  "note": "box offset right of the P sign",
+  "safe": true
+ },
+ "v3-single-e4b/c009#1": {
+  "clue": 0,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "one of many identical windows",
+  "safe": true
+ },
+ "v3-single-e4b/c009#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "closed yellow umbrella",
+  "safe": true
+ },
+ "v3-single-e4b/c009#3": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": true,
+  "interesting": 1,
+  "note": "box on lettering above arch",
+  "safe": true
+ },
+ "v3-single-e4b/c009#4": {
+  "clue": 0,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "one of many identical windows",
+  "safe": true
+ },
+ "v3-single-e4b/c012#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "main landmark of the square (obvious)",
+  "safe": true
+ },
+ "v3-single-e4b/c012#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "clock tower; wrongly filtered as mass noun",
+  "safe": true
+ },
+ "v3-single-e4b/c012#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "safe": true
+ },
+ "v3-single-e4b/c012#3": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "parked bicycle can leave",
+  "safe": true
+ },
+ "v3-single-e4b/c012#4": {
+  "clue": 0,
+  "contains": "partial",
+  "findable": true,
+  "interesting": 0,
+  "note": "box on newspaper sign next to bin",
+  "safe": true
+ },
+ "v3-single-e4b/c016#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "arched roofline with Le Cafe sign",
+  "safe": true
+ },
+ "v3-single-e4b/c016#1": {
+  "clue": 0,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "one of many identical street lamps; clue gives away",
+  "safe": true
+ },
+ "v3-single-e4b/c016#2": {
+  "clue": 0,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "far and non-unique pole",
+  "safe": true
+ },
+ "v3-single-e4b/c016#3": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": false,
+  "interesting": 0,
+  "note": "bush with blurred people",
+  "safe": false
+ },
+ "v3-single-e4b/c016#4": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "PERSON sitting on the bench - passed MCQ",
+  "safe": false
+ },
+ "v3-single-e4b/c024#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "one of several poles",
+  "safe": true
+ },
+ "v3-single-e4b/c024#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "lattice fence",
+  "safe": true
+ },
+ "v3-single-e4b/c024#2": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": true,
+  "interesting": 1,
+  "note": "small light vent/plaque low on wall (label says dark sign)",
+  "safe": true
+ },
+ "v3-single-e4b/c024#3": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "tree (filtered)",
+  "safe": true
+ },
+ "v3-single-e4b/c024#4": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "safe": true
+ },
+ "v3-single-e4b/c026#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "yellow marker on a pole by the curb",
+  "safe": true
+ },
+ "v3-single-e4b/c026#1": {
+  "clue": 1,
+  "contains": "no",
+  "exists": true,
+  "findable": false,
+  "interesting": 0,
+  "note": "box on branches above the street-name sign",
+  "safe": true
+ },
+ "v3-single-e4b/c026#2": {
+  "clue": 0,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "whole facade (filtered)",
+  "safe": true
+ },
+ "v3-single-e4b/c026#3": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "distant high-rise (filtered)",
+  "safe": true
+ },
+ "v3-single-e4b/c026#4": {
+  "clue": 0,
+  "contains": "no",
+  "exists": false,
+  "findable": false,
+  "interesting": 0,
+  "note": "hallucinated barrier",
+  "safe": true
+ },
+ "v3-single-e4b/c028#0": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "692 sign; MCQ confused it with candidate #4 (also a number plaque)",
+  "safe": true
+ },
+ "v3-single-e4b/c028#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "gate pillar visible from the road",
+  "safe": true
+ },
+ "v3-single-e4b/c028#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "PRIVATE sign - findable without entering",
+  "safe": true
+ },
+ "v3-single-e4b/c028#3": {
+  "clue": 0,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 2,
+  "note": "SEWER manhole; clue describes it directly",
+  "safe": true
+ },
+ "v3-single-e4b/c028#4": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": true,
+  "interesting": 1,
+  "note": "box just right of the 700 plaque on the tree",
+  "safe": true
+ },
+ "v3-single-e4b/c030#0": {
+  "clue": 2,
+  "contains": "partial",
+  "findable": true,
+  "interesting": 2,
+  "note": "plant label hidden in ferns; box offset right",
+  "safe": true
+ },
+ "v3-single-e4b/c030#1": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "moss at the base of the big tree",
+  "safe": true
+ },
+ "v3-single-e4b/c030#2": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": false,
+  "interesting": 1,
+  "note": "yellow flowers right of box; many alike",
+  "safe": true
+ },
+ "v3-single-e4b/c030#3": {
+  "clue": 0,
+  "contains": "no",
+  "exists": false,
+  "findable": false,
+  "interesting": 0,
+  "note": "no stone visible; MCQ false positive",
+  "safe": true
+ },
+ "v3-single-e4b/c030#4": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "ferns everywhere (mass)",
+  "safe": true
+ },
+ "v3-single-e4b/c041#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "one of 3+ similar benches",
+  "safe": true
+ },
+ "v3-single-e4b/c041#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "bright yellow gate",
+  "safe": true
+ },
+ "v3-single-e4b/c041#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "swing frame - obvious",
+  "safe": true
+ },
+ "v3-single-e4b/c041#3": {
+  "clue": 0,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "playhouse+slide obvious; clue gives away slide",
+  "safe": true
+ },
+ "v3-single-e4b/c041#4": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "one of 3+ benches",
+  "safe": true
+ },
+ "v3-single-e4b/c045#0": {
+  "clue": 0,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "one of 3 light poles; clue gives away",
+  "safe": true
+ },
+ "v3-single-e4b/c045#1": {
+  "clue": 0,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "main play structure - obvious",
+  "safe": true
+ },
+ "v3-single-e4b/c045#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "another light pole",
+  "safe": true
+ },
+ "v3-single-e4b/c045#3": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "parked car far away",
+  "safe": false
+ },
+ "v3-single-e4b/c045#4": {
+  "clue": 1,
+  "contains": "no",
+  "findable": false,
+  "interesting": 0,
+  "note": "box on play structure post",
+  "safe": true
+ },
+ "v3-single-e4b/c048#0": {
+  "clue": 0,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "railing with hanging chain; clue misleading",
+  "safe": true
+ },
+ "v3-single-e4b/c048#1": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": false,
+  "interesting": 0,
+  "note": "concrete block by trees, not a riverbank wall",
+  "safe": true
+ },
+ "v3-single-e4b/c048#2": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": false,
+  "interesting": 0,
+  "note": "far bridge across water",
+  "safe": true
+ },
+ "v3-single-e4b/c048#3": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 1,
+  "note": "turreted building across the river",
+  "safe": true
+ },
+ "v3-single-e4b/c048#4": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": false,
+  "interesting": 0,
+  "note": "bridge tower across the river",
+  "safe": true
+ },
+ "v3-single-e4b/c054#0": {
+  "clue": 1,
+  "contains": "no",
+  "exists": false,
+  "findable": false,
+  "interesting": 0,
+  "note": "no log or moss in box",
+  "safe": true
+ },
+ "v3-single-e4b/c054#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "roots cover the whole trail (area)",
+  "safe": true
+ },
+ "v3-single-e4b/c054#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "shrubbery mass",
+  "safe": true
+ },
+ "v3-single-e4b/c054#3": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "conifer mass",
+  "safe": true
+ },
+ "v3-single-e4b/c054#4": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": false,
+  "interesting": 0,
+  "note": "a lighter root, not a log",
+  "safe": true
+ },
+ "v3-single-e4b/c068#0": {
+  "clue": 0,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "multi-lantern lamppost; clue echoes prompt example",
+  "safe": true
+ },
+ "v3-single-e4b/c068#1": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": false,
+  "interesting": 0,
+  "note": "stone bollard behind someone's luggage next to a person",
+  "safe": false
+ },
+ "v3-single-e4b/c068#2": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "green bin; person standing next to it",
+  "safe": true
+ },
+ "v3-single-e4b/c068#3": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "one of many market umbrellas",
+  "safe": true
+ },
+ "v3-single-e4b/c068#4": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "facade (filtered)",
+  "safe": true
+ },
+ "v3-single-e4b/c073#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "big rock at the pond edge",
+  "safe": true
+ },
+ "v3-single-e4b/c073#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "purple loosestrife bush",
+  "safe": true
+ },
+ "v3-single-e4b/c073#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "reeds on the far bank (mass, far)",
+  "safe": true
+ },
+ "v3-single-e4b/c073#3": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "duck - animals move away",
+  "safe": false
+ },
+ "v3-single-e4b/c073#4": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "duck",
+  "safe": false
+ },
+ "v3-single-e4b/c080#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "ornate iron bench among vegetable plots",
+  "safe": true
+ },
+ "v3-single-e4b/c080#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "white pipe frame over a bed",
+  "safe": true
+ },
+ "v3-single-e4b/c080#2": {
+  "clue": 0,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "the shed - big and obvious",
+  "safe": true
+ },
+ "v3-single-e4b/c080#3": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": false,
+  "interesting": 0,
+  "note": "watering can/extinguisher near barrels",
+  "safe": true
+ },
+ "v3-single-e4b/c080#4": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "bed borders (area)",
+  "safe": true
+ },
+ "v3-single-e4b/c089#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "Cerveja no Ceu Gelada round sign; clue reveals 'on a pole'",
+  "safe": true
+ },
+ "v3-single-e4b/c089#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "yellow gate",
+  "safe": true
+ },
+ "v3-single-e4b/c089#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "tall painted pillar",
+  "safe": true
+ },
+ "v3-single-e4b/c089#3": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": true,
+  "interesting": 1,
+  "note": "blue mushroom/bird pillar, not a fish",
+  "safe": true
+ },
+ "v3-single-e4b/c089#4": {
+  "clue": 0,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "window under the painted eye; generic clue",
+  "safe": true
+ },
+ "v3-single-e4b/c098#0": {
+  "clue": 0,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "one of several identical cottage windows",
+  "safe": true
+ },
+ "v3-single-e4b/c098#1": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "half-barrel planter by a door; nice human-trace clue",
+  "safe": true
+ },
+ "v3-single-e4b/c098#2": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": true,
+  "interesting": 1,
+  "note": "5-bar gate at the end of the lane; car plate in crop",
+  "safe": true
+ },
+ "v3-single-e4b/c098#3": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "front door of a private home",
+  "safe": false
+ },
+ "v3-single-e4b/c098#4": {
+  "clue": 0,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "another cottage window",
+  "safe": true
+ },
+ "v3-single-e4b/c106#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "white glider swing - someone in red may be sitting in it",
+  "safe": false
+ },
+ "v3-single-e4b/c106#1": {
+  "clue": 1,
+  "contains": "no",
+  "exists": true,
+  "findable": false,
+  "interesting": 0,
+  "note": "box on a second swing behind a tree, not a porch railing",
+  "safe": true
+ },
+ "v3-single-e4b/c106#2": {
+  "clue": 1,
+  "contains": "no",
+  "findable": false,
+  "interesting": 0,
+  "note": "white door frame, no small object",
+  "safe": true
+ },
+ "v3-single-e4b/c106#3": {
+  "clue": 0,
+  "contains": "partial",
+  "findable": false,
+  "interesting": 0,
+  "note": "box on a tree trunk in front of a window",
+  "safe": true
+ },
+ "v3-single-e4b/c106#4": {
+  "clue": 0,
+  "contains": "partial",
+  "findable": true,
+  "interesting": 1,
+  "note": "AC unit at the bottom of a window box; clue gives it away",
+  "safe": true
+ },
+ "v3-single-e4b/c117#0": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 2,
+  "note": "carved crest relief high on the tower - best target in the set; MCQ missed it",
+  "safe": true
+ },
+ "v3-single-e4b/c117#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "stone steps",
+  "safe": true
+ },
+ "v3-single-e4b/c117#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "bench tucked inside the shelter",
+  "safe": true
+ },
+ "v3-single-e4b/c117#3": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "ivy wrapping the tower",
+  "safe": true
+ },
+ "v3-single-e4b/c117#4": {
+  "clue": 0,
+  "contains": "partial",
+  "findable": true,
+  "interesting": 0,
+  "note": "box is the whole roof",
+  "safe": true
+ },
+ "v4-e4b/c000#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "lamppost; wrongly dropped by people filter (people in background)",
+  "safe": true
+ },
+ "v4-e4b/c000#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "nearest bench",
+  "safe": true
+ },
+ "v4-e4b/c000#2": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "far bench; lens line true",
+  "safe": true
+ },
+ "v4-e4b/c002#0": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 2,
+  "note": "1919/1920/1921 plaques on the brick wall - great",
+  "safe": true
+ },
+ "v4-e4b/c002#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "memorial stone",
+  "safe": true
+ },
+ "v4-e4b/c002#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "memorial stone; dropped by people filter",
+  "safe": true
+ },
+ "v4-e4b/c009#0": {
+  "clue": 2,
+  "contains": "partial",
+  "findable": true,
+  "interesting": 1,
+  "note": "box offset right of the P sign",
+  "safe": true
+ },
+ "v4-e4b/c009#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "closed yellow umbrella; dropped by people filter",
+  "safe": true
+ },
+ "v4-e4b/c009#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "one of several lamps",
+  "safe": true
+ },
+ "v4-e4b/c012#0": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "Robba fountain obelisk - obvious landmark, but 'water' clue is a nice twist",
+  "safe": true
+ },
+ "v4-e4b/c012#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "clock tower",
+  "safe": true
+ },
+ "v4-e4b/c012#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 2,
+  "note": "hanging flower basket on a wrought-iron bracket; wrongly filtered as mass noun",
+  "safe": true
+ },
+ "v4-e4b/c016#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "whole building (filtered)",
+  "safe": true
+ },
+ "v4-e4b/c016#1": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "one of many identical promenade lamps (model said similar_count 0)",
+  "safe": true
+ },
+ "v4-e4b/c016#2": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": false,
+  "interesting": 0,
+  "note": "wall with blurred people",
+  "safe": true
+ },
+ "v4-e4b/c024#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "lattice gate; dropped by people filter (pedestrian passing)",
+  "safe": true
+ },
+ "v4-e4b/c024#1": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": true,
+  "interesting": 1,
+  "note": "small vent/plaque low on the wall; ranked last because 'hard'",
+  "safe": true
+ },
+ "v4-e4b/c024#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "one of several poles; plain_sight is a stretch",
+  "safe": true
+ },
+ "v4-e4b/c026#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "yellow marker post; dropped by people filter",
+  "safe": true
+ },
+ "v4-e4b/c026#1": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": false,
+  "interesting": 0,
+  "note": "box on branches above the street sign",
+  "safe": true
+ },
+ "v4-e4b/c026#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "high-rise (filtered)",
+  "safe": true
+ },
+ "v4-e4b/c028#0": {
+  "clue": 0,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "gate pillar; 'remember' is false (model invented an inscription)",
+  "safe": true
+ },
+ "v4-e4b/c028#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "PRIVATE sign - precise",
+  "safe": true
+ },
+ "v4-e4b/c028#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "692 sign - precise",
+  "safe": true
+ },
+ "v4-e4b/c030#0": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 2,
+  "note": "plant label hidden in ferns - precise box, perfect line",
+  "safe": true
+ },
+ "v4-e4b/c030#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "the path (filtered)",
+  "safe": true
+ },
+ "v4-e4b/c030#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "big tree trunk",
+  "safe": true
+ },
+ "v4-e4b/c041#0": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "playhouse - obvious, true line",
+  "safe": true
+ },
+ "v4-e4b/c041#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "swing frame",
+  "safe": true
+ },
+ "v4-e4b/c041#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "yellow gate",
+  "safe": true
+ },
+ "v4-e4b/c045#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "one of 3 light poles",
+  "safe": true
+ },
+ "v4-e4b/c045#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "main play structure - obvious",
+  "safe": true
+ },
+ "v4-e4b/c045#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "tree (filtered)",
+  "safe": true
+ },
+ "v4-e4b/c048#0": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": false,
+  "interesting": 0,
+  "note": "far bridge (filtered)",
+  "safe": true
+ },
+ "v4-e4b/c048#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "distant building across the river",
+  "safe": true
+ },
+ "v4-e4b/c048#2": {
+  "clue": 0,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 1,
+  "note": "bridge tower across the river; 'remember' is false",
+  "safe": true
+ },
+ "v4-e4b/c054#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "one of many shrubs",
+  "safe": true
+ },
+ "v4-e4b/c054#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "hiker (filtered)",
+  "safe": false
+ },
+ "v4-e4b/c054#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "moss patches (mass)",
+  "safe": true
+ },
+ "v4-e4b/c068#0": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "three-lantern lamppost; true line",
+  "safe": true
+ },
+ "v4-e4b/c068#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "green bin; a man stands right at it (correctly rejected)",
+  "safe": true
+ },
+ "v4-e4b/c068#2": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": false,
+  "interesting": 0,
+  "note": "luggage by a bollard next to people",
+  "safe": false
+ },
+ "v4-e4b/c073#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "rock; wrongly dropped by the 15% box-size filter",
+  "safe": true
+ },
+ "v4-e4b/c073#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "duck (filtered)",
+  "safe": false
+ },
+ "v4-e4b/c073#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "loosestrife; wrongly filtered as mass noun (fixed)",
+  "safe": true
+ },
+ "v4-e4b/c080#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "rough wooden stand with green jerrycans",
+  "safe": true
+ },
+ "v4-e4b/c080#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "white pipe frame",
+  "safe": true
+ },
+ "v4-e4b/c080#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "shed siding - big and obvious",
+  "safe": true
+ },
+ "v4-e4b/c089#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "yellow canopy; wrongly filtered (head-noun parser missed 'covering')",
+  "safe": true
+ },
+ "v4-e4b/c089#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "Cerveja round sign; 'handmade' plausible",
+  "safe": true
+ },
+ "v4-e4b/c089#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "painted pillar",
+  "safe": true
+ },
+ "v4-e4b/c098#0": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "barrel planter; cared_for line is perfect",
+  "safe": true
+ },
+ "v4-e4b/c098#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "potted plant on a doorstep",
+  "safe": true
+ },
+ "v4-e4b/c098#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "parked car (vehicle filter missed 'hatchback')",
+  "safe": false
+ },
+ "v4-e4b/c106#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "swing - someone is sitting in it (refined filter catches it)",
+  "safe": false
+ },
+ "v4-e4b/c106#1": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": true,
+  "interesting": 1,
+  "note": "second swing behind the tree",
+  "safe": true
+ },
+ "v4-e4b/c106#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "building (filtered)",
+  "safe": true
+ },
+ "v4-e4b/c117#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 2,
+  "note": "carved coat of arms - precise; old people filter dropped it, refined keeps it",
+  "safe": true
+ },
+ "v4-e4b/c117#1": {
+  "clue": 0,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 2,
+  "note": "pineapple stone finial on a pedestal - lovely; 'remember' is false",
+  "safe": true
+ },
+ "v4-e4b/c117#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "bench inside the pavilion",
+  "safe": true
+ },
+ "v4b-12b/c000#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "nearest bench",
+  "safe": true
+ },
+ "v4b-12b/c000#1": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "lamp post - tight box",
+  "safe": true
+ },
+ "v4b-12b/c000#2": {
+  "clue": 1,
+  "contains": "no",
+  "exists": true,
+  "findable": false,
+  "interesting": 0,
+  "note": "box on the path; bench is above it",
+  "safe": true
+ },
+ "v4b-12b/c002#0": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 2,
+  "note": "large 1919 plaque - great",
+  "safe": true
+ },
+ "v4b-12b/c002#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "bush (filtered)",
+  "safe": true
+ },
+ "v4b-12b/c002#2": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": false,
+  "interesting": 0,
+  "note": "box on lower lamp/wall",
+  "safe": true
+ },
+ "v4b-12b/c009#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "lamps (filtered as not unique)",
+  "safe": true
+ },
+ "v4b-12b/c009#1": {
+  "clue": 1,
+  "contains": "no",
+  "exists": true,
+  "findable": false,
+  "interesting": 1,
+  "note": "box on fountain spray below the no-entry sign",
+  "safe": true
+ },
+ "v4b-12b/c009#2": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "P sign - precise box",
+  "safe": true
+ },
+ "v4b-12b/c012#0": {
+  "clue": 1,
+  "contains": "no",
+  "exists": true,
+  "findable": false,
+  "interesting": 2,
+  "note": "weather vane exists but box is on the facade below",
+  "safe": true
+ },
+ "v4b-12b/c012#1": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": true,
+  "interesting": 1,
+  "note": "box beside the flag",
+  "safe": true
+ },
+ "v4b-12b/c012#2": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": true,
+  "interesting": 1,
+  "note": "green MESTNI TRG street sign (label says black)",
+  "safe": true
+ },
+ "v4b-12b/c016#0": {
+  "clue": 1,
+  "contains": "no",
+  "exists": true,
+  "findable": false,
+  "interesting": 0,
+  "note": "box on pole base; the white box is above it",
+  "safe": true
+ },
+ "v4b-12b/c016#1": {
+  "clue": 1,
+  "contains": "no",
+  "exists": true,
+  "findable": false,
+  "interesting": 0,
+  "note": "box on empty pavement; MCQ passed because the freezer is in the crop",
+  "safe": true
+ },
+ "v4b-12b/c016#2": {
+  "clue": 1,
+  "contains": "no",
+  "exists": true,
+  "findable": false,
+  "interesting": 0,
+  "note": "box on the road",
+  "safe": true
+ },
+ "v4b-12b/c024#0": {
+  "clue": 1,
+  "contains": "no",
+  "findable": false,
+  "interesting": 0,
+  "note": "box on wet ground",
+  "safe": true
+ },
+ "v4b-12b/c024#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "one of several poles",
+  "safe": true
+ },
+ "v4b-12b/c024#2": {
+  "clue": 1,
+  "contains": "no",
+  "findable": false,
+  "interesting": 0,
+  "note": "box on a reflection; MCQ false positive",
+  "safe": true
+ },
+ "v4b-12b/c026#0": {
+  "clue": 0,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "yellow box on a pole - not a street sign, so the where_you_are line is false",
+  "safe": true
+ },
+ "v4b-12b/c026#1": {
+  "clue": 1,
+  "contains": "no",
+  "exists": true,
+  "findable": false,
+  "interesting": 0,
+  "note": "box on road shadow",
+  "safe": true
+ },
+ "v4b-12b/c026#2": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": false,
+  "interesting": 0,
+  "note": "box on branches around a grey sign",
+  "safe": true
+ },
+ "v4b-12b/c028#0": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "692 sign",
+  "safe": true
+ },
+ "v4b-12b/c028#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "700 plaque on the tree (model read 760)",
+  "safe": true
+ },
+ "v4b-12b/c028#2": {
+  "clue": 1,
+  "contains": "no",
+  "exists": true,
+  "findable": false,
+  "interesting": 0,
+  "note": "box below the PRIVATE sign",
+  "safe": true
+ },
+ "v4b-e4b/c000#0": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "lamppost; wrongly dropped by people filter (people in background)",
+  "safe": true
+ },
+ "v4b-e4b/c000#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "nearest bench",
+  "safe": true
+ },
+ "v4b-e4b/c000#2": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "far bench; lens line true",
+  "safe": true
+ },
+ "v4b-e4b/c002#0": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 2,
+  "note": "1919/1920/1921 plaques on the brick wall - great",
+  "safe": true
+ },
+ "v4b-e4b/c002#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "memorial stone",
+  "safe": true
+ },
+ "v4b-e4b/c002#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "memorial stone; dropped by people filter",
+  "safe": true
+ },
+ "v4b-e4b/c009#0": {
+  "clue": 2,
+  "contains": "partial",
+  "findable": true,
+  "interesting": 1,
+  "note": "box offset right of the P sign",
+  "safe": true
+ },
+ "v4b-e4b/c009#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "closed yellow umbrella; dropped by people filter",
+  "safe": true
+ },
+ "v4b-e4b/c009#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "one of several lamps",
+  "safe": true
+ },
+ "v4b-e4b/c012#0": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "Robba fountain obelisk - obvious landmark, but 'water' clue is a nice twist",
+  "safe": true
+ },
+ "v4b-e4b/c012#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "clock tower",
+  "safe": true
+ },
+ "v4b-e4b/c012#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 2,
+  "note": "hanging flower basket on a wrought-iron bracket; wrongly filtered as mass noun",
+  "safe": true
+ },
+ "v4b-e4b/c016#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "whole building (filtered)",
+  "safe": true
+ },
+ "v4b-e4b/c016#1": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "one of many identical promenade lamps (model said similar_count 0)",
+  "safe": true
+ },
+ "v4b-e4b/c016#2": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": false,
+  "interesting": 0,
+  "note": "wall with blurred people",
+  "safe": true
+ },
+ "v4b-e4b/c024#0": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "lattice gate; dropped by people filter (pedestrian passing)",
+  "safe": true
+ },
+ "v4b-e4b/c024#1": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": true,
+  "interesting": 1,
+  "note": "small vent/plaque low on the wall; ranked last because 'hard'",
+  "safe": true
+ },
+ "v4b-e4b/c024#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "one of several poles; plain_sight is a stretch",
+  "safe": true
+ },
+ "v4b-e4b/c026#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "yellow marker post; dropped by people filter",
+  "safe": true
+ },
+ "v4b-e4b/c026#1": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": false,
+  "interesting": 0,
+  "note": "box on branches above the street sign",
+  "safe": true
+ },
+ "v4b-e4b/c026#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "high-rise (filtered)",
+  "safe": true
+ },
+ "v4b-e4b/c028#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "gate pillar; 'remember' is false (model invented an inscription)",
+  "safe": true
+ },
+ "v4b-e4b/c028#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "PRIVATE sign - precise",
+  "safe": true
+ },
+ "v4b-e4b/c028#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "692 sign - precise",
+  "safe": true
+ },
+ "v4b-e4b/c030#0": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 2,
+  "note": "plant label hidden in ferns - precise box, perfect line",
+  "safe": true
+ },
+ "v4b-e4b/c030#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "the path (filtered)",
+  "safe": true
+ },
+ "v4b-e4b/c030#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "big tree trunk",
+  "safe": true
+ },
+ "v4b-e4b/c041#0": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "playhouse - obvious, true line",
+  "safe": true
+ },
+ "v4b-e4b/c041#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "swing frame",
+  "safe": true
+ },
+ "v4b-e4b/c041#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "yellow gate",
+  "safe": true
+ },
+ "v4b-e4b/c045#0": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "one of 3 light poles",
+  "safe": true
+ },
+ "v4b-e4b/c045#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "main play structure - obvious",
+  "safe": true
+ },
+ "v4b-e4b/c045#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "tree (filtered)",
+  "safe": true
+ },
+ "v4b-e4b/c048#0": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": false,
+  "interesting": 0,
+  "note": "far bridge (filtered)",
+  "safe": true
+ },
+ "v4b-e4b/c048#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "distant building across the river",
+  "safe": true
+ },
+ "v4b-e4b/c048#2": {
+  "clue": 0,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 1,
+  "note": "bridge tower across the river; 'remember' is false",
+  "safe": true
+ },
+ "v4b-e4b/c054#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "one of many shrubs",
+  "safe": true
+ },
+ "v4b-e4b/c054#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "hiker (filtered)",
+  "safe": false
+ },
+ "v4b-e4b/c054#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "moss patches (mass)",
+  "safe": true
+ },
+ "v4b-e4b/c068#0": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "three-lantern lamppost; true line",
+  "safe": true
+ },
+ "v4b-e4b/c068#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "green bin; a man stands right at it (correctly rejected)",
+  "safe": true
+ },
+ "v4b-e4b/c068#2": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": false,
+  "interesting": 0,
+  "note": "luggage by a bollard next to people",
+  "safe": false
+ },
+ "v4b-e4b/c073#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "rock; wrongly dropped by the 15% box-size filter",
+  "safe": true
+ },
+ "v4b-e4b/c073#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "duck (filtered)",
+  "safe": false
+ },
+ "v4b-e4b/c073#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "loosestrife; wrongly filtered as mass noun (fixed)",
+  "safe": true
+ },
+ "v4b-e4b/c080#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "rough wooden stand with green jerrycans",
+  "safe": true
+ },
+ "v4b-e4b/c080#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "white pipe frame",
+  "safe": true
+ },
+ "v4b-e4b/c080#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 0,
+  "note": "shed siding - big and obvious",
+  "safe": true
+ },
+ "v4b-e4b/c089#0": {
+  "clue": 0,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "yellow canopy; wrongly filtered (head-noun parser missed 'covering')",
+  "safe": true
+ },
+ "v4b-e4b/c089#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "Cerveja round sign; 'handmade' plausible",
+  "safe": true
+ },
+ "v4b-e4b/c089#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "painted pillar",
+  "safe": true
+ },
+ "v4b-e4b/c098#0": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "barrel planter; cared_for line is perfect",
+  "safe": true
+ },
+ "v4b-e4b/c098#1": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "potted plant on a doorstep",
+  "safe": true
+ },
+ "v4b-e4b/c098#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "parked car (vehicle filter missed 'hatchback')",
+  "safe": false
+ },
+ "v4b-e4b/c106#0": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "swing - someone is sitting in it (refined filter catches it)",
+  "safe": false
+ },
+ "v4b-e4b/c106#1": {
+  "clue": 1,
+  "contains": "partial",
+  "findable": true,
+  "interesting": 1,
+  "note": "second swing behind the tree",
+  "safe": true
+ },
+ "v4b-e4b/c106#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": false,
+  "interesting": 0,
+  "note": "building (filtered)",
+  "safe": true
+ },
+ "v4b-e4b/c117#0": {
+  "clue": 2,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 2,
+  "note": "carved coat of arms - precise; old people filter dropped it, refined keeps it",
+  "safe": true
+ },
+ "v4b-e4b/c117#1": {
+  "clue": 0,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 2,
+  "note": "pineapple stone finial on a pedestal - lovely; 'remember' is false",
+  "safe": true
+ },
+ "v4b-e4b/c117#2": {
+  "clue": 1,
+  "contains": "yes",
+  "findable": true,
+  "interesting": 1,
+  "note": "bench inside the pavilion",
+  "safe": true
+ }
+}

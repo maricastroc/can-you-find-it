@@ -1,0 +1,22 @@
+{
+  "0": {
+    "lens": "remember",
+    "evidence": "The carved stone crest on the structure's upper facade.",
+    "hint_semantic": "It represents a history or a significant event tied to this location.",
+    "hint_concrete": "A weathered, carved stone relief embedded in the wall.",
+    "detail": "The crest appears to be divided into two distinct sections.",
+    "clue": "Someone wanted this place to remember something.",
+    "ms": 9401,
+    "outputTokens": 90
+  },
+  "1": {
+    "lens": "nature_taking_back",
+    "evidence": "Small plants and moss are growing on the stone steps.",
+    "hint_semantic": "Nature is slowly reclaiming this man-made path upward.",
+    "hint_concrete": "Grey, rough-hewn stone steps leading up to a shelter.",
+    "detail": "A small patch of green growth is visible on the riser.",
+    "clue": "I found something nature is taking back.",
+    "ms": 10805,
+    "outputTokens": 95
+  }
+}

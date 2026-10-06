@@ -1,0 +1,317 @@
+{
+  "image": "c016",
+  "width": 2560,
+  "height": 1624,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "single",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 77420,
+      "promptTokens": 1821,
+      "outputTokens": 843,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"White building's arched upper facade structure\",\n      \"box_2d\": [\n        308,\n        336,\n        390,\n        502\n      ],\n      \"lens\": \"shape_or_color\",\n      \"why\": \"The white facade has a distinct series of repeating arches on the upper level.\",\n      \"difficulty\": \"easy\",\n      \"clue\": \"It features a row of evenly spaced, rounded openings.\",\n      \"hint_semantic\": \"It defines the upper architectural style of the main structure.\",\n      \"hint_concrete\": \"A series of semi-circular openings on the upper wall.\",\n      \"reveal\": \"The design suggests a classic, open-air feel.\"\n    },\n    {\n      \"label\": \"Street lamp post with bright overhead light fixture\",\n      \"box_2d\": [\n        270,\n        231,\n        528,\n        274\n      ],\n      \"lens\": \"purpose\",\n      \"why\": \"Its primary function is to illuminate the road area.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"Its purpose is to banish the darkness from the thoroughfare.\",\n      \"hint_semantic\": \"It provides necessary illumination for vehicles and pedestrians.\",\n      \"hint_concrete\": \"A tall, slender metal pole supporting a bright bulb.\",\n      \"reveal\": \"It casts a strong, focused light onto the pavement.\"\n    },\n    {\n      \"label\": \"Tall metal light pole illuminating the far road\",\n      \"box_2d\": [\n        0,\n        735,\n        592,\n        772\n      ],\n      \"lens\": \"human_trace\",\n      \"why\": \"It is a piece of infrastructure placed in the public space.\",\n      \"difficulty\": \"hard\",\n      \"clue\": \"It stands as a marker along the edge of the open expanse.\",\n      \"hint_semantic\": \"It provides long-distance lighting along the roadway.\",\n      \"hint_concrete\": \"A very tall, thin dark pole with a fixture at the top.\",\n      \"reveal\": \"It dictates the rhythm of light across the avenue.\"\n    },\n    {\n      \"label\": \"Small dark planter area next to the building\",\n      \"box_2d\": [\n        404,\n        102,\n        528,\n        243\n      ],\n      \"lens\": \"nature_reclaiming\",\n      \"why\": \"It holds vegetation that blends with the surrounding greenery.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"Life thrives within the confines of this small container.\",\n      \"hint_semantic\": \"It provides decorative foliage near the establishment.\",\n      \"hint_concrete\": \"A low structure containing dense green shrubbery.\",\n      \"reveal\": \"Even small spots of green add character to the stone.\"\n    },\n    {\n      \"label\": \"Bench structure under the shade of the tree\",\n      \"box_2d\": [\n        518,\n        928,\n        582,\n        987\n      ],\n      \"lens\": \"human_trace\",\n      \"why\": \"It is a piece of public seating left for visitors.\",\n      \"difficulty\": \"easy\",\n      \"clue\": \"A place of rest where passersby might pause their steps.\",\n      \"hint_semantic\": \"It is designed to offer a spot for people to sit and observe.\",\n      \"hint_concrete\": \"A low, sturdy seating arrangement near the large tree.\",\n      \"reveal\": \"It invites a moment of quiet reflection in the evening air.\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4096,
+      "promptTokens": 215,
+      "outputTokens": 20,
+      "raw": "{\"what_i_see\": \"A white building with arches\", \"visible\": true}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5735,
+      "promptTokens": 253,
+      "outputTokens": 45,
+      "raw": "{\n\"what_i_see\": \"The center of the image is dominated by the white building with arched openings and the text 'Le Café' on its facade.\",\n\"answer\": \"D\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3487,
+      "promptTokens": 194,
+      "outputTokens": 27,
+      "raw": "{\n\"what_i_see\": \"Street lamp post with bright overhead light fixture\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4495,
+      "promptTokens": 232,
+      "outputTokens": 34,
+      "raw": "{\n\"what_i_see\": \"A tall street lamp post with a bright light is near the center.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3115,
+      "promptTokens": 149,
+      "outputTokens": 22,
+      "raw": "{\n\"what_i_see\": \"Tall metal pole\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 3581,
+      "promptTokens": 187,
+      "outputTokens": 29,
+      "raw": "{\n\"what_i_see\": \"A tall metal pole is near the center.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4685,
+      "promptTokens": 320,
+      "outputTokens": 23,
+      "raw": "{\"what_i_see\": \"A large, leafy tree in the center.\", \"visible\": false}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5419,
+      "promptTokens": 358,
+      "outputTokens": 32,
+      "raw": "{\n\"what_i_see\": \"A large, leafy tree dominates the center of the image.\",\n\"answer\": \"C\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5081,
+      "promptTokens": 383,
+      "outputTokens": 28,
+      "raw": "{\n\"what_i_see\": \"A person sitting on a bench under a tree\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4797,
+      "promptTokens": 421,
+      "outputTokens": 30,
+      "raw": "{\n\"what_i_see\": \"A person sitting on a bench under a tree.\",\n\"answer\": \"D\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "label": "White building's arched upper facade structure",
+      "box_2d": [
+        308,
+        336,
+        390,
+        502
+      ],
+      "lens": "shape_or_color",
+      "why": "The white facade has a distinct series of repeating arches on the upper level.",
+      "difficulty": "easy",
+      "clue": "It features a row of evenly spaced, rounded openings.",
+      "hint_semantic": "It defines the upper architectural style of the main structure.",
+      "hint_concrete": "A series of semi-circular openings on the upper wall.",
+      "reveal": "The design suggests a classic, open-air feel.",
+      "source": "full",
+      "idx": 0,
+      "box": {
+        "x": 0.336,
+        "y": 0.308,
+        "w": 0.16599999999999998,
+        "h": 0.08200000000000002
+      },
+      "boxWarnings": [],
+      "crop": "crops/c016-0-ctx.jpg",
+      "verifyCrop": "crops/c016-0-verify.jpg",
+      "verify": {
+        "what_i_see": "A white building with arches",
+        "visible": true,
+        "ms": 4096
+      },
+      "mcq": {
+        "options": [
+          "Street lamp post with bright overhead light fixture",
+          "Tall metal light pole illuminating the far road",
+          "Small dark planter area next to the building",
+          "White building's arched upper facade structure"
+        ],
+        "correct": "D",
+        "answer": "D",
+        "what_i_see": "The center of the image is dominated by the white building with arched openings and the text 'Le Café' on its facade.",
+        "pass": true,
+        "ms": 5735
+      }
+    },
+    {
+      "label": "Street lamp post with bright overhead light fixture",
+      "box_2d": [
+        270,
+        231,
+        528,
+        274
+      ],
+      "lens": "purpose",
+      "why": "Its primary function is to illuminate the road area.",
+      "difficulty": "medium",
+      "clue": "Its purpose is to banish the darkness from the thoroughfare.",
+      "hint_semantic": "It provides necessary illumination for vehicles and pedestrians.",
+      "hint_concrete": "A tall, slender metal pole supporting a bright bulb.",
+      "reveal": "It casts a strong, focused light onto the pavement.",
+      "source": "full",
+      "idx": 1,
+      "box": {
+        "x": 0.231,
+        "y": 0.27,
+        "w": 0.04300000000000001,
+        "h": 0.258
+      },
+      "boxWarnings": [],
+      "crop": "crops/c016-1-ctx.jpg",
+      "verifyCrop": "crops/c016-1-verify.jpg",
+      "verify": {
+        "what_i_see": "Street lamp post with bright overhead light fixture",
+        "visible": true,
+        "ms": 3487
+      },
+      "mcq": {
+        "options": [
+          "Tall metal light pole illuminating the far road",
+          "Street lamp post with bright overhead light fixture",
+          "Small dark planter area next to the building",
+          "White building's arched upper facade structure"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A tall street lamp post with a bright light is near the center.",
+        "pass": true,
+        "ms": 4495
+      }
+    },
+    {
+      "label": "Tall metal light pole illuminating the far road",
+      "box_2d": [
+        0,
+        735,
+        592,
+        772
+      ],
+      "lens": "human_trace",
+      "why": "It is a piece of infrastructure placed in the public space.",
+      "difficulty": "hard",
+      "clue": "It stands as a marker along the edge of the open expanse.",
+      "hint_semantic": "It provides long-distance lighting along the roadway.",
+      "hint_concrete": "A very tall, thin dark pole with a fixture at the top.",
+      "reveal": "It dictates the rhythm of light across the avenue.",
+      "source": "full",
+      "idx": 2,
+      "box": {
+        "x": 0.735,
+        "y": 0,
+        "w": 0.03700000000000003,
+        "h": 0.592
+      },
+      "boxWarnings": [],
+      "crop": "crops/c016-2-ctx.jpg",
+      "verifyCrop": "crops/c016-2-verify.jpg",
+      "rejected": "mass_noun",
+      "verify": {
+        "what_i_see": "Tall metal pole",
+        "visible": true,
+        "ms": 3115
+      },
+      "mcq": {
+        "options": [
+          "Small dark planter area next to the building",
+          "Tall metal light pole illuminating the far road",
+          "White building's arched upper facade structure",
+          "Street lamp post with bright overhead light fixture"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A tall metal pole is near the center.",
+        "pass": true,
+        "ms": 3581
+      }
+    },
+    {
+      "label": "Small dark planter area next to the building",
+      "box_2d": [
+        404,
+        102,
+        528,
+        243
+      ],
+      "lens": "nature_reclaiming",
+      "why": "It holds vegetation that blends with the surrounding greenery.",
+      "difficulty": "medium",
+      "clue": "Life thrives within the confines of this small container.",
+      "hint_semantic": "It provides decorative foliage near the establishment.",
+      "hint_concrete": "A low structure containing dense green shrubbery.",
+      "reveal": "Even small spots of green add character to the stone.",
+      "source": "full",
+      "idx": 3,
+      "box": {
+        "x": 0.102,
+        "y": 0.404,
+        "w": 0.14100000000000001,
+        "h": 0.124
+      },
+      "boxWarnings": [],
+      "crop": "crops/c016-3-ctx.jpg",
+      "verifyCrop": "crops/c016-3-verify.jpg",
+      "rejected": "mass_noun",
+      "verify": {
+        "what_i_see": "A large, leafy tree in the center.",
+        "visible": false,
+        "ms": 4685
+      },
+      "mcq": {
+        "options": [
+          "Tall metal light pole illuminating the far road",
+          "Small dark planter area next to the building",
+          "White building's arched upper facade structure",
+          "Bench structure under the shade of the tree"
+        ],
+        "correct": "B",
+        "answer": "C",
+        "what_i_see": "A large, leafy tree dominates the center of the image.",
+        "pass": false,
+        "ms": 5419
+      }
+    },
+    {
+      "label": "Bench structure under the shade of the tree",
+      "box_2d": [
+        518,
+        928,
+        582,
+        987
+      ],
+      "lens": "human_trace",
+      "why": "It is a piece of public seating left for visitors.",
+      "difficulty": "easy",
+      "clue": "A place of rest where passersby might pause their steps.",
+      "hint_semantic": "It is designed to offer a spot for people to sit and observe.",
+      "hint_concrete": "A low, sturdy seating arrangement near the large tree.",
+      "reveal": "It invites a moment of quiet reflection in the evening air.",
+      "source": "full",
+      "idx": 4,
+      "box": {
+        "x": 0.928,
+        "y": 0.518,
+        "w": 0.05899999999999994,
+        "h": 0.06399999999999995
+      },
+      "boxWarnings": [],
+      "crop": "crops/c016-4-ctx.jpg",
+      "verifyCrop": "crops/c016-4-verify.jpg",
+      "verify": {
+        "what_i_see": "A person sitting on a bench under a tree",
+        "visible": false,
+        "ms": 5081
+      },
+      "mcq": {
+        "options": [
+          "White building's arched upper facade structure",
+          "Tall metal light pole illuminating the far road",
+          "Street lamp post with bright overhead light fixture",
+          "Bench structure under the shade of the tree"
+        ],
+        "correct": "D",
+        "answer": "D",
+        "what_i_see": "A person sitting on a bench under a tree.",
+        "pass": true,
+        "ms": 4797
+      }
+    }
+  ]
+}

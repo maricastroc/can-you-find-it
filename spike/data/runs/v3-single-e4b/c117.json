@@ -1,0 +1,316 @@
+{
+  "image": "c117",
+  "width": 1707,
+  "height": 2560,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "single",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 68034,
+      "promptTokens": 1901,
+      "outputTokens": 801,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Carved stone crest on the structure's upper facade\",\n      \"box_2d\": [362, 254, 482, 360],\n      \"lens\": \"human_trace\",\n      \"why\": \"A coat of arms suggests a past owner or dedication.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"A mark of lineage rests upon the stone face.\",\n      \"hint_semantic\": \"It denotes ownership or affiliation.\",\n      \"hint_concrete\": \"A sculpted relief embedded in the main stone block.\",\n      \"reveal\": \"It speaks to the hands that built this place long ago.\"\n    },\n    {\n      \"label\": \"Stone steps leading up to the shelter's base\",\n      \"box_2d\": [715, 67, 875, 344],\n      \"lens\": \"human_trace\",\n      \"why\": \"They are clearly worn by foot traffic.\",\n      \"difficulty\": \"easy\",\n      \"clue\": \"Paving stones guide visitors toward a resting spot.\",\n      \"hint_semantic\": \"They provide access to the sheltered area.\",\n      \"hint_concrete\": \"Tiered, rough-cut stone steps ascending from the grass.\",\n      \"reveal\": \"They mark the transition from the open ground to the shelter.\"\n    },\n    {\n      \"label\": \"Bench tucked beneath the stone structure's shelter\",\n      \"box_2d\": [718, 306, 767, 523],\n      \"lens\": \"purpose\",\n      \"why\": \"It is clearly placed for sitting.\",\n      \"difficulty\": \"easy\",\n      \"clue\": \"A place to pause and watch the world drift by.\",\n      \"hint_semantic\": \"It offers a spot for rest and quiet contemplation.\",\n      \"hint_concrete\": \"A simple, light-colored, horizontal seating fixture.\",\n      \"reveal\": \"It waits patiently for someone to share a moment here.\"\n    },\n    {\n      \"label\": \"Ivy clinging heavily to the stone structure's side\",\n      \"box_2d\": [301, 444, 859, 907],\n      \"lens\": \"nature_reclaiming\",\n      \"why\": \"The plant growth is substantial and covering the wall.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"Green life slowly wraps itself around the hard stone.\",\n      \"hint_semantic\": \"The vegetation is gradually covering the architecture.\",\n      \"hint_concrete\": \"A dense mantle of variegated, large-leafed climbing plants.\",\n      \"reveal\": \"Nature always finds a way to soften the edges of things.\"\n    },\n    {\n      \"label\": \"White trim along the shelter's roof eaves\",\n      \"box_2d\": [155, 103, 281, 907],\n      \"lens\": \"shape_or_color\",\n      \"why\": \"The contrast of the white trim against the dark roof is distinct.\",\n      \"difficulty\": \"hard\",\n      \"clue\": \"A clean border frames the dark covering above.\",\n      \"hint_semantic\": \"It defines the outer edge of the roof structure.\",\n      \"hint_concrete\": \"A thin, bright painted line running along the top perimeter.\",\n      \"reveal\": \"It offers a crisp delineation between the wood and the sky.\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4434,
+      "promptTokens": 344,
+      "outputTokens": 23,
+      "raw": "{\n\"what_i_see\": \"Carved stone crest\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5230,
+      "promptTokens": 387,
+      "outputTokens": 33,
+      "raw": "{\n\"what_i_see\": \"A carved stone relief panel is near the center of the image.\",\n\"answer\": \"A\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5023,
+      "promptTokens": 448,
+      "outputTokens": 21,
+      "raw": "{\n\"what_i_see\": \"Stone steps\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5965,
+      "promptTokens": 492,
+      "outputTokens": 27,
+      "raw": "{\n\"what_i_see\": \"Stone steps and a stone structure\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4065,
+      "promptTokens": 216,
+      "outputTokens": 28,
+      "raw": "{\n\"what_i_see\": \"A rough, textured stone pillar in the center.\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4995,
+      "promptTokens": 261,
+      "outputTokens": 37,
+      "raw": "{\n\"what_i_see\": \"A rough stone pillar is near the center, with a bench underneath the stone structure.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4604,
+      "promptTokens": 322,
+      "outputTokens": 29,
+      "raw": "{\n\"what_i_see\": \"Ivy clinging heavily to the stone structure's side\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4934,
+      "promptTokens": 361,
+      "outputTokens": 28,
+      "raw": "{\n\"what_i_see\": \"A heavily vine-covered stone structure\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3525,
+      "promptTokens": 195,
+      "outputTokens": 26,
+      "raw": "{\n\"what_i_see\": \"A wooden shelter with a pitched roof\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5075,
+      "promptTokens": 239,
+      "outputTokens": 39,
+      "raw": "{\n\"what_i_see\": \"The center of the image is dominated by the exposed wooden rafters and supporting columns of a shelter.\",\n\"answer\": \"D\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "label": "Carved stone crest on the structure's upper facade",
+      "box_2d": [
+        362,
+        254,
+        482,
+        360
+      ],
+      "lens": "human_trace",
+      "why": "A coat of arms suggests a past owner or dedication.",
+      "difficulty": "medium",
+      "clue": "A mark of lineage rests upon the stone face.",
+      "hint_semantic": "It denotes ownership or affiliation.",
+      "hint_concrete": "A sculpted relief embedded in the main stone block.",
+      "reveal": "It speaks to the hands that built this place long ago.",
+      "source": "full",
+      "idx": 0,
+      "box": {
+        "x": 0.254,
+        "y": 0.362,
+        "w": 0.10599999999999998,
+        "h": 0.12
+      },
+      "boxWarnings": [],
+      "crop": "crops/c117-0-ctx.jpg",
+      "verifyCrop": "crops/c117-0-verify.jpg",
+      "verify": {
+        "what_i_see": "Carved stone crest",
+        "visible": true,
+        "ms": 4434
+      },
+      "mcq": {
+        "options": [
+          "Stone steps leading up to the shelter's base",
+          "Bench tucked beneath the stone structure's shelter",
+          "Ivy clinging heavily to the stone structure's side",
+          "Carved stone crest on the structure's upper facade"
+        ],
+        "correct": "D",
+        "answer": "A",
+        "what_i_see": "A carved stone relief panel is near the center of the image.",
+        "pass": false,
+        "ms": 5230
+      }
+    },
+    {
+      "label": "Stone steps leading up to the shelter's base",
+      "box_2d": [
+        715,
+        67,
+        875,
+        344
+      ],
+      "lens": "human_trace",
+      "why": "They are clearly worn by foot traffic.",
+      "difficulty": "easy",
+      "clue": "Paving stones guide visitors toward a resting spot.",
+      "hint_semantic": "They provide access to the sheltered area.",
+      "hint_concrete": "Tiered, rough-cut stone steps ascending from the grass.",
+      "reveal": "They mark the transition from the open ground to the shelter.",
+      "source": "full",
+      "idx": 1,
+      "box": {
+        "x": 0.067,
+        "y": 0.715,
+        "w": 0.27699999999999997,
+        "h": 0.16000000000000003
+      },
+      "boxWarnings": [],
+      "crop": "crops/c117-1-ctx.jpg",
+      "verifyCrop": "crops/c117-1-verify.jpg",
+      "verify": {
+        "what_i_see": "Stone steps",
+        "visible": true,
+        "ms": 5023
+      },
+      "mcq": {
+        "options": [
+          "Bench tucked beneath the stone structure's shelter",
+          "Stone steps leading up to the shelter's base",
+          "Ivy clinging heavily to the stone structure's side",
+          "Carved stone crest on the structure's upper facade"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "Stone steps and a stone structure",
+        "pass": true,
+        "ms": 5965
+      }
+    },
+    {
+      "label": "Bench tucked beneath the stone structure's shelter",
+      "box_2d": [
+        718,
+        306,
+        767,
+        523
+      ],
+      "lens": "purpose",
+      "why": "It is clearly placed for sitting.",
+      "difficulty": "easy",
+      "clue": "A place to pause and watch the world drift by.",
+      "hint_semantic": "It offers a spot for rest and quiet contemplation.",
+      "hint_concrete": "A simple, light-colored, horizontal seating fixture.",
+      "reveal": "It waits patiently for someone to share a moment here.",
+      "source": "full",
+      "idx": 2,
+      "box": {
+        "x": 0.306,
+        "y": 0.718,
+        "w": 0.21700000000000003,
+        "h": 0.049000000000000044
+      },
+      "boxWarnings": [],
+      "crop": "crops/c117-2-ctx.jpg",
+      "verifyCrop": "crops/c117-2-verify.jpg",
+      "verify": {
+        "what_i_see": "A rough, textured stone pillar in the center.",
+        "visible": true,
+        "ms": 4065
+      },
+      "mcq": {
+        "options": [
+          "Ivy clinging heavily to the stone structure's side",
+          "Bench tucked beneath the stone structure's shelter",
+          "Carved stone crest on the structure's upper facade",
+          "Stone steps leading up to the shelter's base"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A rough stone pillar is near the center, with a bench underneath the stone structure.",
+        "pass": true,
+        "ms": 4995
+      }
+    },
+    {
+      "label": "Ivy clinging heavily to the stone structure's side",
+      "box_2d": [
+        301,
+        444,
+        859,
+        907
+      ],
+      "lens": "nature_reclaiming",
+      "why": "The plant growth is substantial and covering the wall.",
+      "difficulty": "medium",
+      "clue": "Green life slowly wraps itself around the hard stone.",
+      "hint_semantic": "The vegetation is gradually covering the architecture.",
+      "hint_concrete": "A dense mantle of variegated, large-leafed climbing plants.",
+      "reveal": "Nature always finds a way to soften the edges of things.",
+      "source": "full",
+      "idx": 3,
+      "box": {
+        "x": 0.444,
+        "y": 0.301,
+        "w": 0.463,
+        "h": 0.558
+      },
+      "boxWarnings": [],
+      "crop": "crops/c117-3-ctx.jpg",
+      "verifyCrop": "crops/c117-3-verify.jpg",
+      "rejected": "too_large",
+      "verify": {
+        "what_i_see": "Ivy clinging heavily to the stone structure's side",
+        "visible": true,
+        "ms": 4604
+      },
+      "mcq": {
+        "options": [
+          "Stone steps leading up to the shelter's base",
+          "Ivy clinging heavily to the stone structure's side",
+          "Carved stone crest on the structure's upper facade",
+          "a red fire hydrant"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A heavily vine-covered stone structure",
+        "pass": true,
+        "ms": 4934
+      }
+    },
+    {
+      "label": "White trim along the shelter's roof eaves",
+      "box_2d": [
+        155,
+        103,
+        281,
+        907
+      ],
+      "lens": "shape_or_color",
+      "why": "The contrast of the white trim against the dark roof is distinct.",
+      "difficulty": "hard",
+      "clue": "A clean border frames the dark covering above.",
+      "hint_semantic": "It defines the outer edge of the roof structure.",
+      "hint_concrete": "A thin, bright painted line running along the top perimeter.",
+      "reveal": "It offers a crisp delineation between the wood and the sky.",
+      "source": "full",
+      "idx": 4,
+      "box": {
+        "x": 0.103,
+        "y": 0.155,
+        "w": 0.804,
+        "h": 0.12600000000000003
+      },
+      "boxWarnings": [],
+      "crop": "crops/c117-4-ctx.jpg",
+      "verifyCrop": "crops/c117-4-verify.jpg",
+      "verify": {
+        "what_i_see": "A wooden shelter with a pitched roof",
+        "visible": true,
+        "ms": 3525
+      },
+      "mcq": {
+        "options": [
+          "Carved stone crest on the structure's upper facade",
+          "Bench tucked beneath the stone structure's shelter",
+          "Stone steps leading up to the shelter's base",
+          "White trim along the shelter's roof eaves"
+        ],
+        "correct": "D",
+        "answer": "D",
+        "what_i_see": "The center of the image is dominated by the exposed wooden rafters and supporting columns of a shelter.",
+        "pass": true,
+        "ms": 5075
+      }
+    }
+  ]
+}

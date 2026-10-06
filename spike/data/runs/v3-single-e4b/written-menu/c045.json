@@ -1,0 +1,12 @@
+{
+  "1": {
+    "lens": "handmade",
+    "evidence": "The bright, molded plastic and painted wood structure.",
+    "hint_semantic": "It's a place for energetic fun and imaginative play.",
+    "hint_concrete": "A multi-component structure made of wood and brightly colored plastic.",
+    "detail": "The red roof sections are made of molded plastic.",
+    "clue": "Somebody made this by hand.",
+    "ms": 10343,
+    "outputTokens": 88
+  }
+}

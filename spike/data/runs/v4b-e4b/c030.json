@@ -1,0 +1,135 @@
+{
+  "image": "c030",
+  "width": 2560,
+  "height": 1920,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "v4",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 37312,
+      "promptTokens": 1551,
+      "outputTokens": 281,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Small dark informational sign on the left\",\n      \"box_2d\": [\n        552,\n        62,\n        595,\n        103\n      ],\n      \"special\": \"It provides a clue about the area's nature.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"medium\"\n    },\n    {\n      \"label\": \"Light brown dirt path winding through the forest\",\n      \"box_2d\": [\n        341,\n        353,\n        1000,\n        717\n      ],\n      \"special\": \"It's the main feature of the scene.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"easy\"\n    },\n    {\n      \"label\": \"Large central tree trunk with rough bark texture\",\n      \"box_2d\": [\n        0,\n        277,\n        606,\n        422\n      ],\n      \"special\": \"Its size and texture make it a good landmark.\",\n      \"similar_count\": 0,\n      \"difficulty\": \"easy\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 9970,
+      "promptTokens": 554,
+      "outputTokens": 39,
+      "raw": "{\n\"what_i_see\": \"A striped plaque or sign\",\n\"answer\": \"Small dark informational sign on the left\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6737,
+      "promptTokens": 260,
+      "outputTokens": 45,
+      "raw": "{\n\"what_i_see\": \"A large tree trunk dominates the center of the image.\",\n\"answer\": \"Large central tree trunk with rough bark texture\",\n\"people_visible\": false\n}"
+    },
+    {
+      "kind": "write",
+      "ms": 15381,
+      "promptTokens": 1485,
+      "outputTokens": 96,
+      "raw": "{\n  \"lens\": \"plain_sight\",\n  \"evidence\": \"Small dark sign visible on the left side of the path.\",\n  \"hint_semantic\": \"It provides information about the area you are currently walking through.\",\n  \"hint_concrete\": \"Small, dark, rectangular sign mounted low on a tree/bush.\",\n  \"detail\": \"The sign appears to have some light-colored text or symbols.\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "idx": 0,
+      "source": "full",
+      "label": "Small dark informational sign on the left",
+      "box_2d": [
+        552,
+        62,
+        595,
+        103
+      ],
+      "box": {
+        "x": 0.062,
+        "y": 0.552,
+        "w": 0.041,
+        "h": 0.043
+      },
+      "difficulty": "medium",
+      "crop": "../v4-e4b/crops/c030-0-ctx.jpg",
+      "mcq": {
+        "options": [
+          "Light brown dirt path winding through the forest",
+          "Large central tree trunk with rough bark texture",
+          "a red fire hydrant",
+          "Small dark informational sign on the left"
+        ],
+        "correct": "Small dark informational sign on the left",
+        "answer": "Small dark informational sign on the left",
+        "what_i_see": "A striped sign",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      },
+      "clue": "I found something hiding in plain sight.",
+      "lens": "plain_sight",
+      "hint_semantic": "It provides information about the area or the path you are on.",
+      "hint_concrete": "A small, dark, rectangular sign mounted low near the foliage.",
+      "reveal": "The sign has some small, light-colored text visible on it. (evidence: Small dark sign visible on the left side of the path.)",
+      "spatial": "Look toward the left of where you took the photo. It is further away than you might think."
+    },
+    {
+      "idx": 1,
+      "source": "full",
+      "label": "Light brown dirt path winding through the forest",
+      "box_2d": [
+        341,
+        353,
+        1000,
+        717
+      ],
+      "box": {
+        "x": 0.353,
+        "y": 0.341,
+        "w": 0.364,
+        "h": 0.659
+      },
+      "rejected": "too_large",
+      "difficulty": "easy",
+      "crop": "../v4-e4b/crops/c030-1-ctx.jpg"
+    },
+    {
+      "idx": 2,
+      "source": "full",
+      "label": "Large central tree trunk with rough bark texture",
+      "box_2d": [
+        0,
+        277,
+        606,
+        422
+      ],
+      "box": {
+        "x": 0.277,
+        "y": 0,
+        "w": 0.145,
+        "h": 0.606
+      },
+      "difficulty": "easy",
+      "crop": "../v4-e4b/crops/c030-2-ctx.jpg",
+      "mcq": {
+        "options": [
+          "a red fire hydrant",
+          "Large central tree trunk with rough bark texture",
+          "Small dark informational sign on the left",
+          "Light brown dirt path winding through the forest"
+        ],
+        "correct": "Large central tree trunk with rough bark texture",
+        "answer": "Large central tree trunk with rough bark texture",
+        "what_i_see": "Large central tree trunk with rough bark texture",
+        "people": false,
+        "pass": true,
+        "ms": 0
+      }
+    }
+  ],
+  "chosen": 0,
+  "waitMs": 55095
+}

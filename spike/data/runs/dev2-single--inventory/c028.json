@@ -1,0 +1,223 @@
+{
+  "image": "c028",
+  "width": 2560,
+  "height": 1920,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "single",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 56665,
+      "promptTokens": 1881,
+      "outputTokens": 676,
+      "raw": "{\"seen\": [\"stone pillar with cap\", \"asphalt driveway surface\", \"concrete curb in foreground\", \"green leafy shrubs right\", \"house number sign 692\", \"wooden post with number\"], \"targets\": [{\"label\": \"stone pillar with cap\", \"box_2d\": [339, 282, 584, 367], \"lens\": \"human_trace\", \"why\": \"It's a distinct, man-made structure at the entrance.\", \"difficulty\": \"medium\", \"clue\": \"This structure marks a formal boundary to the lane.\", \"hint_semantic\": \"It likely guards an entry point.\", \"hint_concrete\": \"Large, rectangular blocks of grey stone.\", \"reveal\": \"It suggests a formal, established entrance to the property.\"}, {\"label\": \"house number sign 692\", \"box_2d\": [517, 53, 572, 117], \"lens\": \"human_trace\", \"why\": \"It's a clear, specific piece of identifying hardware.\", \"difficulty\": \"easy\", \"clue\": \"This marker tells you which dwelling you are near.\", \"hint_semantic\": \"It identifies the specific address of a residence.\", \"hint_concrete\": \"Small white sign with black digits.\", \"reveal\": \"It anchors the location within a larger neighborhood structure.\"}, {\"label\": \"PRIVATE sign on wooden post\", \"box_2d\": [466, 803, 500, 875], \"lens\": \"human_trace\", \"why\": \"It's a specific sign indicating restricted access.\", \"difficulty\": \"medium\", \"clue\": \"Access beyond this point is not for everyone.\", \"hint_semantic\": \"It warns visitors about the restricted nature of the area.\", \"hint_concrete\": \"Small, dark rectangular sign attached to wood.\", \"reveal\": \"It serves as a clear boundary marker for residents only.\"}, {\"label\": \"concrete curb in foreground\", \"box_2d\": [793, 0, 999, 494], \"lens\": \"human_trace\", \"why\": \"It's a defined edge separating the walking area.\", \"difficulty\": \"easy\", \"clue\": \"This edge separates the walking surface from the travel path.\", \"hint_semantic\": \"It manages the flow and separation of pedestrian and vehicle areas.\", \"hint_concrete\": \"Light grey, smooth, continuous raised border.\", \"reveal\": \"It shows the deliberate organization of the entryway space.\"}, {\"label\": \"green leafy shrubs right\", \"box_2d\": [327, 788, 766, 1000], \"lens\": \"shape_or_color\", \"why\": \"It's a dense, distinct patch of foliage.\", \"difficulty\": \"hard\", \"clue\": \"This growth forms a dense screen along the property line.\", \"hint_semantic\": \"It provides privacy and acts as a natural barrier.\", \"hint_concrete\": \"Large, vibrant green leaves clustered tightly together.\", \"reveal\": \"It suggests established landscaping designed for seclusion.\"}]}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3393,
+      "promptTokens": 274,
+      "outputTokens": 23,
+      "raw": "{\n\"what_i_see\": \"stone pillar with cap\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5485,
+      "promptTokens": 361,
+      "outputTokens": 40,
+      "raw": "{\n\"what_i_see\": \"A green house number sign with the number 692 in gold lettering, mounted on a wooden post.\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4741,
+      "promptTokens": 338,
+      "outputTokens": 29,
+      "raw": "{\"what_i_see\": \"A wooden sign with the word PRIVATE on it, partially obscured by leaves.\", \"visible\": true}"
+    },
+    {
+      "kind": "verify",
+      "ms": 2877,
+      "promptTokens": 211,
+      "outputTokens": 22,
+      "raw": "{\n\"what_i_see\": \"gray concrete surface\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4520,
+      "promptTokens": 358,
+      "outputTokens": 26,
+      "raw": "{\"what_i_see\": \"A wooden sign that says 'PRIVATE' near the center.\", \"visible\": true}"
+    }
+  ],
+  "candidates": [
+    {
+      "label": "stone pillar with cap",
+      "box_2d": [
+        339,
+        282,
+        584,
+        367
+      ],
+      "lens": "human_trace",
+      "why": "It's a distinct, man-made structure at the entrance.",
+      "difficulty": "medium",
+      "clue": "This structure marks a formal boundary to the lane.",
+      "hint_semantic": "It likely guards an entry point.",
+      "hint_concrete": "Large, rectangular blocks of grey stone.",
+      "reveal": "It suggests a formal, established entrance to the property.",
+      "source": "full",
+      "idx": 0,
+      "box": {
+        "x": 0.282,
+        "y": 0.339,
+        "w": 0.08500000000000002,
+        "h": 0.24499999999999994
+      },
+      "boxWarnings": [],
+      "crop": "crops/c028-0-ctx.jpg",
+      "verifyCrop": "crops/c028-0-verify.jpg",
+      "verify": {
+        "what_i_see": "stone pillar with cap",
+        "visible": true,
+        "ms": 3393
+      }
+    },
+    {
+      "label": "house number sign 692",
+      "box_2d": [
+        517,
+        53,
+        572,
+        117
+      ],
+      "lens": "human_trace",
+      "why": "It's a clear, specific piece of identifying hardware.",
+      "difficulty": "easy",
+      "clue": "This marker tells you which dwelling you are near.",
+      "hint_semantic": "It identifies the specific address of a residence.",
+      "hint_concrete": "Small white sign with black digits.",
+      "reveal": "It anchors the location within a larger neighborhood structure.",
+      "source": "full",
+      "idx": 1,
+      "box": {
+        "x": 0.053,
+        "y": 0.517,
+        "w": 0.064,
+        "h": 0.05499999999999994
+      },
+      "boxWarnings": [],
+      "crop": "crops/c028-1-ctx.jpg",
+      "verifyCrop": "crops/c028-1-verify.jpg",
+      "verify": {
+        "what_i_see": "A green house number sign with the number 692 in gold lettering, mounted on a wooden post.",
+        "visible": true,
+        "ms": 5485
+      }
+    },
+    {
+      "label": "PRIVATE sign on wooden post",
+      "box_2d": [
+        466,
+        803,
+        500,
+        875
+      ],
+      "lens": "human_trace",
+      "why": "It's a specific sign indicating restricted access.",
+      "difficulty": "medium",
+      "clue": "Access beyond this point is not for everyone.",
+      "hint_semantic": "It warns visitors about the restricted nature of the area.",
+      "hint_concrete": "Small, dark rectangular sign attached to wood.",
+      "reveal": "It serves as a clear boundary marker for residents only.",
+      "source": "full",
+      "idx": 2,
+      "box": {
+        "x": 0.803,
+        "y": 0.466,
+        "w": 0.07199999999999995,
+        "h": 0.033999999999999975
+      },
+      "boxWarnings": [],
+      "crop": "crops/c028-2-ctx.jpg",
+      "verifyCrop": "crops/c028-2-verify.jpg",
+      "verify": {
+        "what_i_see": "A wooden sign with the word PRIVATE on it, partially obscured by leaves.",
+        "visible": true,
+        "ms": 4741
+      }
+    },
+    {
+      "label": "concrete curb in foreground",
+      "box_2d": [
+        793,
+        0,
+        999,
+        494
+      ],
+      "lens": "human_trace",
+      "why": "It's a defined edge separating the walking area.",
+      "difficulty": "easy",
+      "clue": "This edge separates the walking surface from the travel path.",
+      "hint_semantic": "It manages the flow and separation of pedestrian and vehicle areas.",
+      "hint_concrete": "Light grey, smooth, continuous raised border.",
+      "reveal": "It shows the deliberate organization of the entryway space.",
+      "source": "full",
+      "idx": 3,
+      "box": {
+        "x": 0,
+        "y": 0.793,
+        "w": 0.494,
+        "h": 0.20599999999999996
+      },
+      "boxWarnings": [],
+      "crop": "crops/c028-3-ctx.jpg",
+      "verifyCrop": "crops/c028-3-verify.jpg",
+      "verify": {
+        "what_i_see": "gray concrete surface",
+        "visible": true,
+        "ms": 2877
+      }
+    },
+    {
+      "label": "green leafy shrubs right",
+      "box_2d": [
+        327,
+        788,
+        766,
+        1000
+      ],
+      "lens": "shape_or_color",
+      "why": "It's a dense, distinct patch of foliage.",
+      "difficulty": "hard",
+      "clue": "This growth forms a dense screen along the property line.",
+      "hint_semantic": "It provides privacy and acts as a natural barrier.",
+      "hint_concrete": "Large, vibrant green leaves clustered tightly together.",
+      "reveal": "It suggests established landscaping designed for seclusion.",
+      "source": "full",
+      "idx": 4,
+      "box": {
+        "x": 0.788,
+        "y": 0.327,
+        "w": 0.21199999999999997,
+        "h": 0.439
+      },
+      "boxWarnings": [],
+      "crop": "crops/c028-4-ctx.jpg",
+      "verifyCrop": "crops/c028-4-verify.jpg",
+      "verify": {
+        "what_i_see": "A wooden sign that says 'PRIVATE' near the center.",
+        "visible": true,
+        "ms": 4520
+      }
+    }
+  ],
+  "seen": [
+    "stone pillar with cap",
+    "asphalt driveway surface",
+    "concrete curb in foreground",
+    "green leafy shrubs right",
+    "house number sign 692",
+    "wooden post with number"
+  ]
+}

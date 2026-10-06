@@ -1,0 +1,22 @@
+{
+  "0": {
+    "lens": "where_you_are",
+    "evidence": "The sign clearly displays the number 692.",
+    "hint_semantic": "This marker identifies the specific location of a residence or property.",
+    "hint_concrete": "A rectangular green sign with yellow numbers on a wooden post.",
+    "detail": "The number 692 is centered on the green background.",
+    "clue": "It tells you where you are, if you know how to read it.",
+    "ms": 11266,
+    "outputTokens": 95
+  },
+  "1": {
+    "lens": "remember",
+    "evidence": "Inscription 'SEAVER POE' visible on the stone pillar.",
+    "hint_semantic": "It marks a significant place or person associated with this location.",
+    "hint_concrete": "A tall, rectangular pillar made of rough-cut grey stone blocks.",
+    "detail": "The top of the pillar has a small, decorative finial or cap.",
+    "clue": "Someone wanted this place to remember something.",
+    "ms": 10849,
+    "outputTokens": 97
+  }
+}

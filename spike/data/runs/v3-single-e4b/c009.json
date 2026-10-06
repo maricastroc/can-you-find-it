@@ -1,0 +1,315 @@
+{
+  "image": "c009",
+  "width": 2560,
+  "height": 1660,
+  "model": "gemma4:e4b",
+  "verifier": "gemma4:e4b",
+  "strategy": "single",
+  "think": false,
+  "calls": [
+    {
+      "kind": "propose",
+      "ms": 72142,
+      "promptTokens": 1861,
+      "outputTokens": 780,
+      "raw": "{\n  \"targets\": [\n    {\n      \"label\": \"Small blue parking sign attached to a pole\",\n      \"box_2d\": [509, 735, 584, 757],\n      \"lens\": \"purpose\",\n      \"why\": \"It directs vehicles to a designated spot.\",\n      \"difficulty\": \"easy\",\n      \"clue\": \"It tells you where a vehicle is allowed to rest.\",\n      \"hint_semantic\": \"Designates an area for stopping vehicles.\",\n      \"hint_concrete\": \"Small blue rectangular sign on a pole.\",\n      \"reveal\": \"It's a simple instruction for drivers in this busy area.\"\n    },\n    {\n      \"label\": \"Red and white framed window on the corner building\",\n      \"box_2d\": [191, 898, 286, 946],\n      \"lens\": \"shape_or_color\",\n      \"why\": \"The framing is distinct from other windows.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"It is framed in a color that stands out sharply.\",\n      \"hint_semantic\": \"A specific architectural feature of the building's facade.\",\n      \"hint_concrete\": \"Rectangular pane with distinct red and white trim.\",\n      \"reveal\": \"This window has a unique border compared to its neighbors.\"\n    },\n    {\n      \"label\": \"Yellow outdoor seating umbrella near the fountain\",\n      \"box_2d\": [494, 847, 644, 882],\n      \"lens\": \"human_trace\",\n      \"why\": \"It suggests outdoor dining or cafe use.\",\n      \"difficulty\": \"easy\",\n      \"clue\": \"It offers shade to those who stop to relax.\",\n      \"hint_semantic\": \"Used to provide shelter over an outdoor seating area.\",\n      \"hint_concrete\": \"Large, bright yellow fabric canopy structure.\",\n      \"reveal\": \"It provides a splash of color against the neutral surroundings.\"\n    },\n    {\n      \"label\": \"Small sign above the central yellow storefront\",\n      \"box_2d\": [499, 540, 537, 612],\n      \"lens\": \"human_trace\",\n      \"why\": \"It shows the name of a business.\",\n      \"difficulty\": \"medium\",\n      \"clue\": \"It names the establishment where people gather inside.\",\n      \"hint_semantic\": \"Identifies the commercial nature of the ground floor space.\",\n      \"hint_concrete\": \"Signage painted or mounted above the shop entrance.\",\n      \"reveal\": \"This label tells you what kind of business operates there.\"\n    },\n    {\n      \"label\": \"Small white rectangular window on the yellow building\",\n      \"box_2d\": [398, 320, 490, 348],\n      \"lens\": \"hidden_in_plain_sight\",\n      \"why\": \"It is a small, less noticeable detail on the facade.\",\n      \"difficulty\": \"hard\",\n      \"clue\": \"It is a small square opening that allows light inside.\",\n      \"hint_semantic\": \"A basic aperture for letting natural light into a room.\",\n      \"hint_concrete\": \"A small, vertically oriented white window pane.\",\n      \"reveal\": \"Such small openings are often overlooked in the general view.\"\n    }\n  ]\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5631,
+      "promptTokens": 404,
+      "outputTokens": 22,
+      "raw": "{\"what_i_see\": \"A blue parking sign on a pole\", \"visible\": true}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5891,
+      "promptTokens": 441,
+      "outputTokens": 34,
+      "raw": "{\n\"what_i_see\": \"A blue parking sign is clearly visible near the center of the image.\",\n\"answer\": \"D\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 6395,
+      "promptTokens": 426,
+      "outputTokens": 31,
+      "raw": "{\n\"what_i_see\": \"A wooden-framed window set into a light-colored wall.\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 6543,
+      "promptTokens": 462,
+      "outputTokens": 33,
+      "raw": "{\n\"what_i_see\": \"A window with a brown frame on a light-colored wall.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 3750,
+      "promptTokens": 235,
+      "outputTokens": 21,
+      "raw": "{\n\"what_i_see\": \"Yellow umbrella\",\n\"visible\": false\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 4843,
+      "promptTokens": 273,
+      "outputTokens": 34,
+      "raw": "{\n\"what_i_see\": \"A bright yellow umbrella is prominently displayed near the center of the image.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 5030,
+      "promptTokens": 298,
+      "outputTokens": 27,
+      "raw": "{\n\"what_i_see\": \"A statue of a man near the center.\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5754,
+      "promptTokens": 336,
+      "outputTokens": 37,
+      "raw": "{\n\"what_i_see\": \"A statue is near the center of the image, beneath some text on the building.\",\n\"answer\": \"B\"\n}"
+    },
+    {
+      "kind": "verify",
+      "ms": 4893,
+      "promptTokens": 341,
+      "outputTokens": 25,
+      "raw": "{\n\"what_i_see\": \"A window on a yellow building\",\n\"visible\": true\n}"
+    },
+    {
+      "kind": "mcq",
+      "ms": 5219,
+      "promptTokens": 379,
+      "outputTokens": 27,
+      "raw": "{\n\"what_i_see\": \"A window on a yellow building.\",\n\"answer\": \"D\"\n}"
+    }
+  ],
+  "candidates": [
+    {
+      "label": "Small blue parking sign attached to a pole",
+      "box_2d": [
+        509,
+        735,
+        584,
+        757
+      ],
+      "lens": "purpose",
+      "why": "It directs vehicles to a designated spot.",
+      "difficulty": "easy",
+      "clue": "It tells you where a vehicle is allowed to rest.",
+      "hint_semantic": "Designates an area for stopping vehicles.",
+      "hint_concrete": "Small blue rectangular sign on a pole.",
+      "reveal": "It's a simple instruction for drivers in this busy area.",
+      "source": "full",
+      "idx": 0,
+      "box": {
+        "x": 0.735,
+        "y": 0.509,
+        "w": 0.02200000000000002,
+        "h": 0.07499999999999996
+      },
+      "boxWarnings": [],
+      "crop": "crops/c009-0-ctx.jpg",
+      "verifyCrop": "crops/c009-0-verify.jpg",
+      "verify": {
+        "what_i_see": "A blue parking sign on a pole",
+        "visible": true,
+        "ms": 5631
+      },
+      "mcq": {
+        "options": [
+          "Red and white framed window on the corner building",
+          "Yellow outdoor seating umbrella near the fountain",
+          "Small sign above the central yellow storefront",
+          "Small blue parking sign attached to a pole"
+        ],
+        "correct": "D",
+        "answer": "D",
+        "what_i_see": "A blue parking sign is clearly visible near the center of the image.",
+        "pass": true,
+        "ms": 5891
+      }
+    },
+    {
+      "label": "Red and white framed window on the corner building",
+      "box_2d": [
+        191,
+        898,
+        286,
+        946
+      ],
+      "lens": "shape_or_color",
+      "why": "The framing is distinct from other windows.",
+      "difficulty": "medium",
+      "clue": "It is framed in a color that stands out sharply.",
+      "hint_semantic": "A specific architectural feature of the building's facade.",
+      "hint_concrete": "Rectangular pane with distinct red and white trim.",
+      "reveal": "This window has a unique border compared to its neighbors.",
+      "source": "full",
+      "idx": 1,
+      "box": {
+        "x": 0.898,
+        "y": 0.191,
+        "w": 0.04799999999999993,
+        "h": 0.09499999999999997
+      },
+      "boxWarnings": [],
+      "crop": "crops/c009-1-ctx.jpg",
+      "verifyCrop": "crops/c009-1-verify.jpg",
+      "verify": {
+        "what_i_see": "A wooden-framed window set into a light-colored wall.",
+        "visible": false,
+        "ms": 6395
+      },
+      "mcq": {
+        "options": [
+          "Yellow outdoor seating umbrella near the fountain",
+          "Red and white framed window on the corner building",
+          "Small sign above the central yellow storefront",
+          "Small blue parking sign attached to a pole"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A window with a brown frame on a light-colored wall.",
+        "pass": true,
+        "ms": 6543
+      }
+    },
+    {
+      "label": "Yellow outdoor seating umbrella near the fountain",
+      "box_2d": [
+        494,
+        847,
+        644,
+        882
+      ],
+      "lens": "human_trace",
+      "why": "It suggests outdoor dining or cafe use.",
+      "difficulty": "easy",
+      "clue": "It offers shade to those who stop to relax.",
+      "hint_semantic": "Used to provide shelter over an outdoor seating area.",
+      "hint_concrete": "Large, bright yellow fabric canopy structure.",
+      "reveal": "It provides a splash of color against the neutral surroundings.",
+      "source": "full",
+      "idx": 2,
+      "box": {
+        "x": 0.847,
+        "y": 0.494,
+        "w": 0.03500000000000003,
+        "h": 0.15000000000000002
+      },
+      "boxWarnings": [],
+      "crop": "crops/c009-2-ctx.jpg",
+      "verifyCrop": "crops/c009-2-verify.jpg",
+      "verify": {
+        "what_i_see": "Yellow umbrella",
+        "visible": false,
+        "ms": 3750
+      },
+      "mcq": {
+        "options": [
+          "Small sign above the central yellow storefront",
+          "Yellow outdoor seating umbrella near the fountain",
+          "Small blue parking sign attached to a pole",
+          "Red and white framed window on the corner building"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A bright yellow umbrella is prominently displayed near the center of the image.",
+        "pass": true,
+        "ms": 4843
+      }
+    },
+    {
+      "label": "Small sign above the central yellow storefront",
+      "box_2d": [
+        499,
+        540,
+        537,
+        612
+      ],
+      "lens": "human_trace",
+      "why": "It shows the name of a business.",
+      "difficulty": "medium",
+      "clue": "It names the establishment where people gather inside.",
+      "hint_semantic": "Identifies the commercial nature of the ground floor space.",
+      "hint_concrete": "Signage painted or mounted above the shop entrance.",
+      "reveal": "This label tells you what kind of business operates there.",
+      "source": "full",
+      "idx": 3,
+      "box": {
+        "x": 0.54,
+        "y": 0.499,
+        "w": 0.07199999999999995,
+        "h": 0.038000000000000034
+      },
+      "boxWarnings": [],
+      "crop": "crops/c009-3-ctx.jpg",
+      "verifyCrop": "crops/c009-3-verify.jpg",
+      "verify": {
+        "what_i_see": "A statue of a man near the center.",
+        "visible": true,
+        "ms": 5030
+      },
+      "mcq": {
+        "options": [
+          "Red and white framed window on the corner building",
+          "Small sign above the central yellow storefront",
+          "Small blue parking sign attached to a pole",
+          "Yellow outdoor seating umbrella near the fountain"
+        ],
+        "correct": "B",
+        "answer": "B",
+        "what_i_see": "A statue is near the center of the image, beneath some text on the building.",
+        "pass": true,
+        "ms": 5754
+      }
+    },
+    {
+      "label": "Small white rectangular window on the yellow building",
+      "box_2d": [
+        398,
+        320,
+        490,
+        348
+      ],
+      "lens": "hidden_in_plain_sight",
+      "why": "It is a small, less noticeable detail on the facade.",
+      "difficulty": "hard",
+      "clue": "It is a small square opening that allows light inside.",
+      "hint_semantic": "A basic aperture for letting natural light into a room.",
+      "hint_concrete": "A small, vertically oriented white window pane.",
+      "reveal": "Such small openings are often overlooked in the general view.",
+      "source": "full",
+      "idx": 4,
+      "box": {
+        "x": 0.32,
+        "y": 0.398,
+        "w": 0.02799999999999997,
+        "h": 0.09199999999999997
+      },
+      "boxWarnings": [],
+      "crop": "crops/c009-4-ctx.jpg",
+      "verifyCrop": "crops/c009-4-verify.jpg",
+      "verify": {
+        "what_i_see": "A window on a yellow building",
+        "visible": true,
+        "ms": 4893
+      },
+      "mcq": {
+        "options": [
+          "Small blue parking sign attached to a pole",
+          "Yellow outdoor seating umbrella near the fountain",
+          "Red and white framed window on the corner building",
+          "Small white rectangular window on the yellow building"
+        ],
+        "correct": "D",
+        "answer": "D",
+        "what_i_see": "A window on a yellow building.",
+        "pass": true,
+        "ms": 5219
+      }
+    }
+  ]
+}

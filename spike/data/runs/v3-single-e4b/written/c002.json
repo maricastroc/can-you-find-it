@@ -1,0 +1,24 @@
+{
+  "0": {
+    "what_is_special": "A declaration of past struggles rests upon this base.",
+    "lens": "repaired",
+    "difficulty": "easy",
+    "clue": "A declaration of past struggles rests upon this base.",
+    "hint_semantic": "This marker commemorates a significant historical event or movement.",
+    "hint_concrete": "A flat, rectangular surface featuring deeply cut lettering.",
+    "reveal": "The inscription describes a specific uprising from the past.",
+    "ms": 10221,
+    "outputTokens": 112
+  },
+  "1": {
+    "what_is_special": "A silent record marks a significant moment in this place.",
+    "lens": "shape_or_color",
+    "difficulty": "medium",
+    "clue": "A solemn inscription marks an important point here.",
+    "hint_semantic": "It commemorates a specific historical event or time.",
+    "hint_concrete": "A rectangular plaque set into a low, solid base.",
+    "reveal": "The lettering beneath the main text appears distinctly weathered.",
+    "ms": 11391,
+    "outputTokens": 117
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "1": {
+    "what_is_special": "It offers a fast passage down to the ground.",
+    "lens": "purpose",
+    "difficulty": "easy",
+    "clue": "A bright chute guides descent from a higher platform.",
+    "hint_semantic": "It's designed for quick, downward movement during recreation.",
+    "hint_concrete": "A long, curving section made of molded plastic.",
+    "reveal": "The plastic shows faint scuff marks near the exit point.",
+    "ms": 13636,
+    "outputTokens": 118
+  }
+}

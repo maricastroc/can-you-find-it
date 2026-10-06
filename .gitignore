@@ -39,3 +39,23 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# spike: downloaded photos and generated images (re-creatable, see spike/README.md)
+/spike/data/candidates/
+/spike/data/images/*.jpg
+/spike/data/pairs/*.jpg
+/spike/data/grid/
+/spike/data/sanity/
+/spike/data/runs/*/crops/
+/spike/data/runs/*/overlays/
+/spike/data/runs/*/sheets/
+/spike/data/compare/*/*.jpg
+
+# test fixtures staged for manual browser testing
+/public/test-*
+
+# rounds, photos and the field log (local only)
+/.data/
+# local HTTPS certificates for testing on a phone
+/certificates/
+.claude
