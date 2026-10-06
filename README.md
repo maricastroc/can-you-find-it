@@ -18,12 +18,14 @@ The model can see the park. It can't walk through it. That part is yours.
 ## How a round works
 
 ```
-wide photo ──► Gemma 4 E4B proposes 3 targets, each with a box (box_2d, 0–1000 grid)
+wide photo ──► Gemma 4 E4B proposes 2 targets, each with a box (box_2d, 0–1000 grid)
            ──► cheap filters (areas, people, animals, vehicles, look-alikes, huge boxes)
            ──► verification on a real crop: multiple choice against the other
                candidates + "is a person at it?"  (first one that passes wins)
-           ──► the model picks which human-written clue line is true for it,
-               and writes two hints; a third hint comes from the box itself
+           ──► a human-written clue line, chosen by rules from what the target
+               is (or where it sits in the frame) — shown right away
+           ──► while you start looking, the model writes two hints; a third
+               hint comes from the box itself
            ──► you hunt  (hints: meaning → appearance → direction → pixelated glimpse)
            ──► your close-up vs the crop: same object → FOUND IT,
                same kind → ALMOST, otherwise NOT QUITE
@@ -31,7 +33,7 @@ wide photo ──► Gemma 4 E4B proposes 3 targets, each with a box (box_2d, 0�
 ```
 
 Every design choice above came out of a measured spike on 20 real photos with
-244 hand-labelled candidates — see [`spike/README.md`](spike/README.md). In
+184 hand-labelled candidates — see [`spike/README.md`](spike/README.md). In
 short: Gemma 4 E4B localises real objects well (88% of boxes correct, 0%
 invented with the final prompt), the larger 12B localises much worse on this
 task, free-written clues were weak (so the clue lines are written by people and
@@ -42,7 +44,7 @@ the model only chooses), and verification by multiple choice beats yes/no.
 | | Where | Notes |
 | --- | --- | --- |
 | The game UI | your phone's browser | |
-| Photo resizing | your phone | Re-encoded through a canvas before upload, which drops EXIF/GPS. |
+| Photo resizing | your phone | Re-encoded through a canvas before upload, which drops EXIF/GPS. (If the browser can't decode a photo, the original goes to the computer and is stripped there.) |
 | The model (Gemma 4 E4B, Apache 2.0) | your computer, via [Ollama](https://ollama.com) | Never a cloud API. |
 | Photos, crops, rounds | your computer, `.data/` | Re-encoded again on arrival (no metadata). "Forget this place" deletes a round's photos; `rm -rf .data` deletes everything. |
 | Field log | your computer, `.data/fieldlog.jsonl` | Text only (labels, verdicts, timings, your notes). Viewable at `/notes`, only from the computer itself. |
@@ -50,16 +52,19 @@ the model only chooses), and verification by multiple choice beats yes/no.
 
 Photos travel from the phone to the computer **over your own network** (Wi-Fi
 or the phone's hotspot) and nowhere else. The app makes no third-party requests
-at runtime. Installing it does need the internet (npm packages, the model, the
-fonts at build time). If you choose to reach the computer through a tunnel or
+at runtime, and `npm run field` builds with Next.js telemetry turned off.
+Installing it does need the internet (npm packages, the model, the fonts at
+build time). If you choose to reach the computer through a tunnel or
 VPN, your traffic goes through that network — Tailscale keeps it end-to-end
 encrypted; a public tunnel (e.g. Cloudflare) would decrypt it on their side, so
 don't use one if the privacy claim matters to you.
 
 ## Setup
 
-Requirements: a Mac or Linux machine with ~8 GB of free RAM (tested on an Apple
-M4 with 16 GB), Node.js 20+, Ollama ≥ 0.34.1.
+Requirements: a Mac or Linux machine, Node.js 20+, Ollama ≥ 0.34.1. The model
+takes about 9.5 GB of memory while it runs (tested on an Apple M4 with 16 GB).
+On a 16 GB machine, quit browsers, editors and other heavy apps before playing:
+once the computer starts swapping, every step gets several times slower.
 
 ```bash
 ollama pull gemma4:e4b
@@ -73,8 +78,9 @@ npm install
 npm run doctor
 ```
 
-`doctor` checks that Ollama and the model are ready and prints the address (and
-a QR code) to open on the phone.
+`doctor` checks that Ollama and the model are ready, warns when the computer is
+short of memory or swapping, and prints the address (and a QR code) to open on
+the phone.
 
 ## Playing outside
 
@@ -105,9 +111,11 @@ Then trust mkcert's root certificate on the phone (the `certs` script prints the
 three steps), run `npm run field:https` next to `npm run field`, and open
 `https://<computer-ip>:3443`.
 
-Expect about **30–60 s** for the model to look at a photo on an M4 laptop (the
-app tells you what it's doing, and asks you to look around too), and **~7 s**
-to check a close-up.
+Expect about **20–30 s** from the wide photo to the clue on an M4 laptop with
+enough free memory (the hints are written while you start looking), and
+**~7 s** to check a close-up. The model starts waking up as soon as you open the
+camera. If it takes much longer, the computer is probably swapping: quit other
+apps and run `npm run doctor`.
 
 ## Field notes
 
