@@ -8,14 +8,12 @@ const id = process.argv[3] ?? "c000";
 const img = await fs.readFile(path.join("spike/data/images", `${id}.jpg`));
 const meta = await sharp(img).metadata();
 
-// 1) How many prompt tokens does an image cost at each resolution?
 for (const side of process.env.SKIP_BUDGET ? [] : [768, 1280, 1920, 2560]) {
   const b = await sharp(img).resize(side, side, { fit: "inside" }).jpeg({ quality: 85 }).toBuffer();
   const r = await chat({ model, prompt: "Reply with OK.", images: [b], options: { temperature: 0, num_predict: 4 } });
   console.log(`side=${side} promptTokens=${r.promptTokens} ms=${r.ms}`);
 }
 
-// 2) Native detection prompt (per Google docs).
 const b = await sharp(img).resize(1920, 1920, { fit: "inside" }).jpeg({ quality: 85 }).toBuffer();
 const r = await chat({
   model,

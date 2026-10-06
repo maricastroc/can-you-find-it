@@ -1,7 +1,3 @@
-/**
- * Spike helper: download the hand-picked test set at phone-like resolution
- * (2560px long side) with attribution. Run: npx tsx spike/src/fetch-selected.ts
- */
 import fs from "node:fs/promises";
 import path from "node:path";
 

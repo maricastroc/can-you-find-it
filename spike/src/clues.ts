@@ -1,4 +1,3 @@
-/** Print original vs "zoom then write" clues side by side for rating. */
 import fs from "node:fs/promises";
 import path from "node:path";
 const run = process.argv[2];

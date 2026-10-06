@@ -39,7 +39,6 @@ type Props = {
   purpose: CameraPurpose;
   onCapture: (photo: Blob) => void;
   onCancel: () => void;
-  /** Skip the live viewfinder and use the phone's own camera app. */
   native?: boolean;
 };
 
@@ -73,11 +72,9 @@ export function Camera({ purpose, onCapture, onCancel, native = false }: Props) 
         const video = videoRef.current;
         if (video) {
           video.srcObject = stream;
-          try {
-            await video.play();
-          } catch {
-            // autoplay is allowed for muted inline video; ignore odd browsers
-          }
+          await Promise.resolve()
+            .then(() => video.play())
+            .catch(() => undefined);
         }
         setLive({ kind: "live" });
       } catch (e) {
@@ -113,7 +110,6 @@ export function Camera({ purpose, onCapture, onCancel, native = false }: Props) 
       try {
         onCapture(await prepareForUpload(file));
       } catch {
-        // Undecodable in the browser: let the server try the original.
         onCapture(file);
       } finally {
         setBusy(false);
@@ -145,7 +141,6 @@ export function Camera({ purpose, onCapture, onCancel, native = false }: Props) 
         </p>
         <p className="camera-line">{copy.line}</p>
       </header>
-      {/* One live region: visible when there's a problem, screen-reader only otherwise. */}
       <p className={live.kind === "unavailable" ? "camera-problem" : "sr-only"} role="status" id={statusId}>
         {live.kind === "starting" ? "Starting the camera." : live.kind === "live" ? "Camera ready." : PROBLEM_COPY[live.reason]}
       </p>

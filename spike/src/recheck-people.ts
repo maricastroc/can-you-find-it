@@ -1,8 +1,3 @@
-/**
- * Re-run only the verification step (new "person at target" wording) on
- * candidates that the old "any person visible" check rejected, plus the
- * known occupied bench from v3 (c016#4), to see what the refined check keeps.
- */
 import fs from "node:fs/promises";
 import path from "node:path";
 import { chat } from "../../src/lib/hunt/ollama";

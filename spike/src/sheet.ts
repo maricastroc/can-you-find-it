@@ -1,4 +1,3 @@
-/** Contact sheet of context crops for one run (for human labelling). */
 import fs from "node:fs/promises";
 import path from "node:path";
 import sharp, { type OverlayOptions } from "sharp";

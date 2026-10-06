@@ -22,7 +22,6 @@ export function fromError(e: unknown) {
   return errorResponse("internal", "Something went wrong.");
 }
 
-/** 15 MB is far above a re-encoded phone photo but stops accidents. */
 export const MAX_UPLOAD_BYTES = 15 * 1024 * 1024;
 
 export async function readPhoto(request: Request): Promise<Buffer | Response> {

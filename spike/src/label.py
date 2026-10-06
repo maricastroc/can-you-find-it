@@ -1,5 +1,3 @@
-"""Append/overwrite human labels: python3 spike/src/label.py RUN IMAGE 'idx:contains,exists,findable,interesting,clue,safe[,note]' ...
-contains: y|p|n ; exists: y|n|- ; findable/safe: y|n ; interesting/clue: 0|1|2"""
 import json, sys, os
 path = "spike/data/labels.json"
 labels = json.load(open(path)) if os.path.exists(path) else {}

@@ -1,4 +1,3 @@
-/** The clue, word by word, the way something noticed comes into focus. */
 export function ClueText({ text, as: Tag = "p", className = "headline" }: { text: string; as?: "h1" | "h2" | "p"; className?: string }) {
   const words = text.split(/\s+/);
   return (

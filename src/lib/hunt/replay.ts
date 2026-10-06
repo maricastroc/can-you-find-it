@@ -1,7 +1,3 @@
-/**
- * Test helper: a fake model client that answers each kind of call (propose,
- * verify, write, compare) from recorded real replies, in order.
- */
 import type { ChatInput, ChatResult } from "./ollama";
 
 export type RecordedCall = { kind: string; content: string; ms?: number };

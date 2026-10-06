@@ -1,8 +1,3 @@
-/**
- * Rounds live on this machine's disk, one folder per round:
- *   <dataDir>/rounds/<id>/round.json, photo.jpg, found-<n>.jpg
- * plus an append-only field log at <dataDir>/fieldlog.jsonl.
- */
 import fs from "node:fs/promises";
 import path from "node:path";
 import { config } from "@/lib/hunt/config";
@@ -25,7 +20,6 @@ function roundDir(id: string) {
 export async function saveRound(round: Round): Promise<void> {
   const dir = roundDir(round.id);
   await fs.mkdir(dir, { recursive: true });
-  // Write-then-rename so a crash never leaves a half-written round.
   const tmp = path.join(dir, `round.json.${process.pid}.${Date.now()}.tmp`);
   await fs.writeFile(tmp, JSON.stringify(round, null, 2));
   await fs.rename(tmp, path.join(dir, "round.json"));

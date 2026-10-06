@@ -6,13 +6,20 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
-      // Next.js resolves this to an empty module on the server; tests run on the server.
       "server-only": path.resolve(__dirname, "test/empty.ts"),
     },
   },
   test: {
-    include: ["src/**/*.test.{ts,tsx}", "spike/**/*.test.ts"],
-    environment: "node",
     setupFiles: ["test/setup.ts"],
+    projects: [
+      {
+        extends: true,
+        test: { name: "node", include: ["src/**/*.test.ts", "spike/**/*.test.ts"], environment: "node" },
+      },
+      {
+        extends: true,
+        test: { name: "dom", include: ["src/**/*.test.tsx"], environment: "jsdom" },
+      },
+    ],
   },
 });

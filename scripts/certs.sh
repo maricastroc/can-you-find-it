@@ -1,7 +1,3 @@
-#!/usr/bin/env bash
-# Create a locally-trusted certificate for this computer's LAN addresses, so a
-# phone on the same network can use the live camera (browsers require HTTPS).
-# Needs mkcert: brew install mkcert && mkcert -install
 set -euo pipefail
 command -v mkcert >/dev/null || { echo "Install mkcert first: brew install mkcert && mkcert -install"; exit 1; }
 mkdir -p certificates

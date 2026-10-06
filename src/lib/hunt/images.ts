@@ -1,10 +1,8 @@
-/** Image preparation for rounds: normalisation, reveal crop, pixelated hint. */
 import sharp from "sharp";
 import { expand, toPixels, type Box } from "./geometry";
 
 export const MAX_PHOTO_SIDE = 4096;
 
-/** Apply EXIF orientation, cap the size, re-encode as JPEG, drop metadata (GPS). */
 export async function normalizePhoto(input: Buffer): Promise<{ buffer: Buffer; width: number; height: number }> {
   const { data, info } = await sharp(input, { failOn: "error" })
     .rotate()
@@ -14,12 +12,10 @@ export async function normalizePhoto(input: Buffer): Promise<{ buffer: Buffer; w
   return { buffer: data, width: info.width, height: info.height };
 }
 
-/** The region the reveal shows: the target with generous context around it. */
 export function revealRegion(box: Box, aspect: number): Box {
   return expand(box, { pad: 0.6, minSide: 0.18, aspect });
 }
 
-/** Where the target sits inside the reveal crop, in 0–1 units of that crop. */
 export function boxWithin(box: Box, region: Box): Box {
   return { x: (box.x - region.x) / region.w, y: (box.y - region.y) / region.h, w: box.w / region.w, h: box.h / region.h };
 }
@@ -33,10 +29,6 @@ export async function cropRegion(photo: Buffer, region: Box, maxSide: number): P
     .toBuffer();
 }
 
-/**
- * Last-resort hint: the reveal crop reduced to a coarse mosaic. Enough to
- * recognise a shape and a colour, not enough to read it.
- */
 export async function pixelatedHint(photo: Buffer, region: Box): Promise<Buffer> {
   const crop = await cropRegion(photo, region, 1024);
   const meta = await sharp(crop).metadata();

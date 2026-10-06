@@ -1,4 +1,3 @@
-// @vitest-environment jsdom
 import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { Camera, PROBLEM_COPY, problemFrom } from "./Camera";
@@ -79,7 +78,6 @@ describe("Camera", () => {
     await act(async () => {
       fireEvent.change(input, { target: { files: [file] } });
     });
-    // jsdom can't decode images, so the original file is passed through.
     expect(onCapture).toHaveBeenCalledWith(file);
   });
 

@@ -1,6 +1,5 @@
 import type { Box } from "@/lib/hunt/geometry";
 
-/** Viewfinder brackets around a box (0–1 units of the parent frame). */
 export function Mark({ box, label }: { box: Box; label?: string }) {
   return (
     <span
@@ -13,7 +12,6 @@ export function Mark({ box, label }: { box: Box; label?: string }) {
         top: `${box.y * 100}%`,
         width: `${box.w * 100}%`,
         height: `${box.h * 100}%`,
-        // Tiny targets still get a visible mark.
         minWidth: 28,
         minHeight: 28,
       }}

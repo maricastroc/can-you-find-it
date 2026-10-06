@@ -1,5 +1,3 @@
-/** Screens that only carry a message: nothing to hunt, and errors. */
-
 export function Nothing({ onAgain }: { onAgain: () => void }) {
   return (
     <section className="screen" aria-labelledby="nothing-title">

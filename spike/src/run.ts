@@ -1,13 +1,3 @@
-/**
- * Spike runner: ask a local VLM to pick secret targets in wide photos, turn
- * its boxes into real crops, and run a second, crop-only verification pass.
- *
- *   npx tsx spike/src/run.ts --model gemma4:e4b --strategy single
- *   npx tsx spike/src/run.ts --model gemma4:e4b --strategy propose --images c000,c002
- *   npx tsx spike/src/run.ts --model gemma4:e4b --strategy tiles
- *
- * Output: spike/data/runs/<run>/{<image>.json, crops/, overlays/}
- */
 import fs from "node:fs/promises";
 import path from "node:path";
 import { parseArgs } from "node:util";
@@ -54,7 +44,7 @@ const TEMP = Number(args.temperature);
 const RUN = args.run ?? `${STRATEGY}${args.inventory ? "+inv" : ""}-${MODEL.replace(/[:/]/g, "_")}${args.think ? "-think" : ""}`;
 const ROOT = path.join(process.cwd(), "spike/data");
 const OUT = path.join(ROOT, "runs", RUN);
-const MODEL_SIDE = 1920; // Ollama reaches Gemma 4's max image budget (~1100 tokens) here.
+const MODEL_SIDE = 1920;
 
 type RawTarget = {
   label: string;
@@ -73,7 +63,7 @@ type Call = { kind: string; ms: number; promptTokens: number; outputTokens: numb
 
 export type Candidate = RawTarget & {
   idx: number;
-  source: string; // "full" or "tile:<n>"
+  source: string;
   box?: Box;
   boxProblem?: string;
   boxWarnings?: string[];
@@ -94,7 +84,6 @@ export type ImageResult = {
   think: boolean;
   calls: Call[];
   candidates: Candidate[];
-  /** v4: the candidate the engine actually picked. */
   chosen?: number;
   waitMs?: number;
   seen?: string[];
@@ -133,7 +122,6 @@ async function propose(src: Buffer, calls: Call[]): Promise<Array<RawTarget & { 
     if (Array.isArray(seen)) lastSeen = seen;
     return targetsFrom(r.content).map((t) => ({ ...t, source: "full" }));
   }
-  // tiles: 2x2 with overlap, one target per tile, boxes mapped back.
   const meta = await sharp(src).metadata();
   const out: Array<RawTarget & { source: string; region?: Box }> = [];
   const grid = tiles(2, 2, 0.15);
@@ -222,8 +210,6 @@ async function processImage(id: string): Promise<ImageResult> {
     result.candidates.push(c);
   }
 
-  // Crops: a context crop (what a reveal would show, with the box drawn) and
-  // a tighter crop that the verifier sees without any drawing.
   await fs.mkdir(path.join(OUT, "crops"), { recursive: true });
   for (const c of result.candidates) {
     if (!c.box) continue;
@@ -265,8 +251,6 @@ async function processImage(id: string): Promise<ImageResult> {
       c.verify = { error: String(e) };
     }
 
-    // Multiple choice: the target among other candidates from the same photo
-    // (only those whose centre is outside this crop) plus generic distractors.
     const others = result.candidates
       .filter((o) => o !== c && o.box && !inside(center(o.box), tight))
       .map((o) => o.label);
@@ -290,7 +274,6 @@ async function processImage(id: string): Promise<ImageResult> {
     }
   }
 
-  // Full overlay with numbered boxes.
   await fs.mkdir(path.join(OUT, "overlays"), { recursive: true });
   const boxes = result.candidates.filter((c) => c.box).map((c) => ({ box: c.box!, n: c.idx }));
   const overlay = await sharp(src).composite([{ input: boxSvg(W, H, boxes, Math.max(3, Math.round(W / 400))) }]).toBuffer();

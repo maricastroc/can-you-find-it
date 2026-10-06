@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element -- private no-store API images */
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { isLocalHost, loadRows, summarize, type NoteRow } from "@/lib/rounds/notes";

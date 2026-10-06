@@ -1,4 +1,3 @@
-/** Draw a labelled 10x10 grid over images so crops can be specified by hand. */
 import fs from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";

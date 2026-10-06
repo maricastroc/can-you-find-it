@@ -1,10 +1,3 @@
-/**
- * "Zoom then write": regenerate clue/hints for candidates from an existing run
- * using the high-resolution crop (what the player will actually see up close)
- * plus a small view of the whole scene.
- *
- *   npx tsx spike/src/write.ts v3-single-e4b [--model gemma4:e4b] [--all]
- */
 import fs from "node:fs/promises";
 import path from "node:path";
 import { parseArgs } from "node:util";
@@ -34,7 +27,6 @@ for (const f of (await fs.readdir(dir)).filter((f) => f.endsWith(".json")).sort(
   for (const c of r.candidates) {
     if (!c.verifyCrop) continue;
     const l = labels[`${run}/${r.image}#${c.idx}`];
-    // Only human-usable targets (box overlaps it, findable, safe), unless --all.
     if (!args.all && !(l && l.contains !== "no" && l.findable && l.safe)) continue;
     if (Object.keys(written).length >= Number(args.max)) break;
     const crop = await fs.readFile(path.join(dir, c.verifyCrop));

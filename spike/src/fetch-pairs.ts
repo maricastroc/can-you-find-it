@@ -1,4 +1,3 @@
-/** Download extra same-place photos (1600px) to build found-it comparison pairs. */
 import fs from "node:fs/promises";
 import path from "node:path";
 const UA = "CanYouFindItSpike/0.1 (hackathon research prototype)";

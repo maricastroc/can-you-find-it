@@ -1,10 +1,3 @@
-#!/usr/bin/env node
-/**
- * A tiny HTTPS front for the game so phones get a secure context (needed for
- * the live camera). No dependencies; forwards everything, streaming included,
- * to the Next.js server on this machine.
- *   npm run field:https   (after npm run certs)
- */
 import fs from "node:fs";
 import http from "node:http";
 import https from "node:https";

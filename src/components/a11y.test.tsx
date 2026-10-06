@@ -1,8 +1,3 @@
-// @vitest-environment jsdom
-/**
- * axe-core on every screen. Colour contrast can't be computed in jsdom; it is
- * checked separately against the design tokens (see contrast.test.ts).
- */
 import axe from "axe-core";
 import { cleanup, render } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";

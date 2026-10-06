@@ -1,4 +1,3 @@
-/** Recompute the clue lens of each chosen target with the current rules. */
 import fs from "node:fs/promises";
 import path from "node:path";
 import { chooseLens } from "../../src/lib/hunt/engine";

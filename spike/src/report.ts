@@ -1,8 +1,3 @@
-/**
- * Build spike/data/report.html: per-run metrics plus every candidate with its
- * real crop, the model's words, the crop-only verification, and the human
- * label. Run: npx tsx spike/src/report.ts run1 run2 ...
- */
 import fs from "node:fs/promises";
 import path from "node:path";
 import type { Candidate, ImageResult } from "./run.ts";
@@ -10,17 +5,16 @@ import { rejectTarget } from "../../src/lib/hunt/filters";
 
 const ROOT = path.join(process.cwd(), "spike/data");
 
-/** Human judgement for one candidate. */
 export type Label = {
-  contains: "yes" | "partial" | "no"; // does the box hold the described thing?
-  exists?: boolean; // is the described thing anywhere in the photo? (when contains = no)
-  findable: boolean; // specific + reachable + recognisable on site
+  contains: "yes" | "partial" | "no";
+  exists?: boolean;
+  findable: boolean;
   interesting: 0 | 1 | 2;
   clue: 0 | 1 | 2;
   safe: boolean;
   note?: string;
 };
-type Labels = Record<string, Label>; // key: `${run}/${image}#${idx}`
+type Labels = Record<string, Label>;
 
 const esc = (s: unknown) =>
   String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -29,7 +23,6 @@ const pct = (a: number, b: number) => (b ? `${Math.round((100 * a) / b)}%` : "â€
 
 export const isValid = (l?: Label) => !!l && l.contains === "yes" && l.findable && l.safe;
 export const isGood = (l?: Label) => isValid(l) && l!.interesting >= 1 && l!.clue >= 1;
-/** Lenient: the box overlaps the target (the padded reveal crop shows it). */
 export const isUsable = (l?: Label) => !!l && l.contains !== "no" && l.findable && l.safe;
 export const isUsableGood = (l?: Label) => isUsable(l) && l!.interesting >= 1 && l!.clue >= 1;
 
@@ -39,7 +32,6 @@ function visible(c: Candidate) {
 function mcqPass(c: Candidate) {
   return !!c.mcq && "pass" in c.mcq && c.mcq.pass;
 }
-/** What the game would accept: parsed box, passes cheap filters, passes the MCQ verifier. */
 export function pipelinePass(c: Candidate) {
   const people = !!c.mcq && "people" in c.mcq && c.mcq.people === true;
   return !!c.box && !c.rejected && mcqPass(c) && !people;
@@ -49,7 +41,6 @@ async function loadRun(run: string) {
   const dir = path.join(ROOT, "runs", run);
   const files = (await fs.readdir(dir)).filter((f) => f.endsWith(".json")).sort();
   const results = await Promise.all(files.map(async (f) => JSON.parse(await fs.readFile(path.join(dir, f), "utf8")) as ImageResult));
-  // Re-apply the current cheap filters so filter changes apply retroactively.
   for (const r of results) for (const c of r.candidates) c.rejected = c.box ? rejectTarget(c.label, c.box) : undefined;
   return results;
 }
@@ -67,7 +58,6 @@ function metrics(run: string, results: ImageResult[], labels: Labels) {
   const verifyMs = results.flatMap((r) => r.calls.filter((c) => c.kind === "mcq"));
   const sum = (xs: number[]) => xs.reduce((a, b) => a + b, 0);
   const perImageSearch = results.map((r) => sum(r.calls.filter((c) => c.kind !== "verify" && c.kind !== "mcq").map((c) => c.ms)));
-  // Pipeline view: first verified candidate per image (the one the game would use).
   const picks = results.map((r) => {
     const c = r.chosen !== undefined ? r.candidates.find((c) => c.idx === r.chosen) : r.strategy === "v4" ? undefined : r.candidates.find((c) => pipelinePass(c));
     return { r, c, l: c ? labels[`${run}/${r.image}#${c.idx}`] : undefined };

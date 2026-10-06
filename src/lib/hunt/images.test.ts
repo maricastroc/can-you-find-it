@@ -3,7 +3,6 @@ import { describe, expect, it } from "vitest";
 import { boxWithin, cropRegion, MAX_PHOTO_SIDE, normalizePhoto, pixelatedHint, revealRegion } from "./images";
 import { cropFor } from "./engine";
 
-/** A photo with a bright red square at a known place on a grey background. */
 async function photoWithSquare(w: number, h: number, sq: { x: number; y: number; size: number }) {
   const square = await sharp({ create: { width: sq.size, height: sq.size, channels: 3, background: "#ff0000" } }).png().toBuffer();
   return sharp({ create: { width: w, height: h, channels: 3, background: "#808080" } })
@@ -94,7 +93,6 @@ describe("crops follow the box", () => {
     const hint = await pixelatedHint(photo, revealRegion(box, W / H));
     const meta = await sharp(hint).metadata();
     expect(meta.width! % 48).toBe(0);
-    // Somewhere in the mosaic there is a reddish cell, but no fine detail survives.
     const { data, info } = await sharp(hint).raw().toBuffer({ resolveWithObject: true });
     let reddish = false;
     for (let i = 0; i < data.length; i += info.channels) if (data[i] > data[i + 1] + 40) reddish = true;

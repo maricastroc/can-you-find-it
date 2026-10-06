@@ -1,10 +1,3 @@
-/**
- * Re-run selection on an existing run's proposals with the current engine
- * policy (filters, verification wording, ranking, lens choice), so policy
- * changes are measured on the very same, already-labelled candidates.
- *
- *   npx tsx spike/src/simulate.ts v4-e4b v4b-e4b
- */
 import fs from "node:fs/promises";
 import path from "node:path";
 import { extractJson } from "../../src/lib/hunt/json";
@@ -42,7 +35,6 @@ for (const f of (await fs.readdir(path.join(ROOT, "runs", from))).filter((f) => 
       Object.assign(o, { clue: w.texts.clue, lens: w.texts.lens, hint_semantic: w.texts.hint_semantic, hint_concrete: w.texts.hint_concrete, reveal: `${w.texts.detail} (evidence: ${w.texts.evidence})` });
       (o as Candidate & { spatial?: string }).spatial = spatialHint(c.box!);
     }
-    // Same proposal, same box: carry the human label over.
     const key = `${from}/${prev.image}#${c.idx}`;
     if (labels[key] && !labels[`${to}/${prev.image}#${c.idx}`]) labels[`${to}/${prev.image}#${c.idx}`] = labels[key];
     return o;

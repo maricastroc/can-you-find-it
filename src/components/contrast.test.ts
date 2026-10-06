@@ -1,7 +1,3 @@
-/**
- * WCAG contrast of the design tokens actually used for text and controls.
- * Tokens are read from globals.css so the test follows the design.
- */
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";

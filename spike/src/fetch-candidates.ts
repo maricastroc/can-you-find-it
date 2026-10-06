@@ -1,8 +1,3 @@
-/**
- * Spike helper: search Wikimedia Commons for wide outdoor photos of public
- * places and download small previews + a contact sheet so a human can pick
- * the test set. Run: npx tsx spike/src/fetch-candidates.ts
- */
 import fs from "node:fs/promises";
 import path from "node:path";
 import sharp, { type OverlayOptions } from "sharp";
@@ -101,7 +96,6 @@ async function main() {
   }
   await fs.writeFile(path.join(OUT, "candidates.json"), JSON.stringify(all, null, 2));
 
-  // Contact sheets: 4 columns x 4 rows of 360px tiles, labelled with id.
   const TILE = 360;
   const COLS = 4;
   const PER_SHEET = 16;

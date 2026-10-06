@@ -1,7 +1,3 @@
-/**
- * Pull the first JSON value out of a model reply. Handles ```json fences,
- * leading prose and trailing commas. Returns undefined when nothing parses.
- */
 export function extractJson(text: string): unknown {
   const fenced = text.match(/```(?:json)?\s*([\s\S]*?)```/i);
   const candidates = [fenced?.[1], text].filter((s): s is string => !!s);
@@ -14,7 +10,7 @@ export function extractJson(text: string): unknown {
       try {
         return JSON.parse(attempt);
       } catch {
-        // try the next repair
+        continue;
       }
     }
   }

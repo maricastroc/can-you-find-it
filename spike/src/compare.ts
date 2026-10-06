@@ -1,13 +1,3 @@
-/**
- * FOUND IT check: can the model tell whether a player's close-up shows the
- * same target as the crop from the wide photo?
- *
- * Pairs come from real, independent photos of the same place (positives),
- * same-kind-different-object photos (hard negatives), unrelated photos, and
- * augmented re-crops of the same photo (easy positives).
- *
- *   npx tsx spike/src/compare.ts gemma4:e4b
- */
 import fs from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";
@@ -64,7 +54,6 @@ async function render(ref: Ref, side: number): Promise<Buffer> {
   const m = await sharp(src).metadata();
   let box = ref.box;
   if (ref.aug) {
-    // Simulate a closer, slightly tilted phone photo of the same object.
     const cx = box.x + box.w / 2, cy = box.y + box.h / 2;
     const w = Math.min(1, box.w * 0.85), h = Math.min(1, box.h * 0.85);
     box = { x: Math.max(0, cx - w / 2 + box.w * 0.04), y: Math.max(0, cy - h / 2), w, h };

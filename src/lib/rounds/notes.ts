@@ -1,8 +1,3 @@
-/**
- * Field notes: one row per round, built from what's on disk, for the field
- * test write-up (did the target exist, time to find, hints, false
- * positives/negatives, bad targets, great moments).
- */
 import "server-only";
 import fs from "node:fs/promises";
 import path from "node:path";
@@ -20,9 +15,7 @@ export type NoteRow = {
   secondsToEnd?: number;
   hints: number;
   verdicts: string[];
-  /** The player overrode a NOT QUITE: a possible false negative. */
   override: boolean;
-  /** The player said the accepted photo wasn't it: a false positive. */
   flaggedFalsePositive: boolean;
   flaggedBadTarget: boolean;
   greatMoment: boolean;
@@ -87,7 +80,7 @@ export async function loadRows(): Promise<NoteRow[]> {
     try {
       rows.push(rowFor(JSON.parse(await fs.readFile(path.join(dir, id, "round.json"), "utf8")) as Round));
     } catch {
-      // half-written or foreign folder: skip
+      continue;
     }
   }
   return rows.sort((a, b) => b.at.localeCompare(a.at));
@@ -106,7 +99,6 @@ export function toCsv(rows: NoteRow[]): string {
   return [CSV_COLUMNS.join(","), ...rows.map((r) => CSV_COLUMNS.map((c) => cell(r[c])).join(","))].join("\n") + "\n";
 }
 
-/** Field notes are only shown on the computer running the game, not to phones on the network. */
 export function isLocalHost(host: string | null): boolean {
   const name = (host ?? "").replace(/:\d+$/, "").replace(/^\[|\]$/g, "");
   return name === "localhost" || name === "127.0.0.1" || name === "::1";

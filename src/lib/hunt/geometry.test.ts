@@ -34,8 +34,6 @@ describe("fromBox2d", () => {
   });
 
   it("keeps a genuine tiny box at the top-left corner on the 1000 grid", () => {
-    // [0, 0, 1, 1] has no fractional values, so it is not unit scale; it is
-    // simply too small to be a target.
     expect(fromBox2d([0, 0, 1, 1])).toEqual({ ok: false, problem: "degenerate" });
   });
 
@@ -84,7 +82,6 @@ describe("expand", () => {
   });
 
   it("makes the minimum square in pixels for landscape images", () => {
-    // 3:2 landscape: 0.1 of the short side is 0.1/1.5 of the width.
     const e = expand({ x: 0.5, y: 0.5, w: 0.001, h: 0.001 }, { pad: 0, minSide: 0.1, aspect: 1.5 });
     expect(e.h).toBeCloseTo(0.1);
     expect(e.w).toBeCloseTo(0.1 / 1.5);

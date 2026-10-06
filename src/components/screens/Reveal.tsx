@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element -- private no-store API images and on-device blob: URLs */
 "use client";
 
 import { useState } from "react";
@@ -70,7 +69,6 @@ export function Reveal({ round, foundPreview, onAgain, onFeedback, onForget }: P
     await onFeedback(kind).catch(() => setSent((s) => (s.delete(kind), new Set(s))));
   };
 
-  // Frames take the reveal image's exact proportions so the mark stays on target.
   const ar = { "--ar": reveal?.imageAspect ?? 1 } as React.CSSProperties;
   const seen = reveal && (
     <figure className="figure">

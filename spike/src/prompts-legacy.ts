@@ -1,8 +1,3 @@
-/**
- * Prompts from earlier spike iterations (v1–v3, yes/no verifier, free-form
- * writer, v1 compare). Kept so old runs stay reproducible; the product uses
- * src/lib/hunt/prompts.ts.
- */
 export * from "../../src/lib/hunt/prompts";
 
 export const LENSES = [
@@ -97,8 +92,6 @@ export const COMPARE_PROMPT = (label: string) =>
   `Image 1 is a crop from a wide photo showing a hidden target: "${label}".
 Image 2 is a close-up photo a player just took while searching for it in the real place.
 Does image 2 show the same target (it may be from a different distance, angle or light)? A different object of the same kind does not count if the distinctive details differ.`;
-
-// ---- Ollama structured-output schemas -------------------------------------
 
 const box2d = { type: "array", items: { type: "integer" }, minItems: 4, maxItems: 4 };
 const common = {
