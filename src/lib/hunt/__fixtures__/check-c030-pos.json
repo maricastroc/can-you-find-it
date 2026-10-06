@@ -1,12 +1,12 @@
 {
-  "label": "Small dark informational sign attached to the ground",
+  "label": "small dark informational sign near tree base",
   "verdict": "found",
   "calls": [
     {
       "kind": "compare",
-      "prompt": "Image 1 is a crop from a wide photo showing a hidden target: \"Small dark informational sign attached to the ground\".\nImage 2 is a close-up photo a player just t",
-      "content": "{\n  \"target_details\": [\n    \"Rectangular shape\",\n    \"Dark background with white horizontal stripes\",\n    \"Attached to the ground/foliage\"\n  ],\n  \"image2_shows\": \"A close-up view of the same dark, rectangular sign with white horizontal stripes, seen from a closer perspective.\",\n  \"same_kind\": true,\n  \"same_object\": true\n}",
-      "ms": 8312
+      "prompt": "Image 1 is a crop from a wide photo showing a hidden target: \"small dark informational sign near tree base\".\nImage 2 is a close-up photo a player just took whil",
+      "content": "{\"target_details\": [\"rectangular shape\", \"dark background\", \"multiple horizontal white stripes\"], \"image2_shows\": \"a small dark informational sign with horizontal white stripes\", \"same_kind\": true, \"same_object\": true}",
+      "ms": 7171
     }
   ]
 }

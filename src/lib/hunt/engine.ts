@@ -1,11 +1,3 @@
-/**
- * Hunt engine — the pipeline the product runs, kept model-agnostic and side
- * effect free (image buffers in, structured round data out). Each step is
- * exported so a caller can stream progress between them.
- *
- *   propose (wide photo) → screen (cheap filters) → rank → verify (crop, MCQ)
- *   → write (zoomed crop + scene, clue line from a human-written menu)
- */
 import sharp from "sharp";
 import { chat as ollamaChat, type ChatInput, type ChatResult } from "./ollama";
 import { extractJson } from "./json";
@@ -37,12 +29,15 @@ How to pick a target:
 - Never a person, an animal, a vehicle, faces, license plates, or the doors and windows of people's homes. Nothing that requires crossing traffic, entering private property, climbing or touching.
 
 For each target:
-- label: what it is and what makes it unique, 4-12 words, appearance only, never its position in the photo.
+- label: what it is and what makes it unique, 3-8 words, appearance only, never its position in the photo.
 - box_2d: [ymin, xmin, ymax, xmax] on a 0-1000 grid, tightly around the target only.
-- similar_count: how many OTHER objects of the same kind are visible in the photo (0 if it is the only one).
-- difficulty: how hard it is to spot from where the photo was taken.`;
+- similar_count: how many OTHER objects of the same kind are visible in the photo (0 if it is the only one).`;
 
 export const PICK_PROMPT = (n: number) => `Pick the ${n} best different targets in this photo, best first.`;
+
+export const DEFAULT_CANDIDATES = 2;
+export const MODEL_SIDE = 1920;
+export const VERIFY_SIDE = 768;
 
 export const pickSchema = (n: number) => ({
   type: "object",
@@ -57,9 +52,8 @@ export const pickSchema = (n: number) => ({
           label: { type: "string" },
           box_2d: { type: "array", items: { type: "integer" }, minItems: 4, maxItems: 4 },
           similar_count: { type: "integer" },
-          difficulty: { type: "string", enum: ["easy", "medium", "hard"] },
         },
-        required: ["label", "box_2d", "similar_count", "difficulty"],
+        required: ["label", "box_2d", "similar_count"],
       },
     },
   },
@@ -75,12 +69,10 @@ export type Proposal = {
 
 export type Texts = {
   lens: LensId;
-  /** Human-written line for the chosen lens. */
   clue: string;
   evidence: string;
   hint_semantic: string;
   hint_concrete: string;
-  /** A visible detail to notice once found (shown at the reveal). */
   detail: string;
 };
 
@@ -106,21 +98,19 @@ export type ChatFn = (input: ChatInput) => Promise<ChatResult>;
 
 export type EngineOptions = {
   model: string;
-  /** Model client; tests inject recorded replies. */
   chat?: ChatFn;
   candidates?: number;
   modelSide?: number;
   temperature?: number;
-  /** Verify every candidate (for evaluation) instead of stopping at the first pass. */
   verifyAll?: boolean;
 };
 
 export type EngineResult = {
   candidates: EngineCandidate[];
   chosen?: number;
-  texts?: Texts;
+  lens?: LensId;
+  clue?: string;
   steps: Step[];
-  /** Wall time a player would wait: propose + verifies until the pick + write. */
   waitMs: number;
 };
 
@@ -128,7 +118,6 @@ const toStep = (kind: string, r: ChatResult): Step => ({
   kind, ms: r.ms, promptTokens: r.promptTokens, outputTokens: r.outputTokens, raw: r.content,
 });
 
-/** Cheap screening: valid box, no masses/people/huge boxes, and unique enough. */
 export function screen(p: Proposal): Pick<EngineCandidate, "box" | "boxProblem" | "rejected"> {
   const parsed = fromBox2d(p.box_2d);
   if (!parsed.ok) return { boxProblem: parsed.problem };
@@ -136,17 +125,18 @@ export function screen(p: Proposal): Pick<EngineCandidate, "box" | "boxProblem" 
   return { box: parsed.box, rejected };
 }
 
-/**
- * Verification order: the model's own order (it lists its best first), with
- * targets that have look-alikes moved back. Rejected candidates are dropped.
- */
 export function rank(cands: EngineCandidate[]): EngineCandidate[] {
   const ok = cands.filter((c) => c.box && !c.rejected);
   const penalty = (c: EngineCandidate) => ((c.similar_count ?? 0) >= 1 ? 1 : 0);
   return [...ok].sort((a, b) => penalty(a) - penalty(b) || a.idx - b.idx);
 }
 
-export async function cropFor(image: Buffer, box: Box, kind: "verify" | "context"): Promise<{ buffer: Buffer; region: Box }> {
+export async function cropFor(
+  image: Buffer,
+  box: Box,
+  kind: "verify" | "context",
+  side = 1024,
+): Promise<{ buffer: Buffer; region: Box }> {
   const meta = await sharp(image).metadata();
   const W = meta.width!, H = meta.height!;
   const region =
@@ -155,7 +145,7 @@ export async function cropFor(image: Buffer, box: Box, kind: "verify" | "context
       : expand(box, { pad: 0.6, minSide: 0.18, aspect: W / H });
   const buffer = await sharp(image)
     .extract(toPixels(region, W, H))
-    .resize(1024, 1024, { fit: "inside", withoutEnlargement: false })
+    .resize(side, side, { fit: "inside", withoutEnlargement: false })
     .jpeg({ quality: 88 })
     .toBuffer();
   return { buffer, region };
@@ -164,7 +154,6 @@ export async function cropFor(image: Buffer, box: Box, kind: "verify" | "context
 const center = (b: Box) => ({ x: b.x + b.w / 2, y: b.y + b.h / 2 });
 const inside = (p: { x: number; y: number }, b: Box) => p.x >= b.x && p.x <= b.x + b.w && p.y >= b.y && p.y <= b.y + b.h;
 
-/** Deterministic shuffle so a run is reproducible. */
 export function shuffle<T>(xs: T[], seed: number): T[] {
   const out = [...xs];
   let s = seed;
@@ -177,8 +166,8 @@ export function shuffle<T>(xs: T[], seed: number): T[] {
 }
 
 export async function proposeTargets(image: Buffer, opts: EngineOptions): Promise<{ candidates: EngineCandidate[]; step: Step }> {
-  const n = opts.candidates ?? 3;
-  const side = opts.modelSide ?? 1920;
+  const n = opts.candidates ?? DEFAULT_CANDIDATES;
+  const side = opts.modelSide ?? MODEL_SIDE;
   const wide = await sharp(image).resize(side, side, { fit: "inside" }).jpeg({ quality: 85 }).toBuffer();
   const r = await (opts.chat ?? ollamaChat)({
     model: opts.model,
@@ -193,18 +182,13 @@ export async function proposeTargets(image: Buffer, opts: EngineOptions): Promis
   return { candidates: proposals.map((p, idx) => ({ ...p, idx, ...screen(p) })), step: toStep("propose", r) };
 }
 
-/**
- * Crop-only multiple choice: the target's label among other candidates from
- * the same photo (whose centre is outside this crop) and generic distractors.
- * Also asks whether a person is at the target.
- */
 export async function verifyCandidate(
   image: Buffer,
   c: EngineCandidate,
   all: EngineCandidate[],
   opts: EngineOptions,
 ): Promise<{ verify: Verification; step: Step }> {
-  const { buffer, region } = await cropFor(image, c.box!, "verify");
+  const { buffer, region } = await cropFor(image, c.box!, "verify", VERIFY_SIDE);
   const others = all.filter((o) => o !== c && o.box && !inside(center(o.box), region)).map((o) => o.label);
   const pool = [...new Set([...others, ...GENERIC_DISTRACTORS])].filter((l) => l !== c.label).slice(0, 3);
   const options = shuffle([c.label, ...pool], c.idx + 7);
@@ -224,15 +208,10 @@ export async function verifyCandidate(
   };
 }
 
-/** Lenses the model may choose on its own: ones it can judge from pixels. */
 const PERCEPTUAL: ReadonlySet<LensId> = new Set<LensId>([
   "nature_taking_back", "someone_was_here", "repaired", "doesnt_belong", "plain_sight", "look_up", "underfoot", "handmade", "only_color",
 ]);
 
-/**
- * Pick the clue lens: a rule for common kinds of object, else the model's
- * choice if it is a perceptual lens, else a spatial default from the box.
- */
 export function chooseLens(label: string, modelChoice: string | undefined, box: Box): LensId {
   const byRule = lensFor(label);
   if (byRule) return byRule;
@@ -242,8 +221,15 @@ export function chooseLens(label: string, modelChoice: string | undefined, box: 
   return "plain_sight";
 }
 
-export async function writeTexts(image: Buffer, c: EngineCandidate, opts: EngineOptions): Promise<{ texts?: Texts; step: Step }> {
-  const { buffer } = await cropFor(image, c.box!, "verify");
+export const lineFor = (lens: LensId) => LENS_MENU.find((l) => l.id === lens)!.line;
+
+export async function writeTexts(
+  image: Buffer,
+  c: Pick<EngineCandidate, "label" | "box">,
+  opts: EngineOptions,
+  lens?: LensId,
+): Promise<{ texts?: Texts; step: Step }> {
+  const { buffer } = await cropFor(image, c.box!, "verify", VERIFY_SIDE);
   const scene = await sharp(image).resize(768, 768, { fit: "inside" }).jpeg({ quality: 80 }).toBuffer();
   const r = await (opts.chat ?? ollamaChat)({
     model: opts.model,
@@ -254,10 +240,19 @@ export async function writeTexts(image: Buffer, c: EngineCandidate, opts: Engine
     options: { temperature: 0.3 },
   });
   const out = extractJson(r.content) as (Omit<Texts, "clue" | "lens"> & { lens?: string }) | undefined;
-  if (!out) return { step: toStep("write", r) };
-  const lens = chooseLens(c.label, out.lens, c.box!);
-  const clue = LENS_MENU.find((l) => l.id === lens)!.line;
-  return { texts: { ...out, lens, clue }, step: toStep("write", r) };
+  if (!out || typeof out.hint_semantic !== "string" || typeof out.hint_concrete !== "string") return { step: toStep("write", r) };
+  const chosen = lens ?? chooseLens(c.label, out.lens, c.box!);
+  return {
+    texts: {
+      lens: chosen,
+      clue: lineFor(chosen),
+      evidence: String(out.evidence ?? ""),
+      hint_semantic: out.hint_semantic,
+      hint_concrete: out.hint_concrete,
+      detail: String(out.detail ?? ""),
+    },
+    step: toStep("write", r),
+  };
 }
 
 export type Progress =
@@ -290,16 +285,10 @@ export async function findTarget(image: Buffer, opts: EngineOptions, onProgress?
     onProgress?.({ stage: "none" });
     return { candidates, steps, waitMs };
   }
-  const w = await writeTexts(image, chosen, opts);
-  steps.push(w.step);
-  waitMs += w.step.ms;
-  return { candidates, chosen: chosen.idx, texts: w.texts, steps, waitMs };
+  const lens = chooseLens(chosen.label, undefined, chosen.box!);
+  return { candidates, chosen: chosen.idx, lens, clue: lineFor(lens), steps, waitMs };
 }
 
-/**
- * Hint 3: where to look, derived only from the box. Assumes the player is
- * still near where the wide photo was taken.
- */
 export function spatialHint(box: Box): string {
   const cx = box.x + box.w / 2;
   const top = box.y;

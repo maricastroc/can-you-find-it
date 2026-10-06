@@ -12,16 +12,29 @@ const dataDir = vi.hoisted(() => {
 vi.mock("@/lib/hunt/engine", async (importOriginal) => ({
   ...(await importOriginal<typeof import("@/lib/hunt/engine")>()),
   findTarget: vi.fn(),
+  writeTexts: vi.fn(),
 }));
 vi.mock("@/lib/hunt/check", async (importOriginal) => ({
   ...(await importOriginal<typeof import("@/lib/hunt/check")>()),
   compareWithTarget: vi.fn(),
 }));
 
-import { findTarget, type EngineResult } from "@/lib/hunt/engine";
+import { findTarget, writeTexts, type EngineResult, type Texts } from "@/lib/hunt/engine";
 import { compareWithTarget } from "@/lib/hunt/check";
 import { ModelUnavailableError } from "@/lib/hunt/ollama";
-import { checkFound, confirmFound, forgetRound, getRound, getRoundImage, revealRound, startRound, unlockHint, type StartEvent } from "./service";
+import {
+  checkFound,
+  confirmFound,
+  FALLBACK_HINTS,
+  forgetRound,
+  getRound,
+  getRoundImage,
+  revealRound,
+  settleTexts,
+  startRound,
+  unlockHint,
+  type StartEvent,
+} from "./service";
 import { loadRound } from "./store";
 
 const photo = (w = 1600, h = 1200) => sharp({ create: { width: w, height: h, channels: 3, background: "#6b705c" } }).jpeg().toBuffer();
@@ -31,28 +44,40 @@ const chosenResult: EngineResult = {
     { idx: 0, label: "small brass plaque dated 1919", box_2d: [500, 100, 560, 160], box: { x: 0.1, y: 0.5, w: 0.06, h: 0.06 } },
   ],
   chosen: 0,
-  texts: {
-    lens: "remember",
-    clue: "Someone wanted this place to remember something.",
-    evidence: "a year is engraved",
-    hint_semantic: "It marks a moment in this place's history.",
-    hint_concrete: "Small brass rectangle at eye level.",
-    detail: "The year 1919 is engraved on it.",
-  },
+  lens: "remember",
+  clue: "Someone wanted this place to remember something.",
   steps: [],
   waitMs: 1000,
 };
 
-async function newRound(result: EngineResult = chosenResult) {
+const texts: Texts = {
+  lens: "remember",
+  clue: "Someone wanted this place to remember something.",
+  evidence: "a year is engraved",
+  hint_semantic: "It marks a moment in this place's history.",
+  hint_concrete: "Small brass rectangle at eye level.",
+  detail: "The year 1919 is engraved on it.",
+};
+
+function deferred<T>() {
+  let resolve!: (v: T) => void;
+  const promise = new Promise<T>((r) => (resolve = r));
+  return { promise, resolve };
+}
+
+async function newRound(result: EngineResult = chosenResult, settle = true) {
   vi.mocked(findTarget).mockResolvedValueOnce(structuredClone(result));
   const events: StartEvent[] = [];
   await startRound(await photo(), (e) => events.push(e));
   const created = events.find((e) => e.type === "created") as Extract<StartEvent, { type: "created" }>;
+  if (settle && created) await settleTexts(created.id);
   return { id: created?.id, events };
 }
 
 beforeEach(() => {
   vi.mocked(findTarget).mockReset();
+  vi.mocked(writeTexts).mockReset();
+  vi.mocked(writeTexts).mockResolvedValue({ texts, step: { kind: "write", ms: 1, promptTokens: 0, outputTokens: 0, raw: "" } });
   vi.mocked(compareWithTarget).mockReset();
 });
 
@@ -67,12 +92,31 @@ describe("startRound", () => {
     const done = events.at(-1) as Extract<StartEvent, { type: "done" }>;
     expect(done.round.status).toBe("hunting");
     expect(done.round.clue).toBe("Someone wanted this place to remember something.");
-    // The device never sees the label or the box before the end.
     expect(JSON.stringify(done.round)).not.toContain("brass");
     expect(done.round.reveal).toBeUndefined();
     const stored = await loadRound(id);
     expect(stored?.target?.label).toBe("small brass plaque dated 1919");
     expect(stored?.target?.hints.spatial).toMatch(/left/);
+  });
+
+  it("shows the clue before the hints are written", async () => {
+    const writer = deferred<Awaited<ReturnType<typeof writeTexts>>>();
+    vi.mocked(writeTexts).mockReturnValueOnce(writer.promise);
+    const { id, events } = await newRound(chosenResult, false);
+    expect((events.at(-1) as Extract<StartEvent, { type: "done" }>).round.clue).toBeDefined();
+    expect((await loadRound(id))?.target?.textsReady).toBe(false);
+    writer.resolve({ texts, step: { kind: "write", ms: 1, promptTokens: 0, outputTokens: 0, raw: "" } });
+    await settleTexts(id);
+    const ready = await loadRound(id);
+    expect(ready?.target?.textsReady).toBe(true);
+    expect(ready?.target?.hints.semantic).toBe(texts.hint_semantic);
+    expect(ready?.target?.detail).toBe(texts.detail);
+  });
+
+  it("the writer keeps the clue line that was already shown", async () => {
+    const { id } = await newRound();
+    expect(vi.mocked(writeTexts).mock.calls[0][3]).toBe("remember");
+    expect((await getRound(id))?.clue).toBe("Someone wanted this place to remember something.");
   });
 
   it("forwards the engine's progress as stages", async () => {
@@ -84,19 +128,22 @@ describe("startRound", () => {
     });
     const events: StartEvent[] = [];
     await startRound(await photo(), (e) => events.push(e));
-    expect(events.filter((e) => e.type === "progress").map((e) => (e as { stage: string }).stage)).toEqual(["looking", "checking", "checking", "writing"]);
+    await settleTexts((events[0] as Extract<StartEvent, { type: "created" }>).id);
+    expect(events.filter((e) => e.type === "progress").map((e) => (e as { stage: string }).stage)).toEqual(["looking", "checking", "checking"]);
   });
 
-  it("ends with status none when nothing verifies", async () => {
+  it("ends with status none when nothing verifies, without writing", async () => {
     const { events } = await newRound({ candidates: [], steps: [], waitMs: 1 });
     expect((events.at(-1) as Extract<StartEvent, { type: "done" }>).round.status).toBe("none");
+    expect(writeTexts).not.toHaveBeenCalled();
   });
 
-  it("falls back to safe texts when the writer failed", async () => {
-    const { id } = await newRound({ ...chosenResult, texts: undefined });
-    const r = await getRound(id);
-    expect(r?.status).toBe("hunting");
-    expect(r?.clue).toBe("Someone wanted this place to remember something.");
+  it("falls back to safe hints when the writer fails", async () => {
+    vi.mocked(writeTexts).mockRejectedValueOnce(new Error("model went away"));
+    const { id } = await newRound();
+    await unlockHint(id);
+    const r = await unlockHint(id);
+    expect(r.hints.map((h) => (h.kind === "text" ? h.text : ""))).toEqual([FALLBACK_HINTS.semantic, FALLBACK_HINTS.concrete]);
   });
 
   it("reports an unreadable photo without creating a round", async () => {
@@ -122,6 +169,7 @@ describe("startRound", () => {
       else throw new Error("stream closed");
     });
     expect((await getRound(id))?.status).toBe("hunting");
+    await settleTexts(id);
   });
 });
 
@@ -137,6 +185,33 @@ describe("hints", () => {
     expect((await getRound(id))?.hintsLeft).toBe(0);
   });
 
+  it("an early hint waits for the writer instead of showing an empty hint", async () => {
+    const writer = deferred<Awaited<ReturnType<typeof writeTexts>>>();
+    vi.mocked(writeTexts).mockReturnValueOnce(writer.promise);
+    const { id } = await newRound(chosenResult, false);
+    let settled = false;
+    const hint = unlockHint(id).then((r) => {
+      settled = true;
+      return r;
+    });
+    await new Promise((r) => setTimeout(r, 30));
+    expect(settled).toBe(false);
+    writer.resolve({ texts, step: { kind: "write", ms: 1, promptTokens: 0, outputTokens: 0, raw: "" } });
+    const r = await hint;
+    expect(r.hints).toEqual([{ level: 1, kind: "text", text: texts.hint_semantic }]);
+  });
+
+  it("the spatial hint needs no writing", async () => {
+    const writer = deferred<Awaited<ReturnType<typeof writeTexts>>>();
+    vi.mocked(writeTexts).mockReturnValueOnce(writer.promise);
+    const { id } = await newRound(chosenResult, false);
+    writer.resolve({ texts, step: { kind: "write", ms: 1, promptTokens: 0, outputTokens: 0, raw: "" } });
+    await unlockHint(id);
+    await unlockHint(id);
+    const third = await unlockHint(id);
+    expect(third.hints.at(-1)).toMatchObject({ level: 3, kind: "text", text: expect.stringMatching(/left/) });
+  });
+
   it("the blurred image is only served after the last hint", async () => {
     const { id } = await newRound();
     expect(await getRoundImage(id, "hint")).toBeUndefined();
@@ -148,6 +223,12 @@ describe("hints", () => {
     const { id } = await newRound();
     await Promise.all([unlockHint(id), unlockHint(id), unlockHint(id)]);
     expect((await getRound(id))?.hints).toHaveLength(3);
+  });
+
+  it("a hint for a round that is over is refused", async () => {
+    const { id } = await newRound();
+    await revealRound(id);
+    await expect(unlockHint(id)).rejects.toMatchObject({ code: "wrong_state" });
   });
 });
 
@@ -175,6 +256,7 @@ describe("checking a find", () => {
     expect(verdict).toBe("found");
     expect(round.status).toBe("found");
     expect(round.reveal?.label).toBe("small brass plaque dated 1919");
+    expect(round.reveal?.detail).toBe("The year 1919 is engraved on it.");
     expect(round.reveal?.foundPhotoUrl).toMatch(/found-1$/);
     expect(await getRoundImage(id, "reveal")).toBeInstanceOf(Buffer);
     await expect(unlockHint(id)).rejects.toMatchObject({ code: "wrong_state" });

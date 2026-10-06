@@ -1,14 +1,8 @@
-/**
- * Run the v4 engine over the test set and store results in the same shape as
- * run.ts so sheet.ts / report.ts work unchanged.
- *
- *   npx tsx spike/src/run4.ts --model gemma4:e4b [--images c000,c002] [--run name]
- */
 import fs from "node:fs/promises";
 import path from "node:path";
 import { parseArgs } from "node:util";
 import sharp from "sharp";
-import { findTarget, spatialHint } from "../../src/lib/hunt/engine";
+import { findTarget, spatialHint, writeTexts } from "../../src/lib/hunt/engine";
 import { expand, toPixels, type Box } from "../../src/lib/hunt/geometry";
 import type { Candidate, ImageResult } from "./run.ts";
 
@@ -17,7 +11,8 @@ const { values: args } = parseArgs({
     model: { type: "string", default: "gemma4:e4b" },
     images: { type: "string" },
     run: { type: "string" },
-    n: { type: "string", default: "3" },
+    n: { type: "string", default: "2" },
+    all: { type: "boolean", default: false },
   },
 });
 const MODEL = args.model!;
@@ -41,7 +36,10 @@ async function main() {
     const meta = await sharp(src).metadata();
     const W = meta.width!, H = meta.height!;
     const t0 = performance.now();
-    const res = await findTarget(src, { model: MODEL, candidates: Number(args.n), verifyAll: true });
+    const res = await findTarget(src, { model: MODEL, candidates: Number(args.n), verifyAll: args.all });
+    const chosenCandidate = res.candidates.find((c) => c.idx === res.chosen);
+    const written = chosenCandidate && res.lens ? await writeTexts(src, chosenCandidate, { model: MODEL }, res.lens) : undefined;
+    const texts = written?.texts;
     const candidates: Candidate[] = [];
     for (const c of res.candidates) {
       const out: Candidate = {
@@ -49,8 +47,8 @@ async function main() {
         difficulty: c.difficulty, lens: c.similar_count !== undefined ? `similar:${c.similar_count}` : undefined,
       };
       if (c.verify) out.mcq = { options: c.verify.options, correct: c.label, answer: c.verify.answer, what_i_see: c.verify.what_i_see, people: c.verify.personAtTarget, pass: c.verify.pass, ms: 0 };
-      if (c.idx === res.chosen && res.texts) {
-        Object.assign(out, { clue: res.texts.clue, hint_semantic: res.texts.hint_semantic, hint_concrete: res.texts.hint_concrete, reveal: `${res.texts.detail} (evidence: ${res.texts.evidence})`, lens: res.texts.lens });
+      if (c.idx === res.chosen && texts) {
+        Object.assign(out, { clue: texts.clue, hint_semantic: texts.hint_semantic, hint_concrete: texts.hint_concrete, reveal: `${texts.detail} (evidence: ${texts.evidence})`, lens: texts.lens });
         (out as Candidate & { spatial?: string }).spatial = spatialHint(c.box!);
       }
       if (c.box) {
@@ -70,12 +68,12 @@ async function main() {
     await sharp(overlay).resize(1600, 1600, { fit: "inside" }).jpeg({ quality: 80 }).toFile(path.join(OUT, "overlays", `${id}.jpg`));
     const result: ImageResult & { chosen?: number; waitMs: number } = {
       image: id, width: W, height: H, model: MODEL, verifier: MODEL, strategy: "v4", think: false,
-      calls: res.steps.map((s) => ({ ...s, kind: s.kind.startsWith("verify") ? "mcq" : s.kind })),
+      calls: [...res.steps, ...(written ? [written.step] : [])].map((s) => ({ ...s, kind: s.kind.startsWith("verify") ? "mcq" : s.kind })),
       candidates, chosen: res.chosen, waitMs: res.waitMs,
     };
     await fs.writeFile(file, JSON.stringify(result, null, 2));
     const ch = res.candidates.find((c) => c.idx === res.chosen);
-    console.log(`${id}: chosen=${res.chosen ?? "none"} wait=${(res.waitMs / 1000).toFixed(1)}s total=${((performance.now() - t0) / 1000).toFixed(1)}s ${ch ? JSON.stringify(ch.label) + " → " + JSON.stringify(res.texts?.clue) : ""}`);
+    console.log(`${id}: chosen=${res.chosen ?? "none"} wait=${(res.waitMs / 1000).toFixed(1)}s total=${((performance.now() - t0) / 1000).toFixed(1)}s ${ch ? JSON.stringify(ch.label) + " → " + JSON.stringify(res.clue) : ""}`);
   }
 }
 

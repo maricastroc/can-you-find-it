@@ -1,21 +1,16 @@
-/**
- * Round lifecycle: wide photo → secret target → hints → checks → end.
- * The target (label, box, crops) stays on the server until the round ends.
- */
 import "server-only";
 import { randomUUID } from "node:crypto";
 import { config } from "@/lib/hunt/config";
-import { chooseLens, cropFor, findTarget, spatialHint, type EngineResult } from "@/lib/hunt/engine";
+import { cropFor, findTarget, spatialHint, VERIFY_SIDE, writeTexts, type EngineResult } from "@/lib/hunt/engine";
 import { compareWithTarget, type Verdict } from "@/lib/hunt/check";
 import { boxWithin, cropRegion, normalizePhoto, pixelatedHint, revealRegion } from "@/lib/hunt/images";
-import { LENS_MENU } from "@/lib/hunt/prompts";
 import { ModelUnavailableError } from "@/lib/hunt/ollama";
 import { appendLog, deleteRound, loadRound, readImage, saveRound, writeImage } from "./store";
 import { MAX_HINTS, type Feedback, type PublicHint, type PublicRound, type Round } from "./types";
 
 export type StartEvent =
   | { type: "created"; id: string }
-  | { type: "progress"; stage: "looking" | "checking" | "writing"; attempt?: number }
+  | { type: "progress"; stage: "looking" | "checking"; attempt?: number }
   | { type: "done"; round: PublicRound }
   | { type: "error"; code: ErrorCode; message: string; id?: string };
 
@@ -31,7 +26,6 @@ export class RoundError extends Error {
   }
 }
 
-// One mutation at a time per round (double taps, retries).
 const locks = new Map<string, Promise<unknown>>();
 async function withLock<T>(id: string, fn: () => Promise<T>): Promise<T> {
   const prev = locks.get(id) ?? Promise.resolve();
@@ -44,14 +38,22 @@ async function withLock<T>(id: string, fn: () => Promise<T>): Promise<T> {
   }
 }
 
+const writing = new Map<string, Promise<void>>();
+export const TEXTS_WAIT_MS = 45_000;
+
 const url = (id: string, kind: string) => `/api/rounds/${id}/image/${kind}`;
 const secondsSince = (iso?: string) => (iso ? Math.round((Date.now() - Date.parse(iso)) / 1000) : undefined);
+
+export const FALLBACK_HINTS = {
+  semantic: "It has been here longer than you have. Look for something you'd usually walk past.",
+  concrete: "It's something you could point at with one finger.",
+};
 
 export function toPublic(r: Round): PublicRound {
   const hints: PublicHint[] = [];
   if (r.target) {
     const t = r.target;
-    const texts = [t.hints.semantic, t.hints.concrete, t.hints.spatial];
+    const texts = [t.hints.semantic || FALLBACK_HINTS.semantic, t.hints.concrete || FALLBACK_HINTS.concrete, t.hints.spatial];
     for (let level = 1; level <= Math.min(r.hintsUsed, MAX_HINTS); level++) {
       hints.push(
         level <= 3
@@ -106,17 +108,49 @@ function classify(e: unknown): { code: ErrorCode; message: string } {
   return { code: "internal", message: "Something went wrong while looking." };
 }
 
-/** Texts used when the writer's answer can't be read; true for any target. */
-function fallbackTexts(label: string, box: NonNullable<Round["target"]>["box"]) {
-  const lens = chooseLens(label, undefined, box);
-  return {
-    lens,
-    clue: LENS_MENU.find((l) => l.id === lens)!.line,
-    evidence: "",
-    hint_semantic: "It has been here longer than you have. Look for something you'd usually walk past.",
-    hint_concrete: "It's something you could point at with one finger.",
-    detail: "",
-  };
+const textsReady = (r: Round) => !!r.target && (r.target.textsReady ?? !!r.target.hints.semantic);
+
+async function writeRoundTexts(id: string, photo: Buffer): Promise<void> {
+  const before = await loadRound(id);
+  if (!before?.target || textsReady(before)) return;
+  const t0 = Date.now();
+  let texts: Awaited<ReturnType<typeof writeTexts>>["texts"];
+  let error: string | undefined;
+  try {
+    texts = (await writeTexts(photo, before.target, { model: before.model }, before.target.lens)).texts;
+  } catch (e) {
+    error = String((e as Error)?.message ?? e);
+  }
+  await withLock(id, async () => {
+    const r = await loadRound(id);
+    if (!r?.target) return;
+    r.target.hints.semantic = texts?.hint_semantic || FALLBACK_HINTS.semantic;
+    r.target.hints.concrete = texts?.hint_concrete || FALLBACK_HINTS.concrete;
+    r.target.detail = texts?.detail ?? "";
+    r.target.evidence = texts?.evidence ?? "";
+    r.target.textsReady = true;
+    await saveRound(r);
+  });
+  await appendLog({ event: "texts_ready", round: id, ms: Date.now() - t0, fallback: !texts, error });
+}
+
+function scheduleTexts(id: string, photo: Buffer): Promise<void> {
+  const existing = writing.get(id);
+  if (existing) return existing;
+  const job = writeRoundTexts(id, photo)
+    .catch(() => undefined)
+    .finally(() => writing.delete(id));
+  writing.set(id, job);
+  return job;
+}
+
+async function ensureTexts(id: string): Promise<void> {
+  const r = await loadRound(id);
+  if (!r?.target || textsReady(r)) return;
+  const photo = await readImage(id, "photo.jpg");
+  if (!photo) return;
+  const job = writing.get(id) ?? scheduleTexts(id, photo);
+  await Promise.race([job, new Promise((resolve) => setTimeout(resolve, TEXTS_WAIT_MS))]);
 }
 
 export async function startRound(input: Buffer, emit: (e: StartEvent) => void): Promise<void> {
@@ -124,7 +158,7 @@ export async function startRound(input: Buffer, emit: (e: StartEvent) => void): 
     try {
       emit(e);
     } catch {
-      // The phone may have gone to sleep; the round still completes.
+      return;
     }
   };
   let photo: Awaited<ReturnType<typeof normalizePhoto>>;
@@ -156,7 +190,6 @@ export async function startRound(input: Buffer, emit: (e: StartEvent) => void): 
   try {
     result = await findTarget(photo.buffer, { model: config.model }, (p) => {
       if (p.stage === "verifying") safeEmit({ type: "progress", stage: "checking", attempt: p.attempt });
-      if (p.stage === "chosen") safeEmit({ type: "progress", stage: "writing" });
     });
   } catch (e) {
     const { code, message } = classify(e);
@@ -171,35 +204,29 @@ export async function startRound(input: Buffer, emit: (e: StartEvent) => void): 
   round.candidates = result.candidates;
   round.timings.lookingMs = Date.now() - t0;
   const chosen = result.candidates.find((c) => c.idx === result.chosen);
-  if (!chosen?.box) {
+  if (!chosen?.box || !result.lens || !result.clue) {
     round.status = "none";
     await saveRound(round);
     await appendLog({ event: "no_target", round: round.id, lookingMs: round.timings.lookingMs, proposals: result.candidates.map((c) => c.label) });
     safeEmit({ type: "done", round: toPublic(round) });
     return;
   }
-  const texts = result.texts ?? fallbackTexts(chosen.label, chosen.box);
   round.target = {
     label: chosen.label,
     box: chosen.box,
-    lens: texts.lens,
-    clue: texts.clue,
-    hints: { semantic: texts.hint_semantic, concrete: texts.hint_concrete, spatial: spatialHint(chosen.box) },
-    detail: texts.detail,
-    evidence: texts.evidence,
+    lens: result.lens,
+    clue: result.clue,
+    hints: { semantic: "", concrete: "", spatial: spatialHint(chosen.box) },
+    detail: "",
+    evidence: "",
+    textsReady: false,
   };
   round.status = "hunting";
   round.timings.clueAt = new Date().toISOString();
   await saveRound(round);
-  await appendLog({
-    event: "target_ready",
-    round: round.id,
-    lookingMs: round.timings.lookingMs,
-    label: chosen.label,
-    lens: texts.lens,
-    usedFallbackTexts: !result.texts,
-  });
+  await appendLog({ event: "target_ready", round: round.id, lookingMs: round.timings.lookingMs, label: chosen.label, lens: result.lens });
   safeEmit({ type: "done", round: toPublic(round) });
+  void scheduleTexts(round.id, photo.buffer);
 }
 
 async function mustLoad(id: string): Promise<Round> {
@@ -217,7 +244,10 @@ export async function getRound(id: string): Promise<PublicRound | undefined> {
   return r ? toPublic(r) : undefined;
 }
 
-export function unlockHint(id: string): Promise<PublicRound> {
+export async function unlockHint(id: string): Promise<PublicRound> {
+  const current = await mustLoad(id);
+  mustBeHunting(current);
+  if (current.hintsUsed < 2) await ensureTexts(id);
   return withLock(id, async () => {
     const r = await mustLoad(id);
     mustBeHunting(r);
@@ -243,7 +273,7 @@ export function checkFound(id: string, input: Buffer): Promise<{ verdict: Verdic
     const file = `found-${r.attempts.length + 1}.jpg`;
     await writeImage(id, file, found);
     const photo = (await readImage(id, "photo.jpg"))!;
-    const { buffer: targetCrop } = await cropFor(photo, r.target!.box, "verify");
+    const { buffer: targetCrop } = await cropFor(photo, r.target!.box, "verify", VERIFY_SIDE);
     const check = await compareWithTarget(targetCrop, found, r.target!.label, { model: r.model });
     r.attempts.push({ at: new Date().toISOString(), verdict: check.verdict, shows: check.shows, ms: check.ms, file });
     if (check.verdict === "found") {
@@ -266,7 +296,6 @@ export function checkFound(id: string, input: Buffer): Promise<{ verdict: Verdic
   });
 }
 
-/** The player is sure it's the right thing although the model disagreed. */
 export function confirmFound(id: string): Promise<PublicRound> {
   return withLock(id, async () => {
     const r = await mustLoad(id);
@@ -305,9 +334,6 @@ export function addFeedback(id: string, fb: Omit<Feedback, "at">): Promise<Publi
   });
 }
 
-export type ImageKind = "photo" | "reveal" | "hint" | `found-${number}`;
-
-/** Images are gated by round state so the device can't peek at the target. */
 export async function getRoundImage(id: string, kind: string): Promise<Buffer | undefined> {
   const r = await loadRound(id);
   if (!r) return undefined;
@@ -323,7 +349,6 @@ export async function getRoundImage(id: string, kind: string): Promise<Buffer | 
   return undefined;
 }
 
-/** Delete the round's photos and state from this machine. The text log stays. */
 export function forgetRound(id: string): Promise<void> {
   return withLock(id, async () => {
     const r = await loadRound(id);
@@ -331,4 +356,8 @@ export function forgetRound(id: string): Promise<void> {
     await deleteRound(id);
     await appendLog({ event: "forgotten", round: id });
   });
+}
+
+export async function settleTexts(id: string): Promise<void> {
+  await writing.get(id);
 }

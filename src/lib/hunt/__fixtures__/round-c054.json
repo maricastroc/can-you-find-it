@@ -3,38 +3,27 @@
   "width": 1440,
   "height": 2560,
   "model": "gemma4:e4b",
-  "chosen": 1,
-  "label": "Small, dense cluster of bright green bushes on the slope",
+  "chosen": 0,
+  "label": "small green leafy plant in foreground",
+  "lens": "underfoot",
   "calls": [
     {
       "kind": "propose",
-      "prompt": "Pick the 3 best different targets in this photo, best first.",
-      "content": "{\"targets\": [\n  {\"label\": \"Small, bright green sapling growing in the mossy hillside\", \"box_2d\": [847, 894, 913, 990], \"similar_count\": 0, \"difficulty\": \"hard\"},\n  {\"label\": \"Small, dense cluster of bright green bushes on the slope\", \"box_2d\": [395, 415, 474, 737], \"similar_count\": 1, \"difficulty\": \"medium\"},\n  {\"label\": \"Small, dark green conifer cluster in the middle distance\", \"box_2d\": [375, 775, 500, 910], \"similar_count\": 0, \"difficulty\": \"medium\"}\n]}",
-      "ms": 17946
+      "prompt": "Pick the 2 best different targets in this photo, best first.",
+      "content": "{\"targets\": [\n  {\"label\": \"small green leafy plant in foreground\", \"box_2d\": [848, 894, 901, 987], \"similar_count\": 0},\n  {\"label\": \"person wearing backpack walking on trail\", \"box_2d\": [264, 223, 457, 308], \"similar_count\": 0}\n]}",
+      "ms": 13715
     },
     {
       "kind": "verify",
-      "prompt": "Look only at this image. Which ONE of these is clearly visible near the center of the image? If none of them is clearly visible, answer \"none\".\n- Small, dense c",
-      "content": "{\n\"what_i_see\": \"A cluster of bright green plants\",\n\"answer\": \"Small, dense cluster of bright green bushes on the slope\",\n\"person_at_target\": false\n}",
-      "ms": 5760
-    },
-    {
-      "kind": "verify",
-      "prompt": "Look only at this image. Which ONE of these is clearly visible near the center of the image? If none of them is clearly visible, answer \"none\".\n- a red fire hyd",
-      "content": "{\n\"what_i_see\": \"A mossy, wooded hillside with dense foliage.\",\n\"answer\": \"Small, dense cluster of bright green bushes on the slope\",\n\"person_at_target\": false\n}",
-      "ms": 5485
-    },
-    {
-      "kind": "verify",
-      "prompt": "Look only at this image. Which ONE of these is clearly visible near the center of the image? If none of them is clearly visible, answer \"none\".\n- Small, dark gr",
-      "content": "{\n\"what_i_see\": \"A dense cluster of bright green foliage is near the center.\",\n\"answer\": \"Small, dense cluster of bright green bushes on the slope\",\n\"person_at_target\": false\n}",
-      "ms": 5040
+      "prompt": "Look only at this image. Which ONE of these is clearly visible near the center of the image? If none of them is clearly visible, answer \"none\".\n- person wearing",
+      "content": "{\n\"what_i_see\": \"small green leafy plant in foreground\",\n\"answer\": \"small green leafy plant in foreground\",\n\"person_at_target\": false\n}",
+      "ms": 4217
     },
     {
       "kind": "write",
-      "prompt": "The target is: \"Small, dense cluster of bright green bushes on the slope\".",
-      "content": "{\n  \"lens\": \"cared_for\",\n  \"evidence\": \"Small, dense cluster of bright green bushes on the slope.\",\n  \"hint_semantic\": \"This small patch is being tended to by someone nearby.\",\n  \"hint_concrete\": \"Low, bushy, vibrant green foliage growing on the hillside.\",\n  \"detail\": \"The leaves appear tightly packed and uniformly bright green.\"\n}",
-      "ms": 7809
+      "prompt": "The target is: \"small green leafy plant in foreground\".",
+      "content": "{\n  \"lens\": \"nature_taking_back\",\n  \"evidence\": \"Green plants growing out of the soil and rocks.\",\n  \"hint_semantic\": \"Nature is reclaiming this area, pushing life through the earth.\",\n  \"hint_concrete\": \"Small, vibrant green leafy plants growing in the foreground.\",\n  \"detail\": \"The leaves are bright green and appear slightly glossy.\"\n}",
+      "ms": 7722
     }
   ]
 }
