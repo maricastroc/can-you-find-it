@@ -69,7 +69,6 @@ describe("shuffle", () => {
   });
 });
 
-
 describe("lensFor", () => {
   it.each([
     ["Black ornamental street lamp with a single fixture", "waiting", "after_dark"],
@@ -84,10 +83,17 @@ describe("lensFor", () => {
     ["Small dark informational plaque attached to a tree trunk", "remember", "read_me"],
     ["White sign with black text on a pole", "plain_sight", "read_me"],
     ["Bronze plaque dated 1919 on a wall", "plain_sight", "remember"],
+    ["Small green sign with house number 692", "plain_sight", "where_you_are"],
     ["Stone coat of arms carved into the structure", "handmade", "remember"],
     ["Small red and brown playhouse structure", "plain_sight", "smaller_people"],
   ])("%s → rule wins over the model", (label, model, expected) => {
     expect(lensFor(label, model)).toBe(expected);
+  });
+
+  it("ignores where the object is when matching rules", () => {
+    expect(lensFor("Orange and white striped umbrella near fountain", undefined)).toBeUndefined();
+    expect(lensFor("Bench next to the lamp post", undefined)).toBe("waiting");
+    expect(lensFor("Red flowers in the foreground of a gate", undefined)).toBeUndefined();
   });
 
   it("falls back to the model's choice when no rule matches", () => {
@@ -111,7 +117,6 @@ describe("chooseLens", () => {
   });
 
   it("never lets the model claim a category lens without a rule", () => {
-    // A gate pillar is not a memorial, whatever the model says.
     expect(chooseLens("Stone pillar with rounded top flanking the driveway", "remember", mid)).toBe("plain_sight");
   });
 

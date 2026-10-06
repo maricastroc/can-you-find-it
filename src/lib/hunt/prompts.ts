@@ -1,13 +1,10 @@
-/**
- * Prompts and schemas used by the hunt engine. Clue lines live in LENS_MENU
- * and are written by people; the model only chooses among them.
- */
+import { withoutLocation } from "./filters";
+
 export const MCQ_PROMPT = (options: string[]) =>
   `Look only at this image. Which ONE of these is clearly visible near the center of the image? If none of them is clearly visible, answer "none".
 ${options.map((o) => `- ${o}`).join("\n")}
 First say in a few words what is near the center. Then copy the matching option exactly. Finally say whether a person is on it, at it or touching it (sitting on it, leaning on it, standing right in front of it). People further away do not count.`;
 
-/** The answer is the option text itself: small models mis-map letters. */
 export const mcqSchema = (options: string[]) => ({
   type: "object",
   properties: {
@@ -18,7 +15,6 @@ export const mcqSchema = (options: string[]) => ({
   required: ["what_i_see", "answer", "person_at_target"],
 });
 
-/** Generic, plausible-but-absent distractors used when a photo yields few candidates. */
 export const GENERIC_DISTRACTORS = [
   "a red fire hydrant",
   "a bicycle leaning on a post",
@@ -47,11 +43,6 @@ export const compare2Schema = {
   required: ["target_details", "image2_shows", "same_kind", "same_object"],
 };
 
-/**
- * Clue lines are written by people; the model only picks the one that is true
- * for its target. Each line is an invitation to look at the place through a
- * lens, not a description of the object.
- */
 export const LENS_MENU = [
   { id: "where_you_are", line: "It tells you where you are, if you know how to read it.", when: "street-name signs, house numbers, maps, name plaques" },
   { id: "read_me", line: "It has something to tell you, if you get close enough to read it.", when: "small signs, labels, notices and plaques with text" },
@@ -78,11 +69,6 @@ export const LENS_MENU = [
 
 export type LensId = (typeof LENS_MENU)[number]["id"];
 
-/**
- * Deterministic lens for common kinds of object, matched on the target label.
- * The model is good at naming objects and unreliable at mapping them to a
- * lens, so obvious cases never depend on the model's choice.
- */
 const LENS_RULES: Array<[RegExp, LensId]> = [
   [/\b(clock|sundial)\b/i, "keeps_time"],
   [/\b(lamp|lamppost|lamp post|lantern|street ?light|light pole|light fixture)\b/i, "after_dark"],
@@ -100,7 +86,8 @@ const LENS_RULES: Array<[RegExp, LensId]> = [
 ];
 
 export function lensFor(label: string, modelChoice?: string): LensId | undefined {
-  for (const [re, id] of LENS_RULES) if (re.test(label)) return id;
+  const subject = withoutLocation(label);
+  for (const [re, id] of LENS_RULES) if (re.test(subject)) return id;
   return LENS_MENU.find((l) => l.id === modelChoice)?.id;
 }
 
