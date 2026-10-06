@@ -1,0 +1,326 @@
+[
+  {
+    "id": "P1-monument",
+    "kind": "positive",
+    "expected": true,
+    "said": true,
+    "correct": true,
+    "shows": "Large bronze statue of a man",
+    "ms": 8447,
+    "sameKind": false,
+    "details": [
+      "bronze statue of a man",
+      "on a tall dark stone pedestal",
+      "features allegorical figures at the base"
+    ]
+  },
+  {
+    "id": "P2-obelisk",
+    "kind": "positive",
+    "expected": true,
+    "said": true,
+    "correct": true,
+    "shows": "Tall stone obelisk in a fountain",
+    "ms": 9119,
+    "sameKind": false,
+    "details": [
+      "tall stone obelisk",
+      "rising from a fountain",
+      "with white marble sculptures"
+    ]
+  },
+  {
+    "id": "P3-rock",
+    "kind": "positive",
+    "expected": true,
+    "said": true,
+    "correct": true,
+    "shows": "Large gray rock with ducks on it",
+    "ms": 8711,
+    "sameKind": false,
+    "details": [
+      "large",
+      "flat",
+      "grey"
+    ]
+  },
+  {
+    "id": "P4-hanok",
+    "kind": "positive",
+    "expected": true,
+    "said": true,
+    "correct": true,
+    "shows": "Old brick building facade with wooden door",
+    "ms": 13716,
+    "sameKind": false,
+    "details": [
+      "grey patterned brick wall",
+      "small wooden lattice window",
+      "wooden doors"
+    ]
+  },
+  {
+    "id": "P5-loosestrife",
+    "kind": "positive",
+    "expected": true,
+    "said": true,
+    "correct": true,
+    "shows": "Tall purple flowering plants in green foliage",
+    "ms": 8682,
+    "sameKind": false,
+    "details": [
+      "tall stalks",
+      "purple flowers",
+      "dense green foliage"
+    ]
+  },
+  {
+    "id": "A1-fountain",
+    "kind": "positive_aug",
+    "expected": true,
+    "said": true,
+    "correct": true,
+    "shows": "A fountain with splashing water and metal railing.",
+    "ms": 13546,
+    "sameKind": false,
+    "details": [
+      "The fountain is contained within a round stone basin.",
+      "It features multiple jets of water spraying upwards.",
+      "The water appears clear and is actively flowing."
+    ]
+  },
+  {
+    "id": "A2-bench",
+    "kind": "positive_aug",
+    "expected": true,
+    "said": true,
+    "correct": true,
+    "shows": "White and gray park bench outdoors",
+    "ms": 9263,
+    "sameKind": false,
+    "details": [
+      "long",
+      "white",
+      "wooden bench with black iron legs"
+    ]
+  },
+  {
+    "id": "A3-sign58",
+    "kind": "positive_aug",
+    "expected": true,
+    "said": true,
+    "correct": true,
+    "shows": "Blue and white street sign with number 58",
+    "ms": 12797,
+    "sameKind": false,
+    "details": [
+      "The sign is predominantly dark blue with a white border.",
+      "It features Korean text '북촌로11길' and English text 'Bukchon-ro 11-gil' at the top.",
+      "The number '58' is displayed prominently in large white font in the center."
+    ]
+  },
+  {
+    "id": "A4-sign692",
+    "kind": "positive_aug",
+    "expected": true,
+    "said": true,
+    "correct": true,
+    "shows": "A green and white numbered sign.",
+    "ms": 11997,
+    "sameKind": false,
+    "details": [
+      "The sign is rectangular.",
+      "The background color of the sign is teal/green.",
+      "The numbers '692' are displayed in a light/cream color."
+    ]
+  },
+  {
+    "id": "A5-lamp",
+    "kind": "positive_aug",
+    "expected": true,
+    "said": true,
+    "correct": true,
+    "shows": "Street lamp against autumn foliage background",
+    "ms": 8596,
+    "sameKind": false,
+    "details": [
+      "black color",
+      "tall, slender pole",
+      "lantern on top"
+    ]
+  },
+  {
+    "id": "N1-monument-vs-obelisk",
+    "kind": "hard_negative",
+    "expected": false,
+    "said": false,
+    "correct": true,
+    "shows": "Large stone monument in a plaza",
+    "ms": 9543,
+    "sameKind": false,
+    "details": [
+      "bronze statue of a man",
+      "on a tall dark stone pedestal",
+      "has figures at the base"
+    ]
+  },
+  {
+    "id": "N2-obelisk-vs-fountain",
+    "kind": "hard_negative",
+    "expected": false,
+    "said": false,
+    "correct": true,
+    "shows": "A large, splashing fountain with white water.",
+    "ms": 11505,
+    "sameKind": false,
+    "details": [
+      "tall stone obelisk",
+      "rising from a fountain",
+      "white marble sculptures"
+    ]
+  },
+  {
+    "id": "N3-hanok-vs-hanok",
+    "kind": "hard_negative",
+    "expected": false,
+    "said": false,
+    "correct": true,
+    "shows": "Traditional wooden building facade, brown and white.",
+    "ms": 13179,
+    "sameKind": false,
+    "details": [
+      "grey patterned brick wall",
+      "small wooden lattice window",
+      "wooden doors"
+    ]
+  },
+  {
+    "id": "N4-bench-vs-bench",
+    "kind": "hard_negative",
+    "expected": false,
+    "said": false,
+    "correct": true,
+    "shows": "Two black and brown park benches",
+    "ms": 3844,
+    "sameKind": false,
+    "details": []
+  },
+  {
+    "id": "N5-sign-vs-sign",
+    "kind": "hard_negative",
+    "expected": false,
+    "said": false,
+    "correct": true,
+    "shows": "A green road sign with white numbers.",
+    "ms": 3021,
+    "sameKind": false,
+    "details": []
+  },
+  {
+    "id": "N6-bridge-vs-bridge",
+    "kind": "hard_negative",
+    "expected": false,
+    "said": true,
+    "correct": false,
+    "shows": "A bridge over a river with buildings",
+    "ms": 7452,
+    "sameKind": false,
+    "details": [
+      "low concrete road bridge",
+      "over the river",
+      "hidden"
+    ]
+  },
+  {
+    "id": "N7-lamp-vs-lamp",
+    "kind": "hard_negative",
+    "expected": false,
+    "said": false,
+    "correct": true,
+    "shows": "Green and black ornate street lamp post",
+    "ms": 8044,
+    "sameKind": true,
+    "details": [
+      "black iron",
+      "lamp post",
+      "lantern on top"
+    ]
+  },
+  {
+    "id": "U1-fountain-vs-bench",
+    "kind": "negative",
+    "expected": false,
+    "said": false,
+    "correct": true,
+    "shows": "A long, metal park bench, gray and black.",
+    "ms": 3323,
+    "sameKind": false,
+    "details": []
+  },
+  {
+    "id": "U2-monument-vs-sign",
+    "kind": "negative",
+    "expected": false,
+    "said": false,
+    "correct": true,
+    "shows": "Blue and white street sign with number 58",
+    "ms": 2890,
+    "sameKind": false,
+    "details": []
+  },
+  {
+    "id": "U3-lamp-vs-bench",
+    "kind": "negative",
+    "expected": false,
+    "said": false,
+    "correct": true,
+    "shows": "A long, metal park bench, gray and black.",
+    "ms": 3155,
+    "sameKind": false,
+    "details": []
+  },
+  {
+    "id": "U4-sign-vs-monument",
+    "kind": "negative",
+    "expected": false,
+    "said": false,
+    "correct": true,
+    "shows": "Statue on a dark stone pedestal",
+    "ms": 3746,
+    "sameKind": false,
+    "details": []
+  },
+  {
+    "id": "U5-rock-vs-lamp",
+    "kind": "negative",
+    "expected": false,
+    "said": false,
+    "correct": true,
+    "shows": "Ornate black lamppost with warm orange light",
+    "ms": 3388,
+    "sameKind": false,
+    "details": []
+  },
+  {
+    "id": "U6-hanok-vs-fountain",
+    "kind": "negative",
+    "expected": false,
+    "said": false,
+    "correct": true,
+    "shows": "A large, splashing fountain with white water.",
+    "ms": 3373,
+    "sameKind": false,
+    "details": []
+  },
+  {
+    "id": "U7-bench-vs-obelisk",
+    "kind": "negative",
+    "expected": false,
+    "said": false,
+    "correct": true,
+    "shows": "Large stone monument in a plaza",
+    "ms": 3245,
+    "sameKind": false,
+    "details": []
+  }
+]

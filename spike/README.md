@@ -62,6 +62,8 @@ npx tsx spike/src/run4.ts --model gemma4:12b --run v4b-12b
 npx tsx spike/src/run4.ts --model gemma4:e4b --run v5-e4b
 npx tsx spike/src/run4.ts --model gemma4:e4b --run v6-e4b-1536 --side 1536 --skip-write
 npx tsx spike/src/compare.ts gemma4:e4b --v2
+npx tsx spike/src/compare.ts gemma4:e4b --v3                 # shipped check before v4, on all 24 pairs
+npx tsx spike/src/compare.ts gemma4:e4b --v4                 # blind first look → text match → compare
 PICKS_RUN=v4b-e4b npx tsx spike/src/report.ts v3-single-e4b v4-e4b v4b-e4b v4b-12b   # → spike/data/report.html
 npx vitest run spike                               # unit tests for the engine helpers
 ```
@@ -93,23 +95,37 @@ Per photo, with v4b on Gemma 4 E4B: **~1 in 2 photos produces a good round**
 (real, findable, interesting, with a true clue), ~1 in 5 gets an honest
 "nothing I trust here", and the rest are playable but mundane or flawed.
 
-### FOUND IT check (19 pairs, Gemma 4 E4B)
+### FOUND IT check (24 pairs, Gemma 4 E4B)
 
-| | v1 prompt (same / not same) | v2 prompt (details → same kind / same object) | **v3 (shipped)** |
-| --- | --- | --- | --- |
-| Same object, another photographer & angle | 5/5 | 4/5 | **5/5** |
-| Same object, re-cropped + rotated | 5/5 | 5/5 | **5/5** |
-| Same kind, different object (bench vs bench…) | 4/7 | 7/7 | 6/7 |
-| Unrelated | 2/2 | 2/2 | 2/2 |
-| Latency | ~6 s | ~10 s | ~7 s |
+| | v1 prompt (same / not same) | v2 prompt (details → same kind / same object) | v3 | **v4 (shipped)** |
+| --- | --- | --- | --- | --- |
+| Same object, another photographer & angle | 5/5 | 4/5 | 5/5 | **5/5** |
+| Same object, re-cropped + rotated | 5/5 | 5/5 | 5/5 | **5/5** |
+| Same kind, different object (bench vs bench…) | 4/7 | 7/7 | 6/7 | 6/7 |
+| Unrelated (v1–v2 saw 2 pairs, v3–v4 all 7) | 2/2 | 2/2 | 7/7 | **7/7** |
+| Playtest: a laptop screen vs. the "black pedestal fan" | – | – | FOUND IT ✗ | **NOT QUITE ✓** |
+| Latency | ~6 s | ~10 s | ~7 s | ~3 s for a wrong photo, ~2 s more than v3 for a right one |
 
 v2/v3 separate `same_kind` from `same_object`, which gives the game an honest
-middle state: *ALMOST — right kind of thing, not the one I saw.* v3 (in
-`src/lib/hunt/prompts.ts` + `check.ts`) asks for details of the object itself,
-not its background, and only says ALMOST when the description of the player's
-photo names the target's kind of object — added after a live test where a
-plant label among leaves was called "almost" a tree trunk among leaves. Its one
-miss: two similar concrete road bridges judged to be the same bridge.
+middle state: *ALMOST — right kind of thing, not the one I saw.* v3 asks for
+details of the object itself, not its background, and only says ALMOST when the
+description of the player's photo names the target's kind of object — added
+after a live test where a plant label among leaves was called "almost" a tree
+trunk among leaves.
+
+v4 came from the first home playtest: a deliberately wrong photo (the laptop
+screen) was accepted as the fan. v3 names the target before the model looks at
+the player's photo, and the model described the photo in the target's own
+words — on the pair set it did that for 5 of the 10 right photos too. v4
+(`judgeFound` in `src/lib/hunt/check.ts`) first asks what the main thing in the
+player's photo is **without saying what the target is**, then a text-only
+question checks whether that description could be the target, among the
+round's other proposals and a few generic distractors (with location words
+like "near the tree" removed, which otherwise pulled a dirt path towards a sign
+"near tree base"). Only then does the v3 comparison run. On the pair set it
+scores the same as v3, and its one miss is still the two similar concrete road
+bridges; on the playtest photos it rejects the laptop and still accepts the
+real find. The 5 extra unrelated pairs (U3–U7) were added with v4.
 
 ### Clues
 

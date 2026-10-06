@@ -4,7 +4,7 @@ import sharp from "sharp";
 import { chat } from "../../src/lib/hunt/ollama";
 import { extractJson } from "../../src/lib/hunt/json";
 import { COMPARE_PROMPT, COMPARE2_PROMPT, compare2Schema, compareSchema } from "./prompts-legacy.ts";
-import { verdictFrom } from "../../src/lib/hunt/check";
+import { compareWithTarget, judgeFound, verdictFrom } from "../../src/lib/hunt/check";
 import { toPixels, type Box } from "../../src/lib/hunt/geometry";
 
 type Ref = { file: string; box: Box; aug?: boolean };
@@ -45,6 +45,11 @@ export const PAIRS: Pair[] = [
   { id: "N7-lamp-vs-lamp", kind: "hard_negative", label: "black iron lamp post with a lantern on top", target: lamp, found: lampFlowers },
   { id: "U1-fountain-vs-bench", kind: "negative", label: "fountain with water jets in a round stone basin", target: fountain, found: bench },
   { id: "U2-monument-vs-sign", kind: "negative", label: "bronze statue of a man on a tall dark stone pedestal", target: monument, found: sign58 },
+  { id: "U3-lamp-vs-bench", kind: "negative", label: "black iron lamp post with a lantern on top", target: lamp, found: bench },
+  { id: "U4-sign-vs-monument", kind: "negative", label: "small green sign with house number 692", target: sign692, found: monument },
+  { id: "U5-rock-vs-lamp", kind: "negative", label: "large flat grey rock jutting into the pond", target: rock, found: lamp },
+  { id: "U6-hanok-vs-fountain", kind: "negative", label: "grey patterned brick wall with a small wooden lattice window and wooden doors", target: hanok, found: fountain },
+  { id: "U7-bench-vs-obelisk", kind: "negative", label: "long white wooden bench with black iron legs", target: bench, found: obelisk },
 ];
 
 const ROOT = path.join(process.cwd(), "spike/data");
@@ -65,8 +70,11 @@ async function render(ref: Ref, side: number): Promise<Buffer> {
 
 async function main() {
   const model = process.argv[2] ?? "gemma4:e4b";
-  const v2 = process.argv.includes("--v2");
-  const out = path.join(ROOT, "compare", model.replace(/[:/]/g, "_") + (v2 ? `-${process.env.COMPARE_TAG ?? "v2"}` : ""));
+  const v4 = process.argv.includes("--v4");
+  const v3 = process.argv.includes("--v3");
+  const v2 = v4 || v3 || process.argv.includes("--v2");
+  const tag = v4 ? "v4" : v3 ? "v3-extended" : (process.env.COMPARE_TAG ?? "v2");
+  const out = path.join(ROOT, "compare", model.replace(/[:/]/g, "_") + (v2 ? `-${tag}` : ""));
   await fs.mkdir(out, { recursive: true });
   const rows: Array<{ id: string; kind: Pair["kind"]; expected: boolean; said: boolean; correct: boolean; confidence?: number; shows?: string; ms: number; sameKind?: boolean; details?: string[] }> = [];
   for (const p of PAIRS) {
@@ -74,6 +82,14 @@ async function main() {
     const b = await render(p.found, 1024);
     await fs.writeFile(path.join(out, `${p.id}-target.jpg`), a);
     await fs.writeFile(path.join(out, `${p.id}-found.jpg`), b);
+    if (v4 || v3) {
+      const j = v4 ? await judgeFound(a, b, p.label, [], { model }) : await compareWithTarget(a, b, p.label, { model });
+      const expected = p.kind.startsWith("positive");
+      const said = j.verdict === "found";
+      rows.push({ id: p.id, kind: p.kind, expected, said, correct: expected === said, shows: j.shows, ms: j.ms, sameKind: j.verdict === "almost", details: j.details });
+      console.log(`${expected === said ? "✓" : "✗"} ${p.id.padEnd(26)} expected=${expected} verdict=${j.verdict} ${j.ms}ms — ${j.shows}`);
+      continue;
+    }
     const r = v2
       ? await chat({ model, prompt: COMPARE2_PROMPT(p.label), images: [a, b], format: compare2Schema, options: { temperature: 0 } })
       : await chat({ model, prompt: COMPARE_PROMPT(p.label), images: [a, b], format: compareSchema, options: { temperature: 0 } });
