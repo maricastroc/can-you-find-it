@@ -90,8 +90,12 @@ export function Hunt({ round, photo, pending, notice, onFound, onHint, onGiveUp,
                   <span>{h.text}</span>
                 ) : (
                   <>
-                    <span>A blurred glimpse of what I saw.</span>
-                    <img className="hint-image" src={h.imageUrl} alt="A heavily pixelated glimpse of the hidden thing" />
+                    <span>{h.text}</span>
+                    <img
+                      className={h.kind === "glimpse" ? "hint-image" : "hint-area"}
+                      src={h.imageUrl}
+                      alt={h.kind === "glimpse" ? "A heavily pixelated glimpse of the hidden thing" : "Your photo, dark except for the part where it is"}
+                    />
                   </>
                 )}
               </li>

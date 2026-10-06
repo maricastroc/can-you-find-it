@@ -27,7 +27,7 @@ const round = (over: Partial<PublicRound> = {}): PublicRound => ({
   createdAt: "2026-10-05T00:00:00Z",
   clue: "It only does its job after dark.",
   hints: [],
-  hintsLeft: 4,
+  hintsLeft: 5,
   attempts: [],
   ...over,
 });
@@ -72,7 +72,7 @@ describe("Game", () => {
       onEvent({ type: "progress", stage: "checking", attempt: 1 });
       onEvent({ type: "done", round: round() });
     });
-    vi.mocked(api.unlockHint).mockResolvedValue(round({ hints: [{ level: 1, kind: "text", text: "It helps people find their way at night." }], hintsLeft: 3 }));
+    vi.mocked(api.unlockHint).mockResolvedValue(round({ hints: [{ level: 1, kind: "text", text: "It helps people find their way at night." }], hintsLeft: 4 }));
     vi.mocked(api.checkFound).mockResolvedValue({ verdict: "found", round: revealed("found") });
 
     const { container } = render(<Game nativeCamera />);
@@ -82,9 +82,9 @@ describe("Game", () => {
     expect(await screen.findByRole("heading", { name: "It only does its job after dark." })).toBeInTheDocument();
     expect(window.localStorage.getItem("cyfi:round")).toBe(round().id);
 
-    fireEvent.click(screen.getByRole("button", { name: "Hint, 4 left" }));
+    fireEvent.click(screen.getByRole("button", { name: "Hint, 5 left" }));
     expect(await screen.findByText("It helps people find their way at night.")).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Hint, 3 left" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Hint, 4 left" })).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole("button", { name: "I found it" }));
     await takePhoto(container);
@@ -190,7 +190,7 @@ describe("Game", () => {
 
   it("resumes a round after a reload", async () => {
     window.localStorage.setItem("cyfi:round", round().id);
-    vi.mocked(api.getRound).mockResolvedValue(round({ hints: [{ level: 1, kind: "text", text: "Look for light." }], hintsLeft: 3 }));
+    vi.mocked(api.getRound).mockResolvedValue(round({ hints: [{ level: 1, kind: "text", text: "Look for light." }], hintsLeft: 4 }));
     render(<Game nativeCamera />);
     expect(await screen.findByRole("heading", { name: "It only does its job after dark." })).toBeInTheDocument();
     expect(screen.getByText("Look for light.")).toBeInTheDocument();
@@ -339,7 +339,7 @@ describe("Game", () => {
       vi.mocked(api.getRound).mockResolvedValue(round());
       window.localStorage.setItem("cyfi:round", round().id);
       render(<Game nativeCamera />);
-      return screen.findByRole("button", { name: "Hint, 4 left" });
+      return screen.findByRole("button", { name: "Hint, 5 left" });
     }
 
     it("shows that a hint is coming right away, then the hint", async () => {
@@ -347,8 +347,8 @@ describe("Game", () => {
       vi.mocked(api.unlockHint).mockImplementation(() => new Promise((resolve) => (answer = resolve)));
       fireEvent.click(await hunting());
       expect(await screen.findByText("Getting a hint…")).toBeInTheDocument();
-      expect(screen.getByRole("button", { name: "Hint, 4 left" })).toBeDisabled();
-      await act(async () => answer(round({ hints: [{ level: 1, kind: "text", text: "It helps people find their way at night." }], hintsLeft: 3 })));
+      expect(screen.getByRole("button", { name: "Hint, 5 left" })).toBeDisabled();
+      await act(async () => answer(round({ hints: [{ level: 1, kind: "text", text: "It helps people find their way at night." }], hintsLeft: 4 })));
       expect(screen.getByText("It helps people find their way at night.")).toBeInTheDocument();
       expect(screen.queryByText("Getting a hint…")).not.toBeInTheDocument();
     });
@@ -357,7 +357,7 @@ describe("Game", () => {
       vi.mocked(api.unlockHint).mockRejectedValueOnce(new api.ApiError("offline", "Can't reach the computer running the game. Are you on the same network?"));
       fireEvent.click(await hunting());
       expect(await screen.findByRole("alert")).toHaveTextContent("Can't reach the computer running the game.");
-      expect(screen.getByRole("button", { name: "Hint, 4 left" })).toBeEnabled();
+      expect(screen.getByRole("button", { name: "Hint, 5 left" })).toBeEnabled();
     });
 
     it("a round the computer no longer has leads to a clear way out", async () => {

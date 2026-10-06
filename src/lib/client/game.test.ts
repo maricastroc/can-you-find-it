@@ -8,7 +8,7 @@ const round = (over: Partial<PublicRound> = {}): PublicRound => ({
   createdAt: "2026-10-05T00:00:00Z",
   clue: "It only does its job after dark.",
   hints: [],
-  hintsLeft: 4,
+  hintsLeft: 5,
   attempts: [],
   ...over,
 });
@@ -53,7 +53,7 @@ describe("a round from the player's side", () => {
   });
 
   it("a late round update doesn't yank the player out of the camera", () => {
-    const s = run([{ type: "round", round: round() }, { type: "open_found_camera" }, { type: "round", round: round({ hintsLeft: 3 }) }]);
+    const s = run([{ type: "round", round: round() }, { type: "open_found_camera" }, { type: "round", round: round({ hintsLeft: 4 }) }]);
     expect(s.screen).toEqual({ name: "camera", purpose: "found" });
   });
 

@@ -26,7 +26,8 @@ wide photo ──► Gemma 4 E4B proposes 2 targets, each with a box (box_2d, 0�
                is (or where it sits in the frame) — shown right away
            ──► while you start looking, the model writes two hints; a third
                hint comes from the box itself
-           ──► you hunt  (hints: meaning → appearance → direction → pixelated glimpse)
+           ──► you hunt  (hints: meaning → appearance → direction → pixelated glimpse
+                                → the part of your photo where it is)
            ──► your close-up vs the crop: same object → FOUND IT,
                same kind → ALMOST, otherwise NOT QUITE
            ──► reveal: the crop with the model's box, your photo, where it was

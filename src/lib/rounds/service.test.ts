@@ -174,15 +174,28 @@ describe("startRound", () => {
 });
 
 describe("hints", () => {
-  it("unlock one level at a time and stop at four", async () => {
+  it("unlock one level at a time and stop at five", async () => {
     const { id } = await newRound();
     const levels = [];
-    for (let i = 0; i < 6; i++) levels.push((await unlockHint(id)).hints.map((h) => h.kind));
+    for (let i = 0; i < 7; i++) levels.push((await unlockHint(id)).hints.map((h) => h.kind));
     expect(levels[0]).toEqual(["text"]);
     expect(levels[2]).toEqual(["text", "text", "text"]);
-    expect(levels[3]).toEqual(["text", "text", "text", "image"]);
-    expect(levels[5]).toEqual(levels[3]);
+    expect(levels[3]).toEqual(["text", "text", "text", "glimpse"]);
+    expect(levels[4]).toEqual(["text", "text", "text", "glimpse", "area"]);
+    expect(levels[6]).toEqual(levels[4]);
     expect((await getRound(id))?.hintsLeft).toBe(0);
+  });
+
+  it("the image hints exist only once they are unlocked", async () => {
+    const { id } = await newRound();
+    for (let i = 0; i < 3; i++) await unlockHint(id);
+    expect(await getRoundImage(id, "hint")).toBeUndefined();
+    await unlockHint(id);
+    expect(await getRoundImage(id, "hint")).toBeInstanceOf(Buffer);
+    expect(await getRoundImage(id, "area")).toBeUndefined();
+    const round = await unlockHint(id);
+    expect(round.hints.at(-1)).toMatchObject({ level: 5, kind: "area", imageUrl: `/api/rounds/${id}/image/area` });
+    expect(await getRoundImage(id, "area")).toBeInstanceOf(Buffer);
   });
 
   it("an early hint waits for the writer instead of showing an empty hint", async () => {

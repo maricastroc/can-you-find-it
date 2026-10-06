@@ -11,8 +11,8 @@ export type RoundStatus =
   | "revealed"
   | "error";
 
-export type HintLevel = 1 | 2 | 3 | 4;
-export const MAX_HINTS = 4;
+export type HintLevel = 1 | 2 | 3 | 4 | 5;
+export const MAX_HINTS = 5;
 
 export type Attempt = { at: string; verdict: Verdict; shows: string; ms: number; file: string };
 
@@ -48,7 +48,7 @@ export type Round = {
 
 export type PublicHint =
   | { level: HintLevel; kind: "text"; text: string }
-  | { level: HintLevel; kind: "image"; imageUrl: string };
+  | { level: HintLevel; kind: "glimpse" | "area"; text: string; imageUrl: string };
 
 export type PublicRound = {
   id: string;

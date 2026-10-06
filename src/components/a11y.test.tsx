@@ -19,9 +19,10 @@ const round: PublicRound = {
   clue: "It only does its job after dark.",
   hints: [
     { level: 1, kind: "text", text: "It helps at night." },
-    { level: 4, kind: "image", imageUrl: "/x.jpg" },
+    { level: 4, kind: "glimpse", text: "A blurred glimpse of what I saw.", imageUrl: "/x.jpg" },
+    { level: 5, kind: "area", text: "It's somewhere in the bright part of your photo.", imageUrl: "/y.jpg" },
   ],
-  hintsLeft: 2,
+  hintsLeft: 0,
   attempts: [],
 };
 

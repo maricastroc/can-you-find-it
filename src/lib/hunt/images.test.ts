@@ -1,6 +1,6 @@
 import sharp from "sharp";
 import { describe, expect, it } from "vitest";
-import { boxWithin, cropRegion, MAX_PHOTO_SIDE, normalizePhoto, pixelatedHint, revealRegion } from "./images";
+import { areaHint, areaRegion, boxWithin, cropRegion, MAX_PHOTO_SIDE, normalizePhoto, pixelatedHint, revealRegion } from "./images";
 import { cropFor } from "./engine";
 
 async function photoWithSquare(w: number, h: number, sq: { x: number; y: number; size: number }) {
@@ -97,5 +97,44 @@ describe("crops follow the box", () => {
     let reddish = false;
     for (let i = 0; i < data.length; i += info.channels) if (data[i] > data[i + 1] + 40) reddish = true;
     expect(reddish).toBe(true);
+  });
+});
+
+describe("area hint", () => {
+  const box = { x: 0.62, y: 0.4, w: 0.05, h: 0.08 };
+  const inside = (b: typeof box, r: typeof box) => b.x >= r.x - 1e-9 && b.y >= r.y - 1e-9 && b.x + b.w <= r.x + r.w + 1e-9 && b.y + b.h <= r.y + r.h + 1e-9;
+
+  it.each(["00000000-aaaa", "ffffffff-aaaa", "7a3c91e2-aaaa", "not-hex"])("keeps the target and stays in the photo (seed %s)", (seed) => {
+    const r = areaRegion(box, 1.5, seed);
+    expect(inside(box, r)).toBe(true);
+    expect(r.x).toBeGreaterThanOrEqual(0);
+    expect(r.y).toBeGreaterThanOrEqual(0);
+    expect(r.x + r.w).toBeLessThanOrEqual(1 + 1e-9);
+    expect(r.y + r.h).toBeLessThanOrEqual(1 + 1e-9);
+  });
+
+  it("covers a good part of the photo, so it narrows the search without giving it away", () => {
+    const r = areaRegion(box, 1.5, "7a3c91e2");
+    expect(r.w * r.h).toBeGreaterThan(0.1);
+    expect(r.w * r.h).toBeLessThan(0.5);
+  });
+
+  it("does not always put the target in the middle, and is the same every time", () => {
+    const centres = ["00000000", "ffffffff", "12345678"].map((seed) => {
+      const r = areaRegion(box, 1.5, seed);
+      return (box.x + box.w / 2 - r.x) / r.w;
+    });
+    expect(new Set(centres.map((c) => c.toFixed(2))).size).toBeGreaterThan(1);
+    expect(areaRegion(box, 1.5, "12345678")).toEqual(areaRegion(box, 1.5, "12345678"));
+  });
+
+  it("keeps the bright part bright and darkens the rest", async () => {
+    const photo = await sharp({ create: { width: 1200, height: 800, channels: 3, background: "#c8c8c8" } }).jpeg().toBuffer();
+    const region = { x: 0.5, y: 0.25, w: 0.4, h: 0.5 };
+    const out = await areaHint(photo, region);
+    const { data, info } = await sharp(out).raw().toBuffer({ resolveWithObject: true });
+    const at = (fx: number, fy: number) => data[(Math.floor(fy * info.height) * info.width + Math.floor(fx * info.width)) * info.channels];
+    expect(at(0.7, 0.5)).toBeGreaterThan(180);
+    expect(at(0.2, 0.5)).toBeLessThan(90);
   });
 });

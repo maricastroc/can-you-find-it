@@ -3,7 +3,7 @@ import { randomUUID } from "node:crypto";
 import { config } from "@/lib/hunt/config";
 import { cropFor, findTarget, spatialHint, VERIFY_SIDE, writeTexts, type EngineResult } from "@/lib/hunt/engine";
 import { compareWithTarget, type Verdict } from "@/lib/hunt/check";
-import { boxWithin, cropRegion, normalizePhoto, pixelatedHint, revealRegion } from "@/lib/hunt/images";
+import { areaHint, areaRegion, boxWithin, cropRegion, normalizePhoto, pixelatedHint, revealRegion } from "@/lib/hunt/images";
 import { ModelUnavailableError } from "@/lib/hunt/ollama";
 import { appendLog, deleteRound, loadRound, readImage, saveRound, writeImage } from "./store";
 import { MAX_HINTS, type Feedback, type PublicHint, type PublicRound, type Round } from "./types";
@@ -58,7 +58,9 @@ export function toPublic(r: Round): PublicRound {
       hints.push(
         level <= 3
           ? { level: level as 1 | 2 | 3, kind: "text", text: texts[level - 1] }
-          : { level: 4, kind: "image", imageUrl: url(r.id, "hint") },
+          : level === 4
+            ? { level: 4, kind: "glimpse", text: "A blurred glimpse of what I saw.", imageUrl: url(r.id, "hint") }
+            : { level: 5, kind: "area", text: "It's somewhere in the bright part of your photo.", imageUrl: url(r.id, "area") },
       );
     }
   }
@@ -345,7 +347,8 @@ export async function getRoundImage(id: string, kind: string): Promise<Buffer | 
   if (!r.target) return undefined;
   const region = revealRegion(r.target.box, r.photo.width / r.photo.height);
   if (kind === "reveal") return over ? cropRegion(photo, region, 1400) : undefined;
-  if (kind === "hint") return r.hintsUsed >= MAX_HINTS || over ? pixelatedHint(photo, region) : undefined;
+  if (kind === "hint") return r.hintsUsed >= 4 || over ? pixelatedHint(photo, region) : undefined;
+  if (kind === "area") return r.hintsUsed >= 5 || over ? areaHint(photo, areaRegion(r.target.box, r.photo.width / r.photo.height, r.id)) : undefined;
   return undefined;
 }
 
