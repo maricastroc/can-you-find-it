@@ -1,5 +1,6 @@
 import sharp from "sharp";
 import { chat as ollamaChat, type ChatInput, type ChatResult } from "./ollama";
+import { config } from "./config";
 import { extractJson } from "./json";
 import { expand, fromBox2d, toPixels, type Box } from "./geometry";
 import { rejectTarget } from "./filters";
@@ -175,7 +176,7 @@ export async function proposeTargets(image: Buffer, opts: EngineOptions): Promis
     prompt: PICK_PROMPT(n),
     images: [wide],
     format: pickSchema(n),
-    options: { temperature: opts.temperature ?? 0.6 },
+    options: { temperature: opts.temperature ?? 0.6, num_predict: config.maxTokens.propose },
   });
   const parsed = extractJson(r.content) as { targets?: Proposal[] } | undefined;
   const proposals = (parsed?.targets ?? []).filter((t) => t && typeof t.label === "string");
@@ -197,7 +198,7 @@ export async function verifyCandidate(
     prompt: MCQ_PROMPT(options),
     images: [buffer],
     format: mcqSchema(options),
-    options: { temperature: 0 },
+    options: { temperature: 0, num_predict: config.maxTokens.verify },
   });
   const out = extractJson(r.content) as { what_i_see?: string; answer?: string; person_at_target?: boolean } | undefined;
   const answer = String(out?.answer ?? "none");
@@ -237,7 +238,7 @@ export async function writeTexts(
     prompt: MENU_WRITER_PROMPT(c.label),
     images: [buffer, scene],
     format: menuWriterSchema,
-    options: { temperature: 0.3 },
+    options: { temperature: 0.3, num_predict: config.maxTokens.write },
   });
   const out = extractJson(r.content) as (Omit<Texts, "clue" | "lens"> & { lens?: string }) | undefined;
   if (!out || typeof out.hint_semantic !== "string" || typeof out.hint_concrete !== "string") return { step: toStep("write", r) };
@@ -297,4 +298,23 @@ export function spatialHint(box: Box): string {
   const height = bottom < 0.45 ? "Look up." : top > 0.7 ? "Look down, close to the ground." : "";
   const near = box.h > 0.25 || bottom > 0.85 ? "It is quite close to where you stood." : box.h < 0.06 && bottom < 0.7 ? "It is further away than you might think." : "";
   return [`Look ${side}.`, height, near].filter(Boolean).join(" ");
+}
+
+let warming: Promise<boolean> | undefined;
+
+export function warmUp(model: string, chat: ChatFn = ollamaChat): Promise<boolean> {
+  warming ??= sharp({ create: { width: 64, height: 64, channels: 3, background: { r: 128, g: 128, b: 128 } } })
+    .jpeg()
+    .toBuffer()
+    .then((tiny) =>
+      chat({ model, system: PICK_SYSTEM, prompt: PICK_PROMPT(DEFAULT_CANDIDATES), images: [tiny], options: { num_predict: 1 } }),
+    )
+    .then(
+      () => true,
+      () => false,
+    )
+    .finally(() => {
+      warming = undefined;
+    });
+  return warming;
 }

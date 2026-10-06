@@ -77,6 +77,11 @@ export function Game({ nativeCamera = false }: { nativeCamera?: boolean }) {
     dispatch({ type: "begin" });
   }, []);
 
+  const again = useCallback(() => {
+    void api.warmUp();
+    dispatch({ type: "again" });
+  }, []);
+
   const onWide = useCallback(async (photo: Blob) => {
     dispatch({ type: "wide_captured", preview: URL.createObjectURL(photo) });
     try {
@@ -149,8 +154,8 @@ export function Game({ nativeCamera = false }: { nativeCamera?: boolean }) {
       saveRoundId(undefined);
       return dispatch({ type: "home" });
     }
-    dispatch({ type: "again" });
-  }, []);
+    again();
+  }, [again]);
 
   const { screen, round } = state;
   let view: React.ReactNode = null;
@@ -172,7 +177,7 @@ export function Game({ nativeCamera = false }: { nativeCamera?: boolean }) {
       view = <Looking photo={state.widePreview ?? round?.photoUrl} stage={screen.stage} attempt={screen.attempt} />;
       break;
     case "nothing":
-      view = <Nothing onAgain={() => dispatch({ type: "again" })} />;
+      view = <Nothing onAgain={again} />;
       break;
     case "hunt":
       view =
@@ -208,7 +213,7 @@ export function Game({ nativeCamera = false }: { nativeCamera?: boolean }) {
       break;
     case "ended":
       view = round ? (
-        <Reveal round={round} foundPreview={state.foundPreview} onAgain={() => dispatch({ type: "again" })} onFeedback={onFeedback} onForget={onForget} />
+        <Reveal round={round} foundPreview={state.foundPreview} onAgain={again} onFeedback={onFeedback} onForget={onForget} />
       ) : null;
       break;
     case "error":

@@ -1,4 +1,3 @@
-/** Minimal Ollama /api/chat client (no streaming). */
 import { config } from "./config";
 
 export type ChatResult = {
@@ -68,19 +67,4 @@ export async function chat(input: ChatInput): Promise<ChatResult> {
     promptTokens: json.prompt_eval_count ?? 0,
     outputTokens: json.eval_count ?? 0,
   };
-}
-
-/** Load the model into memory so the first round doesn't pay for it. */
-export async function warmUp(model: string): Promise<boolean> {
-  try {
-    const res = await fetch(`${config.ollamaHost}/api/generate`, {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ model, prompt: "", keep_alive: "30m" }),
-      signal: AbortSignal.timeout(60_000),
-    });
-    return res.ok;
-  } catch {
-    return false;
-  }
 }

@@ -1,5 +1,6 @@
 import sharp from "sharp";
 import { describe, expect, it } from "vitest";
+import { config } from "./config";
 import { findTarget, writeTexts } from "./engine";
 import { replayChat, type RecordedCall } from "./replay";
 import c030 from "./__fixtures__/round-c030.json";
@@ -74,6 +75,12 @@ describe("engine replay (recorded Gemma 4 E4B replies)", () => {
     expect(kinds).toEqual(["propose"]);
   });
 
+  it("caps how much the model may write on every call", async () => {
+    const replay = replayChat(c030.calls);
+    await findTarget(await photo(c030.width, c030.height), { model, chat: replay.chat });
+    expect(replay.log.map((l) => l.input.options?.num_predict)).toEqual([config.maxTokens.propose, config.maxTokens.verify]);
+  });
+
   it("propagates model failures to the caller", async () => {
     const failing = async () => {
       throw new Error("connection refused");
@@ -86,8 +93,9 @@ describe("writing hints (recorded reply)", () => {
   const target = { label: c030.label, box: { x: 0.064, y: 0.557, w: 0.049, h: 0.044 } };
 
   it("returns the hints and keeps the clue line already shown", async () => {
-    const { chat } = replayChat(c030.calls.filter((c) => c.kind === "write"));
+    const { chat, log } = replayChat(c030.calls.filter((c) => c.kind === "write"));
     const { texts } = await writeTexts(await photo(c030.width, c030.height), target, { model, chat }, "read_me");
+    expect(log[0].input.options?.num_predict).toBe(config.maxTokens.write);
     expect(texts?.lens).toBe("read_me");
     expect(texts?.hint_semantic.length).toBeGreaterThan(10);
     expect(texts?.hint_concrete.length).toBeGreaterThan(10);

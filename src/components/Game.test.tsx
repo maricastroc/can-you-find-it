@@ -94,6 +94,19 @@ describe("Game", () => {
     expect(window.localStorage.getItem("cyfi:round")).toBeNull();
   });
 
+  it("wakes the model whenever a new photo is about to be taken", async () => {
+    vi.mocked(api.startRound).mockImplementation(async (_photo, onEvent) => {
+      onEvent({ type: "created", id: round().id });
+      onEvent({ type: "done", round: round({ status: "none", clue: undefined }) });
+    });
+    const { container } = render(<Game nativeCamera />);
+    fireEvent.click(screen.getByRole("button", { name: "Take a look" }));
+    expect(api.warmUp).toHaveBeenCalledTimes(1);
+    await takePhoto(container);
+    fireEvent.click(await screen.findByRole("button", { name: "Look around again" }));
+    expect(api.warmUp).toHaveBeenCalledTimes(2);
+  });
+
   it("shows honest progress while the model looks", async () => {
     let finish: () => void = () => undefined;
     vi.mocked(api.startRound).mockImplementation(

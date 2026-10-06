@@ -1,6 +1,7 @@
 import sharp from "sharp";
 import { describe, expect, it } from "vitest";
 import { compareWithTarget, namesKind, verdictFrom } from "./check";
+import { config } from "./config";
 import { replayChat } from "./replay";
 import pos from "./__fixtures__/check-c030-pos.json";
 import neg from "./__fixtures__/check-c030-neg.json";
@@ -47,6 +48,7 @@ describe("compareWithTarget (recorded replies)", () => {
     const r = await compareWithTarget(await img(), await img(800, 1000), pos.label, { model: "test", chat });
     expect(r.verdict).toBe("found");
     expect(log[0].input.images).toHaveLength(2);
+    expect(log[0].input.options?.num_predict).toBe(config.maxTokens.compare);
   });
 
   it("rejects a photo of something else", async () => {

@@ -1,5 +1,6 @@
-import { describe, expect, it } from "vitest";
-import { chooseLens, rank, screen, shuffle, spatialHint, type EngineCandidate } from "./engine";
+import { describe, expect, it, vi } from "vitest";
+import { chooseLens, PICK_SYSTEM, rank, screen, shuffle, spatialHint, warmUp, type EngineCandidate } from "./engine";
+import type { ChatInput } from "./ollama";
 import { lensFor } from "./prompts";
 
 describe("screen", () => {
@@ -123,5 +124,37 @@ describe("chooseLens", () => {
   it("falls back to a spatial lens", () => {
     expect(chooseLens("weathered stone urn on a pedestal", "remember", { x: 0.3, y: 0.1, w: 0.05, h: 0.2 })).toBe("look_up");
     expect(chooseLens("round iron cover with a star pattern", undefined, { x: 0.3, y: 0.8, w: 0.1, h: 0.1 })).toBe("underfoot");
+  });
+});
+
+describe("warmUp", () => {
+  const reply = { content: "", ms: 1, promptTokens: 0, outputTokens: 1 };
+
+  it("runs one tiny pass with the same instructions as a real look", async () => {
+    const calls: ChatInput[] = [];
+    const ok = await warmUp("test", async (input) => {
+      calls.push(input);
+      return reply;
+    });
+    expect(ok).toBe(true);
+    expect(calls).toHaveLength(1);
+    expect(calls[0].system).toBe(PICK_SYSTEM);
+    expect(calls[0].images).toHaveLength(1);
+    expect(calls[0].options).toEqual({ num_predict: 1 });
+  });
+
+  it("shares one pass between taps that arrive together, then allows a new one", async () => {
+    const chat = vi.fn(async () => reply);
+    expect(await Promise.all([warmUp("test", chat), warmUp("test", chat)])).toEqual([true, true]);
+    expect(chat).toHaveBeenCalledTimes(1);
+    await warmUp("test", chat);
+    expect(chat).toHaveBeenCalledTimes(2);
+  });
+
+  it("reports false instead of throwing when the model is away", async () => {
+    const ok = await warmUp("test", async () => {
+      throw new Error("connection refused");
+    });
+    expect(ok).toBe(false);
   });
 });

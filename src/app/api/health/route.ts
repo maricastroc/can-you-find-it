@@ -1,7 +1,6 @@
 import { config } from "@/lib/hunt/config";
-import { warmUp } from "@/lib/hunt/ollama";
+import { warmUp } from "@/lib/hunt/engine";
 
-/** Is the local model reachable and installed? */
 export async function GET() {
   try {
     const res = await fetch(`${config.ollamaHost}/api/tags`, { signal: AbortSignal.timeout(3000), cache: "no-store" });
@@ -13,7 +12,7 @@ export async function GET() {
   }
 }
 
-/** Load the model now, so the first round doesn't wait for it. */
 export async function POST() {
-  return Response.json({ warmed: await warmUp(config.model) });
+  void warmUp(config.model);
+  return Response.json({ warming: true }, { status: 202 });
 }
