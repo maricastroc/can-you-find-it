@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import sharp from "sharp";
 import { cropFor, findTarget, VERIFY_SIDE, writeTexts } from "../src/lib/hunt/engine";
-import { compareWithTarget } from "../src/lib/hunt/check";
+import { judgeFound } from "../src/lib/hunt/check";
 import { chat, type ChatInput } from "../src/lib/hunt/ollama";
 import { config } from "../src/lib/hunt/config";
 import { kindOf } from "../src/lib/hunt/replay";
@@ -46,7 +46,8 @@ for (const id of ["c030", "c117", "c054"]) {
         .jpeg()
         .toBuffer();
       const rec2 = recorder();
-      const check = await compareWithTarget(buffer, found, target.label, { model: config.model, chat: rec2.fn });
+      const others = result.candidates.filter((c) => c.idx !== target.idx).map((c) => c.label);
+      const check = await judgeFound(buffer, found, target.label, others, { model: config.model, chat: rec2.fn });
       await fs.writeFile(`${OUT}/check-${id}-${name}.json`, JSON.stringify({ label: target.label, verdict: check.verdict, calls: rec2.calls }, null, 2) + "\n");
       console.log("check", name, check.verdict);
     }

@@ -32,6 +32,26 @@ Then say what the main object in image 2 is.
 same_kind: is the main object in image 2 the same kind of object as the target (for example both benches, or both lamp posts)? What surrounds it does not count.
 same_object: is it the very same object? It may be seen from another distance, angle or light, but its distinctive details must match. A different object of the same kind is not the same object.`;
 
+export const SPOT_PROMPT = `This is a photo a player just took of one thing they found.
+What is the main thing in it? Say what it is and its main colors, in 3 to 8 words.`;
+
+export const spotSchema = {
+  type: "object",
+  properties: { main_thing: { type: "string" } },
+  required: ["main_thing"],
+};
+
+export const MATCH_PROMPT = (seen: string, options: string[]) =>
+  `A player photographed something described as: "${seen}".
+Which of these could it be? Copy the matching option exactly. If it is clearly a different kind of thing, answer "none".
+${options.map((o) => `- ${o}`).join("\n")}`;
+
+export const matchSchema = (options: string[]) => ({
+  type: "object",
+  properties: { answer: { type: "string", enum: [...options, "none"] } },
+  required: ["answer"],
+});
+
 export const compare2Schema = {
   type: "object",
   properties: {

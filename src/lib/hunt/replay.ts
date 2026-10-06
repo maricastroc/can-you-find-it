@@ -2,10 +2,12 @@ import type { ChatInput, ChatResult } from "./ollama";
 
 export type RecordedCall = { kind: string; content: string; ms?: number };
 
-export function kindOf(input: ChatInput): "propose" | "verify" | "write" | "compare" {
+export function kindOf(input: ChatInput): "propose" | "verify" | "write" | "compare" | "spot" | "match" {
   if (input.system?.includes("eye of")) return "propose";
   if (input.system?.includes("prepare a secret target")) return "write";
   if (input.prompt.startsWith("Image 1 is a crop")) return "compare";
+  if (input.prompt.startsWith("This is a photo a player just took")) return "spot";
+  if (input.prompt.startsWith("A player photographed something")) return "match";
   return "verify";
 }
 

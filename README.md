@@ -28,8 +28,10 @@ wide photo ──► Gemma 4 E4B proposes 2 targets, each with a box (box_2d, 0�
                hint comes from the box itself
            ──► you hunt  (hints: meaning → appearance → direction → pixelated glimpse
                                 → the part of your photo where it is)
-           ──► your close-up vs the crop: same object → FOUND IT,
-               same kind → ALMOST, otherwise NOT QUITE
+           ──► your close-up: the model first says what it shows without
+               knowing the target, a text-only question checks whether that
+               could be the target, and only then is it compared with the crop:
+               same object → FOUND IT, same kind → ALMOST, otherwise NOT QUITE
            ──► reveal: the crop with the model's box, your photo, where it was
 ```
 

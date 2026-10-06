@@ -2,8 +2,9 @@ import sharp from "sharp";
 import { chat as ollamaChat, type ChatInput, type ChatResult } from "./ollama";
 import { extractJson } from "./json";
 import { config } from "./config";
-import { COMPARE2_PROMPT, compare2Schema } from "./prompts";
-import { headNoun } from "./filters";
+import { COMPARE2_PROMPT, compare2Schema, GENERIC_DISTRACTORS, MATCH_PROMPT, matchSchema, SPOT_PROMPT, spotSchema } from "./prompts";
+import { headNoun, withoutLocation } from "./filters";
+import { shuffle } from "./engine";
 
 export type Verdict = "found" | "almost" | "not_quite";
 
@@ -50,4 +51,53 @@ export async function compareWithTarget(
     signal: opts.signal,
   });
   return { ...verdictFrom(extractJson(r.content), label), ms: r.ms };
+}
+
+type ChatOpts = { model: string; signal?: AbortSignal; chat?: (input: ChatInput) => Promise<ChatResult> };
+
+const seedOf = (text: string) => [...text].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) >>> 0, 7);
+
+const objectOnly = (label: string) => withoutLocation(label).trim() || label;
+
+export function spotOptions(label: string, others: string[]): string[] {
+  const target = objectOnly(label);
+  const head = stem(headNoun(label));
+  const pool = [...new Set([...others.map(objectOnly), ...GENERIC_DISTRACTORS])]
+    .filter((o) => o !== target && (!head || stem(headNoun(o)) !== head))
+    .slice(0, 4);
+  return shuffle([target, ...pool], seedOf(label));
+}
+
+export async function judgeFound(
+  targetCrop: Buffer,
+  foundPhoto: Buffer,
+  label: string,
+  others: string[],
+  opts: ChatOpts,
+): Promise<CheckResult> {
+  const chat = opts.chat ?? ollamaChat;
+  const photo = await sharp(foundPhoto).rotate().resize(768, 768, { fit: "inside" }).jpeg({ quality: 85 }).toBuffer();
+  const spot = await chat({
+    model: opts.model,
+    prompt: SPOT_PROMPT,
+    images: [photo],
+    format: spotSchema,
+    options: { temperature: 0, num_predict: config.maxTokens.verify },
+    signal: opts.signal,
+  });
+  const seen = extractJson(spot.content) as { main_thing?: unknown } | undefined;
+  const shows = typeof seen?.main_thing === "string" ? seen.main_thing.trim() : "";
+  if (!shows) return { verdict: "not_quite", shows, details: [], ms: spot.ms };
+  const options = spotOptions(label, others);
+  const match = await chat({
+    model: opts.model,
+    prompt: MATCH_PROMPT(shows, options),
+    format: matchSchema(options),
+    options: { temperature: 0, num_predict: config.maxTokens.verify },
+    signal: opts.signal,
+  });
+  const picked = (extractJson(match.content) as { answer?: unknown } | undefined)?.answer;
+  if (picked !== objectOnly(label)) return { verdict: "not_quite", shows, details: [], ms: spot.ms + match.ms };
+  const compared = await compareWithTarget(targetCrop, foundPhoto, label, opts);
+  return { ...compared, shows, ms: spot.ms + match.ms + compared.ms };
 }

@@ -16,11 +16,11 @@ vi.mock("@/lib/hunt/engine", async (importOriginal) => ({
 }));
 vi.mock("@/lib/hunt/check", async (importOriginal) => ({
   ...(await importOriginal<typeof import("@/lib/hunt/check")>()),
-  compareWithTarget: vi.fn(),
+  judgeFound: vi.fn(),
 }));
 
 import { findTarget, writeTexts, type EngineResult, type Texts } from "@/lib/hunt/engine";
-import { compareWithTarget } from "@/lib/hunt/check";
+import { judgeFound } from "@/lib/hunt/check";
 import { ModelUnavailableError } from "@/lib/hunt/ollama";
 import {
   checkFound,
@@ -78,7 +78,7 @@ beforeEach(() => {
   vi.mocked(findTarget).mockReset();
   vi.mocked(writeTexts).mockReset();
   vi.mocked(writeTexts).mockResolvedValue({ texts, step: { kind: "write", ms: 1, promptTokens: 0, outputTokens: 0, raw: "" } });
-  vi.mocked(compareWithTarget).mockReset();
+  vi.mocked(judgeFound).mockReset();
 });
 
 afterAll(async () => {
@@ -248,7 +248,7 @@ describe("hints", () => {
 describe("checking a find", () => {
   it("NOT QUITE keeps the round going and reveals nothing", async () => {
     const { id } = await newRound();
-    vi.mocked(compareWithTarget).mockResolvedValueOnce({ verdict: "not_quite", shows: "a bench", details: [], ms: 5 });
+    vi.mocked(judgeFound).mockResolvedValueOnce({ verdict: "not_quite", shows: "a bench", details: [], ms: 5 });
     const { verdict, round } = await checkFound(id, await photo(800, 600));
     expect(verdict).toBe("not_quite");
     expect(round.status).toBe("hunting");
@@ -258,13 +258,13 @@ describe("checking a find", () => {
 
   it("ALMOST keeps the round going", async () => {
     const { id } = await newRound();
-    vi.mocked(compareWithTarget).mockResolvedValueOnce({ verdict: "almost", shows: "another plaque", details: [], ms: 5 });
+    vi.mocked(judgeFound).mockResolvedValueOnce({ verdict: "almost", shows: "another plaque", details: [], ms: 5 });
     expect((await checkFound(id, await photo())).round.status).toBe("hunting");
   });
 
   it("FOUND ends the round and unlocks the reveal", async () => {
     const { id } = await newRound();
-    vi.mocked(compareWithTarget).mockResolvedValueOnce({ verdict: "found", shows: "the plaque", details: [], ms: 5 });
+    vi.mocked(judgeFound).mockResolvedValueOnce({ verdict: "found", shows: "the plaque", details: [], ms: 5 });
     const { verdict, round } = await checkFound(id, await photo());
     expect(verdict).toBe("found");
     expect(round.status).toBe("found");
@@ -278,7 +278,7 @@ describe("checking a find", () => {
   it("the player can overrule a NOT QUITE; it is logged as an override", async () => {
     const { id } = await newRound();
     await expect(confirmFound(id)).rejects.toMatchObject({ code: "wrong_state" });
-    vi.mocked(compareWithTarget).mockResolvedValueOnce({ verdict: "not_quite", shows: "?", details: [], ms: 5 });
+    vi.mocked(judgeFound).mockResolvedValueOnce({ verdict: "not_quite", shows: "?", details: [], ms: 5 });
     await checkFound(id, await photo());
     const r = await confirmFound(id);
     expect(r.status).toBe("found");
@@ -286,10 +286,24 @@ describe("checking a find", () => {
     expect(log).toContain('"event":"player_override"');
   });
 
+  it("the other things the model proposed are offered as distractors, never the target itself", async () => {
+    const result: EngineResult = structuredClone(chosenResult);
+    result.candidates.push(
+      { idx: 1, label: "red mailbox on the corner", box_2d: [500, 800, 600, 900], box: { x: 0.8, y: 0.5, w: 0.1, h: 0.1 } },
+      { idx: 2, label: "brass frame around the plaque", box_2d: [495, 95, 565, 165], box: { x: 0.095, y: 0.495, w: 0.07, h: 0.07 } },
+    );
+    const { id } = await newRound(result);
+    vi.mocked(judgeFound).mockResolvedValueOnce({ verdict: "not_quite", shows: "a bench", details: [], ms: 5 });
+    await checkFound(id, await photo());
+    const [, , label, others] = vi.mocked(judgeFound).mock.calls[0];
+    expect(label).toBe("small brass plaque dated 1919");
+    expect(others).toEqual(["red mailbox on the corner"]);
+  });
+
   it("an unreadable close-up is a bad photo, not a verdict", async () => {
     const { id } = await newRound();
     await expect(checkFound(id, Buffer.from("x"))).rejects.toMatchObject({ code: "bad_photo" });
-    expect(vi.mocked(compareWithTarget)).not.toHaveBeenCalled();
+    expect(vi.mocked(judgeFound)).not.toHaveBeenCalled();
   });
 });
 

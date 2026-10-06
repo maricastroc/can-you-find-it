@@ -3,10 +3,16 @@
   "verdict": "not_quite",
   "calls": [
     {
-      "kind": "compare",
-      "prompt": "Image 1 is a crop from a wide photo showing a hidden target: \"small dark informational sign near tree base\".\nImage 2 is a close-up photo a player just took whil",
-      "content": "{\"target_details\": [\"rectangular shape\", \"black and white stripes\", \"appears to be a sign or marker\"], \"image2_shows\": \"a dirt path next to green foliage\", \"same_kind\": false, \"same_object\": false}",
-      "ms": 7503
+      "kind": "spot",
+      "prompt": "This is a photo a player just took of one thing they found.\nWhat is the main thing in it? Say what it is and its main colors, in 3 to 8 words.",
+      "content": "{\n\"main_thing\": \"Brown dirt path next to green foliage\"\n}",
+      "ms": 1693
+    },
+    {
+      "kind": "match",
+      "prompt": "A player photographed something described as: \"Brown dirt path next to green foliage\".\nWhich of these could it be? Copy the matching option exactly. If it is cl",
+      "content": "{\"answer\": \"none\"}",
+      "ms": 1220
     }
   ]
 }

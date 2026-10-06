@@ -2,7 +2,8 @@ import "server-only";
 import { randomUUID } from "node:crypto";
 import { config } from "@/lib/hunt/config";
 import { cropFor, findTarget, spatialHint, VERIFY_SIDE, writeTexts, type EngineResult } from "@/lib/hunt/engine";
-import { compareWithTarget, type Verdict } from "@/lib/hunt/check";
+import { judgeFound, type Verdict } from "@/lib/hunt/check";
+import type { Box } from "@/lib/hunt/geometry";
 import { areaHint, areaRegion, boxWithin, cropRegion, normalizePhoto, pixelatedHint, revealRegion } from "@/lib/hunt/images";
 import { ModelUnavailableError } from "@/lib/hunt/ollama";
 import { appendLog, deleteRound, loadRound, readImage, saveRound, writeImage } from "./store";
@@ -262,6 +263,18 @@ export async function unlockHint(id: string): Promise<PublicRound> {
   });
 }
 
+const centreIn = (b: Box, region: Box) => {
+  const x = b.x + b.w / 2;
+  const y = b.y + b.h / 2;
+  return x >= region.x && x <= region.x + region.w && y >= region.y && y <= region.y + region.h;
+};
+
+function otherLabels(r: Round): string[] {
+  const target = r.target!;
+  const region = revealRegion(target.box, r.photo.width / r.photo.height);
+  return (r.candidates ?? []).filter((c) => c.box && c.label !== target.label && !centreIn(c.box, region)).map((c) => c.label);
+}
+
 export function checkFound(id: string, input: Buffer): Promise<{ verdict: Verdict; round: PublicRound }> {
   return withLock(id, async () => {
     const r = await mustLoad(id);
@@ -276,7 +289,7 @@ export function checkFound(id: string, input: Buffer): Promise<{ verdict: Verdic
     await writeImage(id, file, found);
     const photo = (await readImage(id, "photo.jpg"))!;
     const { buffer: targetCrop } = await cropFor(photo, r.target!.box, "verify", VERIFY_SIDE);
-    const check = await compareWithTarget(targetCrop, found, r.target!.label, { model: r.model });
+    const check = await judgeFound(targetCrop, found, r.target!.label, otherLabels(r), { model: r.model });
     r.attempts.push({ at: new Date().toISOString(), verdict: check.verdict, shows: check.shows, ms: check.ms, file });
     if (check.verdict === "found") {
       r.status = "found";

@@ -3,10 +3,22 @@
   "verdict": "found",
   "calls": [
     {
+      "kind": "spot",
+      "prompt": "This is a photo a player just took of one thing they found.\nWhat is the main thing in it? Say what it is and its main colors, in 3 to 8 words.",
+      "content": "{\n\"main_thing\": \"A small, striped, rectangular object.\"\n}",
+      "ms": 1668
+    },
+    {
+      "kind": "match",
+      "prompt": "A player photographed something described as: \"A small, striped, rectangular object.\".\nWhich of these could it be? Copy the matching option exactly. If it is cl",
+      "content": "{\"answer\": \"small dark informational sign\"}",
+      "ms": 1875
+    },
+    {
       "kind": "compare",
       "prompt": "Image 1 is a crop from a wide photo showing a hidden target: \"small dark informational sign near tree base\".\nImage 2 is a close-up photo a player just took whil",
       "content": "{\"target_details\": [\"rectangular shape\", \"dark background\", \"multiple horizontal white stripes\"], \"image2_shows\": \"a small dark informational sign with horizontal white stripes\", \"same_kind\": true, \"same_object\": true}",
-      "ms": 7171
+      "ms": 10665
     }
   ]
 }
