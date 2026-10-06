@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { ApiError, readNdjson, startRound, unlockHint, type StartEvent } from "./api";
+import { ApiError, readNdjson, startRound, TIMEOUTS, unlockHint, type StartEvent } from "./api";
 
 function streamOf(...chunks: string[]) {
   const enc = new TextEncoder();
@@ -62,5 +62,27 @@ describe("fetch wrappers", () => {
     const err = await unlockHint("x").catch((e) => e);
     expect(err).toBeInstanceOf(ApiError);
     expect(err.code).toBe("offline");
+  });
+
+  it("a request that never answers times out instead of hanging", async () => {
+    vi.useFakeTimers();
+    try {
+      vi.stubGlobal(
+        "fetch",
+        vi.fn(
+          (_url: string, init: RequestInit) =>
+            new Promise((_resolve, reject) => {
+              init.signal?.addEventListener("abort", () => reject(Object.assign(new Error("aborted"), { name: "AbortError" })));
+            }),
+        ),
+      );
+      const pending = unlockHint("x").catch((e) => e);
+      await vi.advanceTimersByTimeAsync(TIMEOUTS.hint + 1);
+      const err = await pending;
+      expect(err).toBeInstanceOf(ApiError);
+      expect(err.code).toBe("timeout");
+    } finally {
+      vi.useRealTimers();
+    }
   });
 });

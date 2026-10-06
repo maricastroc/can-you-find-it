@@ -9,12 +9,13 @@ type Props = {
   verdict: Exclude<V, "found">;
   hintsLeft: number;
   pending?: string;
+  notice?: string;
   onKeepLooking: () => void;
   onHint: () => void;
   onInsist: () => void;
 };
 
-export function Verdict({ verdict, hintsLeft, pending, onKeepLooking, onHint, onInsist }: Props) {
+export function Verdict({ verdict, hintsLeft, pending, notice, onKeepLooking, onHint, onInsist }: Props) {
   const copy = COPY[verdict];
   return (
     <section className="screen verdict" aria-labelledby="verdict-word">
@@ -28,6 +29,11 @@ export function Verdict({ verdict, hintsLeft, pending, onKeepLooking, onHint, on
         <p className="lede">{copy.line}</p>
       </div>
       <div className="screen-actions">
+        {notice && (
+          <p className="notice" role="alert">
+            {notice}
+          </p>
+        )}
         <button type="button" className="btn btn-primary" onClick={onKeepLooking}>
           Keep looking
         </button>

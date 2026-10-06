@@ -1,25 +1,21 @@
 @import "tailwindcss";
 
-/* ------------------------------------------------------------------ tokens */
-
 :root {
-  /* Paper screens are for reading (outdoors, in sun). Night screens are for photos. */
   --paper: #f2eee4;
   --paper-2: #e7e1d3;
   --ink: #15130f;
-  --ink-2: #48443b; /* 8.6:1 on paper */
-  --ink-3: #6b6558; /* 5.0:1 on paper */
+  --ink-2: #48443b;
+  --ink-3: #6b6558;
   --rule: #15130f26;
 
   --night: #0c0b09;
   --night-2: #1b1a16;
   --moon: #efeadf;
-  --moon-2: #aaa496; /* 8.0:1 on night */
-  --moon-3: #77726a; /* 4.3:1 on night — large text only */
+  --moon-2: #aaa496;
+  --moon-3: #77726a;
 
-  /* A single signal colour: surveyor's marking paint. Marks, never body text. */
   --signal: #ff4b1f;
-  --signal-ink: #b8300c; /* signal as text on paper: 5.3:1 */
+  --signal-ink: #b8300c;
 
   --serif: var(--font-serif), "Iowan Old Style", "Palatino", Georgia, serif;
   --sans: var(--font-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -30,8 +26,6 @@
   --top: max(var(--gutter), env(safe-area-inset-top));
   --bottom: max(var(--gutter), env(safe-area-inset-bottom));
 }
-
-/* ------------------------------------------------------------------ base */
 
 html,
 body {
@@ -71,8 +65,6 @@ img {
   white-space: nowrap;
   border: 0;
 }
-
-/* ------------------------------------------------------------------ type */
 
 .kicker {
   font-family: var(--mono);
@@ -125,8 +117,6 @@ img {
   font-size: 14px;
   line-height: 1.45;
 }
-
-/* ------------------------------------------------------------------ app frame */
 
 .game {
   min-height: 100dvh;
@@ -185,9 +175,8 @@ img {
   }
 }
 
-/* ------------------------------------------------------------------ buttons */
-
 .btn {
+  white-space: nowrap;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -260,8 +249,6 @@ img {
   opacity: 0.7;
 }
 
-/* ------------------------------------------------------------------ landing */
-
 .landing .screen-body {
   justify-content: flex-end;
   gap: 28px;
@@ -283,8 +270,6 @@ img {
   padding-top: 18px;
   border-top: 1px solid var(--rule);
 }
-
-/* ------------------------------------------------------------------ camera */
 
 .camera {
   position: fixed;
@@ -426,8 +411,6 @@ img {
   opacity: 0.5;
 }
 
-/* ------------------------------------------------------------------ looking (night, the photo is the protagonist) */
-
 .looking,
 .checking {
   position: fixed;
@@ -447,7 +430,6 @@ img {
   animation: settle 1600ms var(--ease) both;
 }
 
-/* A soft circle of attention drifting over the photo while the model looks. */
 .looking-attention {
   position: absolute;
   inset: 0;
@@ -558,8 +540,6 @@ img {
   }
 }
 
-/* ------------------------------------------------------------------ hunt */
-
 .hunt .screen-body {
   justify-content: center;
   gap: 18px;
@@ -607,6 +587,40 @@ img {
   color: var(--ink-3);
 }
 
+.hints li[data-new] .hint-n {
+  color: var(--signal-ink);
+  font-weight: 600;
+}
+
+.hint-pending {
+  color: var(--ink-3);
+}
+
+.hint-pending span:last-child {
+  animation: breathe 1.4s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.notice {
+  font-size: 15px;
+  line-height: 1.4;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--paper-2);
+  color: var(--ink);
+  border-left: 3px solid var(--signal-ink);
+  animation: screen-in 320ms var(--ease) both;
+}
+
 .hint-image {
   grid-column: 1 / -1;
   border-radius: 6px;
@@ -620,7 +634,6 @@ img {
   color: var(--signal-ink);
 }
 
-/* Resting screen: almost black, the clue barely there. */
 .rest {
   position: fixed;
   inset: 0;
@@ -667,8 +680,6 @@ img {
   }
 }
 
-/* ------------------------------------------------------------------ checking */
-
 .checking .looking-photo {
   filter: saturate(0.6) brightness(0.55);
 }
@@ -684,13 +695,9 @@ img {
   margin: 0 auto;
 }
 
-/* ------------------------------------------------------------------ verdict */
-
 .verdict .display {
   font-size: clamp(64px, 20vw, 112px);
 }
-
-/* ------------------------------------------------------------------ reveal */
 
 .reveal .screen-body {
   justify-content: flex-start;
@@ -723,7 +730,6 @@ img {
   color: var(--ink-3);
 }
 
-/* A frame with the exact proportions of its image (set as --ar), capped in height. */
 .frame-fit {
   aspect-ratio: var(--ar);
   width: min(100%, calc(52dvh * var(--ar)));
@@ -751,7 +757,6 @@ img {
   max-height: 40dvh;
 }
 
-/* Viewfinder brackets closing in on what the model saw. */
 .mark {
   position: absolute;
   pointer-events: none;
@@ -870,8 +875,6 @@ img {
   resize: vertical;
 }
 
-/* ------------------------------------------------------------------ errors */
-
 .error-help {
   font-family: var(--mono);
   font-size: 14px;
@@ -879,8 +882,6 @@ img {
   padding: 12px 14px;
   border-radius: 6px;
 }
-
-/* ------------------------------------------------------------------ reduced motion */
 
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -896,8 +897,6 @@ img {
     background: #0000008c;
   }
 }
-
-/* ------------------------------------------------------------------ field notes (on the computer) */
 
 .notes {
   max-width: 880px;

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { initialState, reducer, screenFor, stageLine, type GameAction, type GameState } from "./game";
+import { GONE_MESSAGE, initialState, reducer, screenFor, stageLine, type GameAction, type GameState } from "./game";
 import type { PublicRound } from "@/lib/rounds/types";
 
 const round = (over: Partial<PublicRound> = {}): PublicRound => ({
@@ -92,10 +92,27 @@ describe("errors", () => {
     expect(s.screen).toMatchObject({ name: "error", retry: "check" });
   });
 
-  it("a failed hint/reveal only clears the pending flag", () => {
-    const s = run([{ type: "round", round: round() }, { type: "pending", what: "hint" }, { type: "failed", code: "offline", message: "x", during: "action" }]);
+  it("a failed hint keeps the player hunting and says what went wrong", () => {
+    const s = run([
+      { type: "round", round: round() },
+      { type: "pending", what: "hint" },
+      { type: "failed", code: "offline", message: "Can't reach the computer running the game.", during: "action" },
+    ]);
     expect(s.screen).toEqual({ name: "hunt" });
     expect(s.pending).toBeUndefined();
+    expect(s.notice).toBe("Can't reach the computer running the game.");
+  });
+
+  it("the notice clears on the next action, on a round update, or when dismissed", () => {
+    const failed = run([{ type: "round", round: round() }, { type: "failed", code: "timeout", message: "slow", during: "action" }]);
+    expect(reducer(failed, { type: "pending", what: "hint" }).notice).toBeUndefined();
+    expect(reducer(failed, { type: "round", round: round() }).notice).toBeUndefined();
+    expect(reducer(failed, { type: "dismiss_notice" }).notice).toBeUndefined();
+  });
+
+  it("an action on a round the computer no longer has leads back home", () => {
+    const s = run([{ type: "round", round: round() }, { type: "failed", code: "not_found", message: "gone", during: "action" }]);
+    expect(s.screen).toEqual({ name: "error", code: "not_found", message: GONE_MESSAGE, retry: "home" });
   });
 
   it("a round that errored server-side shows an error screen", () => {

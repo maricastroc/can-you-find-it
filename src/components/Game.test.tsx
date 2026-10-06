@@ -1,4 +1,3 @@
-// @vitest-environment jsdom
 import { act, cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { PublicRound } from "@/lib/rounds/types";
@@ -212,7 +211,7 @@ describe("Game", () => {
       render(<Game nativeCamera />);
       await screen.findByRole("button", { name: "Look up" });
       await act(async () => {
-        vi.advanceTimersByTime(31_000);
+        await vi.advanceTimersByTimeAsync(31_000);
       });
       expect(screen.getByRole("button", { name: /Tap to wake the screen/ })).toBeInTheDocument();
     } finally {
@@ -263,5 +262,49 @@ describe("Game", () => {
     fireEvent.click(screen.getByRole("button", { name: "Delete this round's photos" }));
     expect(await screen.findByRole("button", { name: "Take a look" })).toBeInTheDocument();
     expect(api.forgetRound).toHaveBeenCalledWith(round().id);
+  });
+
+  describe("asking for a hint", () => {
+    async function hunting() {
+      vi.mocked(api.getRound).mockResolvedValue(round());
+      window.localStorage.setItem("cyfi:round", round().id);
+      render(<Game nativeCamera />);
+      return screen.findByRole("button", { name: "Hint, 4 left" });
+    }
+
+    it("shows that a hint is coming right away, then the hint", async () => {
+      let answer: (r: PublicRound) => void = () => undefined;
+      vi.mocked(api.unlockHint).mockImplementation(() => new Promise((resolve) => (answer = resolve)));
+      fireEvent.click(await hunting());
+      expect(await screen.findByText("Getting a hint…")).toBeInTheDocument();
+      expect(screen.getByRole("button", { name: "Hint, 4 left" })).toBeDisabled();
+      await act(async () => answer(round({ hints: [{ level: 1, kind: "text", text: "It helps people find their way at night." }], hintsLeft: 3 })));
+      expect(screen.getByText("It helps people find their way at night.")).toBeInTheDocument();
+      expect(screen.queryByText("Getting a hint…")).not.toBeInTheDocument();
+    });
+
+    it("says so when the hint can't be fetched, and lets the player try again", async () => {
+      vi.mocked(api.unlockHint).mockRejectedValueOnce(new api.ApiError("offline", "Can't reach the computer running the game. Are you on the same network?"));
+      fireEvent.click(await hunting());
+      expect(await screen.findByRole("alert")).toHaveTextContent("Can't reach the computer running the game.");
+      expect(screen.getByRole("button", { name: "Hint, 4 left" })).toBeEnabled();
+    });
+
+    it("a round the computer no longer has leads to a clear way out", async () => {
+      vi.mocked(api.unlockHint).mockRejectedValueOnce(new api.ApiError("not_found", "This round doesn't exist anymore.", 404));
+      fireEvent.click(await hunting());
+      expect(await screen.findByRole("alert")).toHaveTextContent("This round isn't on the computer anymore.");
+      fireEvent.click(screen.getByRole("button", { name: "Start over" }));
+      expect(screen.getByRole("button", { name: "Take a look" })).toBeInTheDocument();
+      expect(window.localStorage.getItem("cyfi:round")).toBeNull();
+    });
+
+    it("a round that ended elsewhere is reloaded instead of failing", async () => {
+      vi.mocked(api.unlockHint).mockRejectedValueOnce(new api.ApiError("wrong_state", "This round is not in play.", 409));
+      const button = await hunting();
+      vi.mocked(api.getRound).mockResolvedValue(revealed("revealed"));
+      fireEvent.click(button);
+      expect(await screen.findByRole("status")).toHaveTextContent("It was this.");
+    });
   });
 });

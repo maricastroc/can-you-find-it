@@ -1,12 +1,7 @@
-/**
- * The round as the player experiences it, as a pure state machine. Server
- * round updates are authoritative; the reducer only decides which screen to
- * show for them.
- */
 import type { Verdict } from "@/lib/hunt/check";
 import type { PublicRound } from "@/lib/rounds/types";
 
-export type Stage = "uploading" | "looking" | "checking" | "writing";
+export type Stage = "uploading" | "looking" | "checking";
 
 export type Screen =
   | { name: "landing" }
@@ -25,12 +20,11 @@ export type GameState = {
   screen: Screen;
   round?: PublicRound;
   roundId?: string;
-  /** Object URLs of photos taken on this device (never re-downloaded). */
   widePreview?: string;
   foundPreview?: string;
-  /** Hunt mode with the screen almost black. */
   dimmed: boolean;
   pending?: Pending;
+  notice?: string;
 };
 
 export type GameAction =
@@ -47,12 +41,14 @@ export type GameAction =
   | { type: "pending"; what?: Pending }
   | { type: "dim"; on: boolean }
   | { type: "keep_looking" }
+  | { type: "dismiss_notice" }
   | { type: "again" }
   | { type: "home" };
 
 export const initialState: GameState = { screen: { name: "landing" }, dimmed: false };
 
-/** Which screen a round status implies, given where the player is now. */
+export const GONE_MESSAGE = "This round isn't on the computer anymore.";
+
 export function screenFor(round: PublicRound, current: Screen): Screen {
   switch (round.status) {
     case "looking":
@@ -60,7 +56,6 @@ export function screenFor(round: PublicRound, current: Screen): Screen {
     case "none":
       return { name: "nothing" };
     case "hunting":
-      // Keep the player where they are while a round update lands.
       if (current.name === "verdict" || current.name === "camera" || current.name === "checking") return current;
       return { name: "hunt" };
     case "found":
@@ -69,6 +64,15 @@ export function screenFor(round: PublicRound, current: Screen): Screen {
     case "error":
       return { name: "error", code: "internal", message: round.error ?? "Something went wrong while looking.", retry: "look" };
   }
+}
+
+function failed(state: GameState, action: Extract<GameAction, { type: "failed" }>): GameState {
+  if (action.code === "not_found" && action.during !== "look") {
+    return { ...state, pending: undefined, notice: undefined, screen: { name: "error", code: action.code, message: GONE_MESSAGE, retry: "home" } };
+  }
+  if (action.during === "action") return { ...state, pending: undefined, notice: action.message };
+  const retry = action.during === "check" ? "check" : action.during === "resume" ? "resume" : action.code === "bad_photo" ? "home" : "look";
+  return { ...state, pending: undefined, notice: undefined, screen: { name: "error", code: action.code, message: action.message, retry } };
 }
 
 export function reducer(state: GameState, action: GameAction): GameState {
@@ -90,32 +94,30 @@ export function reducer(state: GameState, action: GameAction): GameState {
       if (state.screen.name !== "looking") return state;
       return { ...state, screen: { name: "looking", stage: action.stage, attempt: action.attempt } };
     case "round":
-      return { ...state, round: action.round, roundId: action.round.id, pending: undefined, screen: screenFor(action.round, state.screen) };
-    case "failed": {
-      if (action.during === "action") return { ...state, pending: undefined };
-      const retry = action.during === "check" ? "check" : action.during === "resume" ? "resume" : action.code === "bad_photo" ? "home" : "look";
-      return { ...state, pending: undefined, screen: { name: "error", code: action.code, message: action.message, retry } };
-    }
+      return { ...state, round: action.round, roundId: action.round.id, pending: undefined, notice: undefined, screen: screenFor(action.round, state.screen) };
+    case "failed":
+      return failed(state, action);
     case "open_found_camera":
       if (!state.round || state.round.status !== "hunting") return state;
-      return { ...state, dimmed: false, screen: { name: "camera", purpose: "found" } };
+      return { ...state, dimmed: false, notice: undefined, screen: { name: "camera", purpose: "found" } };
     case "found_captured":
       return { ...state, foundPreview: action.preview, screen: { name: "checking" } };
     case "verdict":
       if (action.verdict === "found") return { ...state, round: action.round, screen: { name: "ended" } };
       return { ...state, round: action.round, screen: { name: "verdict", verdict: action.verdict } };
     case "pending":
-      return { ...state, pending: action.what };
+      return { ...state, pending: action.what, notice: action.what ? undefined : state.notice };
     case "dim":
       if (state.screen.name !== "hunt") return state;
       return { ...state, dimmed: action.on };
     case "keep_looking":
       if (!state.round || state.round.status !== "hunting") return state;
       return { ...state, screen: { name: "hunt" } };
+    case "dismiss_notice":
+      return { ...state, notice: undefined };
   }
 }
 
-/** Copy for the "looking" progress, honest about what the model is doing. */
 export function stageLine(stage: Stage, attempt?: number): string {
   switch (stage) {
     case "uploading":
@@ -124,7 +126,5 @@ export function stageLine(stage: Stage, attempt?: number): string {
       return "Looking around…";
     case "checking":
       return attempt && attempt > 1 ? "That wasn't it. Looking closer at something else…" : "Something caught my eye. Making sure it's really there…";
-    case "writing":
-      return "Found it. Choosing my words…";
   }
 }

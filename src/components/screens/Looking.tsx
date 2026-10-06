@@ -1,7 +1,6 @@
-/* eslint-disable @next/next/no-img-element -- an on-device blob: URL of the photo just taken */
 import { stageLine, type Stage } from "@/lib/client/game";
 
-const ORDER: Stage[] = ["uploading", "looking", "checking", "writing"];
+const ORDER: Stage[] = ["uploading", "looking", "checking"];
 
 export function Looking({ photo, stage, attempt }: { photo?: string; stage: Stage; attempt?: number }) {
   const now = ORDER.indexOf(stage);

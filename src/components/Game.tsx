@@ -14,8 +14,8 @@ import { savedRoundId, saveRoundId } from "@/lib/client/storage";
 import type { Feedback, PublicRound } from "@/lib/rounds/types";
 
 const POLL_MS = 3000;
+export const NOTICE_MS = 7000;
 
-/** Night screens show photos; paper screens are for reading in daylight. */
 function toneOf(state: GameState) {
   const name = state.screen.name;
   if (name === "camera" || name === "looking" || name === "checking") return "night";
@@ -25,13 +25,11 @@ function toneOf(state: GameState) {
 
 export function Game({ nativeCamera = false }: { nativeCamera?: boolean }) {
   const [state, dispatch] = useReducer(reducer, initialState);
-  // Latest state for async callbacks (photo uploads finish long after the tap).
   const stateRef = useRef(state);
   useLayoutEffect(() => {
     stateRef.current = state;
   });
 
-  // Resume a round left in play (reload, phone slept, tab closed).
   useEffect(() => {
     const id = savedRoundId();
     if (!id) return;
@@ -44,7 +42,6 @@ export function Game({ nativeCamera = false }: { nativeCamera?: boolean }) {
       .catch(() => saveRoundId(undefined));
   }, []);
 
-  // Remember the round only while it is in play.
   const status = state.round?.status;
   useEffect(() => {
     if (!state.roundId) return;
@@ -52,7 +49,6 @@ export function Game({ nativeCamera = false }: { nativeCamera?: boolean }) {
     else saveRoundId(undefined);
   }, [state.roundId, status]);
 
-  // If the progress stream dropped mid-look, poll until the model is done.
   const looking = state.screen.name === "looking" && state.roundId && (!status || status === "looking");
   useEffect(() => {
     if (!looking || !state.roundId) return;
@@ -66,13 +62,18 @@ export function Game({ nativeCamera = false }: { nativeCamera?: boolean }) {
     return () => clearInterval(timer);
   }, [looking, state.roundId]);
 
-  // A small buzz when it's found (where the platform allows it).
+  useEffect(() => {
+    if (!state.notice) return;
+    const t = setTimeout(() => dispatch({ type: "dismiss_notice" }), NOTICE_MS);
+    return () => clearTimeout(t);
+  }, [state.notice]);
+
   useEffect(() => {
     if (status === "found") navigator.vibrate?.([24, 60, 24]);
   }, [status]);
 
   const begin = useCallback(() => {
-    void api.warmUp(); // load the model while the player frames the photo
+    void api.warmUp();
     dispatch({ type: "begin" });
   }, []);
 
@@ -86,7 +87,6 @@ export function Game({ nativeCamera = false }: { nativeCamera?: boolean }) {
         else dispatch({ type: "failed", code: e.code, message: e.message, during: "look" });
       });
     } catch (e) {
-      // With a round id, the poller picks the result up; without one, it's an error.
       if (!stateRef.current.roundId) {
         const err = e as api.ApiError;
         dispatch({ type: "failed", code: err.code ?? "internal", message: err.message, during: "look" });
@@ -115,6 +115,10 @@ export function Game({ nativeCamera = false }: { nativeCamera?: boolean }) {
       dispatch({ type: "round", round: await call(id) });
     } catch (e) {
       const err = e as api.ApiError;
+      if (err.code === "wrong_state") {
+        const fresh = await api.getRound(id).catch(() => undefined);
+        if (fresh) return dispatch({ type: "round", round: fresh });
+      }
       dispatch({ type: "failed", code: err.code ?? "internal", message: err.message, during: "action" });
     }
   }, []);
@@ -132,6 +136,7 @@ export function Game({ nativeCamera = false }: { nativeCamera?: boolean }) {
   }, []);
 
   const rest = useCallback(() => dispatch({ type: "dim", on: true }), []);
+  const hint = useCallback(() => act("hint", api.unlockHint), [act]);
 
   const retry = useCallback(() => {
     const s = stateRef.current.screen;
@@ -140,7 +145,10 @@ export function Game({ nativeCamera = false }: { nativeCamera?: boolean }) {
     if (s.retry === "resume" && stateRef.current.roundId) {
       return void api.getRound(stateRef.current.roundId).then((round) => dispatch({ type: "round", round }));
     }
-    if (s.retry === "home") return dispatch({ type: "home" });
+    if (s.retry === "home") {
+      saveRoundId(undefined);
+      return dispatch({ type: "home" });
+    }
     dispatch({ type: "again" });
   }, []);
 
@@ -174,8 +182,9 @@ export function Game({ nativeCamera = false }: { nativeCamera?: boolean }) {
           <Hunt
             round={round}
             pending={state.pending}
+            notice={state.notice}
             onFound={() => dispatch({ type: "open_found_camera" })}
-            onHint={() => act("hint", api.unlockHint)}
+            onHint={hint}
             onGiveUp={() => act("reveal", api.revealRound)}
             onRest={rest}
           />
@@ -190,8 +199,9 @@ export function Game({ nativeCamera = false }: { nativeCamera?: boolean }) {
           verdict={screen.verdict}
           hintsLeft={round?.hintsLeft ?? 0}
           pending={state.pending}
+          notice={state.notice}
           onKeepLooking={() => dispatch({ type: "keep_looking" })}
-          onHint={() => act("hint", api.unlockHint)}
+          onHint={hint}
           onInsist={() => act("confirm", api.confirmFound)}
         />
       );
