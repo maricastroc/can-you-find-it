@@ -1,26 +1,27 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useReducer, useRef } from "react";
+import { useCallback, useEffect, useLayoutEffect, useReducer, useRef, useState } from "react";
 import { Camera } from "./Camera";
 import { Landing } from "./screens/Landing";
 import { Checking, Looking } from "./screens/Looking";
-import { Hunt, Rest } from "./screens/Hunt";
+import { Hunt } from "./screens/Hunt";
 import { Verdict } from "./screens/Verdict";
 import { Reveal } from "./screens/Reveal";
 import { ErrorScreen, Nothing } from "./screens/Messages";
 import * as api from "@/lib/client/api";
 import { initialState, reducer, type GameState, type Pending } from "@/lib/client/game";
-import { savedRoundId, saveRoundId } from "@/lib/client/storage";
+import { forgetRoundId, rememberRound, savedRoundIds } from "@/lib/client/storage";
 import type { Feedback, PublicRound } from "@/lib/rounds/types";
-import { useBackToClose } from "@/lib/client/back";
 
 const POLL_MS = 3000;
+const RESUME_LOOKING_MS = 10 * 60_000;
 export const NOTICE_MS = 7000;
+
+const OPEN: ReadonlyArray<PublicRound["status"]> = ["looking", "hunting", "claimed"];
 
 function toneOf(state: GameState) {
   const name = state.screen.name;
   if (name === "camera" || name === "looking" || name === "checking") return "night";
-  if (name === "hunt" && state.dimmed) return "night";
   return "paper";
 }
 
@@ -31,23 +32,44 @@ export function Game({ nativeCamera = false }: { nativeCamera?: boolean }) {
     stateRef.current = state;
   });
 
+  const [hunts, setHunts] = useState<PublicRound[]>([]);
+  const onLanding = state.screen.name === "landing";
   useEffect(() => {
-    const id = savedRoundId();
-    if (!id) return;
-    api
-      .getRound(id)
-      .then((round) => {
-        if (round.status === "hunting" || round.status === "looking") dispatch({ type: "round", round });
-        else saveRoundId(undefined);
-      })
-      .catch(() => saveRoundId(undefined));
-  }, []);
+    if (!onLanding) return;
+    let cancelled = false;
+    const ids = savedRoundIds();
+    Promise.all(
+      ids.map((id) =>
+        api.getRound(id).then(
+          (round) => round,
+          (e: api.ApiError) => {
+            if (e.code === "not_found") forgetRoundId(id);
+            return undefined;
+          },
+        ),
+      ),
+    ).then((rounds) => {
+      if (cancelled) return;
+      const open: PublicRound[] = [];
+      for (const round of rounds) {
+        if (!round) continue;
+        if (OPEN.includes(round.status)) open.push(round);
+        else forgetRoundId(round.id);
+      }
+      const fresh = open.find((r) => r.status === "looking" && Date.now() - Date.parse(r.createdAt) < RESUME_LOOKING_MS);
+      if (fresh) dispatch({ type: "round", round: fresh });
+      setHunts(open.filter((r) => r.status !== "looking"));
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [onLanding]);
 
   const status = state.round?.status;
   useEffect(() => {
     if (!state.roundId) return;
-    if (!status || status === "looking" || status === "hunting") saveRoundId(state.roundId);
-    else saveRoundId(undefined);
+    if (!status || OPEN.includes(status)) rememberRound(state.roundId);
+    else forgetRoundId(state.roundId);
   }, [state.roundId, status]);
 
   const looking = state.screen.name === "looking" && state.roundId && (!status || status === "looking");
@@ -138,13 +160,15 @@ export function Game({ nativeCamera = false }: { nativeCamera?: boolean }) {
     const id = stateRef.current.round?.id;
     if (!id) return;
     await api.forgetRound(id);
+    forgetRoundId(id);
     dispatch({ type: "home" });
   }, []);
 
-  const rest = useCallback(() => dispatch({ type: "dim", on: true }), []);
-  const undim = useCallback(() => dispatch({ type: "dim", on: false }), []);
-  const wake = useBackToClose(state.dimmed, undim, "cyfiRest");
+  const home = useCallback(() => dispatch({ type: "home" }), []);
+  const open = useCallback((round: PublicRound) => dispatch({ type: "round", round }), []);
   const hint = useCallback(() => act("hint", api.unlockHint), [act]);
+  const saw = useCallback(() => act("seen", api.claimSeen), [act]);
+  const settle = useCallback((sawIt: boolean) => act("settle", (id) => api.settleSeen(id, sawIt)), [act]);
 
   const retry = useCallback(() => {
     const s = stateRef.current.screen;
@@ -154,7 +178,7 @@ export function Game({ nativeCamera = false }: { nativeCamera?: boolean }) {
       return void api.getRound(stateRef.current.roundId).then((round) => dispatch({ type: "round", round }));
     }
     if (s.retry === "home") {
-      saveRoundId(undefined);
+      if (stateRef.current.roundId) forgetRoundId(stateRef.current.roundId);
       return dispatch({ type: "home" });
     }
     again();
@@ -164,7 +188,7 @@ export function Game({ nativeCamera = false }: { nativeCamera?: boolean }) {
   let view: React.ReactNode = null;
   switch (screen.name) {
     case "landing":
-      view = <Landing onBegin={begin} />;
+      view = <Landing hunts={hunts} onBegin={begin} onOpen={open} />;
       break;
     case "camera":
       view = (
@@ -183,21 +207,19 @@ export function Game({ nativeCamera = false }: { nativeCamera?: boolean }) {
       view = <Nothing onAgain={again} />;
       break;
     case "hunt":
-      view =
-        round && state.dimmed ? (
-          <Rest clue={round.clue ?? ""} onWake={wake} />
-        ) : round ? (
-          <Hunt
-            round={round}
-            photo={state.widePreview ?? round.photoUrl}
-            pending={state.pending}
-            notice={state.notice}
-            onFound={() => dispatch({ type: "open_found_camera" })}
-            onHint={hint}
-            onGiveUp={() => act("reveal", api.revealRound)}
-            onRest={rest}
-          />
-        ) : null;
+      view = round ? (
+        <Hunt
+          round={round}
+          photo={state.widePreview ?? round.photoUrl}
+          pending={state.pending}
+          notice={state.notice}
+          onSaw={saw}
+          onFound={() => dispatch({ type: "open_found_camera" })}
+          onHint={hint}
+          onGiveUp={() => act("reveal", api.revealRound)}
+          onHome={home}
+        />
+      ) : null;
       break;
     case "checking":
       view = <Checking photo={state.foundPreview} />;
@@ -217,7 +239,16 @@ export function Game({ nativeCamera = false }: { nativeCamera?: boolean }) {
       break;
     case "ended":
       view = round ? (
-        <Reveal round={round} foundPreview={state.foundPreview} onAgain={again} onFeedback={onFeedback} onForget={onForget} />
+        <Reveal
+          round={round}
+          foundPreview={state.foundPreview}
+          pending={state.pending}
+          onSettle={settle}
+          onAgain={again}
+          onHome={home}
+          onFeedback={onFeedback}
+          onForget={onForget}
+        />
       ) : null;
       break;
     case "error":
@@ -226,7 +257,7 @@ export function Game({ nativeCamera = false }: { nativeCamera?: boolean }) {
   }
 
   return (
-    <main className={`game tone-${toneOf(state)}`} data-screen={screen.name} data-dimmed={state.dimmed || undefined}>
+    <main className={`game tone-${toneOf(state)}`} data-screen={screen.name}>
       {view}
     </main>
   );

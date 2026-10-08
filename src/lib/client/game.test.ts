@@ -63,11 +63,8 @@ describe("a round from the player's side", () => {
     expect(run([{ type: "begin" }, { type: "camera_cancel" }]).screen).toEqual({ name: "landing" });
   });
 
-  it("dimming only happens during the hunt and is cleared when opening the camera", () => {
-    expect(reducer(initialState, { type: "dim", on: true }).dimmed).toBe(false);
-    const dim = run([{ type: "round", round: round() }, { type: "dim", on: true }]);
-    expect(dim.dimmed).toBe(true);
-    expect(reducer(dim, { type: "open_found_camera" }).dimmed).toBe(false);
+  it("a round waiting for the player's answer shows the answer screen", () => {
+    expect(run([{ type: "round", round: round({ status: "claimed" }) }]).screen).toEqual({ name: "ended" });
   });
 
   it("the found camera can't open once the round is over", () => {

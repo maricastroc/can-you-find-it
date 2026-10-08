@@ -164,6 +164,14 @@ img {
   flex: 1;
 }
 
+.row-quiet {
+  justify-content: space-between;
+}
+
+.row-quiet > * {
+  flex: 0 0 auto;
+}
+
 @keyframes screen-in {
   from {
     opacity: 0;
@@ -262,6 +270,36 @@ img {
   width: 56px;
   height: 56px;
   margin-bottom: 8px;
+}
+
+.hunts {
+  display: grid;
+  gap: 10px;
+}
+
+.hunts ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.hunt-item {
+  width: 100%;
+  display: grid;
+  gap: 4px;
+  text-align: left;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: var(--paper-2);
+  color: var(--ink);
+}
+
+.hunt-clue {
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.15;
 }
 
 .promise {
@@ -714,57 +752,6 @@ img {
 
 .confirm-giveup {
   color: var(--signal-ink);
-}
-
-.rest {
-  position: fixed;
-  inset: 0;
-  background: #000;
-  color: var(--moon-3);
-  display: grid;
-  place-items: center;
-  padding: var(--gutter);
-  text-align: center;
-  animation: fade-in 1200ms ease both;
-}
-
-.rest .title {
-  max-width: 11em;
-  opacity: 0.55;
-}
-
-.rest-pulse {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--signal);
-  margin: 28px auto 0;
-  animation: pulse 3.2s ease-in-out infinite;
-}
-
-.rest-wake {
-  position: absolute;
-  bottom: var(--bottom);
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 12px 20px;
-  border: 1px solid #ffffff2e;
-  border-radius: 999px;
-  color: var(--moon-2);
-  font-size: 15px;
-  white-space: nowrap;
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 0.25;
-    transform: scale(0.8);
-  }
-  50% {
-    opacity: 0.9;
-    transform: scale(1);
-  }
 }
 
 .checking .looking-photo {

@@ -30,27 +30,37 @@ describe("problemFrom", () => {
 describe("Camera", () => {
   it("without a secure connection it uses the phone's camera app", async () => {
     setCamera(async () => new MediaStream(), false);
-    const { container } = render(<Camera purpose="wide" onCapture={vi.fn()} onCancel={vi.fn()} />);
+    const { container } = render(<Camera purpose="found" onCapture={vi.fn()} onCancel={vi.fn()} />);
     expect(await screen.findByText(PROBLEM_COPY.insecure)).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Open the camera" })).toBeEnabled();
+    expect(screen.getByRole("button", { name: "Take or choose a photo" })).toBeEnabled();
     expect(navigator.mediaDevices!.getUserMedia).not.toHaveBeenCalled();
-    expect(screen.getByText(/Step back and fit in as much of the place/)).toBeInTheDocument();
+    expect(screen.getByText("Take it now, or pick one you took when you were there. Fill the photo with it; I'll compare it with what I saw.")).toBeInTheDocument();
     expect(container.querySelector(".camera-guides")).toBeNull();
   });
 
-  it("opening the camera app hands the tap to the file picker", async () => {
+  it("the place to hunt is a new photo or one from the library, never the live camera", async () => {
+    setCamera(async () => new MediaStream());
+    const { container } = render(<Camera purpose="wide" onCapture={vi.fn()} onCancel={vi.fn()} />);
+    expect(await screen.findByRole("button", { name: "Take or choose a photo" })).toBeEnabled();
+    expect(screen.getByText("Take a photo of where you are, or pick one of a place you pass often.")).toBeInTheDocument();
+    expect(screen.getByText("You can take a new photo or pick one from your library.")).toBeInTheDocument();
+    expect(container.querySelector('input[type="file"]')).not.toHaveAttribute("capture");
+    expect(navigator.mediaDevices!.getUserMedia).not.toHaveBeenCalled();
+  });
+
+  it("the close-up can be taken now or picked from the library", async () => {
     setCamera(undefined);
     const { container } = render(<Camera purpose="found" onCapture={vi.fn()} onCancel={vi.fn()} native />);
     const input = container.querySelector('input[type="file"]') as HTMLInputElement;
     const click = vi.spyOn(input, "click").mockImplementation(() => undefined);
-    fireEvent.click(await screen.findByRole("button", { name: "Open the camera" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Take or choose a photo" }));
     expect(click).toHaveBeenCalledTimes(1);
-    expect(input.getAttribute("capture")).toBe("environment");
+    expect(input).not.toHaveAttribute("capture");
   });
 
   it("a blocked permission explains how to recover", async () => {
     setCamera(() => Promise.reject(domError("NotAllowedError")));
-    render(<Camera purpose="wide" onCapture={vi.fn()} onCancel={vi.fn()} />);
+    render(<Camera purpose="found" onCapture={vi.fn()} onCancel={vi.fn()} />);
     expect(await screen.findByText(PROBLEM_COPY.denied)).toBeInTheDocument();
     expect(screen.getByRole("status")).toHaveTextContent(PROBLEM_COPY.denied);
   });
@@ -65,19 +75,19 @@ describe("Camera", () => {
     const stop = vi.fn();
     const stream = { getTracks: () => [{ stop }] } as unknown as MediaStream;
     setCamera(async () => stream);
-    const { unmount } = render(<Camera purpose="wide" onCapture={vi.fn()} onCancel={vi.fn()} />);
+    const { unmount } = render(<Camera purpose="found" onCapture={vi.fn()} onCancel={vi.fn()} />);
     expect(await screen.findByRole("button", { name: "Take the photo" })).toBeInTheDocument();
     expect(screen.getByRole("status")).toHaveTextContent("Camera ready.");
     unmount();
     expect(stop).toHaveBeenCalled();
   });
 
-  it("the player can switch from the live camera to the camera app", async () => {
+  it("the player can switch from the live camera to their photos", async () => {
     const stop = vi.fn();
     setCamera(async () => ({ getTracks: () => [{ stop }] }) as unknown as MediaStream);
-    render(<Camera purpose="wide" onCapture={vi.fn()} onCancel={vi.fn()} />);
-    fireEvent.click(await screen.findByRole("button", { name: "Use camera app" }));
-    expect(await screen.findByRole("button", { name: "Open the camera" })).toBeInTheDocument();
+    render(<Camera purpose="found" onCapture={vi.fn()} onCancel={vi.fn()} />);
+    fireEvent.click(await screen.findByRole("button", { name: "From your photos" }));
+    expect(await screen.findByRole("button", { name: "Take or choose a photo" })).toBeInTheDocument();
     expect(stop).toHaveBeenCalled();
   });
 

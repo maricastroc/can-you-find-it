@@ -7,6 +7,7 @@ export type RoundStatus =
   | "looking"
   | "none"
   | "hunting"
+  | "claimed"
   | "found"
   | "revealed"
   | "error";
@@ -42,7 +43,8 @@ export type Round = {
   hintsUsed: number;
   attempts: Attempt[];
   feedback: Feedback[];
-  timings: { lookingMs?: number; clueAt?: string; endedAt?: string };
+  selfReport?: "saw_it" | "not_it";
+  timings: { lookingMs?: number; clueAt?: string; claimedAt?: string; endedAt?: string };
   error?: string;
 };
 
@@ -59,7 +61,7 @@ export type PublicRound = {
   hintsLeft: number;
   attempts: Array<{ at: string; verdict: Verdict }>;
   photoUrl?: string;
-  stats?: { seconds?: number; hints: number; attempts: number; overridden: boolean };
+  stats?: { seconds?: number; hints: number; attempts: number; overridden: boolean; selfReported: boolean };
   reveal?: {
     label: string;
     detail: string;

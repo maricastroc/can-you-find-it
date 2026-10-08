@@ -24,12 +24,14 @@ import { judgeFound } from "@/lib/hunt/check";
 import { ModelUnavailableError } from "@/lib/hunt/ollama";
 import {
   checkFound,
+  claimSeen,
   confirmFound,
   FALLBACK_HINTS,
   forgetRound,
   getRound,
   getRoundImage,
   revealRound,
+  settleClaim,
   settleTexts,
   startRound,
   unlockHint,
@@ -338,6 +340,40 @@ describe("giving up and resuming", () => {
     expect(await getRoundImage(id, "photo")).toBeInstanceOf(Buffer);
     expect(await getRoundImage(id, "reveal")).toBeUndefined();
     expect(round?.reveal).toBeUndefined();
+  });
+});
+
+describe("saying you saw it", () => {
+  it("shows the answer and waits for the player's word before ending the round", async () => {
+    const { id } = await newRound();
+    const claimed = await claimSeen(id);
+    expect(claimed.status).toBe("claimed");
+    expect(claimed.reveal?.label).toBe("small brass plaque dated 1919");
+    expect(await getRoundImage(id, "reveal")).toBeInstanceOf(Buffer);
+    await expect(unlockHint(id)).rejects.toMatchObject({ code: "wrong_state" });
+    const found = await settleClaim(id, true);
+    expect(found.status).toBe("found");
+    expect(found.stats?.selfReported).toBe(true);
+    const log = await fs.readFile(path.join(dataDir, "fieldlog.jsonl"), "utf8");
+    expect(log).toContain('"event":"claimed_seen"');
+    expect(log).toContain('"event":"self_report"');
+  });
+
+  it("if it wasn't it, the round ends as revealed", async () => {
+    const { id } = await newRound();
+    await claimSeen(id);
+    const r = await settleClaim(id, false);
+    expect(r.status).toBe("revealed");
+    expect((await loadRound(id))?.selfReport).toBe("not_it");
+  });
+
+  it("only a round waiting for an answer can be settled, once", async () => {
+    const { id } = await newRound();
+    await expect(settleClaim(id, true)).rejects.toMatchObject({ code: "wrong_state" });
+    await claimSeen(id);
+    await settleClaim(id, true);
+    await expect(settleClaim(id, false)).rejects.toMatchObject({ code: "wrong_state" });
+    await expect(claimSeen(id)).rejects.toMatchObject({ code: "wrong_state" });
   });
 });
 

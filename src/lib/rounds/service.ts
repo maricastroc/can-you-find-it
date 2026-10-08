@@ -65,7 +65,8 @@ export function toPublic(r: Round): PublicRound {
       );
     }
   }
-  const over = r.status === "found" || r.status === "revealed";
+  const over = r.status === "found" || r.status === "revealed" || r.status === "claimed";
+  const until = r.timings.endedAt ?? r.timings.claimedAt;
   const lastFound = [...r.attempts].reverse().find((a) => a.verdict === "found");
   const region = r.target ? revealRegion(r.target.box, r.photo.width / r.photo.height) : undefined;
   return {
@@ -79,11 +80,11 @@ export function toPublic(r: Round): PublicRound {
     photoUrl: r.status === "looking" || r.status === "hunting" ? url(r.id, "photo") : undefined,
     stats: over
       ? {
-          seconds:
-            r.timings.clueAt && r.timings.endedAt ? Math.round((Date.parse(r.timings.endedAt) - Date.parse(r.timings.clueAt)) / 1000) : undefined,
+          seconds: r.timings.clueAt && until ? Math.round((Date.parse(until) - Date.parse(r.timings.clueAt)) / 1000) : undefined,
           hints: Math.min(r.hintsUsed, MAX_HINTS),
           attempts: r.attempts.length,
           overridden: r.feedback.some((f) => f.kind === "should_have_matched"),
+          selfReported: r.selfReport !== undefined,
         }
       : undefined,
     reveal:
@@ -327,6 +328,31 @@ export function confirmFound(id: string): Promise<PublicRound> {
   });
 }
 
+export function claimSeen(id: string): Promise<PublicRound> {
+  return withLock(id, async () => {
+    const r = await mustLoad(id);
+    mustBeHunting(r);
+    r.status = "claimed";
+    r.timings.claimedAt = new Date().toISOString();
+    await saveRound(r);
+    await appendLog({ event: "claimed_seen", round: id, hintsUsed: r.hintsUsed, attempts: r.attempts.length, secondsSinceClue: secondsSince(r.timings.clueAt) });
+    return toPublic(r);
+  });
+}
+
+export function settleClaim(id: string, sawIt: boolean): Promise<PublicRound> {
+  return withLock(id, async () => {
+    const r = await mustLoad(id);
+    if (r.status !== "claimed") throw new RoundError("wrong_state", "There is nothing to confirm in this round.");
+    r.status = sawIt ? "found" : "revealed";
+    r.selfReport = sawIt ? "saw_it" : "not_it";
+    r.timings.endedAt = new Date().toISOString();
+    await saveRound(r);
+    await appendLog({ event: "self_report", round: id, sawIt, hintsUsed: r.hintsUsed, secondsSinceClue: secondsSince(r.timings.clueAt) });
+    return toPublic(r);
+  });
+}
+
 export function revealRound(id: string): Promise<PublicRound> {
   return withLock(id, async () => {
     const r = await mustLoad(id);
@@ -352,7 +378,7 @@ export function addFeedback(id: string, fb: Omit<Feedback, "at">): Promise<Publi
 export async function getRoundImage(id: string, kind: string): Promise<Buffer | undefined> {
   const r = await loadRound(id);
   if (!r) return undefined;
-  const over = r.status === "found" || r.status === "revealed" || r.status === "none";
+  const over = r.status === "found" || r.status === "revealed" || r.status === "claimed" || r.status === "none";
   const photo = await readImage(id, "photo.jpg");
   if (!photo) return undefined;
   if (kind === "photo") return photo;

@@ -8,7 +8,7 @@ const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" });
 
 export const metadata: Metadata = {
   title: "Can You Find It?",
-  description: "A local, open AI looks at the place you're standing in, secretly picks something, and dares you to find it with your own eyes.",
+  description: "A local, open AI looks at a photo of a place you pass every day, secretly picks something in it, and dares you to find it there with your own eyes.",
   applicationName: "Can You Find It?",
   appleWebApp: { capable: true, title: "Find It", statusBarStyle: "black-translucent" },
 };

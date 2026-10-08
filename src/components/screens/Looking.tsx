@@ -11,7 +11,7 @@ export function Looking({ photo, stage, attempt }: { photo?: string; stage: Stag
       <div className="looking-copy">
         <p className="kicker">Looking</p>
         <h1 id="looking-title" className="title">
-          While I look, look around too. What would you pick?
+          While I look: what would you pick in this photo?
         </h1>
         <ol className="stages" aria-hidden="true">
           {ORDER.map((s, i) => (

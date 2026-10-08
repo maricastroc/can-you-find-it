@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { isLocalHost, loadRows, summarize, type NoteRow } from "@/lib/rounds/notes";
+import { formatDuration } from "@/lib/duration";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = { title: "Field notes · Can You Find It?" };
@@ -10,11 +11,12 @@ const OUTCOME: Record<NoteRow["status"], string> = {
   revealed: "Gave up",
   none: "Nothing to hunt",
   hunting: "In play",
+  claimed: "Waiting for an answer",
   looking: "Looking",
   error: "Error",
 };
 
-const mmss = (s?: number) => (s === undefined ? "–" : s >= 60 ? `${Math.floor(s / 60)} min ${s % 60} s` : `${s} s`);
+const mmss = (s?: number) => (s === undefined ? "–" : formatDuration(s));
 
 export default async function Notes() {
   if (!isLocalHost((await headers()).get("host"))) {

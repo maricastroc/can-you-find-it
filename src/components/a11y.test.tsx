@@ -3,7 +3,7 @@ import { cleanup, render } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { Landing } from "./screens/Landing";
 import { Checking, Looking } from "./screens/Looking";
-import { Hunt, Rest } from "./screens/Hunt";
+import { Hunt } from "./screens/Hunt";
 import { Verdict } from "./screens/Verdict";
 import { Reveal } from "./screens/Reveal";
 import { ErrorScreen, Nothing } from "./screens/Messages";
@@ -26,10 +26,10 @@ const round: PublicRound = {
   attempts: [],
 };
 
-const ended = (status: "found" | "revealed"): PublicRound => ({
+const ended = (status: "found" | "revealed" | "claimed"): PublicRound => ({
   ...round,
   status,
-  stats: { seconds: 75, hints: 1, attempts: 1, overridden: false },
+  stats: { seconds: 75, hints: 1, attempts: 1, overridden: false, selfReported: false },
   reveal: {
     label: "black iron lamp post",
     detail: "Four glass panes.",
@@ -52,14 +52,15 @@ const noop = () => undefined;
 
 describe("accessibility (axe)", () => {
   it.each([
-    ["landing", <Landing key="l" onBegin={noop} />],
+    ["landing", <Landing key="l" hunts={[]} onBegin={noop} onOpen={noop} />],
+    ["landing with hunts", <Landing key="lh" hunts={[round, ended("claimed")]} onBegin={noop} onOpen={noop} />],
     ["looking", <Looking key="lo" photo="/p.jpg" stage="checking" attempt={1} />],
     ["checking", <Checking key="c" photo="/p.jpg" />],
-    ["hunt", <Hunt key="h" round={round} photo="/p.jpg" onFound={noop} onHint={noop} onGiveUp={noop} onRest={noop} />],
-    ["rest", <Rest key="r" clue={round.clue!} onWake={noop} />],
+    ["hunt", <Hunt key="h" round={round} photo="/p.jpg" onSaw={noop} onFound={noop} onHint={noop} onGiveUp={noop} onHome={noop} />],
     ["verdict", <Verdict key="v" verdict="almost" hintsLeft={2} onKeepLooking={noop} onHint={noop} onInsist={noop} />],
-    ["reveal (found)", <Reveal key="rf" round={ended("found")} foundPreview="/f.jpg" onAgain={noop} onFeedback={async () => undefined} onForget={async () => undefined} />],
-    ["reveal (gave up)", <Reveal key="rg" round={ended("revealed")} onAgain={noop} onFeedback={async () => undefined} onForget={async () => undefined} />],
+    ["reveal (found)", <Reveal key="rf" round={ended("found")} foundPreview="/f.jpg" onSettle={noop} onAgain={noop} onHome={noop} onFeedback={async () => undefined} onForget={async () => undefined} />],
+    ["reveal (gave up)", <Reveal key="rg" round={ended("revealed")} onSettle={noop} onAgain={noop} onHome={noop} onFeedback={async () => undefined} onForget={async () => undefined} />],
+    ["reveal (is this what you saw?)", <Reveal key="rc" round={ended("claimed")} onSettle={noop} onAgain={noop} onHome={noop} onFeedback={async () => undefined} onForget={async () => undefined} />],
     ["nothing", <Nothing key="n" onAgain={noop} />],
     ["error", <ErrorScreen key="e" code="model_unavailable" message="The model isn't running." retry="look" onRetry={noop} />],
   ])("%s has no violations", async (_name, ui) => {

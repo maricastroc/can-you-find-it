@@ -89,6 +89,11 @@ export const checkFound = async (id: string, photo: Blob) =>
   json<{ verdict: Verdict; round: PublicRound }>(await post(`/api/rounds/${id}/check`, TIMEOUTS.check, { body: photoForm(photo) }));
 export const confirmFound = async (id: string) => json<PublicRound>(await post(`/api/rounds/${id}/confirm`, TIMEOUTS.action));
 export const revealRound = async (id: string) => json<PublicRound>(await post(`/api/rounds/${id}/reveal`, TIMEOUTS.action));
+export const claimSeen = async (id: string) => json<PublicRound>(await post(`/api/rounds/${id}/seen`, TIMEOUTS.action));
+export const settleSeen = async (id: string, sawIt: boolean) =>
+  json<PublicRound>(
+    await post(`/api/rounds/${id}/settle`, TIMEOUTS.action, { headers: { "content-type": "application/json" }, body: JSON.stringify({ sawIt }) }),
+  );
 export const sendFeedback = async (id: string, kind: Feedback["kind"], note?: string) =>
   json<PublicRound>(
     await post(`/api/rounds/${id}/feedback`, TIMEOUTS.action, { headers: { "content-type": "application/json" }, body: JSON.stringify({ kind, note }) }),

@@ -9,13 +9,13 @@ export function Nothing({ onAgain }: { onAgain: () => void }) {
           </h1>
         </div>
         <p className="lede muted">
-          I&apos;d rather say so than make something up. Point me at a spot with details: signs, plaques, lamps, carvings, things people
-          made or left behind.
+          I&apos;d rather say so than make something up. Try a photo of a place with details: signs, plaques, lamps, carvings, things
+          people made or left behind.
         </p>
       </div>
       <div className="screen-actions">
         <button type="button" className="btn btn-primary" onClick={onAgain}>
-          Look around again
+          Another place
         </button>
       </div>
     </section>

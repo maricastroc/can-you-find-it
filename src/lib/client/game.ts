@@ -14,7 +14,7 @@ export type Screen =
   | { name: "ended" }
   | { name: "error"; code: string; message: string; retry: "look" | "check" | "resume" | "home" };
 
-export type Pending = "hint" | "reveal" | "confirm" | "feedback";
+export type Pending = "hint" | "reveal" | "confirm" | "feedback" | "seen" | "settle";
 
 export type GameState = {
   screen: Screen;
@@ -22,7 +22,6 @@ export type GameState = {
   roundId?: string;
   widePreview?: string;
   foundPreview?: string;
-  dimmed: boolean;
   pending?: Pending;
   notice?: string;
 };
@@ -39,13 +38,12 @@ export type GameAction =
   | { type: "found_captured"; preview: string }
   | { type: "verdict"; verdict: Verdict; round: PublicRound }
   | { type: "pending"; what?: Pending }
-  | { type: "dim"; on: boolean }
   | { type: "keep_looking" }
   | { type: "dismiss_notice" }
   | { type: "again" }
   | { type: "home" };
 
-export const initialState: GameState = { screen: { name: "landing" }, dimmed: false };
+export const initialState: GameState = { screen: { name: "landing" } };
 
 export const GONE_MESSAGE = "This round isn't on the computer anymore.";
 
@@ -60,6 +58,7 @@ export function screenFor(round: PublicRound, current: Screen): Screen {
       return { name: "hunt" };
     case "found":
     case "revealed":
+    case "claimed":
       return { name: "ended" };
     case "error":
       return { name: "error", code: "internal", message: round.error ?? "Something went wrong while looking.", retry: "look" };
@@ -99,7 +98,7 @@ export function reducer(state: GameState, action: GameAction): GameState {
       return failed(state, action);
     case "open_found_camera":
       if (!state.round || state.round.status !== "hunting") return state;
-      return { ...state, dimmed: false, notice: undefined, screen: { name: "camera", purpose: "found" } };
+      return { ...state, notice: undefined, screen: { name: "camera", purpose: "found" } };
     case "found_captured":
       return { ...state, foundPreview: action.preview, screen: { name: "checking" } };
     case "verdict":
@@ -107,9 +106,6 @@ export function reducer(state: GameState, action: GameAction): GameState {
       return { ...state, round: action.round, screen: { name: "verdict", verdict: action.verdict } };
     case "pending":
       return { ...state, pending: action.what, notice: action.what ? undefined : state.notice };
-    case "dim":
-      if (state.screen.name !== "hunt") return state;
-      return { ...state, dimmed: action.on };
     case "keep_looking":
       if (!state.round || state.round.status !== "hunting") return state;
       return { ...state, screen: { name: "hunt" } };

@@ -15,6 +15,7 @@ export type NoteRow = {
   secondsToEnd?: number;
   hints: number;
   verdicts: string[];
+  selfReport?: Round["selfReport"];
   override: boolean;
   flaggedFalsePositive: boolean;
   flaggedBadTarget: boolean;
@@ -37,6 +38,7 @@ export function rowFor(r: Round): NoteRow {
       r.timings.clueAt && r.timings.endedAt ? Math.round((Date.parse(r.timings.endedAt) - Date.parse(r.timings.clueAt)) / 1000) : undefined,
     hints: r.hintsUsed,
     verdicts: r.attempts.map((a) => a.verdict),
+    selfReport: r.selfReport,
     override: kinds.has("should_have_matched"),
     flaggedFalsePositive: kinds.has("should_not_have_matched"),
     flaggedBadTarget: kinds.has("target_wrong") || kinds.has("box_wrong"),
@@ -61,6 +63,7 @@ export function summarize(rows: NoteRow[]) {
     errors: rows.filter((r) => r.status === "error").length,
     played: played.length,
     found: found.length,
+    foundBySight: found.filter((r) => r.selfReport === "saw_it").length,
     gaveUp: played.length - found.length,
     medianLookingSeconds: median(rows.flatMap((r) => (r.lookingSeconds !== undefined ? [r.lookingSeconds] : []))),
     medianSecondsToFind: median(found.flatMap((r) => (r.secondsToEnd !== undefined ? [r.secondsToEnd] : []))),
@@ -87,7 +90,7 @@ export async function loadRows(): Promise<NoteRow[]> {
 }
 
 const CSV_COLUMNS: Array<keyof NoteRow> = [
-  "at", "status", "label", "lens", "clue", "lookingSeconds", "secondsToEnd", "hints", "verdicts",
+  "at", "status", "label", "lens", "clue", "lookingSeconds", "secondsToEnd", "hints", "verdicts", "selfReport",
   "override", "flaggedFalsePositive", "flaggedBadTarget", "greatMoment", "notes",
 ];
 

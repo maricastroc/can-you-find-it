@@ -14,25 +14,25 @@ export type CameraProblem = "native" | "insecure" | "unsupported" | "denied" | "
 
 const COPY: Record<CameraPurpose, { kicker: string; line: string; tip: string; shutter: string }> = {
   wide: {
-    kicker: "Look around",
-    line: "Take one photo of the place in front of you.",
-    tip: "Step back and fit in as much of the place as you can. The more things in it, the more I have to choose from.",
+    kicker: "Pick a place",
+    line: "Take a photo of where you are, or pick one of a place you pass often.",
+    tip: "A wide photo with lots of things in it works best: a street, a square, the way to the bakery, the view from a window.",
     shutter: "Take the photo",
   },
   found: {
     kicker: "Show me",
-    line: "Get close and take a photo of it.",
-    tip: "Fill the photo with it. I'll compare it with what I saw.",
+    line: "Show me a close-up of it.",
+    tip: "Take it now, or pick one you took when you were there. Fill the photo with it; I'll compare it with what I saw.",
     shutter: "Take the photo",
   },
 };
 
-const CAMERA_APP = "Your camera app will open. Take the photo, confirm it, and you'll come right back here.";
+const LIBRARY = "You can take a new photo or pick one from your library.";
 
 export const PROBLEM_COPY: Record<CameraProblem, string> = {
-  native: CAMERA_APP,
-  insecure: CAMERA_APP,
-  unsupported: CAMERA_APP,
+  native: LIBRARY,
+  insecure: LIBRARY,
+  unsupported: LIBRARY,
   denied: "Camera access was blocked. You can allow it in your browser settings, or use your phone's camera app.",
   no_camera: "No camera was found on this device. You can pick a photo instead.",
   busy: "Another app is using the camera. Close it and try again, or use your phone's camera app.",
@@ -55,7 +55,7 @@ type Props = {
 };
 
 export function Camera({ purpose, onCapture, onCancel, native = false }: Props) {
-  const [forceFallback, setForceFallback] = useState(native);
+  const [forceFallback, setForceFallback] = useState(native || purpose === "wide");
   const videoRef = useRef<HTMLVideoElement>(null);
   const fileRef = useRef<HTMLInputElement>(null);
   const streamRef = useRef<MediaStream | null>(null);
@@ -164,7 +164,7 @@ export function Camera({ purpose, onCapture, onCancel, native = false }: Props) 
       {reason ? (
         <footer className="camera-controls">
           <button type="button" className="btn btn-primary" onClick={() => fileRef.current?.click()} disabled={busy}>
-            {reason === "no_camera" ? "Choose a photo" : "Open the camera"}
+            {reason === "no_camera" ? "Choose a photo" : "Take or choose a photo"}
           </button>
           <button type="button" className="btn btn-quiet" onClick={onCancel}>
             Cancel
@@ -180,7 +180,7 @@ export function Camera({ purpose, onCapture, onCancel, native = false }: Props) 
           </button>
           {live.kind === "live" ? (
             <button type="button" className="btn btn-quiet camera-switch" onClick={() => setForceFallback(true)}>
-              Use camera app
+              From your photos
             </button>
           ) : (
             <span className="camera-spacer" aria-hidden="true" />
@@ -192,7 +192,6 @@ export function Camera({ purpose, onCapture, onCancel, native = false }: Props) 
         className="sr-only"
         type="file"
         accept="image/*"
-        capture="environment"
         tabIndex={-1}
         aria-hidden="true"
         onChange={(e) => onFile(e.currentTarget.files?.[0])}
