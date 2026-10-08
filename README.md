@@ -1,24 +1,31 @@
 # Can You Find It?
 
-*I Spy, but the AI chooses what to look for from the place you're actually standing in.*
+*I Spy, but the AI hides something real in a place you know — and checks that you found it.*
 
-You take one wide photo of where you are. A local, open model (Gemma 4) looks at
-it, secretly chooses one real thing it can see, and gives you a single line:
+Take a photo of where you are, or pick one of a place you pass every day: your
+street, the way to the bakery, the view from a window. A local, open model
+(Gemma 4) looks at it, secretly chooses one real thing in it, and gives you a
+single line:
 
 > **I FOUND SOMETHING.**
 > *Someone wanted this place to remember something.*
-> Can you find it?
+> Find it with your own eyes, now or next time you're there.
 
-Then you put the phone away and look — at the place, not the screen. When you
-think you've found it, you take a close photo; the model compares it with what
-it saw. At the end you see both side by side: *what I saw / what you saw.*
+You look at the place, not the screen. When you spot it, you snap a close-up —
+right away, or a five-second photo on your way past, sent whenever you like.
+The model compares it with what it saw: FOUND IT, ALMOST or NOT QUITE. At the
+end you see both side by side: *what I saw / what you saw.* (If you don't want
+to take the phone out at all, *I saw it, no photo* shows the answer and lets you
+say whether that's what you saw.)
 
-The model can see the park. It can't walk through it. That part is yours.
+The model can see the street. It can't walk down it. That part is yours.
+
+You can keep several hunts open at once, one per place.
 
 ## How a round works
 
 ```
-wide photo ──► Gemma 4 E4B proposes 2 targets, each with a box (box_2d, 0–1000 grid)
+a photo of a place ──► Gemma 4 E4B proposes 2 targets, each with a box (box_2d, 0–1000 grid)
            ──► cheap filters (areas, people, animals, vehicles, look-alikes, huge boxes)
            ──► verification on a real crop: multiple choice against the other
                candidates + "is a person at it?"  (first one that passes wins)
@@ -26,9 +33,10 @@ wide photo ──► Gemma 4 E4B proposes 2 targets, each with a box (box_2d, 0�
                is (or where it sits in the frame) — shown right away
            ──► while you start looking, the model writes two hints; a third
                hint comes from the box itself
-           ──► you hunt  (hints: meaning → appearance → direction → pixelated glimpse
-                                → the part of your photo where it is)
-           ──► your close-up: the model first says what it shows without
+           ──► you look, now or next time you're there  (hints: meaning → appearance
+               → direction → pixelated glimpse → the part of your photo where it is)
+           ──► your close-up (taken now, or picked from your photos later): the
+               model first says what it shows without
                knowing the target, a text-only question checks whether that
                could be the target, and only then is it compared with the crop:
                same object → FOUND IT, same kind → ALMOST, otherwise NOT QUITE
@@ -85,11 +93,14 @@ npm run doctor
 short of memory or swapping, and prints the address (and a QR code) to open on
 the phone.
 
-## Playing outside
+## Playing
 
-1. Put the phone and the computer on the same network. The simplest: turn on
-   the phone's hotspot and join it from the computer.
-2. Keep the computer awake (lid open, or `caffeinate -dims` in a terminal).
+The screen part happens at home, so the phone and the computer only need the
+same Wi-Fi:
+
+1. Put the phone and the computer on the same network.
+2. Keep the computer awake while you play (lid open, or `caffeinate -dims` in a
+   terminal).
 3. Start the game in production mode:
 
    ```bash
@@ -99,8 +110,10 @@ the phone.
 4. On the phone, open the URL from `npm run doctor`. Add it to the home screen
    if you like.
 
-By default the phone's own camera app takes the photos — that works over plain
-HTTP with no setup. For the in-app live viewfinder the page needs HTTPS:
+Both photos (the place and the close-up) can be taken on the spot with the
+phone's camera app or picked from the photo library; that works over plain HTTP
+with no setup. For an in-app live viewfinder for the close-up the page needs
+HTTPS:
 
 ```bash
 brew install mkcert && mkcert -install
@@ -114,11 +127,11 @@ Then trust mkcert's root certificate on the phone (the `certs` script prints the
 three steps), run `npm run field:https` next to `npm run field`, and open
 `https://<computer-ip>:3443`.
 
-Expect about **20–30 s** from the wide photo to the clue on an M4 laptop with
-enough free memory (the hints are written while you start looking), and
-**~7 s** to check a close-up. The model starts waking up as soon as you open the
-camera. If it takes much longer, the computer is probably swapping: quit other
-apps and run `npm run doctor`.
+Expect about **20–30 s** from the photo to the clue on an M4 laptop with enough
+free memory (the hints are written in the background), and **~3 s** for the
+model to say a close-up is something else, **~10 s** to confirm a real one. The
+model starts waking up as soon as you choose a place. If it takes much longer,
+the computer is probably swapping: quit other apps and run `npm run doctor`.
 
 ## Field notes
 
@@ -179,7 +192,10 @@ npm run typecheck
   lamps, carvings, things people made or left behind.
 - Look-alike objects (a row of identical lamps) are the main open problem; the
   ALMOST verdict softens it.
-- The computer has to be within reach of the phone's network.
+- The computer has to be on the same network as the phone when you choose a
+  place or check a hunt (not while you walk).
+- "I saw it, no photo" is on your honour: the game shows what it chose and
+  trusts your answer. The close-up check is the normal way to finish.
 - English only.
 
 ## Credits
